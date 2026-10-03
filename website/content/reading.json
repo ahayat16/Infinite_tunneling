@@ -1,0 +1,522 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "purpose": "A guide to the main theorem, its Lean proof, and the corresponding manuscript statements.",
+  "tex_file": "article/Infinite_Zero_Tunneling_Lean_oriented_V2.tex",
+  "entries": [
+    {
+      "name": "InfiniteZero.thm_main",
+      "category": "Statement",
+      "title": "The main theorem",
+      "summary": "Proves the three conclusions of the manuscript’s main theorem for the potential constructed from elementaryParameters, together with their operator interpretation. The potential is fixed before separation and coupling are chosen. The proof depends on the four classical admissions A002–A005.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/Remaining.lean"
+    },
+    {
+      "name": "InfiniteZero.elementaryPotential_main",
+      "category": "Statement",
+      "title": "The result for the fixed potential",
+      "summary": "Literally fixes the field b = 1 and the potential elementaryParameters.potential, then proves its admissibility and the existence of a threshold L₀ > 16 valid for every L ≥ L₀. The potential and its cutoffs depend on neither L nor the coupling λ; the exceptional sequences and the large-coupling thresholds may depend on L. This version specifies the witness explicitly and is more precise than the manuscript’s existence statement.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "specialisation",
+      "file": "InfiniteZero/Remaining.lean"
+    },
+    {
+      "name": "InfiniteZero.ConstructedPotentialMainTheorem",
+      "category": "Statement",
+      "title": "The order of choices",
+      "summary": "Requires a single parameter record p satisfying the elementary conditions, admissibility of its potential, and then a threshold L₀ > p.R with the conclusion for every L ≥ L₀. Choosing p fixes the field and cutoffs before L₀, L, and λ.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main",
+        "sec:construction",
+        "eq:final-v"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/OperatorMain.lean"
+    },
+    {
+      "name": "InfiniteZero.OperatorMainConclusion",
+      "category": "Statement",
+      "title": "The three conclusions for the L² operator",
+      "summary": "Combines MainConclusion with the realizations of the Hamiltonians on the actual L² space. At every sufficiently large crossing, the full ground eigenspace has complex dimension two, contains both parities, and has a strictly positive gap on its orthogonal complement; interlaced samples also have simple ground states of alternating parity. The coupling thresholds may depend on L, and the gap may also depend on λ; no further uniformity or enumeration of the entire spectrum is included.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/OperatorMain.lean"
+    },
+    {
+      "name": "InfiniteZero.MainConclusion",
+      "category": "Statement",
+      "title": "Crossings, hopping, and parity",
+      "summary": "Encodes (i) a positive, strictly increasing sequence of zeros of the min-max gap tending to infinity, together with multiplicity at large crossings; (ii) another sequence of zeros of the complex hopping; and (iii) interlaced couplings with simple even and odd ground states. Its first two fields ensure that a normalized atomic ground state exists at large coupling and that the hopping is independent of its choice. The hopping-zero sequence is not identified with the spectral-crossing sequence.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main",
+        "eq:rho-intro"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/Main.lean"
+    },
+    {
+      "name": "InfiniteZero.AdmissiblePotential",
+      "category": "Potential",
+      "title": "The required geometric properties",
+      "summary": "Says that v is a smooth, compactly supported real function taking values in [−1,0], and is nonradial: two points of equal norm have different potential values. Uniqueness and nondegeneracy of the constructed potential’s minimum are proved separately.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.potential",
+      "category": "Potential",
+      "title": "The potential with two cusps",
+      "summary": "Defines exactly v = v° + ε(q₊ + q₋), where v° is the radial core and q₋ is the reflection of the cusp q₊. Neither the separation parameter L nor the coupling λ occurs in this function. Admissibility then follows from the BasicConditions verified for the numerical witness.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:final-v"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/Construction.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.core",
+      "category": "Potential",
+      "title": "The explicit radial core",
+      "summary": "Equals −exp(−|x|²/(r₀²−|x|²)) when |x| < r₀, and zero elsewhere. For r₀ > 0, smoothness across the boundary, the unique minimum −1 at the origin, and its nondegeneracy are proved separately. Spectral admission A004 concerns this core alone.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:explicit-core"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/Construction.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.cuspPlus",
+      "category": "Potential",
+      "title": "The upper log-flat cusp",
+      "summary": "In the chart Ψ₊(t,s) = p₊ + t n₊ + t²s τ₊, defines q₊ = −a exp(−β log²(tStar/t)) χa(t) χb(s) for 0 < t < t₀ and |s| < s₀, and extends it by zero. The tangential coordinate recovered in the code is divided by t² to obtain s. The extension is proved smooth at the tip.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:cusp-def",
+        "eq:chart"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/Construction.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.elementaryParameters",
+      "category": "Potential",
+      "title": "The numerical witness",
+      "summary": "Fixes r₀ = 1, R = 16, b = 1, ε = 1/16, a = β = tStar = s₀ = 1, and t₀ = 1/100, together with two explicit smooth cutoffs. The tips are therefore (8, ±8√3). These values specialize the family of potentials in the manuscript.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "sec:construction",
+        "eq:explicit-core",
+        "eq:cusp-def",
+        "eq:final-v"
+      ],
+      "tex_relation": "specialisation",
+      "file": "InfiniteZero/ConstructionParameters.lean"
+    },
+    {
+      "name": "InfiniteZero.magneticHamiltonian",
+      "category": "Model",
+      "title": "The magnetic differential expression",
+      "summary": "Defines Hψ = Σⱼ Dⱼ(Dⱼψ) + λ²Vψ with Dⱼ = −i∂ⱼ − (bλ/2)(x⊥)ⱼ and x⊥ = (−x₂,x₁). The parameter coupling is λ, and the energies are unscaled. This is an operation on functions; the domain of the closed operator on L² is constructed separately.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:one-well-unscaled",
+        "eq:double-well-unscaled"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.doubleWellPotential",
+      "category": "Model",
+      "title": "Two copies of the same well",
+      "summary": "For d = (L,0), defines V_L(x) = v(x+d) + v(−x+d). Inversion x ↦ −x exchanges the two terms even when v is nonradial; the centers are −d and d. The Hamiltonian includes the scaled potential λ²V_L.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:double-well-unscaled",
+        "eq:translated-potentials"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.groundEnergy",
+      "category": "Model",
+      "title": "The first variational level",
+      "summary": "This is the infimum of the magnetic form over smooth, compactly supported functions with L² norm one, for the double-well potential. For the constructed potential at large coupling, the spectral proofs identify it with the lowest eigenvalue E₀(λ).",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.secondEnergy",
+      "category": "Model",
+      "title": "The second min-max level",
+      "summary": "Takes the infimum of all E for which there exists a complex two-dimensional space F of test functions such that every mass-one function in F has energy at most E. This expresses inf_dim(F)=2 sup_{ψ∈F, ‖ψ‖₂=1} q(ψ) through upper bounds, counting multiplicity. For our potential at large coupling, the proof identifies this level with the maximum of the actual ground energies in the two parity sectors.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.canonicalAtomicState",
+      "category": "Model",
+      "title": "Choosing the atomic state",
+      "summary": "Uses classical choice to select a normalized ground state of the single well when one exists, and returns zero otherwise to define a total function. MainConclusion.atomic_states excludes this fallback branch at large coupling. No preferred phase or continuity of the choice is imposed; independence of the hopping from this choice is proved.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:one-well-unscaled",
+        "eq:translated-states"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.hopping",
+      "category": "Model",
+      "title": "The actual complex coefficient ρλ",
+      "summary": "Defines ρλ = λ² ∫ conjugate(φᴸ(x)) v(x+d) φᴿ(x) dx. The left state is the magnetic translate T_{−d}φ and the right state is φᴸ(−x), both constructed from the same atomic state φ. The coefficient is complex-valued.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:rho-intro",
+        "eq:magnetic-translation",
+        "eq:translated-states"
+      ],
+      "tex_relation": "direct",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.canonicalHopping",
+      "category": "Model",
+      "title": "Hopping as a function of coupling",
+      "summary": "Evaluates the hopping integral on canonicalAtomicState to produce a fixed complex-valued function of λ. The atomic_states and hopping_intrinsic fields of MainConclusion ensure that, at large coupling, it uses an actual normalized state and agrees with the integral obtained from every other normalized ground state.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:rho-intro"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.IsGroundEigenspace",
+      "category": "Model",
+      "title": "The full ground eigenspace",
+      "summary": "The biconditional requires G to contain all and only the double-well eigenfunctions at groundEnergy. Here an eigenfunction is a smooth complex L² function satisfying Hψ = Eψ pointwise; zero is included to form a vector space.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.SimpleGroundParity",
+      "category": "Model",
+      "title": "A simple ground state of a given parity",
+      "summary": "Requires the full ground eigenspace to be a complex line containing a mass-one function of the requested parity. true means ψ(−x) = ψ(x), and false means ψ(−x) = −ψ(x), under inversion of the entire plane. Every other ground eigenfunction is a complex multiple and therefore has the same parity.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/MagneticModel.lean"
+    },
+    {
+      "name": "InfiniteZero.magneticOperator",
+      "category": "Operator",
+      "title": "The actual operator on L²",
+      "summary": "Extracts a partial linear map from the closure of the subspace spanned by the pairs ([ψ],[Hψ]) for smooth, compactly supported ψ. Its domain is thus fixed by the concrete differential expression. IsMagneticRealization certifies that this extraction has exactly the prescribed graph and that the operator is self-adjoint.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:one-well-unscaled",
+        "eq:double-well-unscaled"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/OperatorBridge.lean"
+    },
+    {
+      "name": "InfiniteZero.OperatorDoubleGround",
+      "category": "Operator",
+      "title": "Exact multiplicity at a crossing",
+      "summary": "Requires the full L² eigenspace at groundEnergy to have complex dimension exactly two and to contain two nonzero vectors of opposite parity. A positive gap above this space is a separate property in OperatorMainConclusion.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/OperatorMain.lean"
+    },
+    {
+      "name": "InfiniteZero.IsMagneticRealization",
+      "category": "Operator",
+      "title": "Connecting functions and the operator",
+      "summary": "Combines identification of the closed graph, self-adjointness, equality of the variational infima, a lower bound on the entire domain, and the correspondence between classical and L² eigenspaces. Admission A002 provides this certificate for smooth, bounded real potentials.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:one-well-unscaled",
+        "eq:double-well-unscaled"
+      ],
+      "tex_relation": "interpretation",
+      "file": "InfiniteZero/OperatorBridge.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.exists_doubleWell_global_minmax_of_radialData",
+      "category": "Proof",
+      "title": "Identifying the first two actual levels",
+      "summary": "From the radial data and explicit realizations, proves at large coupling that groundEnergy = min(E_even,E_odd) and secondEnergy = max(E_even,E_odd). The sector-mode certificates and bounds on their complements have already been constructed for the concrete potential. This identifies the two variational levels with the two lowest eigenvalues.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "sublemma:T1-1-full-ground-space",
+        "thm:main"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/ConstructedGlobalMinmax.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.operatorMainConclusion_of_radialData",
+      "category": "Proof",
+      "title": "The central analytic assembly",
+      "summary": "Constructs the actual hopping asymptotic and then the Schur corrections, which are negligible relative to the amplitude of the same channel witnesses. It then combines the modes, continuity, and sign-change argument to obtain OperatorMainConclusion. The proof uses the four classical interfaces.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main",
+        "sec:full-hopping-asymptotic",
+        "sec:spectral-transfer"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/ConstructedMainProof.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.mainConclusion",
+      "category": "Proof",
+      "title": "Instantiating the four classical interfaces",
+      "summary": "Starting only from BasicConditions on the explicit parameters, constructs the required realizations and instantiates A002, A003, A004, and A005 in the already proved assembly. It chooses a threshold L₀ > p.R before considering any L ≥ L₀.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main",
+        "eq:final-v"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/Remaining.lean"
+    },
+    {
+      "name": "InfiniteZero.CuspParameters.exists_main_separation_of_radialData",
+      "category": "Proof",
+      "title": "Choosing the separation before L",
+      "summary": "Constructs the weight cutoffs and a geometric separation certificate from BasicConditions. Its threshold L₀ is chosen once, then operatorMainConclusion_of_radialData is applied to every L ≥ L₀.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "thm:main",
+        "sec:construction"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/ConstructedMainProof.lean"
+    },
+    {
+      "name": "InfiniteZero.magnetic_realization",
+      "category": "Admission",
+      "title": "A002 · Classical realization",
+      "summary": "Admits, for every smooth, bounded real potential and all real b, λ, the self-adjoint realization of the magnetic test graph and its variational and classical correspondences.",
+      "content_kind": "paraphrase",
+      "tex_labels": [],
+      "tex_relation": "none",
+      "file": "InfiniteZero/Remaining.lean"
+    },
+    {
+      "name": "InfiniteZero.free_landau_resolvent_kernel",
+      "category": "Admission",
+      "title": "A003 · Free Landau resolvent",
+      "summary": "Admits that, for b, λ, E > 0, every smooth L² solution of (H_{b,λ,0}+λ²E)u = f, with f smooth and compactly supported, is almost everywhere the integral of f against the explicit kernel, with the outside factor λ⁻². The representation follows by Laplace transform of the heat kernel.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:landau-kernel-master",
+        "sublemma:P5-1-source-resolvent"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/Remaining.lean"
+    },
+    {
+      "name": "InfiniteZero.radial_core_spectral_data",
+      "category": "Admission",
+      "title": "A004 · Radial-core spectrum",
+      "summary": "Admits, for the explicit core alone with b > 0 and r₀ > 0, a normalized ground state of energy −λ² + O(λ), a gap of at least γλ expressed on all test functions, and a choice of real, radial, strictly positive ground state. The constants are fixed before λ, and the gap covers all angular sectors. These estimates follow from harmonic approximation.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "lem:radial-spectral",
+        "eq:base-gap"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/Remaining.lean"
+    },
+    {
+      "name": "InfiniteZero.classical_elliptic_interior_estimate",
+      "category": "Admission",
+      "title": "A005 · Interior elliptic estimate",
+      "summary": "Admits a universal estimate for −Δu+a·∇u+qu=f on the ball B(0,2), for smooth complex-valued functions. With the order n and coefficient bounds B fixed, the jets of u at the center are controlled by C(n,B) times the local L² norms of u and the jets of f. The changes of scale and the application to the weighted magnetic equation are proved in Lean.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "lem:weighted-interior-elliptic-propagation"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/ClassicalEllipticInterior.lean"
+    }
+  ],
+  "main_items": [
+    {
+      "item": "(i)",
+      "title": "Infinitely many spectral crossings",
+      "summary": "A positive, strictly increasing sequence tends to infinity and makes secondEnergy − groundEnergy exactly zero. Every sufficiently large crossing has a two-dimensional L² ground eigenspace containing both parities; the gap field supplies its isolation.",
+      "declarations": [
+        "InfiniteZero.MainConclusion.spectral_zeros",
+        "InfiniteZero.OperatorMainConclusion.large_operator_crossings",
+        "InfiniteZero.OperatorMainConclusion.eventual_ground_gap"
+      ],
+      "tex_label": "thm:main"
+    },
+    {
+      "item": "(ii)",
+      "title": "Infinitely many hopping zeros",
+      "summary": "Another positive, strictly increasing sequence tends to infinity and makes canonicalHopping zero in ℂ. The coefficient is the actual physical integral formed from a normalized atomic state, independent of its choice at large coupling; the two zero sequences are not asserted to coincide.",
+      "declarations": [
+        "InfiniteZero.MainConclusion.hopping_zeros",
+        "InfiniteZero.MainConclusion.atomic_states",
+        "InfiniteZero.MainConclusion.hopping_intrinsic"
+      ],
+      "tex_label": "thm:main"
+    },
+    {
+      "item": "(iii)",
+      "title": "Infinitely many parity changes",
+      "summary": "Two divergent sequences satisfy 0 < pₙ < qₙ < pₙ₊₁: the ground state is simple and even at pₙ, and simple and odd at qₙ. Parity is full inversion x ↦ −x, expressed almost everywhere for L² classes.",
+      "declarations": [
+        "InfiniteZero.OperatorMainConclusion.operator_parity_changes",
+        "InfiniteZero.OperatorSimpleParity"
+      ],
+      "tex_label": "thm:main"
+    }
+  ],
+  "scope_notes": [
+    "The proof of thm_main depends on four classical admissions, A002–A005. The dependency graph records which declarations use these admissions, directly or transitively.",
+    "The reference statement is thm:main in the manuscript. Its three conclusions concern eigenvalue crossings, zeros of the hopping coefficient, and changes of ground-state parity.",
+    "The code constructs neither a complete enumeration E₀ ≤ E₁ ≤ … of the discrete spectrum nor a spectral projection for an entire window. The first two levels are identified with the parity modes, and the gap above the ground eigenspace is established.",
+    "The main result asserts neither zero spacing, uniqueness of a zero between samples, nor the differentiated asymptotic remainders discussed elsewhere in the text.",
+    "The explicit numerical parameters specialize the family of potentials in the manuscript; the Lean construction verifies that they satisfy the required conditions.",
+    "Explanations summarize the mathematical content. The Lean and TeX source panels reproduce excerpts from the repository.",
+    "Dependency edges come from the Lean audit in docs/declarations.json. Reading guides and links to manuscript statements provide a separate guide to the argument."
+  ],
+  "assembly_steps": [
+    {
+      "title": "Fix the potential",
+      "text": "elementaryParameters fixes the scalars and both cutoffs; elementaryParameters_basicConditions verifies every elementary condition without admissions.",
+      "declarations": [
+        "InfiniteZero.CuspParameters.elementaryParameters",
+        "InfiniteZero.CuspParameters.elementaryParameters_basicConditions"
+      ]
+    },
+    {
+      "title": "Choose sufficient separation",
+      "text": "The weight cutoffs and separation certificate are constructed before L. The threshold L₀ then works for every L ≥ L₀.",
+      "declarations": [
+        "InfiniteZero.CuspParameters.exists_main_separation_of_radialData"
+      ]
+    },
+    {
+      "title": "Construct the original estimates",
+      "text": "The ground states, sources, channels, and cosine asymptotic for the hopping are constructed from the classical interfaces. The Schur errors are controlled relative to the amplitude of the same channels.",
+      "declarations": [
+        "InfiniteZero.CuspParameters.operatorMainConclusion_of_radialData"
+      ]
+    },
+    {
+      "title": "Pass from signs to the three conclusions",
+      "text": "Continuity and the oscillating phase provide alternating signs and exact zeros. The min/max identifications and physical modes give multiplicity, isolation, and parity changes.",
+      "declarations": [
+        "InfiniteZero.CuspParameters.operatorMainConclusion_of_hopping_schur",
+        "InfiniteZero.CuspParameters.exists_doubleWell_global_minmax_of_radialData"
+      ]
+    },
+    {
+      "title": "Instantiate the admissions and conclude",
+      "text": "mainConclusion supplies the four admitted interfaces. elementaryPotential_main gives the result for the fixed witness, and thm_main then presents it in the constructed existential form.",
+      "declarations": [
+        "InfiniteZero.CuspParameters.mainConclusion",
+        "InfiniteZero.elementaryPotential_main",
+        "InfiniteZero.thm_main"
+      ]
+    }
+  ],
+  "reading_paths": [
+    {
+      "title": "Check the statement",
+      "names": [
+        "InfiniteZero.elementaryPotential_main",
+        "InfiniteZero.ConstructedPotentialMainTheorem",
+        "InfiniteZero.OperatorMainConclusion",
+        "InfiniteZero.MainConclusion",
+        "InfiniteZero.OperatorDoubleGround"
+      ],
+      "kind": "reading_guide_not_dependency"
+    },
+    {
+      "title": "Understand the model",
+      "names": [
+        "InfiniteZero.magneticHamiltonian",
+        "InfiniteZero.doubleWellPotential",
+        "InfiniteZero.groundEnergy",
+        "InfiniteZero.secondEnergy",
+        "InfiniteZero.hopping",
+        "InfiniteZero.canonicalHopping",
+        "InfiniteZero.IsGroundEigenspace",
+        "InfiniteZero.SimpleGroundParity",
+        "InfiniteZero.magneticOperator"
+      ],
+      "kind": "reading_guide_not_dependency"
+    },
+    {
+      "title": "Inspect the precise potential",
+      "names": [
+        "InfiniteZero.CuspParameters.elementaryParameters",
+        "InfiniteZero.CuspParameters.potential",
+        "InfiniteZero.CuspParameters.core",
+        "InfiniteZero.CuspParameters.cuspPlus",
+        "InfiniteZero.AdmissiblePotential"
+      ],
+      "kind": "reading_guide_not_dependency"
+    },
+    {
+      "title": "Audit the assembly and trusted inputs",
+      "names": [
+        "InfiniteZero.CuspParameters.mainConclusion",
+        "InfiniteZero.CuspParameters.operatorMainConclusion_of_radialData",
+        "InfiniteZero.magnetic_realization",
+        "InfiniteZero.free_landau_resolvent_kernel",
+        "InfiniteZero.radial_core_spectral_data",
+        "InfiniteZero.classical_elliptic_interior_estimate"
+      ],
+      "kind": "reading_guide_not_dependency"
+    }
+  ]
+}
