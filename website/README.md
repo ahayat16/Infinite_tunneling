@@ -88,6 +88,20 @@ Publish the contents of `dist/client/`, including `.nojekyll`, to any static
 host or a GitHub Pages subdirectory. Relative asset and data URLs let the same
 export work under a repository path.
 
+## Share an offline HTML file
+
+```sh
+npm run build
+node scripts/export-share.mjs
+```
+
+The files are written to `outputs/share/`:
+
+- `infinite-zero.html`: open directly in a browser, with the reader, sources,
+  mathematical fonts, and dependency graph included.
+- `infinite-zero-offline.zip`: the same HTML file compressed for sharing.
+- `infinite-zero-site.zip`: the static website for publishing on a web host.
+
 ## Layout and checks
 
 ```text
