@@ -23,9 +23,8 @@ strip_comments = helpers["strip_comments"]
 
 ADMISSIONS = [
     ("A002", "InfiniteZero.magnetic_realization", "Magnetic operator realization", "CLASSICAL_OPERATOR_REALIZATION.md"),
-    ("A003", "InfiniteZero.free_landau_resolvent_kernel", "Free Landau resolvent", "CLASSICAL_LANDAU_RESOLVENT.md"),
-    ("A004", "InfiniteZero.radial_core_spectral_data", "Radial core spectrum", "RADIAL_HARMONIC_CONTRACT.md"),
-    ("A005", "InfiniteZero.classical_elliptic_interior_estimate", "Interior elliptic estimate", "CLASSICAL_ELLIPTIC_INTERIOR.md"),
+    ("A003", "InfiniteZero.classical_standard_landau_resolvent", "Standard Landau resolvent", "CLASSICAL_LANDAU_RESOLVENT.md"),
+    ("A004", "InfiniteZero.classical_radial_low_levels", "Radial harmonic approximation", "RADIAL_HARMONIC_CONTRACT.md"),
 ]
 
 

@@ -5,7 +5,7 @@ import InfiniteZero.AffineScaleL2
 
 In two dimensions the inverse square-root spatial dilation carries the
 same inverse square-root amplitude. It preserves mass, parity and smooth
-compact support. The magnetic field parameter becomes one, and the
+compact support. The coupling parameter becomes one, and the
 unscaled form acquires exactly one inverse coupling factor.
 -/
 

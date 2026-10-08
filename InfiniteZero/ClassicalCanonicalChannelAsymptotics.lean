@@ -5,8 +5,10 @@ import InfiniteZero.CanonicalChannelAsymptotics
 /-!
 # The canonical hopping asymptotic under the documented classical inputs
 
-The four classical interfaces A002--A005 are instantiated here. All source
-estimates, contour arguments, saddle evaluation and channel assembly are
+The four conditional interfaces are instantiated here: operator realization,
+the free resolvent, radial harmonic data and the proved elliptic estimate.
+Only A002, A003 and A004 remain admitted. All source estimates, contour
+arguments, saddle evaluation and channel assembly are
 proved in the conditional modules. No tunneling asymptotic is admitted.
 The potential parameters remain fixed before the separation threshold and
 the subsequent choice of separation. Hopping continuity and the spectral

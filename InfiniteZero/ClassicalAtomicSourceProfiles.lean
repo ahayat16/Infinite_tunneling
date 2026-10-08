@@ -8,7 +8,7 @@ import InfiniteZero.AtomicSourceProfiles
 One pair of genuine atomic states supplies the incoming and scattered
 sources on both cusp supports. Three independent logarithmic margins and
 a fixed maximal jet order are chosen before all constants and couplings.
-Only A002, A004 and A005 are instantiated by this wrapper.
+The admitted inputs are A002 and A004; the elliptic estimate is proved.
 -/
 
 noncomputable section

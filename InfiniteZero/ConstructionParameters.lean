@@ -14,7 +14,7 @@ formulas asserted in the manuscript.
 This module proves `BasicConditions` for that choice without admissions.
 Admissibility is proved in `ConstructionExistence.lean`, and the spectral and
 tunneling conclusions for this very same potential are proved later by
-`elementaryPotential_main` in `Remaining.lean`, modulo the four recorded
+`elementaryPotential_main` in `Remaining.lean`, modulo the three recorded
 classical admissions. No further adjustment of this witness is made there.
 -/
 

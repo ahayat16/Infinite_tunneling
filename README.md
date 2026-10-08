@@ -7,19 +7,22 @@ Lean 4.30.0 project / Mathlib pinned to commit
 and its figures are in [article/](article/README.md), with compilation instructions.
 
 **Review website:** [website/](website/README.md) provides side-by-side
-reading of the manuscript and Lean, dependency exploration, and the four
+reading of the manuscript and Lean, dependency exploration, and the three
 admissions with their justifications.
 Run: `cd website && npm ci && npm run dev` (Node.js ≥ 22.13).
 
-**Status: `thm_main` is proved in Lean modulo four explicit classical
+**Status: `thm_main` is proved in Lean modulo three explicit classical
 admissions. Its body contains no `sorry`.** The stronger result
 `elementaryPotential_main` fixes the literal potential
 `elementaryParameters.potential` before the separation and coupling.
 The original source, saddle, hopping, and relative spectral-error estimates,
 and the final assembly, are constructed in Lean.
-The four classical admissions A002, A003, A004, and A005 concern the
-self-adjoint realization, the universal Landau resolvent kernel, spectral
-data for the radial core alone, and an elliptic estimate on a fixed ball.
+The three classical admissions A002, A003, and A004 concern the
+self-adjoint realization, the standard Landau resolvent kernel on the
+closed operator domain, and spectral harmonic approximation for the first
+two radial semiclassical levels. The domain and parameter conversions
+for the resolvent are proved in Lean. The interior elliptic estimate and
+Sobolev point evaluation are also proved, without an additional admission.
 Their precise references and natural-language proofs are documented.
 
 The elementary potential construction is verified: global smoothness of
@@ -29,7 +32,7 @@ parameters yield an admissible potential without `sorry`.
 The sharp action and log-flat bounds are established for the full right-hand
 side of the correction PDE, its derivatives of every fixed order in local
 L², the correction itself in global weighted L², and its pointwise jets on a
-fixed neighborhood of the cusps, using the classical estimate A005.
+fixed neighborhood of the cusps, using the proved interior estimate.
 The scattered source `λ²Wη` and all its jets up to a fixed maximum order
 retain both local and global log-flat factors, with the same `cΓ` and a
 polynomial cost `λ⁶`.
@@ -97,8 +100,13 @@ See the [exact statement audit](docs/STATEMENT_AUDIT.md).
 The ground state of the actual potential is **constructed, simple, and
 isolated by a coercive gap** at large coupling, modulo A002 and A004:
 `CuspParameters.eventual_atomicGround_properties` requires only
-`BasicConditions`. A004 supplies the state, a positive radial choice, the
-energy, and the gap of the **radial core**. `AtomicGroundConstruction`
+`BasicConditions`. A004 supplies a positive normalized radial ground state
+and harmonic-approximation error bounds for the first two semiclassical
+levels of a general radial well. Lean proves the oscillator-level ordering,
+the large-coupling gap limit, and the min-max inequality on the orthogonal
+complement. `RadialCoreSpectralAssembly` applies these results to the
+explicit core using A002; field conversion, the uniform test gap, and the
+energy upper bound are also proved. `AtomicGroundConstruction`
 then proves the passage to the full potential, with its actual domains
 and Schur compression; no nonradial ground state or gap is admitted.
 The certificate retains a gap `hRad.gap / 2 * coupling` for the unscaled
@@ -187,9 +195,12 @@ derivative of the right-hand side. It requires only `BasicConditions`,
 `0<β₁<β`, and the maximum order, using A002+A004.
 The [passage to pointwise correction jets](docs/ATOMIC_RESPONSE_JETS.md) is
 assembled in `atomicGround_fine_response_jets`: the same state, cΓ, action,
-and log-flat coefficient, with polynomial cost λ⁴. The universal elliptic
-estimate on a fixed ball is isolated as A005; its assumptions and all
-changes of scale are verified in Lean.
+and log-flat coefficient, with polynomial cost λ⁴. Lean proves point
+evaluation by the H² norm using a fixed cutoff, the fundamental theorem
+of calculus on a rectangle, and Cauchy–Schwarz. Cutoff energy estimates
+and induction give the interior estimate uniformly in bounded coefficient
+jets. Higher-order point bounds, source and tensor norm conversions, and
+all changes of scale are proved as well.
 The [scattered-source profile](docs/CUSP_SCATTERED_SOURCE.md) is assembled
 by Leibniz for these same states: `atomicGround_scattered_source_jets`
 simultaneously retains `exp(−βglobal log²λ)` and `logFlat βlocal tStar t`,
@@ -210,7 +221,7 @@ the actual Jacobian t² and transverse factor 2s₀.
 The [seven inactive cells](docs/INACTIVE_CELLS.md) each have an absolute
 bound `C(Γ²+1)λ¹⁰exp(−λ(Aref+31δhop))`, for the actual ground state and
 for the canonical state. `atomicGround_inactive_cells` supplies the
-physical connection through A002+A004+A005, without requiring a source
+physical connection through A002+A004, without requiring a source
 hypothesis. The action retains the core energy in both tails and the full
 energy in the bridge. The canonical phase is handled by exact cell
 invariance; the positive radial decomposition is unchanged. Polynomial
@@ -234,7 +245,7 @@ the three contributions containing the scattered correction:
 `atomicGround_active_incoming_reduction` gives, for the same states and cΓ,
 `‖full cell − incoming cell‖ ≤ C * envelopeTex * exp(−(β/8)log²λ)`.
 The canonical cell satisfies the same bound. The only arguments are the
-elementary potential conditions and `R<2L`, modulo A002+A004+A005;
+elementary potential conditions and `R<2L`, modulo A002+A004;
 the incoming asymptotic is assembled in `IncomingCellTexAsymptotic`.
 `CanonicalChannelAsymptotics` constructs the channels and then the cosine
 formula for actual hopping, with amplitude 2a. The classical wrappers
@@ -248,8 +259,8 @@ is `Γ K`, with `Γ>0` if positive. Derivative energy is deduced from
 Caccioppoli and the Wronskian is then shown to vanish; that energy is not
 assumed. The connection to the actual core state is established:
 `RadialCoreExteriorState` derives the exact identity for the actual
-normalized state. A004 supplies only the explicitly referenced classical
-positive radial choice; `MagneticRadialReduction` and `RadialPlaneL2`
+normalized state. A004 and the realization A002 supply the classical
+positive radial choice through `RadialCoreSpectralAssembly`; `MagneticRadialReduction` and `RadialPlaneL2`
 prove the other two steps. The full ODE, decrease of the real profile,
 and a uniform bound `f(r)≥c>0` on `[0,h]` are proved without pointwise
 harmonic convergence. Wronskian comparison gives `f(r)≤ΓK(r)` for every
@@ -258,8 +269,9 @@ deduces `Γ≥c h²` and `Γ⁻¹≤C h⁻²`, modulo A002+A004 only. This power
 weaker than the TeX's `h^(3/2)`, suffices for polynomial losses under strict
 exponential margins; Lemma B.1 and the literal manuscript bound are not
 claimed. Auxiliary convolution and angular-average identities are also
-compiled, with A003 as an explicit argument for the physical representation;
-they are not needed for the Wronskian lower bound on Γ.
+compiled, with the free-kernel interface as an explicit argument for the
+physical representation. This interface follows from A002+A003; these identities
+are not needed for the Wronskian lower bound on Γ.
 The complete radial-block checks passed: compilation, guards against
 unauthorized admissions, and dependency export.
 
@@ -269,9 +281,9 @@ unauthorized admissions, and dependency export.
   `thm_main_operator_of_analytic_data`.
 - [Final theorem and explicitly fixed potential](InfiniteZero/Remaining.lean):
   `elementaryPotential_main`, then `thm_main : ConstructedPotentialMainTheorem`,
-  with no analytic argument or direct `sorry`; classical dependencies A002–A005.
+  with no analytic argument or direct `sorry`; classical dependencies A002–A004.
 - [Assembly without further admissions](InfiniteZero/ConstructedMainProof.lean):
-  `operatorMainConclusion_of_radialData`, with all four classical interfaces explicit.
+  `operatorMainConclusion_of_radialData`, with all four analytic interfaces explicit, including the proved interior estimate.
 - [Physical defects and action margin](docs/OPPOSITE_SUPPORT_ESTIMATES.md).
 - [Admissions for human review](docs/ADMISSIONS.md).
 - [Automatically verified inventory](docs/STATUS.md).
@@ -292,7 +304,7 @@ unauthorized admissions, and dependency export.
 - [Normalized radial jets: weighted bounds without an extra Γ factor](docs/RADIAL_WEIGHTED_JETS.md).
 - [Correction PDE: full right-hand side, same states, and local L² norms](docs/ATOMIC_FINE_RESPONSE_DATA.md).
 - [Pointwise correction jets: rescaling and sharp bound](docs/ATOMIC_RESPONSE_JETS.md).
-- [A005: classical fixed-ball elliptic estimate, references, and natural-language proof](docs/CLASSICAL_ELLIPTIC_INTERIOR.md).
+- [Proved Sobolev point evaluation and interior elliptic estimates](docs/CLASSICAL_ELLIPTIC_INTERIOR.md).
 - [Exterior radial kernel: ODE, integrability, and uniqueness](docs/RADIAL_EXTERIOR_KERNEL.md).
 - [Radial normalization: the Γ ≥ c h² variant and its exact scope](docs/RADIAL_NORMALIZATION.md).
 - [Classical radial admission A004, references, and natural-language proof](docs/RADIAL_HARMONIC_CONTRACT.md).
@@ -314,7 +326,7 @@ python3 scripts/update_status.py
 `Verification.lean` guards modules without admissions and separately checks
 the permitted classical contracts. The audit inspects Lean's actual
 transitive axioms; the absence of `sorry` in the body of `thm_main` does not
-remove its four classical dependencies.
+remove its three classical dependencies.
 
 ## Organization
 
@@ -345,7 +357,7 @@ remove its four classical dependencies.
 | `HoppingPhase` | Independence of the coefficient from the atomic state's phase |
 | `MagneticDilationL2`, `UnitPhaseDistance`, `AtomicGroundDilationComparison`, `HoppingContinuity` | Comparison of actual dilated ground states modulo phase, bilinear bound, and continuity of canonical hopping on a half-line; threshold before L, explicit radial data and realizations, no admission in these theorems |
 | `ClassicalHoppingContinuity` | canonicalHopping_continuous hp: the same complex continuity with threshold before L, using A002+A004 only; no continuous phase choice assumed |
-| `MagneticCovariance`, `LandauResolventBridge` | Covariance, inversion, L², and normalization proved; right-state representation derived from the universal classical contract A003 |
+| `MagneticCovariance`, `LandauResolventBridge` | Covariance, inversion, L², and normalization proved; right-state representation derived from the universal free-kernel contract, supplied by A002+A003 |
 | `MagneticIMS`, `MagneticIMSIntegrated` | Pointwise IMS identity, then integrated on test functions; integrability deduced and coercive consequences transferred to the operator domain by graph closure |
 | `MagneticIntegrationByParts` | Coordinate integration by parts, symmetry of covariant derivatives, and exact Hamiltonian–form identity on actual tests |
 | `MagneticIntegrationByPartsLocal`, `MagneticLocalEnergy`, `MagneticAgmonLocal`, `MagneticAgmonWeighted` | Energy identity for actual eigenfunctions with compact cutoff; integrated inequality with weight exp(F), all integrability deduced |
@@ -373,11 +385,14 @@ remove its four classical dependencies.
 | `ComplexLandauSmallDisk`, `ComplexLandauDerivativeBounds`, `RadialCompositionJetBounds`, `LandauSpatialDerivativeBounds`, `ExteriorRadialJetBounds` | Cauchy at radius h, exact action at every order, and identification of jets of the same tail ΓK |
 | `SemiclassicalLeibniz`, `LogFlatWeightedAction`, `CuspFineForcingJets`, `AtomicCuspFineForcingDerivatives` | Semiclassical derivatives of the actual Wφ: weight after differentiation, pointwise envelope, and sharp mass bound |
 | `GenericFiniteL2Bound`, `RadialCoreFineForcingDerivatives`, `ClassicalCuspForcingDerivatives` | Same energy and Γ of the actual core for every required order; sums of norms and wrapper through A002+A004 |
-| `LipschitzExponentialWeightLocal` | Comparison of weights on balls of radius proportional to h, constant independent of h; input to the elliptic step proved through A005 |
+| `LipschitzExponentialWeightLocal` | Comparison of weights on balls of radius proportional to h, constant independent of h; input to the proved elliptic estimate |
 | `AtomicGroundFineResponse`, `AtomicGroundFineDecomposition`, `AtomicEnergyShiftForcing` | Same correction with sharp bound cΓh⁻³exp(−J/h−β₁log²(1/h)) and energy shift with a single forcing factor |
 | `GroundStateCertificate`, `SchurGroundCertificate`, `AtomicGroundTransfer` | Schur-constructed certificate implies variational ground state, one-dimensional eigenspace, gap, and normalized smooth state unique up to phase |
-| `RadialCoreSpectralData`, `AtomicGroundConstruction` | Radial contract whose existence is A004; construction of the actual potential's simple ground state with gap from this contract and explicit realizations, without further admissions |
-| `AtomicGroundEnergyBounds`, `AtomicSourceRegime` | Energy bounds, scaledAtomicEnergy→1 and eventually [1/2,1]; canonical ground state, representation for all L, cell integrability, and hopping identity/reality for R<2L, under explicit classical interfaces |
+| `ClassicalRadialLowLevels` | A004: positive normalized radial ground state and O(h^(3/2)) bounds for the first two semiclassical levels |
+| `RadialOscillatorLevels`, `RadialHarmonicLimits`, `OperatorSecondMinmax`, `SemiclassicalOperator`, `RadialHarmonicAssembly` | Oscillator-level ordering, limits, scaling and min-max complement bound; proved assembly of the radial spectral certificate |
+| `RadialCoreSpectralData`, `RadialCoreSpectralAssembly`, `AtomicGroundConstruction` | Radial contract assembled from A004 and realization A002; construction of the actual potential's simple ground state with gap |
+| `CoreQuadraticBound`, `RadialCoreVariationalBound`, `MagneticFieldScaling`, `RadialGroundCertificate` | Quadratic core bound, independent variational energy estimate, exact field conversion, and operator-to-test gap transfer, all proved |
+| `AtomicGroundEnergyBounds`, `AtomicSourceRegime` | Energy bounds, scaledAtomicEnergy→1 and eventually [1/2,1]; canonical ground state, representation for all L, cell integrability, and hopping identity/reality for R<2L, under explicit analytic interfaces |
 | `Main` | Physical assembly and quantifier order |
 | `OperatorBridge`, `OperatorMain` | Self-adjoint operator on L², transfer of conclusions, and operator statement |
 | `BridgeActionMinimum`, `BridgeActionEnergy`, `LandauKernel`, `LandauKernelDecay` | Exact real minimum, energy derivative, convergence, and exponential rate of the integral kernel |
@@ -413,15 +428,22 @@ remove its four classical dependencies.
 | `ComplexLandauWindow`, `ComplexLandauAsymptotic` | Complex relative asymptotic `1+o(1)` uniform for `δ=O(h^(3/4))`, moving real energy and radius; no differentiated expansion |
 | `UniversalComponentSourceL1`, `OppositeSupportReconstruction`, `AtomicOppositeSupportFineBounds` | Universal L¹ sources, almost-everywhere reconstruction, and sharp masses on the opposite support for the same c and Γ |
 | `PhysicalResidualMass`, `CanonicalParityCorrectionMass`, `OppositeSupportEnvelopeComparison`, `CanonicalParityRelativeErrors` | Exact physical residuals, action margin, and defect/two corrections o(envelope) for the channel witnesses |
-| `ConstructedMainAssembly`, `ConstructedMainProof` | Final operator conclusion, all original estimates constructed, explicit classical interfaces |
-| `Remaining` | mainConclusion, elementaryPotential_main, and thm_main proved without direct sorry; classical admissions A002–A004 explicitly instantiated together with A005 |
-| `ClassicalEllipticInterior` | A005: universal estimate on a fixed ball, independent of the constructed potential |
+| `ConstructedMainAssembly`, `ConstructedMainProof` | Final operator conclusion, all original estimates constructed, explicit analytic interfaces |
+| `Remaining` | mainConclusion, elementaryPotential_main, and thm_main proved without direct sorry; classical admissions A002–A004 explicitly instantiated |
+| `CoordinateRectangleFTC`, `UnitMeasureL2Bound`, `CoordinatePointEvaluation` | Point evaluation by the H² norm, proved using a cutoff, two applications of the fundamental theorem, and Cauchy–Schwarz |
+| `ClassicalEllipticSobolev` | Proved wrapper for point evaluation at zero by the H² norm on the unit ball |
+| `EllipticCaccioppoli`, `LaplacianHessianEnergy`, `LocalPoissonH2`, `EllipticLocalH2` | Proved cutoff energy bound, Hessian identity, and uniform local H² estimate |
+| `CoordinateSobolevProduct`, `EllipticSourceSobolev`, `EllipticSobolevBootstrap`, `EllipticUniformInterior` | Proved higher-order interior estimate, uniform in bounded coefficient jets |
+| `CoordinateSobolevEmbedding` | Proved higher-order point bounds from the H² point estimate |
+| `EllipticCoordinateNorms`, `EllipticSobolevAssembly`, `ClassicalEllipticInterior` | Proved coordinate/directional norm conversions and assembly of the fixed-ball estimate |
+| `StandardLandauResolvent`, `ClassicalLandauResolvent` | A003: the standard integral kernel for the closed free Landau operator at Planck constant one |
+| `MagneticInhomogeneousDomain`, `LandauResolventScaling` | Proved passage from smooth L² solutions to the closed domain and exact field, energy, kernel, and source-integral scaling |
 | `LandauIntegrandODE`, `LandauRadialDerivatives`, `LandauProperTimeEndpoints`, `LandauProperTimeIntegral`, `LandauRadialEquation` | Two differentiations under the integral, limits at both endpoints, and exact radial ODE of the integral kernel, without further identification with a singular Green function |
 | `LandauRadialL2`, `RadialWronskian`, `RadialCaccioppoli`, `RadialExteriorCutoffs`, `RadialExteriorEnergy`, `LandauExteriorUniqueness` | Exterior L² kernel branch and real uniqueness from the ODE and L² alone; derivative energy deduced, positive proportionality ΓK for a positive solution |
-| `RealRadialState`, `MagneticRadialReduction`, `RadialPlaneL2`, `RadialCoreExteriorState` | Calculation of the actual radial Hamiltonian, polar passage from L², and exact exterior formula for the actual normalized positive ground state; wrapper through A004, no bound on Γ admitted |
+| `RealRadialState`, `MagneticRadialReduction`, `RadialPlaneL2`, `RadialCoreExteriorState` | Calculation of the actual radial Hamiltonian, polar passage from L², and exact exterior formula for the actual normalized positive ground state; wrapper through A002+A004, no bound on Γ admitted |
 | `RadialEigenfunctionEquation`, `CoreRadialMonotonicity`, `RadialGroundMonotonicity`, `RadialProfileLower`, `RadialCenterLower`, `RadialCoreProfileEstimates` | Full ODE and decreasing actual core profile; uniform positive bound on [0,h] from mass and flux |
 | `RadialWronskianComparison`, `RadialCoreKernelComparison`, `RadialCoreNormalizationLower` | Comparison with the same ΓK for all r>0; Γ≥c h² and Γ⁻¹≤C h⁻² assembled and proved without A003 or pointwise harmonic convergence |
-| `LandauExteriorConvolution`, `RadialCoreSourceRepresentation`, `RadialLandauAverage`, `RadialCoreNormalization` | Exterior continuity and pointwise representation of the actual source; polar change of variables and exact integral formula for the same Γ, with explicit A003 contract for the representation |
+| `LandauExteriorConvolution`, `RadialCoreSourceRepresentation`, `RadialLandauAverage`, `RadialCoreNormalization` | Exterior continuity and pointwise representation of the actual source; polar change of variables and exact integral formula for the same Γ, with an explicit free-kernel interface, supplied by A002+A003 |
 
 ## Contribution guidelines
 

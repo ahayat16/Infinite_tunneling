@@ -2,7 +2,7 @@
 
 Local incoming- and scattered-source profiles yield L¹ bounds through the real cusp change of variables. The Jacobian is exactly `t²`, and the transverse factor is **`2s₀`**, the length of `(-s₀,s₀)`. No implicit normalization replaces this factor with 2.
 
-The generic lemmas in [CuspProfileIntegral](../InfiniteZero/CuspProfileIntegral.lean), their [reflection transfer](../InfiniteZero/CuspProfileIntegralReflection.lean), and the [support and norm connections](../InfiniteZero/AtomicCuspSourceSupport.lean) are compiled and audited without admissions. The physical assemblies `AtomicSourceL1` and `AtomicComponentSourceL1`, and their classical wrappers, are also compiled. At the historical L¹ milestone, `bash scripts/check.sh` passed with 569 `assert_no_sorry` guards. Traversal of both wrappers’ compiled dependencies finds exactly A002+A004+A005, without A003 or `thm_main`. The admission list is unchanged. The [final assembly](../InfiniteZero/ConstructedMainProof.lean) and [thm_main](../InfiniteZero/Remaining.lean) are now compiled modulo the four classical interfaces A002–A005.
+The generic lemmas in [CuspProfileIntegral](../InfiniteZero/CuspProfileIntegral.lean), their [reflection transfer](../InfiniteZero/CuspProfileIntegralReflection.lean), and the [support and norm connections](../InfiniteZero/AtomicCuspSourceSupport.lean) are compiled and audited without admissions. The physical assemblies `AtomicSourceL1` and `AtomicComponentSourceL1`, and their classical wrappers, are also compiled. Both wrappers depend on A002+A004, without A003 or `thm_main`. The [final assembly](../InfiniteZero/ConstructedMainProof.lean) and [thm_main](../InfiniteZero/Remaining.lean) are now compiled modulo the three classical admissions A002–A004.
 
 ## Support, integrability, and actual L¹ space
 
@@ -97,7 +97,7 @@ The three target coefficients are independent in `(0,β)`. To obtain local targe
 
 The incoming slope is `1/8`. The scattered slope is fixed at `κ₀/2>0` **before λ**, after choosing the weighted regime. The four incoming/scattered and positive/negative thresholds are combined into one threshold before λ. The two states and Γ are not reselected during the four applications. The factor `ε` is already in `componentPotential`, and `h⁻²` is already in `atomicSource`; neither is multiplied in twice.
 
-The theorem `exists_atomicGround_source_L1_of_radialData` takes radial data, core/full realizations, and the interior elliptic estimate as explicit inputs. Its wrapper [`atomicGround_source_L1`](../InfiniteZero/ClassicalAtomicSourceL1.lean) supplies them through A002, A004, and A005. Passage to the integrals itself adds no admission and does not use A003.
+The theorem `exists_atomicGround_source_L1_of_radialData` takes radial data, core/full realizations, and the interior elliptic estimate as explicit inputs. Its wrapper [`atomicGround_source_L1`](../InfiniteZero/ClassicalAtomicSourceL1.lean) supplies them through A002 and A004. Passage to the integrals itself adds no admission and does not use A003.
 
 ## Full components and core
 
@@ -126,7 +126,7 @@ The sum is over the **two full cusp components**, each including its incoming an
 
 The [core bound](../InfiniteZero/CoreSourceBound.lean) applies Cauchy–Schwarz to `h⁻² core·ψ`, using unit mass of the actual full state and the L² norm of the compact radial potential. This component requires neither Γ nor an action cost.
 
-`exists_atomicGround_component_source_L1_of_radialData` supplies all three integrability proofs and both estimates, with the same φ, ψ, c, Γ and constants before λ. Its wrapper [`atomicGround_component_source_L1`](../InfiniteZero/ClassicalAtomicComponentSourceL1.lean) requires only `BasicConditions` and `0<β₁<β`, using the same classical interfaces A002, A004, and A005.
+`exists_atomicGround_component_source_L1_of_radialData` supplies all three integrability proofs and both estimates, with the same φ, ψ, c, Γ and constants before λ. Its wrapper [`atomicGround_component_source_L1`](../InfiniteZero/ClassicalAtomicComponentSourceL1.lean) requires only `BasicConditions` and `0<β₁<β`, using the same classical interfaces A002 and A004.
 
 ## Scope in L5.6 and completed connections
 

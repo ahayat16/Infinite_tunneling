@@ -102,7 +102,7 @@ Neither the amplitude nor the witnesses need be continuous for this structure. C
 
 ## Scope and verification
 
-The classical inputs remain explicit: magnetic realization, radial spectral data, and interior elliptic estimate. The resolvent representation of hopping additionally uses the universal classical Landau interface. No tunneling asymptotic is taken as a classical input.
+The analytic inputs remain explicit: magnetic realization, radial spectral data, and the proved interior elliptic estimate. The resolvent representation of hopping additionally uses the universal classical Landau interface. No tunneling asymptotic is taken as a classical input.
 
 The main declarations are:
 
@@ -112,6 +112,4 @@ The main declarations are:
 - [CanonicalChannelAsymptotics](../InfiniteZero/CanonicalChannelAsymptotics.lean): actual construction of the channels and formula for genuine hopping.
 - [ClassicalCanonicalChannelAsymptotics](../InfiniteZero/ClassicalCanonicalChannelAsymptotics.lean): `canonicalHopping_asymptotic` and `exists_canonicalHopping_asymptotic_separation`, under `BasicConditions`.
 
-The two classical wrappers have exactly A002, A003, A004, and A005 as transitive admissions, with no dependency path to `thm_main`. The other declarations take the classical interfaces explicitly and their proofs use only standard Lean/Mathlib axioms. The [global spectral realization](GLOBAL_PARITY_DOUBLET.md), continuity results, and [relative parity errors](../InfiniteZero/CanonicalParityRelativeErrors.lean) are now proved. Their [assembly](../InfiniteZero/ConstructedMainProof.lean) concludes `thm_main`, with the fixed witness `elementaryParameters` in [Remaining.lean](../InfiniteZero/Remaining.lean), modulo the four classical interfaces A002–A005.
-
-At the historical channel milestone, the full check `bash scripts/check.sh` had completed successfully: 3892 build tasks, 803 `assert_no_sorry` guards, then export of 2033 proved theorems, 376 definitions/contracts, four direct admissions, 26 dependent wrappers, and one final target then still open. The 256 blueprint entries and the graphs had been regenerated. These numbers do not measure the completed proportion of the final theorem’s proof.
+The two classical wrappers have exactly A002, A003, and A004 as transitive admissions, with no dependency path to `thm_main`. The other declarations take the analytic interfaces explicitly and their proofs use only standard Lean/Mathlib axioms. The [global spectral realization](GLOBAL_PARITY_DOUBLET.md), continuity results, and [relative parity errors](../InfiniteZero/CanonicalParityRelativeErrors.lean) are now proved. Their [assembly](../InfiniteZero/ConstructedMainProof.lean) concludes `thm_main`, with the fixed witness `elementaryParameters` in [Remaining.lean](../InfiniteZero/Remaining.lean), modulo the three classical admissions A002–A004.

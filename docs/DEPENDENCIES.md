@@ -17,7 +17,7 @@ flowchart TD
   RWU["Wronskian → unique real L² branch, proportional to K"]:::proved
   RMR["Actual radial Hamiltonian calculation at x≠0"]:::proved
   RPL["Planar L² → radial integrability of r f² by polar coordinates"]:::proved
-  RCS["Actual positive radial ground state: φcore=ΓK, Γ>0, modulo A004"]:::classical
+  RCS["Actual positive radial ground state: φcore=ΓK, Γ>0, modulo A002+A004"]:::classical
   RPF["Full ODE + mass → decreasing profile and f≥c on [0,h]"]:::proved
   RWC["Ordered Wronskian → f≤ΓK on all r>0, same coefficient"]:::proved
   RGN["Radial data + realization → Γ≥c h² and Γ⁻¹≤C h⁻²"]:::proved
@@ -32,7 +32,10 @@ flowchart TD
   SEP["Uniform choice of L₀; seven margins on entire supports"]:::proved
   KB["Uniform exponential kernel bounds on cells"]:::proved
   INT["Absolute convergence of all nine concrete cells"]:::proved
-  A3["A003: referenced classical free resolvent"]:::admitted
+  A3["A003: standard closed-operator Landau resolvent kernel"]:::admitted
+  RDOM["Smooth L² solution with L² Hamiltonian → closed operator domain"]:::proved
+  RSCALE["Exact kernel, phase and proper-time conversion to B=bλ, ρ=λ²E"]:::proved
+  RPHYS["Physical resolvent representation from standard kernel and realization"]:::proved
   COV["Magnetic covariance and right-state equation"]:::proved
   RES["Classical resolvent + atomic state → right representation"]:::proved
   ID["Resolvent equation → exact hopping identity"]:::proved
@@ -86,32 +89,45 @@ flowchart TD
   FDC["BasicConditions → full PDE data, via A002+A004"]:::classical
   AFF["Change x=x₀+hy: jets h^j, measure h², exact magnetic equation"]:::proved
   ECO["Actual smooth potential on compact set → uniform rescaled coefficient jets"]:::proved
-  A5["A005: referenced classical fixed-ball elliptic estimate"]:::admitted
+  EFTC["Two applications of FTC: mixed derivative integral on unit square"]:::proved
+  ECS["Cauchy–Schwarz on the unit-area square"]:::proved
+  A5["Fixed cutoff and product estimate: H² point evaluation"]:::proved
+  ECACC["Cutoff energy and Young: uniform local gradient bound"]:::proved
+  EHESS["Two integrations by parts: Hessian energy = Laplacian energy"]:::proved
+  EPOIS["Cutoff localization: local Poisson Hessian bound"]:::proved
+  EBASE["Equation + gradient bound: uniform local H² estimate"]:::proved
+  EPROD["Finite Leibniz rule: bounded coefficient jets act on H^n"]:::proved
+  ESINT["Differentiated equation and nested-ball induction: uniform H^(n+2) estimate"]:::proved
+  EEVAL["Apply H² point evaluation to ordered derivatives"]:::proved
+  ESEMB["H^(n+2) point bounds from proved point evaluation"]:::proved
+  ESNORM["Directional source → coordinate Sobolev norm; tensor norm ≤ sum of components"]:::proved
+  ESASSEMBLY["Interior estimate + embedding → directional-jet contract"]:::proved
+  EPUBLIC["classical_elliptic_interior_estimate: proved without admissions"]:::proved
   ELOC["Fixed contract + rescaling + weight → weighted jets ≤Cλ(U+F)"]:::proved
   ELL["Full data + interior → same η jets ≤CcΓλ⁴exp(−λJ−β₁log²λ)"]:::proved
-  EPUB["BasicConditions → actual corrected-state jets, via A002+A004+A005"]:::classical
+  EPUB["BasicConditions → actual corrected-state jets, via A002+A004"]:::classical
   SLE["Weighted Leibniz: common constant through n, weight after differentiation"]:::proved
   SGERM["Existing sources: germs and jets on each closed support, exact λ²ε"]:::proved
   SCP["Weighted η jets × cusp → source with local log-flat profile"]:::proved
   SCF["Same φcore,ψfull,c,Γ: scattered source λ⁶, separate local and global costs"]:::proved
-  SCLASS["BasicConditions → actual scattered source, via A002+A004+A005"]:::classical
+  SCLASS["BasicConditions → actual scattered source, via A002+A004"]:::classical
   INC["Tail ΓK + jets: incoming source ≤CcΓλ^(n+4) logFlat βin t exp(−λ(J+t/8))"]:::proved
   SPRO["Same actual states and Γ: simultaneous incoming/scattered profiles on both cusps"]:::proved
-  SPCLASS["BasicConditions → simultaneous physical profiles, via A002+A004+A005"]:::classical
+  SPCLASS["BasicConditions → simultaneous physical profiles, via A002+A004"]:::classical
   RMEAS["Real reflection: isometry, measure preservation, support exchange"]:::proved
   L1CH["Cusp profile → actual L¹ norm: t² moment, factor 2s₀, uniform threshold"]:::proved
   L1SEP["Same φ,ψ,c,Γ: incoming/scattered norms, costs βin and βglobal+βlocal"]:::proved
   L1FULL["Same ψ: three integrable sources, core Cλ² and cusp sum CΓλ⁶exp(−λJ−β₁log²λ)"]:::proved
-  L1PUB["BasicConditions → physical L¹ norms, via A002+A004+A005"]:::classical
+  L1PUB["BasicConditions → physical L¹ norms, via A002+A004"]:::classical
   SPHASE["Unit phase: canonical sources, pairings, and cells unchanged"]:::proved
   IABS["Seven cells: absolute bound K(Γ²+1)λ¹⁰exp(−λ(Aref+31δhop))"]:::proved
   IPHYS["Same physical states and Γ, correct energies; seven canonical bounds too"]:::proved
-  IPUB["BasicConditions → seven physical bounds, via A002+A004+A005"]:::classical
+  IPUB["BasicConditions → seven physical bounds, via A002+A004"]:::classical
   NRATIO["Same Γ: (Γ²+1)/(c²Γ²)≤4Dλ⁴ for c≥1/2"]:::proved
   SNORM["Scalar saddle size: inverse square and polynomial losses absorbed by exp(−a/h)"]:::proved
   STEX["Re w / 1+w prefactors: ratio of squares →1, uniform comparison by 2"]:::proved
   ENVS["Explicit positive envelopes: limiting slope, moving action, λ⁶√λ"]:::proved
-  IRELH["BasicConditions → seven physical relative bounds and sum of norms, via A002+A004+A005"]:::classical
+  IRELH["BasicConditions → seven physical relative bounds and sum of norms, via A002+A004"]:::classical
   RGU["Simplicity + positivity: unique radial state and exterior coefficient"]:::proved
   IUNIV["Relative canonical bounds for any positive radial state, its Γ, and any c≥1/2"]:::proved
   INEX["Exact incoming sources in charts: three core/core/full kernels and phase"]:::proved
@@ -121,7 +137,7 @@ flowchart TD
   SHARP["Inverse squared saddle size: coefficient 2β and any polynomial loss"]:::proved
   XADD["Actual cells: mixed integrability and exact four-term decomposition"]:::proved
   XREL["Full active cell minus incoming ≤C envelopeTex exp(−δβ log²λ)"]:::proved
-  XPUB["BasicConditions + R<2L: physical/canonical reduction, δβ=β/8, via A002+A004+A005"]:::classical
+  XPUB["BasicConditions + R<2L: physical/canonical reduction, δβ=β/8, via A002+A004"]:::classical
   EFRZ["Actual energies 1+O(h); frozen slope, moving action retained"]:::proved
   IPROF["Actual three-kernel product and phase: uniform profile 1+o(1)"]:::proved
   FHOL["Normalized profile jointly holomorphic on common bidisc"]:::proved
@@ -143,7 +159,15 @@ flowchart TD
   IMS0["Pointwise magnetic IMS and integrated IMS on tests"]:::proved
   CUT["Fixed real partition, separation, globally bounded IMS error"]:::proved
   OV["Orthogonality defect ≤exterior mass; mass controlled by energy"]:::proved
-  RAD["A004: referenced classical harmonic approximation and positive radial choice"]:::admitted
+  HARM["A004: positive normalized radial state and first two h-levels, O(h^(3/2))"]:::admitted
+  HLEVEL["Oscillator ordering, first two values and positive gap"]:::proved
+  HLIMIT["O(h^(3/2)) → level limits → gap as coupling tends to infinity"]:::proved
+  HMINMAX["Two-dimensional min-max → lower bound on ground-state complement"]:::proved
+  HSCALE["Semiclassical operator and exact positive scaling of min-max levels"]:::proved
+  HASS["classical_radial_harmonic: certificate assembled from A002+A004"]:::classical
+  COREUP["Quadratic core bound and variational energy upper bound"]:::proved
+  FIELD["Exact field conversion and operator-to-test gap transfer"]:::proved
+  RAD["Core spectral contract assembled from A002+A004"]:::classical
   COER["Radial data → full-potential coercivity on tests"]:::proved
   IBP["Integration by parts: Hamiltonian = form on tests"]:::proved
   GRAPH["Linear test graph, closure, and L² representatives"]:::proved
@@ -211,7 +235,7 @@ flowchart TD
   SADDLE["Complex saddle: active cell and positive envelope"]:::proved
   CAN["Same witnesses: actual construction of ChannelAsymptotics"]:::proved
   HOP["Channels + explicit classical resolvent: cosine of actual hopping"]:::proved
-  HOPH["BasicConditions → ∃L₀∀L≥L₀: oscillatory hopping, modulo A002–A005"]:::classical
+  HOPH["BasicConditions → ∃L₀∀L≥L₀: oscillatory hopping, modulo A002–A004"]:::classical
   INACT["Seven cells and sum of norms ≤C envelopeTex exp(−15δhop λ)"]:::proved
   CH["Nine cells → real cosine formula for hopping"]:::proved
   SCH["Exact algebraic Schur elimination"]:::proved
@@ -233,8 +257,8 @@ flowchart TD
   OP["Transfer of eigenspaces and parity to L²"]:::proved
   MAINASM["ConstructedMainAssembly: actual modes, hopping, Schur, continuity"]:::proved
   MAINPROOF["ConstructedMainProof: all original data constructed"]:::proved
-  ELEMMAIN["elementaryPotential_main: fixed elementaryParameters, via A002–A005"]:::classical
-  TM["thm_main proved without direct sorry; only admissions A002–A005"]:::classical
+  ELEMMAIN["elementaryPotential_main: fixed elementaryParameters, via A002–A004"]:::classical
+  TM["thm_main proved without direct sorry; only admissions A002–A004"]:::classical
   EN --> EFRZ
   CKP --> IPROF
   EFRZ --> IPROF
@@ -284,6 +308,17 @@ flowchart TD
   P --> V --> EX
   P --> RHYP
   RHYP --> RAD
+  HARM --> HASS
+  HLEVEL --> HASS
+  HLIMIT --> HASS
+  HMINMAX --> HASS
+  HSCALE --> HASS
+  A2 --> HASS
+  HASS --> RAD
+  A2 --> RAD
+  P --> COREUP
+  COREUP --> RAD
+  FIELD --> RAD
   J --> K
   K --> RKE
   LP --> RKE
@@ -311,7 +346,7 @@ flowchart TD
   A2 --> RGH
   K --> RCV
   RCV --> RCI
-  A3 --> RCI
+  RPHYS --> RCI
   RCS --> RCI
   RGN --> SRC
   K --> LP0
@@ -333,7 +368,11 @@ flowchart TD
   P --> INT
   K --> INT
   COV --> RES
-  A3 --> RES
+  A3 --> RPHYS
+  A2 --> RDOM
+  RDOM --> RPHYS
+  RSCALE --> RPHYS
+  RPHYS --> RES
   ATOM --> RES
   RES --> ID
   INT --> ID
@@ -423,9 +462,23 @@ flowchart TD
   RAD --> FDC
   P --> ECO
   AFF --> ECO
+  EHESS --> EPOIS
+  ECACC --> EBASE
+  EPOIS --> EBASE
+  EBASE --> ESINT
+  EPROD --> ESINT
+  EFTC --> A5
+  ECS --> A5
+  EPROD --> A5
+  A5 --> ESEMB
+  EEVAL --> ESEMB
+  ESNORM --> ESASSEMBLY
+  ESINT --> EPUBLIC
+  ESEMB --> EPUBLIC
+  ESASSEMBLY --> EPUBLIC
   AFF --> ELOC
   ECO --> ELOC
-  A5 --> ELOC
+  EPUBLIC --> ELOC
   FDP --> ELL
   WLOCAL --> ELOC
   CU --> ELOC
@@ -434,7 +487,7 @@ flowchart TD
   ELL --> EPUB
   A2 --> EPUB
   RAD --> EPUB
-  A5 --> EPUB
+  EPUBLIC --> EPUB
   P --> SGERM
   V --> SGERM
   DFLAT --> SCP
@@ -445,7 +498,7 @@ flowchart TD
   SCF --> SCLASS
   A2 --> SCLASS
   RAD --> SCLASS
-  A5 --> SCLASS
+  EPUBLIC --> SCLASS
   SCF --> SRC
   DSPAT --> INC
   DFLAT --> INC
@@ -458,7 +511,7 @@ flowchart TD
   SPRO --> SPCLASS
   A2 --> SPCLASS
   RAD --> SPCLASS
-  A5 --> SPCLASS
+  EPUBLIC --> SPCLASS
   SPRO --> SRC
   CJ --> L1CH
   LF --> L1CH
@@ -471,7 +524,7 @@ flowchart TD
   L1FULL --> L1PUB
   A2 --> L1PUB
   RAD --> L1PUB
-  A5 --> L1PUB
+  EPUBLIC --> L1PUB
   L1SEP --> XLOG
   KB --> IABS
   F0 --> IABS
@@ -483,7 +536,7 @@ flowchart TD
   IPHYS --> IPUB
   A2 --> IPUB
   RAD --> IPUB
-  A5 --> IPUB
+  EPUBLIC --> IPUB
   RGN --> NRATIO
   WDEC --> NRATIO
   PG --> SNORM
@@ -497,7 +550,7 @@ flowchart TD
   INACT --> IRELH
   A2 --> IRELH
   RAD --> IRELH
-  A5 --> IRELH
+  EPUBLIC --> IRELH
   RCHOICE --> RGU
   RGU --> IUNIV
   INACT --> IUNIV
@@ -519,7 +572,7 @@ flowchart TD
   XREL --> XPUB
   A2 --> XPUB
   RAD --> XPUB
-  A5 --> XPUB
+  EPUBLIC --> XPUB
   XREL --> SADDLE
   P --> CUT
   CUT --> OV
@@ -551,7 +604,7 @@ flowchart TD
   ATOM --> EN
   ATOM --> ASRC
   EN --> ASRC
-  A3 --> ASRC
+  RPHYS --> ASRC
   RES --> ASRC
   INT --> ASRC
   IBP --> LOC
@@ -724,9 +777,9 @@ flowchart TD
   ID --> HOP
   HOP --> HOPH
   A2 --> HOPH
-  A3 --> HOPH
+  RPHYS --> HOPH
   RAD --> HOPH
-  A5 --> HOPH
+  EPUBLIC --> HOPH
   SADDLE --> CH
   INACT --> CH
   ID --> CH
@@ -758,9 +811,9 @@ flowchart TD
   EX --> ELEMMAIN
   MAINPROOF --> ELEMMAIN
   A2 --> ELEMMAIN
-  A3 --> ELEMMAIN
+  RPHYS --> ELEMMAIN
   RAD --> ELEMMAIN
-  A5 --> ELEMMAIN
+  EPUBLIC --> ELEMMAIN
   ELEMMAIN --> TM
   classDef proved fill:#bce8ba,stroke:#367a35
   classDef definition fill:#c7dbef,stroke:#38658f
@@ -769,15 +822,15 @@ flowchart TD
   classDef open fill:#e5bbef,stroke:#824394
 ```
 
-The remaining purple nodes concern stronger formulations or substatements unnecessary for the proved variant. `thm_main` now has a proof without a direct `sorry`, obtained from `elementaryPotential_main` for the literal `elementaryParameters`. Its four admitted classical inputs remain separately identified; no tunneling result is added to that list.
+The remaining purple nodes concern stronger formulations or substatements unnecessary for the proved variant. `thm_main` now has a proof without a direct `sorry`, obtained from `elementaryPotential_main` for the literal `elementaryParameters`. Its three admitted classical inputs remain separately identified; no tunneling result is added to that list.
 
-A002 concerns the [classical operator realization](CLASSICAL_OPERATOR_REALIZATION.md), A003 the [free resolvent kernel](CLASSICAL_LANDAU_RESOLVENT.md), A004 [harmonic approximation for the radial core alone](RADIAL_HARMONIC_CONTRACT.md), and A005 the [fixed-ball elliptic estimate](CLASSICAL_ELLIPTIC_INTERIOR.md). These four referenced admissions contain no tunneling estimate or nonradial-potential gap. The latter follows from the proved localization and Schur construction. The original obligations needed for the theorem are now assembled; their details and the limits of the variants used are in [ADMISSIONS.md](ADMISSIONS.md).
+A002 concerns the [classical operator realization](CLASSICAL_OPERATOR_REALIZATION.md), A003 the [standard closed-operator resolvent kernel](CLASSICAL_LANDAU_RESOLVENT.md), and A004 the [first two radial semiclassical levels and positive ground state](RADIAL_HARMONIC_CONTRACT.md). Lean proves the passage from smooth solutions to the closed operator domain and the kernel changes of scale around A003. It derives the radial oscillator ordering, gap limit and min-max complement inequality from A004. The [point-evaluation and uniform elliptic estimates](CLASSICAL_ELLIPTIC_INTERIOR.md), formerly A005, are fully proved. The three remaining admissions contain no tunneling estimate or nonradial-potential gap. The latter follows from the proved localization and Schur construction. Details are in [ADMISSIONS.md](ADMISSIONS.md).
 
 The connection to double-well trials now has separate proofs. [`ParityTrialStates`](../InfiniteZero/ParityTrialStates.lean) establishes reality of the overlap, exact masses `2(1±s)`, normalization, and orthogonality of even and odd trials. [`MagneticOverlapTail`](../InfiniteZero/MagneticOverlapTail.lean) bounds squared overlap by four times the radial exterior mass. [`CanonicalOverlapDecay`](../InfiniteZero/CanonicalOverlapDecay.lean) deduces `|sλ|≤C/λ exp(−dλ)`, with C,d,T chosen before all λ≥T and L≥4r₀. Both wrappers in [`ClassicalCanonicalOverlapDecay`](../InfiniteZero/ClassicalCanonicalOverlapDecay.lean) use exactly A002+A004; R<2L suffices for the zero limit since 8r₀<R. This is coarse exponential decay, without a fine action rate or a continuity hypothesis on the canonical-state choice.
 
 [`DoubleWellResidual`](../InfiniteZero/DoubleWellResidual.lean) proves `(Hdouble−Eatom)φL=λ²vRφL` and its reflected identity, where Eatom is the same full well's energy, with no gauge error. [`DoubleWellTrialDomain`](../InfiniteZero/DoubleWellTrialDomain.lean) recovers these residuals in the actual L² domain by bounded perturbation under the displayed realizations. [`ParityTrialDomain`](../InfiniteZero/ParityTrialDomain.lean) also places the normalized trials there, with norm one and L² parity when |s|<1. These modules compile and are audited; the global check and export completed successfully.
 
-[Coercivity on the complement of the two states](TWO_WELL_COERCIVITY.md) is now proved. `GroundStateRankOne`, `MagneticTestRankOne`, and `AtomicGroundRankOne` extract the exact full-ground-state gap from the certificate, then `MagneticTrialCovariance` and `TranslatedAtomicGap` transport it to both wells. `DoubleWellLocalizationCutoffs` constructs fixed cutoffs and bounds their errors; `LocalizedOverlap`, `MagneticLocalizedForm`, and `DoubleWellLocalizedEstimates` identify local forms and control both overlap losses. `MagneticIMSThree` and `DoubleWellCoercivityScalar` give the assembly `DoubleWellTestCoercivity`, then `MagneticGraphTwoModeLowerBound` transfers the same inequality to the actual domain in `DoubleWellOperatorCoercivity`. The coefficient is hRad.gap * λ / 4; the threshold precedes all L≥L₀, full ground states, and their L² representatives. The wrapper `ClassicalDoubleWellCoercivity.doubleWell_complement_coercivity` uses exactly A002+A004, without A003 or A005.
+[Coercivity on the complement of the two states](TWO_WELL_COERCIVITY.md) is now proved. `GroundStateRankOne`, `MagneticTestRankOne`, and `AtomicGroundRankOne` extract the exact full-ground-state gap from the certificate, then `MagneticTrialCovariance` and `TranslatedAtomicGap` transport it to both wells. `DoubleWellLocalizationCutoffs` constructs fixed cutoffs and bounds their errors; `LocalizedOverlap`, `MagneticLocalizedForm`, and `DoubleWellLocalizedEstimates` identify local forms and control both overlap losses. `MagneticIMSThree` and `DoubleWellCoercivityScalar` give the assembly `DoubleWellTestCoercivity`, then `MagneticGraphTwoModeLowerBound` transfers the same inequality to the actual domain in `DoubleWellOperatorCoercivity`. The coefficient is hRad.gap * λ / 4; the threshold precedes all L≥L₀, full ground states, and their L² representatives. The wrapper `ClassicalDoubleWellCoercivity.doubleWell_complement_coercivity` uses exactly A002+A004, without A003.
 
 The [sector construction](PARITY_SPECTRAL_CONSTRUCTION.md) now extends this block. `L2ParitySectors` identifies `(I±J)/2` with orthogonal projections onto closed sectors. `DoubleWellInversionGraph` and `DoubleWellParityGraph` prove invariance of the actual graph; `ReducingSubspaceRestriction` then `DoubleWellParityOperator` give self-adjoint restrictions with exact domain and action. `ParityTrialL2`, `AtomicTranslatedOverlap`, and `ParityTrialCoercivity` retain the lower bound Eatom+γλ/4 on each trial's complement in its sector, with a common threshold before L.
 
@@ -790,16 +843,16 @@ Trials remain distinct from reconstructed eigenvectors. `ParityOperatorDecomposi
 `ParityGroundEigenspaces` and `PhysicalParityModes` give the exact global eigenspaces and their normalized representatives; `ParityGlobalGroundGap` gives the gap even at crossings. `ParityDoubletRealization` then `ConstructedDoubleWellSpectral` assemble `TwoModeRealization`. `doubleWell_twoModeRealization hp cert` retains this package directly for `LocalChannelAnalyticData.modes`; `doubleWell_spectral_realization hp cert` deduces the spectral contract. Both supply the gap, with a threshold before L, via A002+A004.
 
 `ParitySchurEnergyShift` and `ConstructedParitySchurEnergyBound` control the actual correction by residual²/(hRad.gap·λ/8). `PhysicalResidualMass` and `CanonicalParityCorrectionMass` reduce it to (32/hRad.gap)λ³ times the opposite-support mass. `AtomicOppositeSupportFineBounds` gives that mass with λ¹² and action 2(G+J); `CanonicalParityFineBound` therefore retains λ¹⁵. `OppositeSupportEnvelopeComparison` absorbs nine powers and the saddle cost into margin J, retaining exactly the same c,Γ. `CanonicalParityRelativeErrors` thus proves that the defect and corrections are o(A) for the same `ConcreteChannelWitnesses W` as the hopping. It does not assume the squared residual itself is o(A). See [OPPOSITE_SUPPORT_ESTIMATES.md](OPPOSITE_SUPPORT_ESTIMATES.md).
-`ConstructedMainAssembly` combines these data with the actual modes and continuity results; `ConstructedMainProof` constructs the inputs. `elementaryPotential_main`, then `thm_main`, conclude for fixed parameters via A002–A005, with no direct `sorry` in either theorem.
+`ConstructedMainAssembly` combines these data with the actual modes and continuity results; `ConstructedMainProof` constructs the inputs. `elementaryPotential_main`, then `thm_main`, conclude for fixed parameters via A002–A004, with no direct `sorry` in either theorem.
 `ClassicalDoubleWellParityGround.doubleWell_parityGrounds` instantiates exactly A002+A004 and keeps the threshold before λ and L. Its other two wrappers give [continuity by dilation](DILATION_AND_CONTINUITY.md) of `parityEnergy` and `signedSplitting` for every λ>0 at fixed admissible L. `MagneticDilationL2`, `UnitPhaseDistance`, then `AtomicGroundDilationComparison` compare actual ground states after dilation modulo a unit phase, with mass defect ≤C|λ−μ|. `HoppingContinuity` combines a bilinear bound with continuity of the integral at a fixed dilated reference: complex canonical hopping is continuous on `Ici T`, with a threshold before any separation L. This proof assumes no continuous phase choice. It retains hRad, hAcore, and hApot as arguments, and its targeted audit finds only standard axioms. The compiled wrapper `canonicalHopping_continuous hp`, in `ClassicalHoppingContinuity`, instantiates only A002+A004. At this milestone, the global audit of that stage was still in progress.
 
 The [global Agmon proof](AGMON_DECAY.md), in [`MagneticAgmonBounded`](../InfiniteZero/MagneticAgmonBounded.lean), [`AtomicAgmonWeight`](../InfiniteZero/AtomicAgmonWeight.lean), and [`AtomicAgmonGlobal`](../InfiniteZero/AtomicAgmonGlobal.lean), gives an absolute tail with constants fixed before coupling. It does not give fine action rates, the weighted inverse, or source amplitudes. `SchurGroundEstimates`, `SchurResidualBounds`, and `SchurGroundQuantitative` supply quantitative controls retaining the certificate and correction from the same root. `AtomicGroundAgmon` applies the tail to actual ground states from radial data; `AtomicPerturbationTail` controls the concrete residual by exterior mass, without assuming residual decay. `AtomicResidualDecay` then `AtomicGroundComparison` now assemble exponential comparison of actual energies and normalized L² ground vectors, with positive real overlap. Wrappers in `Remaining` require only `BasicConditions`, modulo A002+A004. The [exact scope](ATOMIC_COMPARISON.md) excludes prescribed canonical phases, state continuity, and pointwise source amplitudes; no separate c_h→1 theorem is claimed.
 The [weighted inverse](CUSP_WEIGHTED_INVERSE.md) is constructed separately for the exact Lipschitz weight, for E≤Ecore, with bound 12/(γλ) including the projection. This variant covers the full ground energy; it does not claim the TeX window above Ecore. The [weighted response](ATOMIC_WEIGHTED_RESPONSE.md) now uses the same resolvent and positive reference, whose gap is transferred by `RadialCoreGroundChoice`. `WeightedSchurCorrection` and `SchurResponseEquation` identify the actual correction and its domain equation. `AtomicGroundWeightedResponse` retains its bound by the effective forcing; `AtomicWeightedResidual` and `AtomicGroundWeightedDecay` give the first absolute exponential decay and c∈[1/2,1]. `AtomicResponseWavefunction` recovers actual smooth representatives and the pointwise PDE for exactly the same certificate. `AtomicGroundWeightedDecomposition` assembles these wavefunctions, orthogonality, and weighted mass of their difference. Constants precede coupling; states precede κ. These compiled connections require no further admission. At that milestone, arrows toward fine sources were still dotted.
 The wrapper `CuspParameters.atomicGround_weighted_decomposition` requires only `BasicConditions` and supplies this decomposition via A002+A004; no free-resolvent representation A003 enters. The [fine assembly](CUSP_FINE_FORCING.md) now applies the same state's exact tail to the actual forcing: CΓh⁻²exp(−J/h−β₁log²(1/h)) for any 0<β₁<β. The same response retains cΓ, with polynomial cost h⁻³. `AtomicGroundFineDecomposition` preserves wavefunctions, orthogonality, the same tail coefficient, and PDE; its public wrapper depends only on A002 and A004, as the dependency export verifies. `AtomicEnergyShiftForcing` bounds the semiclassical shift by the single factor 3‖exp(κλT)Wφcore‖, using c≥1/2 and the scalar Schur equation.
-The [full PDE data](ATOMIC_FINE_RESPONSE_DATA.md) are now controlled at every fixed order. An upper bound on the radial coefficient from normalized mass and the action gap give [weighted radial jets without Γ](RADIAL_WEIGHTED_JETS.md); the energy-shift term thus retains only one cΓ factor. The same assembly supplies the exact PDE, fine correction mass, and local L² masses and norms of all required right-hand-side jets on a fixed neighborhood. Its public wrapper `atomicGround_fine_response_data` uses only A002+A004. The [elliptic assembly](ATOMIC_RESPONSE_JETS.md) now controls jets of the same correction with prefactor cΓλ⁴, additionally via A005. Rescaling, uniform coefficients, and weight transport are proved separately. The [full scattered source](CUSP_SCATTERED_SOURCE.md) is now controlled for the same states: multiplication by λ²W retains both log-flat factors with polynomial cost λ⁶. Relative incoming profiles, the active integral, and its connection to hopping are now proved in the [channel assembly](ACTIVE_CHANNEL_ASYMPTOTIC.md).
+The [full PDE data](ATOMIC_FINE_RESPONSE_DATA.md) are now controlled at every fixed order. An upper bound on the radial coefficient from normalized mass and the action gap give [weighted radial jets without Γ](RADIAL_WEIGHTED_JETS.md); the energy-shift term thus retains only one cΓ factor. The same assembly supplies the exact PDE, fine correction mass, and local L² masses and norms of all required right-hand-side jets on a fixed neighborhood. Its public wrapper `atomicGround_fine_response_data` uses only A002+A004. The [elliptic assembly](ATOMIC_RESPONSE_JETS.md) now controls jets of the same correction with prefactor cΓλ⁴, using the proved elliptic estimate. Rescaling, uniform coefficients, and weight transport are proved separately. The [full scattered source](CUSP_SCATTERED_SOURCE.md) is now controlled for the same states: multiplication by λ²W retains both log-flat factors with polynomial cost λ⁶. Relative incoming profiles, the active integral, and its connection to hopping are now proved in the [channel assembly](ACTIVE_CHANNEL_ASYMPTOTIC.md).
 Actual sector modes are constructed by Schur and identified with the first two global min–max levels; their corrections relative to the envelope are proved by the [opposite-support assembly](OPPOSITE_SUPPORT_ESTIMATES.md). The [local incoming bound and simultaneous assembly](CUSP_SOURCE_PROFILES.md) are proved: same cΓ, radial gain t/8, loss λ^(n+4), and the same states as for the scattered source. All three margins are independent; the extra threshold only fixes the core energy and scale needed for kernel jets.
 The [L¹ norms](CUSP_SOURCE_L1.md) are now proved, with integrability of actual sources and identification with their L¹ classes. The chart change retains factor 2s₀ and Jacobian t²; reflection gives the same bound on the other cusp. Global and local costs of the scattered part add. The sum of full cusp components and the separate core bound are assembled for the same state. These bounds are applied to the seven inactive cells in `AtomicInactiveCells`, then compared with the envelope in `AtomicInactiveRelativeTex`.
 
-The [exterior radial block](RADIAL_EXTERIOR_KERNEL.md) separately proves the integral kernel's ODE, radial L² property, and uniqueness of the real L² branch from the ODE alone. Derivatives have finite energy by Caccioppoli; this property is not a remaining input to final uniqueness. Application to the actual core state is now established: A004 supplies the classical positive radial choice, while differential reduction and the polar connection are proved in Lean. `CuspParameters.radialCore_kernel` concludes the exact exterior formula with Γ>0, modulo A004 alone. `RadialCoreProfileEstimates` proves profile decay and a uniform positive bound on [0,h]. `RadialCoreKernelComparison` compares the actual profile to the same ΓK on all r>0 through the Wronskian sign. `RadialCoreNormalizationLower` deduces Γ≥c h² and Γ⁻¹≤C h⁻², with constants before coupling, state, and coefficient. The wrapper `CuspParameters.radialCore_normalization_lower` supplies inputs via A002+A004 alone. This variant suffices for polynomial losses under strict exponential margins; B.1, the h^(3/2) power of B.2, and the harmonic limit are not claimed. The full `scripts/check.sh` check passed, including `Verification` and audit export.
+The [exterior radial block](RADIAL_EXTERIOR_KERNEL.md) separately proves the integral kernel's ODE, radial L² property, and uniqueness of the real L² branch from the ODE alone. Derivatives have finite energy by Caccioppoli; this property is not a remaining input to final uniqueness. Application to the actual core state is now established: the assembly from A002+A004 supplies the positive radial choice, while differential reduction and the polar connection are proved in Lean. `CuspParameters.radialCore_kernel` concludes the exact exterior formula with Γ>0, modulo A002+A004. `RadialCoreProfileEstimates` proves profile decay and a uniform positive bound on [0,h]. `RadialCoreKernelComparison` compares the actual profile to the same ΓK on all r>0 through the Wronskian sign. `RadialCoreNormalizationLower` deduces Γ≥c h² and Γ⁻¹≤C h⁻², with constants before coupling, state, and coefficient. The wrapper `CuspParameters.radialCore_normalization_lower` supplies inputs via A002+A004 alone. This variant suffices for polynomial losses under strict exponential margins; B.1, the h^(3/2) power of B.2, and the harmonic limit are not claimed. The full `scripts/check.sh` check passed, including `Verification` and audit export.
 
 The auxiliary identities `LandauExteriorConvolution`, `RadialCoreSourceRepresentation`, `RadialLandauAverage`, and `RadialCoreNormalization` give another branch: pointwise exterior representation and an exact polar coefficient formula, with explicit A003 for the physical representation. The Wronskian lower-bound proof does not use this branch. See [RADIAL_NORMALIZATION.md](RADIAL_NORMALIZATION.md).

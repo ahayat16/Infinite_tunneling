@@ -1,42 +1,82 @@
-# Classical identification of the Landau resolvent
+# Standard Landau resolvent and its physical normalization
 
-Documentary and mathematical verification dated September 17, 2026. This
-document justifies the classical admission **A003**,
-`free_landau_resolvent_kernel`, in
-[Remaining.lean](../InfiniteZero/Remaining.lean). Its universal contract is
-defined in
-[LandauResolventBridge.lean](../InfiniteZero/LandauResolventBridge.lean);
-it connects the free differential expression with its actual resolvent
-kernel. The application to `RightResolventRepresentation` is proved in
-the same module. This document provides a precise reference and the
-natural-language proof of the classical identification; it does not
-replace its future Lean proof.
+Admission **A003** is
+[`classical_standard_landau_resolvent`](../InfiniteZero/ClassicalLandauResolvent.lean).
+It identifies the integral kernel of the closed free Landau operator at
+Planck constant one. The passage from a smooth `L²` solution to the
+closed operator domain, and all coupling and kernel scaling factors,
+are proved in Lean. The existing public theorem
+`free_landau_resolvent_kernel` is a proved consequence of A002 and A003.
 
-**Conclusion: the phase and prefactor of the current kernel are correct**
-for the repository's conventions. The kernel on the diagonal must be
-treated as a measurable representative, and the operator domain and the
-almost-everywhere integral representation must be justified separately.
-The atomic wave function may be complex; no real-valuedness assumption is
-needed.
+## Exact remaining statement
 
-## Verified primary reference
+For `B>0` and `ρ>0`, let
+
+\[
+ H_B=\left(-i\nabla-\frac B2x^\perp\right)^2,
+ \qquad x^\perp=(-x_1,x_0),
+\]
+
+with the self-adjoint realization obtained by closing its graph on
+`C_c^∞(ℝ²)`. In Lean this is `magneticOperator B 1 0`, with its fixed
+operator domain. Set, off the diagonal,
+
+\[
+ G_{B,\rho}(x,y)=e^{-iB(x\wedge y)/2}\frac{B}{4\pi}
+ \int_0^\infty
+ \frac{\exp\!\left(-\rho t-\frac B4\coth(Bt)|x-y|^2\right)}
+      {\sinh(Bt)}\,dt.
+\]
+
+A003 states: for every `U∈D(H_B)` and every smooth compactly supported
+complex function `f`, if
+
+\[
+ (H_B+\rho)U=[f]_{L^2},
+\]
+
+then
+
+\[
+ U=\left[x\longmapsto\int_{\mathbb R^2}G_{B,\rho}(x,y)f(y)\,dy\right]_{L^2}.
+\]
+
+The predicate is
+[`HasStandardLandauResolvent`](../InfiniteZero/StandardLandauResolvent.lean).
+It uses `Represents` for equality almost everywhere and
+`freeLandauKernel B 1 ρ` for the displayed kernel. The value assigned on
+the diagonal does not affect this identity. The contract concerns
+vectors already in the closed operator domain; it makes no smoothness
+or maximal-domain assertion about `U`.
+
+## Primary references
 
 H. D. Cornean, S. Fournais, R. L. Frank, and B. Helffer,
 *Sharp trace asymptotics for a class of 2D-magnetic operators*,
 Annales de l'Institut Fourier **63** (2013), 2457–2513,
-[DOI 10.5802/aif.2835](https://doi.org/10.5802/aif.2835).
-Equation **(B.21), printed page 2508**, in the proof of Proposition B.9,
-gives the heat kernel for
-`H = (−i∇−A)²`, `A(x)=b(−x₂,x₁)/2`, with the negative phase
-`exp(−ib x∧y/2)` and coefficient `b/(4π sinh(bt))`.
-The passage to the resolvent by integrating the semigroup is also used on
-page 2509.
-[Published PDF, page 2508](https://www.numdam.org/item/10.5802/aif.2835.pdf#page=53).
-The PDF was consulted: page 53 of the file corresponds to page 2508 of the
-article. The published version fixes the pagination reference here.
+[DOI 10.5802/aif.2835](https://doi.org/10.5802/aif.2835),
+equation **(B.21), printed p.2508**
+([PDF p.53](https://www.numdam.org/item/10.5802/aif.2835.pdf#page=53)),
+gives the heat kernel in precisely this symmetric gauge. Its negative
+magnetic phase and prefactor agree with the formula above. Integrating
+against `exp(−ρt)` gives the resolvent kernel. The same paper uses the
+Laplace-transform representation for its differentiated resolvent on
+printed p.2509.
 
-The calculations below directly check the changes of scale and spell out
-the argument adapted to the repository's definitions.
+B. Helffer and K. Pankrashkin, *Semiclassical reduction for magnetic
+Schrödinger operator with periodic zero-range potentials and applications*,
+[arXiv:0802.1414v2, equations (5.1)–(5.2), pp.11–12](https://arxiv.org/pdf/0802.1414v2#page=11),
+state the heat kernel and its Laplace transform as a resolvent kernel
+directly. Their operator uses Landau gauge, so its phase differs from
+the symmetric-gauge phase used here.
+
+Thus A003 is the standard resolvent consequence of the same-gauge
+Mehler formula and the classical Laplace-transform identity; (B.21)
+itself is a heat-kernel formula. The remaining classical input includes
+identification with the closed operator and the integral representation.
+The following natural-language proof records the sign, integrability,
+and almost-everywhere conventions. The subsequent Lean reductions do
+not require a change of gauge.
 
 ## Conventions and rescaling
 
@@ -48,9 +88,9 @@ Write `x=(x₀,x₁)`, `x⊥=(−x₁,x₀)`, and
 \]
 
 Take its nonnegative self-adjoint realization on `L²(ℝ²)`, obtained by
-closing the operator on `C_c^∞`. This choice of realization is a classical
-operator-theoretic fact to be justified in the Lean bridge; a differential
-formula alone does not suffice to define the closed domain.
+closing the operator on `C_c^∞`. The repository fixes this graph explicitly;
+its realization properties are the unchanged input A002. The domain
+argument for smooth inhomogeneous solutions is proved below.
 
 With `λ=1/h`, the repository's expression `magneticHamiltonian b λ 0` is
 `h⁻² H_{b,h}`. More generally,
@@ -100,7 +140,7 @@ equations. As `t→0+`, they reproduce the free kernel
 initial condition; the identification with the semigroup of the closed
 operator then uses uniqueness of the evolution in `L²`.
 
-## Integrating the semigroup
+## Natural-language proof: integrating the semigroup
 
 For `E>0`, the spectral calculus gives, in `L²`,
 
@@ -211,16 +251,18 @@ the model. This property is proved by
 `rightPhysicalSource_isTestFunction`, without assuming that `φ^R` has
 compact support.
 
-The passage to the closed domain is included in the universal classical
-result: if `u∈C^∞∩L²` satisfies the equation with `f∈C_c^∞`, then
-`H_free u=f−λ²Eu∈L²` in the distributional sense. Thus `u` belongs to
-the maximal domain. Essential self-adjointness of the free Hamiltonian
-identifies this domain with that of its closure on `C_c^∞`; see the
-[classical justification of the realization](CLASSICAL_OPERATOR_REALIZATION.md),
-in particular Shubin, the beginning of Section 5 and Theorem 5.2. This
-argument is what permits the application of the resolvent to the
-classical solution. There is no need to admit a special covariance
-property on the domain of the atomic state.
+The passage to the closed domain is proved in
+[MagneticInhomogeneousDomain.lean](../InfiniteZero/MagneticInhomogeneousDomain.lean).
+If `u∈C^∞∩L²` satisfies the equation with `f∈C_c^∞`, then
+`H_free u=f−λ²Eu∈L²`. Two integrations by parts give
+`⟨H_free φ,u⟩=⟨φ,H_free u⟩` for every compactly supported smooth test
+function `φ`. This equality is continuous in the graph pair
+`(φ,H_free φ)`, so it extends to the closure of the test graph. It places
+`u` in the adjoint domain with the required operator value.
+Self-adjointness from A002 identifies this graph with the original
+operator graph. The Lean argument uses only `graph_eq` and `selfAdjoint`
+from the realization certificate; it does not use its eigenfunction
+correspondence or assume a domain property for the atomic state.
 
 The equation becomes `(H_{b,h}+E)φ^R=−h²F_R`, so
 
@@ -245,10 +287,10 @@ The argument requires neither simplicity, nor pointwise positivity of
 separation `L`. The potential is real, but **the eigenfunction is not
 assumed real**. The right state uses inversion, not complex conjugation.
 
-## Admitted contract and precise formalization boundary
+## Proved passage to the physical resolvent interface
 
-The contract `FreeLandauResolventKernel b λ E` is stated universally:
-for all `u∈C^∞∩L²` and `f∈C_c^∞`,
+The existing contract `FreeLandauResolventKernel b λ E` states that,
+for every `u∈C^∞∩L²` and `f∈C_c^∞`,
 
 \[
  (\texttt{magneticHamiltonian}(b,\lambda,0)+\lambda^2E)u=f
@@ -257,43 +299,56 @@ for all `u∈C^∞∩L²` and `f∈C_c^∞`,
  \qquad h=\lambda^{-1}.
 \]
 
-The factor `h²` follows from
-`magneticHamiltonian(b,λ,0)+λ²E = h⁻²(H_{b,h}+E)`.
-The natural-language proof is to pass to the closed domain using the
-maximal-domain argument above, multiply the equation by `h²`, then apply
-the positive inverse identified through Mehler's formula and the Laplace
-transform. Strict positivity of `E` ensures invertibility and uniqueness
-of the `L²` solution. The signs, constants, integrability, and
-almost-everywhere equality are checked in the preceding sections.
+This contract is now derived from A002 and A003. The proof uses
+`B=bλ` and `ρ=λ²E`, without changing spatial coordinates:
 
-The declaration `free_landau_resolvent_kernel` admits exactly this
-contract for `b,λ,E>0`. `HasPositiveLandauResolvent b` collects this same
-interface over all `λ,E>0`, without any atomic data. There is no `sorry`
-specific to the constructed potential or its cells in this bridge.
+\[
+ \texttt{magneticHamiltonian}(b,\lambda,0)
+ =\texttt{magneticHamiltonian}(b\lambda,1,0),
+\]
 
-The repository's integral definitions and phase calculations are already
-checked by Lean. `canonicalHopping_eq_source_of_resolvent` then proves
-the two-source identity from this AE representation and the integrability
-of the cells. The classical part collected in A003 breaks down as
-follows:
+\[
+ h^2\,\texttt{freeLandauKernel}(b,h,E,x,y)
+ =\texttt{freeLandauKernel}(b\lambda,1,\lambda^2E,x,y).
+\]
 
-1. Identify the semigroup of the closure of the free graph with Mehler's
-   formula.
-2. Obtain its positive inverse through the Laplace transform.
-3. Identify this inverse with the measurable kernel, disregarding the
-   diagonal.
-4. Identify the maximal domain with the domain of the closure and pass
-   between the unscaled operator and `h⁻²H_{b,h}`.
+The first equality follows by expanding the magnetic derivatives. For
+the second, the substitution `τ=λt` in the defining proper-time integral
+gives the Jacobian `λ`; the radial prefactor and magnetic phase then
+agree exactly. This identity is proved for the total Bochner-integral
+definitions, including their assigned diagonal values.
 
-The application to the atomic state is **proved**:
+| Proved step | Lean source |
+| --- | --- |
+| Equality of the free differential expressions at fields `b,λ` and `bλ,1` | [StandardLandauResolvent.lean](../InfiniteZero/StandardLandauResolvent.lean) |
+| Proper-time substitution, radial prefactor, phase, and source-integral scaling | [LandauResolventScaling.lean](../InfiniteZero/LandauResolventScaling.lean) |
+| Smooth `L²` solution with `L²` Hamiltonian belongs to the closed graph | [MagneticInhomogeneousDomain.lean](../InfiniteZero/MagneticInhomogeneousDomain.lean) |
+| Standard kernel formula implies the physical interface | [LandauResolventAssembly.lean](../InfiniteZero/LandauResolventAssembly.lean), `freeLandauResolventKernel_of_standard` |
+| Instantiation of A002 and A003 | [Remaining.lean](../InfiniteZero/Remaining.lean), `free_landau_resolvent_kernel` |
+
+The domain and scaling lemmas have no admitted dependencies. The
+assembly takes the realization and standard kernel identity as explicit
+hypotheses. `HasPositiveLandauResolvent b` retains the same public
+interface over all `λ,E>0`.
+
+What remains in A003 is the classical closed-operator kernel identity
+at Planck constant one: Mehler's formula, its Laplace-transform resolvent
+consequence, and identification of that inverse with the measurable
+kernel. These are the classical arguments described above. Domain
+membership of the smooth solution and the physical scaling factors
+are no longer part of this admission.
+
+The atomic application remains proved:
 `rightResolventRepresentation_of_freeLandauResolventKernel` uses the
-universal contract, covariance, the smooth compactly supported source,
-and `E=−h²e`. In `Main.lean`,
+derived universal contract, covariance, compact support of the source,
+and `E=−h²e`. `canonicalHopping_eq_source_of_resolvent` then proves
+the two-source identity from this almost-everywhere representation and
+the integrability of the cells. In `Main.lean`,
 `LocalChannelAnalyticData.resolvent_representation` is a derived theorem,
-not a field. Atomic existence starting at the cell threshold, positivity
-of `E`, and the tunneling estimates are proved by the original
-analysis. [ConstructedMainProof](../InfiniteZero/ConstructedMainProof.lean)
-constructs the assembly data; [thm_main](../InfiniteZero/Remaining.lean)
-is compiled modulo A002–A005. The classical resolvent identification
-described above remains precisely admission A003, with no tunneling-specific
-estimate added to its contract.
+not a field. Atomic existence at the cell threshold, positivity of `E`,
+and the tunneling estimates are separate Lean proofs.
+[ConstructedMainProof](../InfiniteZero/ConstructedMainProof.lean)
+constructs the assembly data, and
+[thm_main](../InfiniteZero/Remaining.lean) uses the three remaining
+classical admissions A002–A004. A003 contains no estimate specific to
+the constructed potential or its tunneling channels.

@@ -1,6 +1,6 @@
 # Absolute and relative bounds for the seven inactive cells
 
-The seven real bounds, their application to the actual atomic state, and their transfer to the canonical state are compiled in [InactiveCellL1Bounds](../InfiniteZero/InactiveCellL1Bounds.lean), [AtomicInactiveCells](../InfiniteZero/AtomicInactiveCells.lean), and [ClassicalAtomicInactiveCells](../InfiniteZero/ClassicalAtomicInactiveCells.lean). Their relative comparison with the Gaussian envelope is now compiled in [AtomicInactiveRelative](../InfiniteZero/AtomicInactiveRelative.lean), with its [classical wrapper](../InfiniteZero/ClassicalAtomicInactiveRelative.lean). The historical check `bash scripts/check.sh` passed for this block: 1843 theorems without admissions, 618 guards, four classical admissions, and one then-open final target. Dependency export for the three new relative wrappers finds exactly A002+A004+A005, without A003 or `thm_main`. Since then, `elementaryPotential_main` and `thm_main` have been proved modulo A002–A005; see the [current status](STATUS.md) and [final audit](STATEMENT_AUDIT.md).
+The seven real bounds, their application to the actual atomic state, and their transfer to the canonical state are compiled in [InactiveCellL1Bounds](../InfiniteZero/InactiveCellL1Bounds.lean), [AtomicInactiveCells](../InfiniteZero/AtomicInactiveCells.lean), and [ClassicalAtomicInactiveCells](../InfiniteZero/ClassicalAtomicInactiveCells.lean). Their relative comparison with the Gaussian envelope is now compiled in [AtomicInactiveRelative](../InfiniteZero/AtomicInactiveRelative.lean), with its [classical wrapper](../InfiniteZero/ClassicalAtomicInactiveRelative.lean). The three relative wrappers depend on A002+A004, without A003 or `thm_main`. The final results `elementaryPotential_main` and `thm_main` have been proved modulo A002–A004; see the [current status](STATUS.md) and [final audit](STATEMENT_AUDIT.md).
 
 ## Physical statement and order of choices
 
@@ -27,7 +27,7 @@ The same bound is supplied for `canonicalSourceCell p L λ i j`. Constants may d
 
 The exported type retains only `c∈[1/2,1]`: it contains neither an identity between c and state overlap nor the decomposition `ψ=cφ+η`. Thus no identification of this coefficient with that of a later active asymptotic is claimed here. The scalar relative comparison, however, holds for every real `c≥1/2`.
 
-The result under explicit data is `exists_atomicGround_inactive_cells_of_radialData`. The public wrapper supplies only A002, A004, and A005: magnetic realization, radial-core spectral data, and universal interior elliptic estimate. Original source estimates and geometric margins are proved. A003 is not used.
+The result under explicit data is `exists_atomicGround_inactive_cells_of_radialData`. The public wrapper uses only A002 and A004: magnetic realization and radial semiclassical harmonic approximation. Sobolev point evaluation, the interior elliptic estimate, and its uniform dependence on coefficient bounds are proved in Lean. Original source estimates and geometric margins are proved. A003 is not used.
 
 ## Proof through L¹ sources and action margins
 
@@ -128,7 +128,7 @@ After division by the envelope, powers of λ cost `λ^(10+4−13/2)=λ^(15/2)≤
  \le C\mathfrak a_{\rm G}e^{-15\delta\lambda},
 \]
 
-together with the same sum for the canonical state and all seven individual bounds. The factor seven is absorbed into C. The wrapper `atomicGround_inactive_relative hp cert hL` uses only A002, A004, and A005; the theorem under explicit interfaces has no admission.
+together with the same sum for the canonical state and all seven individual bounds. The factor seven is absorbed into C. The wrapper `atomicGround_inactive_relative hp cert hL` uses only A002 and A004; the theorem under explicit interfaces has no admission.
 
 ## Comparison with the TeX prefactor
 

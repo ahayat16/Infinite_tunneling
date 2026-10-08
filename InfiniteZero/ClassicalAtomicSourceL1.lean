@@ -8,7 +8,8 @@ import InfiniteZero.AtomicSourceL1
 The same atomic states and exterior radial coefficient give both incoming
 and scattered cusp source bounds. The incoming logarithmic margin and the
 sum of the two scattered margins remain distinct. The auxiliary cutoff is
-chosen only within the proof. The classical inputs are A002, A004 and A005.
+chosen only within the proof. The admitted inputs are A002 and A004;
+the elliptic estimate is proved.
 -/
 
 noncomputable section

@@ -8,8 +8,9 @@ import InfiniteZero.AtomicScatteredSourceJets
 The two independently chosen logarithmic margins retain both the global
 response decay and the local log-flat cusp profile. The same physical
 states, normalization and exterior coefficient work for both closed cusp
-supports and all prescribed jets. The classical inputs are A002, A004 and
-A005; no source bound or tunneling asymptotic is admitted here.
+supports and all prescribed jets. The admitted inputs are A002 and A004;
+the elliptic estimate is proved. No source bound or tunneling asymptotic
+is admitted here.
 -/
 
 noncomputable section

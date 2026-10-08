@@ -2,9 +2,7 @@
 
 The three actual Landau kernels, evaluated at the complex cusp radii, and their magnetic phase now have a uniform relative profile on the active normal window. The assembly uses the **actual core and full-atom energies**, with a proved quantitative energy error. Only the normal slope is replaced by its limit.
 
-**Validation of the historical channel milestone.** The full `scripts/check.sh` check, including Lean reference export, passed after the physical assembly and canonical channels: 803 `assert_no_sorry` guards, 2033 proved results, four unchanged classical admissions, and one then-open final target.
-
-The [full physical assembly of this integral](INCOMING_PHYSICAL_ASYMPTOTIC.md) now compiles separately: real truncation, substitutions with factor tStar⁶, two deformations, centering, and tangential integration. It concludes `N_h² Z_h incomingCuspIntegral → tStar⁶(π/β)Bs²`; the relative ratio tends to 1. The paragraphs below distinguish the scope of each intermediate step; the [connection to the cell and hopping](ACTIVE_CHANNEL_ASYMPTOTIC.md) and [thm_main assembly](../InfiniteZero/Remaining.lean) are now proved, with the four classical interfaces A002–A005 unchanged.
+The [full physical assembly of this integral](INCOMING_PHYSICAL_ASYMPTOTIC.md) now compiles separately: real truncation, substitutions with factor tStar⁶, two deformations, centering, and tangential integration. It concludes `N_h² Z_h incomingCuspIntegral → tStar⁶(π/β)Bs²`; the relative ratio tends to 1. The paragraphs below distinguish the scope of each intermediate step; the [connection to the cell and hopping](ACTIVE_CHANNEL_ASYMPTOTIC.md) and [thm_main assembly](../InfiniteZero/Remaining.lean) are now proved, with the three classical admissions A002–A004.
 
 ## Energies, actions, and quantifiers
 

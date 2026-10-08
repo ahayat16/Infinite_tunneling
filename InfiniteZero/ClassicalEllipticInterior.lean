@@ -1,23 +1,24 @@
-import InfiniteZero.EllipticInteriorContract
+import InfiniteZero.ClassicalEllipticSobolev
+import InfiniteZero.EllipticSobolevAssembly
 
 /-!
-# A005: classical fixed-ball interior elliptic estimate
+# Fixed-ball interior elliptic estimate
 
-This documented classical admission contains only the universal estimate
-for `-Δ + a · ∇ + q` on the Euclidean ball of radius two. All coefficient
-bounds, changes of scale, weights and applications to the constructed
-potential are proved separately with this contract as an explicit input.
+The directional-jet estimate for `-Δ + a · ∇ + q` combines the proved
+uniform interior Sobolev estimate with the proved point estimate in `H²(B₁)`.
+`EllipticSobolevAssembly.lean` supplies the source-norm conversion, tensor
+norm comparison and combination of constants. Changes of scale, weights
+and applications to the constructed potential are proved separately.
 
-References and the natural-language proof of the complex lower-order
-variant are in `docs/CLASSICAL_ELLIPTIC_INTERIOR.md`: J. K. Hunter, PDE
-notes, Theorems 4.27 (p.112), 4.28 (p.114) and 3.49 (p.76).
+The proof structure and classical references are in `docs/CLASSICAL_ELLIPTIC_INTERIOR.md`.
 -/
 
 namespace InfiniteZero
 
-/-- A005, a universal classical interior estimate, independent of the
-potential, semiclassical parameters, cusp weights and tunneling problem. -/
+/-- The public interior estimate used by the magnetic proofs, derived
+from the proved interior Sobolev estimate and point evaluation in `H²`. -/
 theorem classical_elliptic_interior_estimate : HasInteriorEllipticEstimate := by
-  sorry
+  exact interiorEllipticEstimate_of_sobolev_estimates
+    classical_elliptic_sobolev_estimates.1 classical_elliptic_sobolev_estimates.2
 
 end InfiniteZero

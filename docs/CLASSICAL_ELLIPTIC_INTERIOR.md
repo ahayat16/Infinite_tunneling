@@ -1,132 +1,182 @@
-# Classical interior elliptic regularity contract
+# Proved Sobolev point evaluation and interior elliptic estimates
 
-The contract [`HasInteriorEllipticEstimate`](../InfiniteZero/EllipticInteriorContract.lean)
-isolates a general local estimate on a fixed ball in dimension two.
-This file gives its mathematical justification and exact boundary.
-The contract is a proposition definition. The classical input **A005**,
-[`classical_elliptic_interior_estimate`](../InfiniteZero/ClassicalEllipticInterior.lean),
-asserts precisely this contract with an explicit `sorry`. The informal
-proof below documents this admitted result; it is not a Lean proof of
-the elliptic estimate.
+Point evaluation by the local `H²` norm in dimension two and the uniform
+interior elliptic estimate are proved in Lean. Neither result has an
+admitted dependency. The former admission A005 has been eliminated.
 
-## Exact statement
+The point estimate is
+[`coordinateH2PointEvaluation`](../InfiniteZero/CoordinatePointEvaluation.lean).
+The public theorems
+[`classical_h2_point_evaluation`](../InfiniteZero/ClassicalEllipticSobolev.lean)
+and
+[`classical_elliptic_interior_estimate`](../InfiniteZero/ClassicalEllipticInterior.lean)
+retain their existing statements as proved wrappers.
 
-Identify `Plane = EuclideanSpace ℝ (Fin 2)` with the Euclidean plane equipped
-with Lebesgue measure. All Fréchet derivatives below are real;
-the functions and coefficients may be complex. Set
+## Point-evaluation statement
 
-\[
- Lu=-\Delta u+\sum_{i=0}^1 a_i\,\partial_i u+qu,
- \qquad B_2=B(0,2).
-\]
-
-For every integer \(n\ge0\) and every bound \(B\ge0\), there exists
-\(C=C(n,B)>0\) such that, for **all** coefficients \(a_0,a_1,q\) and
-functions \(u,f\), smooth on the plane, the following assumptions imply
-the stated conclusion:
-
-- \(Lu=f\) at every point of \(B_2\);
-- for \(0\le j\le n\) and \(x\in B_2\),
-  \(\|D^j a_i(x)\|\le B\) and \(\|D^j q(x)\|\le B\);
-- \(U,F\ge0\), \(\int_{B_2}|u|^2\le U^2\), and, for each
-  \(0\le j\le n\) and each family of constant vectors
-  \(v_1,\ldots,v_j\) of norm at most one,
-  \[
-    \int_{B_2}|D^j f(x)[v_1,\ldots,v_j]|^2\,dx\le F^2.
-  \]
-
-Then, simultaneously for \(0\le j\le n\),
+Write \(B_r=B(0,r)\subset\mathbb R^2\), and let \(e_0,e_1\) be the
+coordinate unit vectors. The local norm used in the formalization is
 
 \[
-                   \|D^j u(0)\|\le C(U+F).
+ S_n(u;r)^2=\sum_{j=0}^n\ \sum_{\alpha\in\{0,1\}^j}
+   \int_{B_r}|D^ju(x)[e_{\alpha_1},\ldots,e_{\alpha_j}]|^2\,dx.
 \]
 
-The jet norms are the operator norms of the multilinear maps.
-Order zero is included: it controls the values of the coefficients and
-the \(L^2\) norm of \(f\). The constant precedes the coefficients,
-functions, and bounds \(U,F\). No boundary condition, reality of the
-coefficients, positivity of \(q\), self-adjointness, or global coercivity
-is required. Global smoothness ensures, in particular, integrability over
-the bounded ball, but only the equation and bounds in \(B_2\) enter
-the estimate.
+This is [`coordinateSobolevNorm`](../InfiniteZero/EllipticCoordinateNorms.lean).
+Order zero is included. All derivatives are real, and function values
+may be complex. Ordered derivatives repeat each multi-index with its
+multinomial multiplicity.
 
-## Verified primary references
-
-References consulted on September 18, 2026 in John K. Hunter's notes,
-*Partial Differential Equations*, UC Davis:
-
-| Result | Location | Use here |
-|---|---|---|
-| Theorem 4.27 | [Chapter 4, p. 112, PDF page 24](https://www.math.ucdavis.edu/~hunter/pdes/ch4.pdf#page=24) | Interior \(H^2\) estimate for a divergence-form elliptic equation; its specialization to the Laplacian is used. |
-| Theorem 4.28 | [Chapter 4, p. 114, PDF page 26](https://www.math.ucdavis.edu/~hunter/pdes/ch4.pdf#page=26) | Higher interior regularity and an \(H^{k+2}\) estimate from a source in \(H^k\). |
-| Theorem 3.49(3) | [Chapter 3, p. 76, PDF page 32](https://www.math.ucdavis.edu/~hunter/pdes/ch3.pdf#page=32) | Sobolev embedding on a smooth ball; with dimension two, \(p=2\), \(k=n+2\), \(m=n\), it controls the \(C^n\) norm. |
-
-The complex contract with lower-order terms is an **adapted consequence**,
-not the literal statement of any one of these theorems. In particular,
-the regularity of the variable principal coefficients in Hunter's results
-is not an additional assumption here: the principal part is exactly
-\(-\Delta\), with constant coefficients.
-
-## Proof of the adapted version
-
-Choose a finite number of nested concentric balls between \(B_2\)
-and \(B_1\), together with associated smooth cutoffs. Their choice depends
-only on \(n\).
-
-**Complex energy estimate.** Multiply the equation by
-\(\chi^2\overline u\), integrate, and then take the real part. The
-principal term gives \(\int\chi^2|\nabla u|^2\). The other terms are
-bounded using \(|a_i|,|q|\le B\), the source, and the derivatives of
-\(\chi\). Young's inequality absorbs the terms containing
-\(\chi|\nabla u|\) and gives
+There exists \(C_S>0\) such that every smooth function
+\(u:\mathbb R^2\to\mathbb C\) satisfies
 
 \[
- \|u\|_{H^1(B_{r_1})}\le C_1(B)(U+F),\qquad r_1<2.
+ |u(0)|\le C_S S_2(u;1).
 \]
 
-Taking the real part is essential; no sign of the complex coefficient
-\(q\) is used. Keeping \(\|u\|_{L^2}\) on the right-hand side removes
-the need for a coercivity assumption.
-
-**Gain of two derivatives for Poisson.** Write
-\(-\Delta u=f-a\cdot\nabla u-qu\). The right-hand side is controlled
-in \(L^2(B_{r_1})\) by the previous step. The interior Poisson estimate,
-applied to the real and imaginary parts, gives an \(H^2\) bound on
-a strictly smaller ball.
-
-**Commutation and induction.** For a multi-index \(\alpha\) of
-length \(k\le n\), differentiate the Poisson identity:
+Explicitly, the square of the norm on the right is
 
 \[
- -\Delta\partial^\alpha u
- =\partial^\alpha f
-  -\partial^\alpha(a\cdot\nabla u)-\partial^\alpha(qu).
+ S_2(u;1)^2=\int_{B_1}|u|^2
+ +\sum_{i=0}^1\int_{B_1}|\partial_i u|^2
+ +\sum_{i,j=0}^1\int_{B_1}|\partial_i\partial_j u|^2.
 \]
 
-Leibniz's rule involves only derivatives of \(a,q\) of order at most
-\(k\), and of \(u\) of order at most \(k+1\).
-The latter are controlled at the previous stage on the outer ball
-for the current step. The Poisson estimate then gives control of order
-\(k+2\) on the inner ball. The induction yields
+The constant is independent of \(u\). The function need not vanish on
+the boundary of the ball. The Lean predicate is
+[`HasH2PointEvaluation`](../InfiniteZero/CoordinateSobolevEmbedding.lean).
+
+## Natural-language proof of point evaluation
+
+First suppose that \(v\) is smooth with compact support contained in
+\(B_1\). The function and its derivatives vanish on the lower and left
+edges of the rectangle \([-1,0]^2\). Applying the fundamental theorem
+of calculus in the two coordinate directions gives
 
 \[
- \|u\|_{H^{n+2}(B_1)}
- \le C_2(n,B)\bigl(\|u\|_{L^2(B_2)}+\|f\|_{H^n(B_2)}\bigr).
+ v(0,0)=\int_{-1}^0\int_{-1}^0
+    \partial_1\partial_0v(s,t)\,dt\,ds.
 \]
 
-This explains why **coefficient jets through order \(n\) suffice**,
-including for \(n=0\). No variable principal coefficient is differentiated.
+[CoordinateRectangleFTC.lean](../InfiniteZero/CoordinateRectangleFTC.lean)
+proves this identity for the actual coordinate derivatives on the
+Euclidean plane, including the change to Cartesian product measure.
+The rectangle has area one. Cauchy–Schwarz therefore gives
 
-**Norm conversion and pointwise evaluation.** The assumptions for all
-unit directions include tuples of vectors from the orthonormal basis.
-They therefore give
-\(\|f\|_{H^n(B_2)}\le c_nF\), by a finite sum of coordinate
-derivatives. In dimension two, the embedding
-\(H^{n+2}(B_1)\hookrightarrow C^{n,1/2}(\overline{B_1})\)
-controls the coordinate derivatives of \(u\) at zero. Equivalence
-of norms on finite-dimensional tensors then controls their operator
-norm. All these factors depend only on \(n\), and are absorbed
-into \(C(n,B)>0\).
+\[
+ |v(0)|^2\le\int_{[-1,0]^2}|\partial_1\partial_0v|^2
+ \le\int_{B_1}|\partial_1\partial_0v|^2\le S_2(v;1)^2.
+\]
+
+The second inequality uses the support of the derivative: its integral
+outside \(B_1\) is zero. The Cauchy–Schwarz step for complex-valued
+functions is proved in
+[UnitMeasureL2Bound.lean](../InfiniteZero/UnitMeasureL2Bound.lean).
+
+For an arbitrary smooth \(u\), choose a fixed smooth cutoff \(\eta\)
+equal to one on \(B_{1/2}\), with compact support in \(B_1\), and apply
+the preceding result to \(v=\eta u\). The coordinate derivatives of
+\(\eta\) through order two have a common finite bound \(B_\eta>0\).
+The proved multiplication estimate in
+[CoordinateSobolevProduct.lean](../InfiniteZero/CoordinateSobolevProduct.lean)
+gives
+
+\[
+ |u(0)|=|v(0)|\le S_2(v;1)
+ \le K_2B_\eta S_2(u;1).
+\]
+
+Thus \(C_S=K_2B_\eta\) is chosen before \(u\).
+[CoordinatePointEvaluation.lean](../InfiniteZero/CoordinatePointEvaluation.lean)
+assembles these steps. This proves the estimate needed here for smooth
+complex functions, without introducing a general theory of weak Sobolev
+derivatives or admitting a Sobolev embedding theorem.
+
+For its relation to the usual literature, the estimate is also a
+consequence of J. K. Hunter, *Partial Differential Equations*,
+[Theorem 3.49(3), p.76](https://www.math.ucdavis.edu/~hunter/pdes/ch3.pdf#page=32),
+with dimension two, \(k=2\), \(m=0\), and \(p=2\).
+
+## Interior estimates proved in Lean
+
+For every integer \(n\ge0\), \(0<r<R\), and \(B\ge0\), Lean proves
+that a constant \(C(n,r,R,B)>0\) exists such that
+
+\[
+ S_{n+2}(u;r)\le C(n,r,R,B)
+   \bigl(\|u\|_{L^2(B_R)}+S_n(f;R)\bigr)
+\]
+
+whenever smooth complex functions satisfy
+
+\[
+ -\Delta u+a_0\partial_0u+a_1\partial_1u+qu=f\quad\text{on }B_R,
+\]
+
+and every ordered coordinate derivative of \(a_0,a_1,q\) through
+order \(n\) has absolute value at most \(B\) on \(B_R\). The constant
+is chosen before the coefficients and functions. No boundary
+condition or sign condition on the lower-order coefficients is used.
+
+The proof consists of the following steps.
+
+1. [EllipticCaccioppoli.lean](../InfiniteZero/EllipticCaccioppoli.lean)
+   constructs a smooth cutoff between two prescribed balls. The
+   cutoff energy identity and Young's inequality give a local
+   gradient bound using only \(|a_i|,|q|\le B\). Half of the cutoff
+   gradient energy is absorbed on the left. Taking real parts
+   handles complex lower-order coefficients.
+2. [LaplacianHessianEnergy.lean](../InfiniteZero/LaplacianHessianEnergy.lean)
+   proves, by two integrations by parts and commutation of mixed
+   derivatives, that
+   \(\sum_{i,j}\|\partial_i\partial_j v\|_2^2=\|\Delta v\|_2^2\)
+   for compactly supported smooth \(v\).
+   [LocalPoissonH2.lean](../InfiniteZero/LocalPoissonH2.lean)
+   applies this identity to a cutoff of \(u\).
+3. [EllipticLocalH2.lean](../InfiniteZero/EllipticLocalH2.lean)
+   rewrites the equation to bound \(\Delta u\), and combines the
+   preceding estimates on nested balls. This gives the uniform
+   local \(H^2\) estimate.
+4. [EllipticDifferentiation.lean](../InfiniteZero/EllipticDifferentiation.lean)
+   proves the differentiated equation. Its source is
+   \(\partial_i f-\sum_j(\partial_i a_j)\partial_j u-(\partial_iq)u\).
+   [CoordinateSobolevProduct.lean](../InfiniteZero/CoordinateSobolevProduct.lean)
+   and [EllipticSourceSobolev.lean](../InfiniteZero/EllipticSourceSobolev.lean)
+   bound this source using Leibniz's rule and the prescribed
+   coefficient derivatives.
+5. [EllipticSobolevBootstrap.lean](../InfiniteZero/EllipticSobolevBootstrap.lean)
+   performs the finite-order induction on nested balls. The
+   specialization to \(r=1,R=2\) is assembled in
+   [EllipticUniformInterior.lean](../InfiniteZero/EllipticUniformInterior.lean).
+
+These steps use no admitted elliptic or Sobolev result.
+
+## Higher derivatives and norm conversions proved in Lean
+
+[CoordinateSobolevEmbedding.lean](../InfiniteZero/CoordinateSobolevEmbedding.lean)
+applies the proved point estimate to each ordered derivative of \(u\). The norm comparison
+\(S_2(\partial^\alpha u;1)\le S_{n+2}(u;1)\), for \(|\alpha|\le n\),
+is proved in Lean. Thus every coordinate derivative through order
+\(n\) at zero is bounded by \(C_S S_{n+2}(u;1)\).
+
+[EllipticCoordinateNorms.lean](../InfiniteZero/EllipticCoordinateNorms.lean)
+proves the tensor inequalities
+
+\[
+ |T[e_{\alpha_1},\ldots,e_{\alpha_j}]|\le\|T\|,
+ \qquad
+ \|T\|\le\sum_{\alpha\in\{0,1\}^j}
+       |T[e_{\alpha_1},\ldots,e_{\alpha_j}]|.
+\]
+
+It also derives \(S_n(f;2)\le\sqrt{N_n}\,F\) from the directional
+source bounds, where \(N_n=\sum_{j=0}^n2^j\).
+[EllipticSobolevAssembly.lean](../InfiniteZero/EllipticSobolevAssembly.lean)
+combines these conversions with the interior estimate and embedding,
+proving the public conclusion \(\|D^ju(0)\|\le C(U+F)\) for all
+\(j\le n\). The public theorem
+[`classical_elliptic_interior_estimate`](../InfiniteZero/ClassicalEllipticInterior.lean)
+retains its statement and has no admitted dependency.
 
 ## Boundary with the proofs for the particular potential
 
@@ -153,7 +203,7 @@ the estimated derivatives and is not introduced into the elliptic operator.
 
 The detailed physical data for the response and its source are described in
 [`ATOMIC_FINE_RESPONSE_DATA.md`](ATOMIC_FINE_RESPONSE_DATA.md).
-The classical contract above asserts no estimate of this source,
+The generic interior theorem above asserts no estimate of this source,
 no action rate, no spectral property of the potential, and no
 tunneling asymptotic.
 
@@ -173,5 +223,5 @@ Here \(U\) bounds the global norm of the weighted solution, and \(F\)
 bounds the norms of the weighted semiclassical jets of the source
 restricted to the outer neighborhood. The small-scale, center, and
 bounded-energy conditions are retained in their statements. These Lean
-proofs add no admitted result: A005 is used only when its theorem is
-supplied to their `hInterior` hypothesis.
+proofs add no admitted result: their `hInterior` hypothesis is supplied
+by the proved public interior theorem.

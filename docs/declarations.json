@@ -73,7 +73,7 @@
     "name": "InfiniteZero.AnalyticConstructionProblem",
     "source_kind": "def",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 44,
+    "line": 48,
     "status": "definition_or_contract",
     "axioms": [
       "Classical.choice",
@@ -854,7 +854,7 @@
     "name": "InfiniteZero.ConstructedPotentialMainTheorem",
     "source_kind": "def",
     "file": "InfiniteZero/OperatorMain.lean",
-    "line": 210,
+    "line": 212,
     "status": "definition_or_contract",
     "axioms": [
       "Classical.choice",
@@ -873,7 +873,7 @@
     "name": "InfiniteZero.ConstructedPotentialMainTheorem.toOperatorMainTheorem",
     "source_kind": "theorem",
     "file": "InfiniteZero/OperatorMain.lean",
-    "line": 214,
+    "line": 216,
     "status": "proved",
     "axioms": [
       "Classical.choice",
@@ -891,6 +891,15 @@
       "InfiniteZero.OperatorMainTheorem",
       "InfiniteZero.Potential"
     ]
+  },
+  {
+    "name": "InfiniteZero.CoordinateJetIndex",
+    "source_kind": "abbrev",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 23,
+    "status": "definition_or_contract",
+    "axioms": [],
+    "dependencies": []
   },
   {
     "name": "InfiniteZero.CosineAsymptotic",
@@ -2984,7 +2993,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGroundEnergy_exponential_comparison",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 192,
+    "line": 221,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3014,7 +3023,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGroundVectors_exponential_comparison",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 214,
+    "line": 243,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3047,7 +3056,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_active_incoming_reduction",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicActiveScatteredRelative.lean",
-    "line": 60,
+    "line": 61,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3078,7 +3087,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_active_scattered_relative",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicActiveScatteredRelative.lean",
-    "line": 19,
+    "line": 20,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3207,7 +3216,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_fine_response_jets",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicFineResponseJets.lean",
-    "line": 23,
+    "line": 24,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3251,7 +3260,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_fine_weighted_decomposition",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 286,
+    "line": 315,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3294,7 +3303,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_inactive_cells",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicInactiveCells.lean",
-    "line": 18,
+    "line": 19,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3338,7 +3347,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_inactive_relative",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicInactiveRelative.lean",
-    "line": 18,
+    "line": 19,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3383,7 +3392,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_inactive_relative_tex",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicInactiveRelativeTex.lean",
-    "line": 18,
+    "line": 19,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3428,7 +3437,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_scattered_source_jets",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicScatteredSourceJets.lean",
-    "line": 23,
+    "line": 24,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3479,7 +3488,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_source_L1",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalAtomicSourceL1.lean",
-    "line": 22,
+    "line": 23,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -3567,7 +3576,7 @@
     "name": "InfiniteZero.CuspParameters.atomicGround_weighted_decomposition",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 242,
+    "line": 271,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -4592,7 +4601,7 @@
     "name": "InfiniteZero.CuspParameters.atomic_source_regime",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 143,
+    "line": 172,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -4838,7 +4847,7 @@
     "name": "InfiniteZero.CuspParameters.canonicalAtomicState_agmon_tail",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 168,
+    "line": 197,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -4897,7 +4906,7 @@
     "name": "InfiniteZero.CuspParameters.canonicalHopping_asymptotic",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalCanonicalChannelAsymptotics.lean",
-    "line": 22,
+    "line": 24,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -6170,6 +6179,43 @@
     ]
   },
   {
+    "name": "InfiniteZero.CuspParameters.core_add_one_bounds",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoreQuadraticBound.lean",
+    "line": 39,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_add_one_le_quadratic",
+      "InfiniteZero.CuspParameters.core_range",
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.CuspParameters.core_add_one_le_quadratic",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoreQuadraticBound.lean",
+    "line": 19,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_range",
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
     "name": "InfiniteZero.CuspParameters.core_contDiff",
     "source_kind": "theorem",
     "file": "InfiniteZero/ConstructionCoreSmooth.lean",
@@ -6358,6 +6404,33 @@
       "InfiniteZero.CuspParameters.cuspPlus",
       "InfiniteZero.CuspParameters.cuspPlus_eq_zero_of_norm_le",
       "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.CuspParameters.core_div_sq_radialSingleWell",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialSingleWell.lean",
+    "line": 36,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.coreRadialProfile",
+      "InfiniteZero.CuspParameters.coreRadialProfile_second_derivative_pos",
+      "InfiniteZero.CuspParameters.core_contDiff",
+      "InfiniteZero.CuspParameters.core_eq_coreRadialProfile_norm",
+      "InfiniteZero.CuspParameters.core_gt_neg_one",
+      "InfiniteZero.CuspParameters.core_hasCompactSupport",
+      "InfiniteZero.CuspParameters.core_range",
+      "InfiniteZero.CuspParameters.core_zero",
+      "InfiniteZero.Plane",
+      "InfiniteZero.RadialSingleWell",
+      "InfiniteZero.coordinateVector"
     ]
   },
   {
@@ -6669,6 +6742,33 @@
       "InfiniteZero.CuspParameters.norm_reflection",
       "InfiniteZero.CuspParameters.reflection",
       "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.CuspParameters.core_test_form_values_bddBelow",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreVariationalBound.lean",
+    "line": 65,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_contDiff",
+      "InfiniteZero.CuspParameters.core_range",
+      "InfiniteZero.IsNormalizedTest",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.abs_magneticForm_sub_le",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.magneticForm_zero_potential_nonneg",
+      "InfiniteZero.mass"
     ]
   },
   {
@@ -10710,7 +10810,7 @@
     "name": "InfiniteZero.CuspParameters.eventual_atomicGround_properties",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 118,
+    "line": 147,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -12048,6 +12148,39 @@
       "InfiniteZero.orthogonalComplement",
       "InfiniteZero.orthogonalCompression",
       "InfiniteZero.schur_residual_exponential_bound"
+    ]
+  },
+  {
+    "name": "InfiniteZero.CuspParameters.exists_atomicGroundEnergy_upper_of_core_quadratic",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreVariationalBound.lean",
+    "line": 82,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_contDiff",
+      "InfiniteZero.CuspParameters.core_test_form_values_bddBelow",
+      "InfiniteZero.CuspParameters.exists_normalized_core_test",
+      "InfiniteZero.IsNormalizedTest",
+      "InfiniteZero.IsNormalizedTest.magneticDilation",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.atomicGroundEnergy",
+      "InfiniteZero.magneticDilation",
+      "InfiniteZero.magneticDilation_cancel_inv",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.magneticForm_le_of_potential_le",
+      "InfiniteZero.magneticForm_magneticDilation",
+      "InfiniteZero.magneticForm_sub_constant",
+      "InfiniteZero.mass"
     ]
   },
   {
@@ -14197,7 +14330,7 @@
     "name": "InfiniteZero.CuspParameters.exists_canonicalHopping_asymptotic_separation",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalCanonicalChannelAsymptotics.lean",
-    "line": 54,
+    "line": 56,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -14658,6 +14791,25 @@
     ]
   },
   {
+    "name": "InfiniteZero.CuspParameters.exists_core_atomicGroundEnergy_upper",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreVariationalBound.lean",
+    "line": 126,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_add_one_le_quadratic",
+      "InfiniteZero.CuspParameters.exists_atomicGroundEnergy_upper_of_core_quadratic",
+      "InfiniteZero.atomicGroundEnergy"
+    ]
+  },
+  {
     "name": "InfiniteZero.CuspParameters.exists_core_profile_lower_of_radialData",
     "source_kind": "theorem",
     "file": "InfiniteZero/RadialCoreProfileEstimates.lean",
@@ -14692,6 +14844,24 @@
       "InfiniteZero.realRadialProfile",
       "InfiniteZero.realRadialProfile_zero_lower_of_exteriorMass",
       "InfiniteZero.waveInner"
+    ]
+  },
+  {
+    "name": "InfiniteZero.CuspParameters.exists_core_scaledAtomicGroundEnergy_upper",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreVariationalBound.lean",
+    "line": 134,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.exists_core_atomicGroundEnergy_upper",
+      "InfiniteZero.atomicGroundEnergy"
     ]
   },
   {
@@ -15925,6 +16095,33 @@
       "InfiniteZero.CuspParameters.BasicConditions",
       "InfiniteZero.complexLogFlatIntegrand",
       "InfiniteZero.norm_cutoff_complexLogFlatIntegral_sub_le"
+    ]
+  },
+  {
+    "name": "InfiniteZero.CuspParameters.exists_normalized_core_test",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreVariationalBound.lean",
+    "line": 47,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_contDiff",
+      "InfiniteZero.CuspParameters.core_hasCompactSupport",
+      "InfiniteZero.CuspParameters.core_zero",
+      "InfiniteZero.IsNormalizedTest",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.mass_pos_of_ne_zero",
+      "InfiniteZero.IsTestFunction.smul",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.mass",
+      "InfiniteZero.mass_smul_wavefunction"
     ]
   },
   {
@@ -18686,7 +18883,7 @@
     "name": "InfiniteZero.CuspParameters.mainConclusion",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 360,
+    "line": 389,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -20937,6 +21134,55 @@
     ]
   },
   {
+    "name": "InfiniteZero.CuspParameters.radialCoreSpectralData_of_harmonicData",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreSpectralAssembly.lean",
+    "line": 25,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters",
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_div_sq_radialSingleWell",
+      "InfiniteZero.CuspParameters.exists_core_scaledAtomicGroundEnergy_upper",
+      "InfiniteZero.GroundStateCertificate",
+      "InfiniteZero.GroundStateCertificate.atomic_test_rankOne_lower_bound_of_smooth_representative",
+      "InfiniteZero.GroundStateCertificate.isAtomicGroundState_of_smooth_representative",
+      "InfiniteZero.GroundStateCertificate.normalizedVector",
+      "InfiniteZero.IsAtomicGroundState",
+      "InfiniteZero.IsEigenfunction",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsPositiveRadial",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.memLp",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.RadialCoreSpectralData",
+      "InfiniteZero.RadialHarmonicData",
+      "InfiniteZero.RadialSingleWell",
+      "InfiniteZero.RadialSingleWell.oscillatorGap_pos",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.atomicGroundEnergy",
+      "InfiniteZero.atomicGroundEnergy_unitField",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.exists_pos_threshold_unitField_linear_gap",
+      "InfiniteZero.isAtomicGroundState_unitField_iff",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.magneticForm_unitField",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.mass",
+      "InfiniteZero.norm_waveInner_sq_le_mass_mul",
+      "InfiniteZero.radialOscillatorGap",
+      "InfiniteZero.waveInner"
+    ]
+  },
+  {
     "name": "InfiniteZero.CuspParameters.radialCore_annulus_action_gap",
     "source_kind": "theorem",
     "file": "InfiniteZero/RadialCoreWeightedJetBounds.lean",
@@ -20994,7 +21240,7 @@
     "name": "InfiniteZero.CuspParameters.radialCore_kernel",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 83,
+    "line": 112,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -21020,7 +21266,7 @@
     "name": "InfiniteZero.CuspParameters.radialCore_normalization_lower",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 97,
+    "line": 126,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -22248,6 +22494,95 @@
       "InfiniteZero.CuspParameters.norm_jet_smul_le_of_bounds",
       "InfiniteZero.Plane",
       "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.EllipticCoefficientBound",
+    "source_kind": "def",
+    "file": "InfiniteZero/EllipticUniformContract.lean",
+    "line": 19,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.EllipticCoefficientBound.coordinate_derivative",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticSourceSobolev.lean",
+    "line": 19,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateDerivative_partialDerivative",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.EllipticCoefficientBound.mono_order",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticUniformContract.lean",
+    "line": 26,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.EllipticCoefficientBound.mono_radius",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticUniformContract.lean",
+    "line": 33,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.EllipticCoefficientBound.values",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticUniformContract.lean",
+    "line": 40,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.Plane",
       "InfiniteZero.Wavefunction"
     ]
   },
@@ -25599,6 +25934,37 @@
     ]
   },
   {
+    "name": "InfiniteZero.GroundStateCertificate.atomic_test_rankOne_lower_bound_of_smooth_representative",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialGroundCertificate.lean",
+    "line": 36,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.GroundStateCertificate",
+      "InfiniteZero.GroundStateCertificate.atomic_test_rankOne_lower_bound",
+      "InfiniteZero.GroundStateCertificate.isAtomicGroundState_of_smooth_representative",
+      "InfiniteZero.GroundStateCertificate.normalizedVector",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsMagneticRealization.atomicGroundEnergy_eq_of_certificate",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.atomicGroundEnergy",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.mass",
+      "InfiniteZero.waveInner"
+    ]
+  },
+  {
     "name": "InfiniteZero.GroundStateCertificate.eigenspace_eq_span",
     "source_kind": "theorem",
     "file": "InfiniteZero/GroundStateCertificate.lean",
@@ -25708,6 +26074,37 @@
       "InfiniteZero.Represents",
       "InfiniteZero.magneticClosedGraph",
       "InfiniteZero.operatorEigenspace"
+    ]
+  },
+  {
+    "name": "InfiniteZero.GroundStateCertificate.isAtomicGroundState_of_smooth_representative",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialGroundCertificate.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.GroundStateCertificate",
+      "InfiniteZero.GroundStateCertificate.exists_atomicGroundState_representative",
+      "InfiniteZero.GroundStateCertificate.normalizedVector",
+      "InfiniteZero.IsAtomicGroundState",
+      "InfiniteZero.IsEigenfunction",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsMagneticRealization.atomicGroundEnergy_eq_of_certificate",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.atomicGroundEnergy",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.mass"
     ]
   },
   {
@@ -25828,6 +26225,43 @@
     ]
   },
   {
+    "name": "InfiniteZero.HasCoordinateInteriorSobolevEstimate",
+    "source_kind": "def",
+    "file": "InfiniteZero/EllipticSobolevContract.lean",
+    "line": 25,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.ellipticExpression"
+    ]
+  },
+  {
+    "name": "InfiniteZero.HasCoordinateSobolevEmbedding",
+    "source_kind": "def",
+    "file": "InfiniteZero/EllipticSobolevContract.lean",
+    "line": 41,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
     "name": "InfiniteZero.HasGapAboveGround",
     "source_kind": "def",
     "file": "InfiniteZero/OperatorBridge.lean",
@@ -25844,6 +26278,23 @@
       "InfiniteZero.Represents",
       "InfiniteZero.magneticClosedGraph",
       "InfiniteZero.operatorEigenspace"
+    ]
+  },
+  {
+    "name": "InfiniteZero.HasH2PointEvaluation",
+    "source_kind": "def",
+    "file": "InfiniteZero/CoordinateSobolevEmbedding.lean",
+    "line": 19,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm"
     ]
   },
   {
@@ -25878,6 +26329,25 @@
       "InfiniteZero.L2Space",
       "InfiniteZero.Plane",
       "InfiniteZero.Represents"
+    ]
+  },
+  {
+    "name": "InfiniteZero.HasLocalCoordinateEllipticEstimate",
+    "source_kind": "def",
+    "file": "InfiniteZero/EllipticUniformContract.lean",
+    "line": 49,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.ellipticExpression"
     ]
   },
   {
@@ -25967,6 +26437,55 @@
     ],
     "dependencies": [
       "InfiniteZero.FreeLandauResolventKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.HasStandardLandauResolvent",
+    "source_kind": "def",
+    "file": "InfiniteZero/StandardLandauResolvent.lean",
+    "line": 33,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.magneticOperator"
+    ]
+  },
+  {
+    "name": "InfiniteZero.HasStandardLandauResolvent.smooth_solution",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventAssembly.lean",
+    "line": 25,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasStandardLandauResolvent",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsMagneticRealization.mem_graph_of_smooth",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.memLp",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticOperator"
     ]
   },
   {
@@ -27839,6 +28358,54 @@
     ]
   },
   {
+    "name": "InfiniteZero.IsMagneticRealization.mem_graph_of_smooth",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticInhomogeneousDomain.lean",
+    "line": 85,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsMagneticRealization.dense_domain",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.magneticClosedGraph_inner_of_smooth",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticOperator"
+    ]
+  },
+  {
+    "name": "InfiniteZero.IsMagneticRealization.mem_graph_toLp_of_smooth",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticInhomogeneousDomain.lean",
+    "line": 100,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsMagneticRealization.mem_graph_of_smooth",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.represents_toLp"
+    ]
+  },
+  {
     "name": "InfiniteZero.IsMagneticRealization.parityEnergy_eq_of_domain_ground",
     "source_kind": "theorem",
     "file": "InfiniteZero/ParityEnergyIdentification.lean",
@@ -28593,6 +29160,27 @@
       "InfiniteZero.Wavefunction",
       "InfiniteZero.covariantDerivative",
       "InfiniteZero.magneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.IsTestFunction.coordinateLaplacian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 46,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.add",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.partialDerivative"
     ]
   },
   {
@@ -30816,6 +31404,140 @@
     ]
   },
   {
+    "name": "InfiniteZero.RadialHarmonicData",
+    "source_kind": "structure",
+    "file": "InfiniteZero/ClassicalRadialHarmonic.lean",
+    "line": 40,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential"
+    ]
+  },
+  {
+    "name": "InfiniteZero.RadialLowLevelData",
+    "source_kind": "structure",
+    "file": "InfiniteZero/ClassicalRadialLowLevels.lean",
+    "line": 42,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential"
+    ]
+  },
+  {
+    "name": "InfiniteZero.RadialLowLevelData.first_limit",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialHarmonicAssembly.lean",
+    "line": 21,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.RadialLowLevelData",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.radialFirstSemiclassicalLevel",
+      "InfiniteZero.radialOscillatorGroundLevel",
+      "InfiniteZero.tendsto_firstOrder_of_harmonic_remainder"
+    ]
+  },
+  {
+    "name": "InfiniteZero.RadialLowLevelData.gapRatio_tendsto",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialHarmonicAssembly.lean",
+    "line": 38,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.RadialLowLevelData",
+      "InfiniteZero.RadialLowLevelData.first_limit",
+      "InfiniteZero.RadialLowLevelData.second_limit",
+      "InfiniteZero.RadialSingleWell",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.radialFirstSemiclassicalLevel",
+      "InfiniteZero.radialOscillatorGap",
+      "InfiniteZero.radialOscillatorGroundLevel",
+      "InfiniteZero.radialOscillatorLevel_gap",
+      "InfiniteZero.radialOscillatorSecondLevel",
+      "InfiniteZero.radialSecondSemiclassicalLevel",
+      "InfiniteZero.tendsto_coupling_gap_of_harmonic_levels"
+    ]
+  },
+  {
+    "name": "InfiniteZero.RadialLowLevelData.second_limit",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialHarmonicAssembly.lean",
+    "line": 29,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.RadialLowLevelData",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.radialOscillatorSecondLevel",
+      "InfiniteZero.radialSecondSemiclassicalLevel",
+      "InfiniteZero.tendsto_firstOrder_of_harmonic_remainder"
+    ]
+  },
+  {
+    "name": "InfiniteZero.RadialSingleWell",
+    "source_kind": "structure",
+    "file": "InfiniteZero/RadialSingleWell.lean",
+    "line": 21,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential"
+    ]
+  },
+  {
+    "name": "InfiniteZero.RadialSingleWell.oscillatorGap_pos",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/ClassicalRadialHarmonic.lean",
+    "line": 24,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.RadialSingleWell",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.radialOscillatorGap"
+    ]
+  },
+  {
     "name": "InfiniteZero.Represents",
     "source_kind": "def",
     "file": "InfiniteZero/OperatorBridge.lean",
@@ -32506,6 +33228,24 @@
     ]
   },
   {
+    "name": "InfiniteZero.atomicGroundEnergy_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 57,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.atomicGroundEnergy",
+      "InfiniteZero.variationalBottom_unitField"
+    ]
+  },
+  {
     "name": "InfiniteZero.atomicGround_overlap_deficit_le_of_dilation_bound",
     "source_kind": "theorem",
     "file": "InfiniteZero/AtomicGroundDilationComparison.lean",
@@ -33700,6 +34440,85 @@
     ]
   },
   {
+    "name": "InfiniteZero.cartesianPoint",
+    "source_kind": "def",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 19,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters.planeCartesianEquiv",
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.cartesianPoint_apply_one",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 22,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.cartesianPoint"
+    ]
+  },
+  {
+    "name": "InfiniteZero.cartesianPoint_apply_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 21,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.cartesianPoint"
+    ]
+  },
+  {
+    "name": "InfiniteZero.cartesianPoint_eq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 25,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.cartesianPoint_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 23,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.cartesianPoint"
+    ]
+  },
+  {
     "name": "InfiniteZero.cellsIntegrable_of_continuous",
     "source_kind": "theorem",
     "file": "InfiniteZero/HoppingIntegrability.lean",
@@ -33869,6 +34688,83 @@
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalEllipticInterior.lean",
     "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasCoordinateInteriorSobolevEstimate",
+      "InfiniteZero.HasCoordinateSobolevEmbedding",
+      "InfiniteZero.HasInteriorEllipticEstimate",
+      "InfiniteZero.classical_elliptic_sobolev_estimates",
+      "InfiniteZero.interiorEllipticEstimate_of_sobolev_estimates"
+    ]
+  },
+  {
+    "name": "InfiniteZero.classical_elliptic_sobolev_estimates",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/ClassicalEllipticSobolev.lean",
+    "line": 30,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasCoordinateInteriorSobolevEstimate",
+      "InfiniteZero.HasCoordinateSobolevEmbedding",
+      "InfiniteZero.classical_h2_point_evaluation",
+      "InfiniteZero.coordinateInteriorSobolevEstimate",
+      "InfiniteZero.coordinateSobolevEmbedding_of_h2_pointEvaluation"
+    ]
+  },
+  {
+    "name": "InfiniteZero.classical_h2_point_evaluation",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/ClassicalEllipticSobolev.lean",
+    "line": 25,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasH2PointEvaluation",
+      "InfiniteZero.coordinateH2PointEvaluation"
+    ]
+  },
+  {
+    "name": "InfiniteZero.classical_radial_harmonic",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/Remaining.lean",
+    "line": 78,
+    "status": "depends_on_admission",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext",
+      "sorryAx"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.RadialHarmonicData",
+      "InfiniteZero.RadialLowLevelData",
+      "InfiniteZero.RadialSingleWell",
+      "InfiniteZero.classical_radial_low_levels",
+      "InfiniteZero.magnetic_realization",
+      "InfiniteZero.radialHarmonicData_of_lowLevels"
+    ]
+  },
+  {
+    "name": "InfiniteZero.classical_radial_low_levels",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/ClassicalRadialLowLevels.lean",
+    "line": 73,
     "status": "admitted",
     "axioms": [
       "Classical.choice",
@@ -33877,7 +34773,25 @@
       "sorryAx"
     ],
     "dependencies": [
-      "InfiniteZero.HasInteriorEllipticEstimate"
+      "InfiniteZero.Potential",
+      "InfiniteZero.RadialLowLevelData",
+      "InfiniteZero.RadialSingleWell"
+    ]
+  },
+  {
+    "name": "InfiniteZero.classical_standard_landau_resolvent",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/ClassicalLandauResolvent.lean",
+    "line": 29,
+    "status": "admitted",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext",
+      "sorryAx"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasStandardLandauResolvent"
     ]
   },
   {
@@ -35023,7 +35937,7 @@
     "name": "InfiniteZero.constructed_main_of_analytic_data",
     "source_kind": "theorem",
     "file": "InfiniteZero/OperatorMain.lean",
-    "line": 221,
+    "line": 223,
     "status": "proved",
     "axioms": [
       "Classical.choice",
@@ -35171,6 +36085,43 @@
     ]
   },
   {
+    "name": "InfiniteZero.contDiff_coordinateDerivative",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 24,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.contDiff_coordinateLaplacian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 41,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.contDiff_covariantDerivative",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticCovariance.lean",
@@ -35238,6 +36189,47 @@
     ],
     "dependencies": [
       "InfiniteZero.cuspNormalProfile"
+    ]
+  },
+  {
+    "name": "InfiniteZero.contDiff_ellipticDerivativeSource",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticDifferentiation.lean",
+    "line": 60,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.ellipticDerivativeSource",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.contDiff_ellipticExpression",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticDifferentiation.lean",
+    "line": 44,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_coordinateLaplacian",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.ellipticExpression_eq_coordinateLaplacian",
+      "InfiniteZero.partialDerivative"
     ]
   },
   {
@@ -35994,6 +36986,676 @@
     ]
   },
   {
+    "name": "InfiniteZero.coordinateDerivative",
+    "source_kind": "def",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 21,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateDerivative_add",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 151,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateDerivative_mul_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 65,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.coordinate_tensor_component_le",
+      "InfiniteZero.jetNormSum",
+      "InfiniteZero.jetNormSum_nonneg",
+      "InfiniteZero.le_productLeibnizConstant",
+      "InfiniteZero.productLeibnizConstant",
+      "InfiniteZero.tensor_norm_le_jetNormSum",
+      "InfiniteZero.tensor_norm_le_of_coordinate_bound"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateDerivative_partialDerivative",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 39,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateDerivative_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 36,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateH2PointEvaluation",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinatePointEvaluation.lean",
+    "line": 90,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasH2PointEvaluation",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_mul_estimate",
+      "InfiniteZero.cutoffGradientSq",
+      "InfiniteZero.exists_coordinateJet_bound_of_isTestFunction",
+      "InfiniteZero.exists_elliptic_cutoff",
+      "InfiniteZero.norm_zero_le_coordinateSobolevNorm_two_of_support"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateInteriorSobolevEstimate",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticUniformInterior.lean",
+    "line": 24,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasCoordinateInteriorSobolevEstimate",
+      "InfiniteZero.coordinateInteriorSobolevEstimate_of_local_zero",
+      "InfiniteZero.hasLocalCoordinateEllipticEstimate_zero"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateInteriorSobolevEstimate_of_local_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticSobolevBootstrap.lean",
+    "line": 93,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.HasCoordinateInteriorSobolevEstimate",
+      "InfiniteZero.HasLocalCoordinateEllipticEstimate",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_zero",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.localCoordinateEllipticEstimate_of_zero"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateJetCount",
+    "source_kind": "def",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 32,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateJetCount_nonneg",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 34,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.coordinateJetCount"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateLaplacian",
+    "source_kind": "def",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 20,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateLaplacian_eq_zero_of_notMem_tsupport",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LocalPoissonH2.lean",
+    "line": 46,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.tsupport_partialDerivative_subset"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateLaplacian_mul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LocalPoissonH2.lean",
+    "line": 18,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_add",
+      "InfiniteZero.partialDerivative_mul"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateLaplacian_partialDerivative",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticDifferentiation.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_comm",
+      "InfiniteZero.partialDerivative_sum"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevEmbedding_of_h2_pointEvaluation",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevEmbedding.lean",
+    "line": 44,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasCoordinateSobolevEmbedding",
+      "InfiniteZero.HasH2PointEvaluation",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_coordinateDerivative",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_coordinateDerivative_le",
+      "InfiniteZero.coordinateSobolevNorm_mono_order",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm",
+    "source_kind": "def",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 26,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_add_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 160,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateDerivative_add",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_sq",
+      "InfiniteZero.integrableOn_coordinateDerivative_sq"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_coordinateDerivative_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevEmbedding.lean",
+    "line": 24,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateDerivative_partialDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_partialDerivative_le",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_le_of_directional_bounds",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 101,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateJetCount",
+      "InfiniteZero.coordinateJetCount_nonneg",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.norm_coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_mono_order",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 73,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_sq_eq_sum_range"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_mono_radius",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 81,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_sq",
+      "InfiniteZero.integrableOn_coordinateDerivative_sq"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_mul_estimate",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 96,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateDerivative_mul_le",
+      "InfiniteZero.coordinateJetCount",
+      "InfiniteZero.coordinateJetCount_nonneg",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_sq",
+      "InfiniteZero.integrableOn_coordinateDerivative_sq",
+      "InfiniteZero.jetNormSum",
+      "InfiniteZero.jetNormSum_sq_le",
+      "InfiniteZero.productLeibnizConstant",
+      "InfiniteZero.productLeibnizConstant_pos"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_neg",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 189,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_nonneg",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 38,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_one_sq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 142,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_succ_sq",
+      "InfiniteZero.coordinateSobolevNorm_zero",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_partialDerivative_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 118,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_succ_sq",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_sq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 53,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_sq_eq_sum_range",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 59,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_sq"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_sub_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 194,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_add_le",
+      "InfiniteZero.coordinateSobolevNorm_neg"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_succ_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 130,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_succ_sq",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_succ_sq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 95,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateDerivative_partialDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_sq_eq_sum_range",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_two_sq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticLocalH2.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.continuous_integrableOn_norm_sq_ball",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_one_sq",
+      "InfiniteZero.coordinateSobolevNorm_succ_sq",
+      "InfiniteZero.coordinateSobolevNorm_zero",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinateSobolevNorm_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 68,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
     "name": "InfiniteZero.coordinateVector",
     "source_kind": "def",
     "file": "InfiniteZero/MagneticModel.lean",
@@ -36006,6 +37668,23 @@
     ],
     "dependencies": [
       "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.coordinate_tensor_component_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 42,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.norm_coordinateVector"
     ]
   },
   {
@@ -36293,6 +37972,29 @@
     ]
   },
   {
+    "name": "InfiniteZero.coupling_mul_radial_semiclassical_gap",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialHarmonicAssembly.lean",
+    "line": 48,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.operatorVariationalBottom",
+      "InfiniteZero.radialFirstSemiclassicalLevel",
+      "InfiniteZero.radialSecondSemiclassicalLevel",
+      "InfiniteZero.semiclassicalMagneticOperator",
+      "InfiniteZero.semiclassicalMagneticOperator_secondMinmax",
+      "InfiniteZero.semiclassicalMagneticOperator_variationalBottom"
+    ]
+  },
+  {
     "name": "InfiniteZero.covariantDerivative",
     "source_kind": "def",
     "file": "InfiniteZero/MagneticModel.lean",
@@ -36538,6 +38240,25 @@
       "InfiniteZero.covariantDerivative",
       "InfiniteZero.partialDerivative",
       "InfiniteZero.partialDerivative_covariantDerivative_local",
+      "InfiniteZero.perpCoordinate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.covariantDerivative_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 21,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.partialDerivative",
       "InfiniteZero.perpCoordinate"
     ]
   },
@@ -36816,6 +38537,34 @@
       "InfiniteZero.complexLogFlatIntegrand",
       "InfiniteZero.integrableOn_cutoff_complexLogFlatIntegrand"
     ]
+  },
+  {
+    "name": "InfiniteZero.cutoff_density_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCaccioppoli.lean",
+    "line": 90,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.cutoff_drift_bound"
+    ]
+  },
+  {
+    "name": "InfiniteZero.cutoff_drift_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCaccioppoli.lean",
+    "line": 64,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
   },
   {
     "name": "InfiniteZero.cutoff_mass_le_gradient_error",
@@ -37782,7 +39531,7 @@
     "name": "InfiniteZero.elementaryPotential_main",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 415,
+    "line": 444,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -37802,6 +39551,53 @@
     ]
   },
   {
+    "name": "InfiniteZero.ellipticDerivativeSource",
+    "source_kind": "def",
+    "file": "InfiniteZero/EllipticDifferentiation.lean",
+    "line": 55,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.ellipticDerivativeSource_sobolev_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticSourceSobolev.lean",
+    "line": 38,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.EllipticCoefficientBound.coordinate_derivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_add_le",
+      "InfiniteZero.coordinateSobolevNorm_mono_order",
+      "InfiniteZero.coordinateSobolevNorm_mul_estimate",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_partialDerivative_le",
+      "InfiniteZero.coordinateSobolevNorm_sub_le",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.ellipticDerivativeSource",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.ellipticExpression",
     "source_kind": "def",
     "file": "InfiniteZero/EllipticInteriorContract.lean",
@@ -37816,6 +39612,75 @@
       "InfiniteZero.Plane",
       "InfiniteZero.Wavefunction",
       "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.ellipticExpression_eq_coordinateLaplacian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticDifferentiation.lean",
+    "line": 37,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.ellipticExpression_partialDerivative",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticDifferentiation.lean",
+    "line": 70,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_coordinateLaplacian",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.coordinateLaplacian_partialDerivative",
+      "InfiniteZero.ellipticDerivativeSource",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.ellipticExpression_eq_coordinateLaplacian",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_add",
+      "InfiniteZero.partialDerivative_comm",
+      "InfiniteZero.partialDerivative_mul",
+      "InfiniteZero.partialDerivative_neg",
+      "InfiniteZero.partialDerivative_sum"
+    ]
+  },
+  {
+    "name": "InfiniteZero.ellipticExpression_partialDerivative_on_ball",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticDifferentiation.lean",
+    "line": 103,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.ellipticDerivativeSource",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.ellipticExpression_partialDerivative",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_eqOn"
     ]
   },
   {
@@ -39444,6 +41309,26 @@
     ]
   },
   {
+    "name": "InfiniteZero.exists_coordinateJet_bound_of_isTestFunction",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinatePointEvaluation.lean",
+    "line": 67,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.coordinate_tensor_component_le"
+    ]
+  },
+  {
     "name": "InfiniteZero.exists_coreSource_L1_bound",
     "source_kind": "theorem",
     "file": "InfiniteZero/CoreSourceBound.lean",
@@ -39536,6 +41421,63 @@
       "InfiniteZero.parityTestEnergy",
       "InfiniteZero.parityTestEnergy_le_add_of_form_le",
       "InfiniteZero.parityTestFormValues_bddBelow"
+    ]
+  },
+  {
+    "name": "InfiniteZero.exists_elliptic_cutoff",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCaccioppoli.lean",
+    "line": 23,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.cutoffGradientSq",
+      "InfiniteZero.realPartialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.exists_elliptic_local_gradient_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCaccioppoli.lean",
+    "line": 143,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.integrable_norm_sq",
+      "InfiniteZero.IsTestFunction.integrable_star_mul",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.continuous_integrableOn_norm_sq_ball",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.cutoffGradientSq",
+      "InfiniteZero.cutoff_density_bound",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.exists_elliptic_cutoff",
+      "InfiniteZero.integrable_cutoffGradientSq_mul",
+      "InfiniteZero.isTestFunction_compact_real_mul",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.magneticForm_cutoff",
+      "InfiniteZero.magneticForm_zero_eq_gradient",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_expansion",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_real_mul",
+      "InfiniteZero.perpCoordinate",
+      "InfiniteZero.realPartialDerivative",
+      "InfiniteZero.waveInner"
     ]
   },
   {
@@ -39831,6 +41773,30 @@
     ]
   },
   {
+    "name": "InfiniteZero.exists_local_poisson_hessian_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LocalPoissonH2.lean",
+    "line": 179,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.coordinateLaplacian",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.cutoffGradientSq",
+      "InfiniteZero.exists_elliptic_cutoff",
+      "InfiniteZero.local_hessian_energy_le_of_cutoff",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.exists_logFlatLaplaceIntegral_upper_threshold",
     "source_kind": "theorem",
     "file": "InfiniteZero/LogFlatIntegral.lean",
@@ -40079,6 +42045,22 @@
     ]
   },
   {
+    "name": "InfiniteZero.exists_operator_unit_in_submodule",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 41,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
     "name": "InfiniteZero.exists_parityGroundCertificate_of_complement_coercive",
     "source_kind": "theorem",
     "file": "InfiniteZero/ParitySchurGroundConstruction.lean",
@@ -40123,6 +42105,34 @@
       "InfiniteZero.landauKernel_pos",
       "InfiniteZero.radialLandauCoefficient"
     ]
+  },
+  {
+    "name": "InfiniteZero.exists_pos_threshold_unitField_linear_gap",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticGapThreshold.lean",
+    "line": 36,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.exists_pos_threshold_unitField_lower"
+    ]
+  },
+  {
+    "name": "InfiniteZero.exists_pos_threshold_unitField_lower",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticGapThreshold.lean",
+    "line": 23,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
   },
   {
     "name": "InfiniteZero.exists_properTimePhase_interval",
@@ -41034,6 +43044,25 @@
     ]
   },
   {
+    "name": "InfiniteZero.freeLandauKernel_coupling_rescale",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventScaling.lean",
+    "line": 51,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.landauKernel",
+      "InfiniteZero.landauKernel_coupling_rescale",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
     "name": "InfiniteZero.freeLandauKernel_eq_magneticTranslation",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauKernelEquationOffDiagonal.lean",
@@ -41086,11 +43115,37 @@
     ]
   },
   {
+    "name": "InfiniteZero.freeLandauResolventKernel_of_standard",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventAssembly.lean",
+    "line": 57,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.FreeLandauResolventKernel",
+      "InfiniteZero.HasStandardLandauResolvent",
+      "InfiniteZero.HasStandardLandauResolvent.smooth_solution",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integral_freeLandauKernel_coupling_rescale",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_free_standard"
+    ]
+  },
+  {
     "name": "InfiniteZero.free_landau_resolvent_kernel",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 62,
-    "status": "admitted",
+    "line": 65,
+    "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -41098,7 +43153,12 @@
       "sorryAx"
     ],
     "dependencies": [
-      "InfiniteZero.FreeLandauResolventKernel"
+      "InfiniteZero.FreeLandauResolventKernel",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.classical_standard_landau_resolvent",
+      "InfiniteZero.freeLandauResolventKernel_of_standard",
+      "InfiniteZero.magnetic_realization"
     ]
   },
   {
@@ -41141,6 +43201,25 @@
       "InfiniteZero.groundEnergy",
       "InfiniteZero.mass",
       "InfiniteZero.wavefunction_ne_zero_of_mass_one"
+    ]
+  },
+  {
+    "name": "InfiniteZero.groundStateCertificate_of_secondMinmax",
+    "source_kind": "def",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 215,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.GroundStateCertificate",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.operatorSecondUpperBounds"
     ]
   },
   {
@@ -41310,6 +43389,82 @@
     "dependencies": [
       "InfiniteZero.bridgeTime",
       "InfiniteZero.bridgeTime_sqrt_rescale"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_cartesianPoint_left",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 31,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.cartesianPoint_eq",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_cartesianPoint_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 36,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.cartesianPoint_eq",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_cartesian_slice_left",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 41,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.hasDerivAt_cartesianPoint_left",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_cartesian_slice_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 46,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.hasDerivAt_cartesianPoint_right",
+      "InfiniteZero.partialDerivative"
     ]
   },
   {
@@ -41874,6 +44029,38 @@
     "dependencies": [
       "InfiniteZero.Plane",
       "InfiniteZero.hasFDerivAt_plane_norm"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasLocalCoordinateEllipticEstimate_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticLocalH2.lean",
+    "line": 74,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.EllipticCoefficientBound.values",
+      "InfiniteZero.HasLocalCoordinateEllipticEstimate",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_coordinateLaplacian",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.continuous_integrableOn_norm_sq_ball",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_two_sq",
+      "InfiniteZero.coordinateSobolevNorm_zero",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.exists_elliptic_local_gradient_bound",
+      "InfiniteZero.exists_local_poisson_hessian_bound",
+      "InfiniteZero.laplacian_sq_le_of_elliptic_equation",
+      "InfiniteZero.partialDerivative"
     ]
   },
   {
@@ -42502,6 +44689,25 @@
     ]
   },
   {
+    "name": "InfiniteZero.integrableOn_coordinateDerivative_sq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevCalculus.lean",
+    "line": 31,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_coordinateDerivative",
+      "InfiniteZero.continuous_integrableOn_norm_sq_ball",
+      "InfiniteZero.coordinateDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.integrableOn_cutoff_complexLogFlatIntegrand",
     "source_kind": "theorem",
     "file": "InfiniteZero/ComplexLogFlatCutoff.lean",
@@ -42747,6 +44953,21 @@
       "InfiniteZero.hasDerivAt_logarithmic_chart",
       "InfiniteZero.logarithmic_chart_image",
       "InfiniteZero.logarithmic_chart_injective"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrableOn_negativeUnitSquare_of_continuous",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 106,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.negativeUnitSquare"
     ]
   },
   {
@@ -43288,6 +45509,24 @@
     "dependencies": []
   },
   {
+    "name": "InfiniteZero.integral_freeLandauKernel_coupling_rescale",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventScaling.lean",
+    "line": 65,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.freeLandauKernel_coupling_rescale"
+    ]
+  },
+  {
     "name": "InfiniteZero.integral_freeLandauKernel_radial_eq_average",
     "source_kind": "theorem",
     "file": "InfiniteZero/RadialLandauAverage.lean",
@@ -43329,6 +45568,21 @@
       "InfiniteZero.landauIntegrandRadialSecond",
       "InfiniteZero.measurable_landauIntegrandRadialDeriv",
       "InfiniteZero.measurable_landauIntegrandRadialSecond"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_landauIntegrand_coupling_rescale",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventScaling.lean",
+    "line": 33,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauIntegrand"
     ]
   },
   {
@@ -43627,6 +45881,33 @@
     ]
   },
   {
+    "name": "InfiniteZero.interiorEllipticEstimate_of_sobolev_estimates",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticSobolevAssembly.lean",
+    "line": 23,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasCoordinateInteriorSobolevEstimate",
+      "InfiniteZero.HasCoordinateSobolevEmbedding",
+      "InfiniteZero.HasInteriorEllipticEstimate",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateJetCount",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_le_of_directional_bounds",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.coordinate_tensor_component_le",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.tensor_norm_le_of_coordinate_bound"
+    ]
+  },
+  {
     "name": "InfiniteZero.intervalIntegrable_logFlatComplexMultiplierIntegrand_vertical",
     "source_kind": "theorem",
     "file": "InfiniteZero/LogFlatContourMultiplier.lean",
@@ -43666,6 +45947,29 @@
     ]
   },
   {
+    "name": "InfiniteZero.isAtomicGroundState_unitField_iff",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 72,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsAtomicGroundState",
+      "InfiniteZero.IsEigenfunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.atomicGroundEnergy",
+      "InfiniteZero.atomicGroundEnergy_unitField",
+      "InfiniteZero.isEigenfunction_unitField_iff",
+      "InfiniteZero.mass"
+    ]
+  },
+  {
     "name": "InfiniteZero.isClosed_l2ParitySector",
     "source_kind": "theorem",
     "file": "InfiniteZero/L2ParitySectors.lean",
@@ -43681,6 +45985,28 @@
       "InfiniteZero.Plane",
       "InfiniteZero.l2Inversion",
       "InfiniteZero.l2ParitySector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.isEigenfunction_unitField_iff",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 64,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsEigenfunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_unitField",
+      "InfiniteZero.mass"
     ]
   },
   {
@@ -44016,6 +46342,63 @@
       "propext"
     ],
     "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.jetNormSum",
+    "source_kind": "def",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 17,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.jetNormSum_nonneg",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.jetNormSum"
+    ]
+  },
+  {
+    "name": "InfiniteZero.jetNormSum_sq_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 36,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.coordinateJetCount",
+      "InfiniteZero.jetNormSum"
+    ]
   },
   {
     "name": "InfiniteZero.l2Inversion",
@@ -44538,6 +46921,22 @@
     ]
   },
   {
+    "name": "InfiniteZero.landauIntegrand_coupling_rescale",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventScaling.lean",
+    "line": 21,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauIntegrand",
+      "InfiniteZero.properTimePhase"
+    ]
+  },
+  {
     "name": "InfiniteZero.landauIntegrand_le_exp",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauKernel.lean",
@@ -44624,6 +47023,23 @@
     ]
   },
   {
+    "name": "InfiniteZero.landauKernel_coupling_rescale",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventScaling.lean",
+    "line": 42,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.integral_landauIntegrand_coupling_rescale",
+      "InfiniteZero.landauIntegrand",
+      "InfiniteZero.landauKernel"
+    ]
+  },
+  {
     "name": "InfiniteZero.landauKernel_le",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauKernel.lean",
@@ -44675,6 +47091,23 @@
       "InfiniteZero.landauIntegrand",
       "InfiniteZero.landauIntegrand_le_split_action",
       "InfiniteZero.landauKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauKernel_one_eq_properTime",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventScaling.lean",
+    "line": 79,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauIntegrand",
+      "InfiniteZero.landauKernel",
+      "InfiniteZero.properTimePhase"
     ]
   },
   {
@@ -44934,6 +47367,50 @@
     ]
   },
   {
+    "name": "InfiniteZero.laplacian_mass_eq_sum_hessian_mass",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 80,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.integrable_star_mul",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.mass",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.waveInner",
+      "InfiniteZero.waveInner_diagonal_second_eq_hessian_mass",
+      "InfiniteZero.waveInner_self_eq_mass"
+    ]
+  },
+  {
+    "name": "InfiniteZero.laplacian_sq_le_of_elliptic_equation",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticLocalH2.lean",
+    "line": 35,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.largeLambertRegularityDomain",
     "source_kind": "def",
     "file": "InfiniteZero/ComplexLambertRegularity.lean",
@@ -45101,6 +47578,21 @@
     "dependencies": []
   },
   {
+    "name": "InfiniteZero.le_productLeibnizConstant",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 52,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.productLeibnizConstant"
+    ]
+  },
+  {
     "name": "InfiniteZero.leftPhysicalSource",
     "source_kind": "def",
     "file": "InfiniteZero/HoppingSourceIdentity.lean",
@@ -45194,6 +47686,56 @@
     "dependencies": []
   },
   {
+    "name": "InfiniteZero.localCoordinateEllipticEstimate",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticUniformInterior.lean",
+    "line": 18,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasLocalCoordinateEllipticEstimate",
+      "InfiniteZero.hasLocalCoordinateEllipticEstimate_zero",
+      "InfiniteZero.localCoordinateEllipticEstimate_of_zero"
+    ]
+  },
+  {
+    "name": "InfiniteZero.localCoordinateEllipticEstimate_of_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticSobolevBootstrap.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.EllipticCoefficientBound",
+      "InfiniteZero.EllipticCoefficientBound.mono_order",
+      "InfiniteZero.EllipticCoefficientBound.mono_radius",
+      "InfiniteZero.HasLocalCoordinateEllipticEstimate",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_ellipticDerivativeSource",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_mono_order",
+      "InfiniteZero.coordinateSobolevNorm_mono_radius",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_partialDerivative_le",
+      "InfiniteZero.coordinateSobolevNorm_succ_le",
+      "InfiniteZero.ellipticDerivativeSource",
+      "InfiniteZero.ellipticDerivativeSource_sobolev_bound",
+      "InfiniteZero.ellipticExpression",
+      "InfiniteZero.ellipticExpression_partialDerivative_on_ball",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.localMagneticPhaseLinear",
     "source_kind": "def",
     "file": "InfiniteZero/LandauKernelEquationOffDiagonal.lean",
@@ -45245,6 +47787,36 @@
       "InfiniteZero.localMagneticPhaseLinear_apply",
       "InfiniteZero.perpCoordinate",
       "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.local_hessian_energy_le_of_cutoff",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LocalPoissonH2.lean",
+    "line": 109,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.coordinateLaplacian",
+      "InfiniteZero.IsTestFunction.integrable_norm_sq",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_coordinateLaplacian",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.continuous_integrableOn_norm_sq_ball",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.coordinateLaplacian_eq_zero_of_notMem_tsupport",
+      "InfiniteZero.laplacian_mass_eq_sum_hessian_mass",
+      "InfiniteZero.mass",
+      "InfiniteZero.norm_laplacian_mul_sq_le",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_eqOn"
     ]
   },
   {
@@ -46365,6 +48937,34 @@
     ]
   },
   {
+    "name": "InfiniteZero.magneticClosedGraph_inner_of_smooth",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticInhomogeneousDomain.lean",
+    "line": 64,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Represents.inner_eq_waveInner",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.magneticClosedGraph_eq_closure",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticTestGraph",
+      "InfiniteZero.represents_toLp",
+      "InfiniteZero.waveInner",
+      "InfiniteZero.waveInner_magneticHamiltonian_smooth_right"
+    ]
+  },
+  {
     "name": "InfiniteZero.magneticClosedGraph_parity_lower",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticParityGraphLowerBound.lean",
@@ -46464,6 +49064,27 @@
       "InfiniteZero.rankTwo_lower_bound_on_closure",
       "InfiniteZero.re_inner_toLp_magneticHamiltonian_eq_magneticForm",
       "InfiniteZero.waveInner"
+    ]
+  },
+  {
+    "name": "InfiniteZero.magneticClosedGraph_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 88,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.magneticTestGraph",
+      "InfiniteZero.magneticTestGraph_unitField"
     ]
   },
   {
@@ -46985,6 +49606,28 @@
     ]
   },
   {
+    "name": "InfiniteZero.magneticForm_le_of_potential_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreVariationalBound.lean",
+    "line": 21,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.integrable_magneticEnergyDensity",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.magneticEnergyDensity",
+      "InfiniteZero.magneticForm"
+    ]
+  },
+  {
     "name": "InfiniteZero.magneticForm_lower_of_potential_ge_neg_one",
     "source_kind": "theorem",
     "file": "InfiniteZero/AtomicGroundEnergyBounds.lean",
@@ -47170,6 +49813,27 @@
     ]
   },
   {
+    "name": "InfiniteZero.magneticForm_sub_constant",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialCoreVariationalBound.lean",
+    "line": 32,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.magneticForm_sub_eq_potential_integral",
+      "InfiniteZero.mass"
+    ]
+  },
+  {
     "name": "InfiniteZero.magneticForm_sub_eq_potential_integral",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticFormPotentialComparison.lean",
@@ -47262,6 +49926,48 @@
       "InfiniteZero.magneticForm_sub_mass_ims_three",
       "InfiniteZero.magneticIMSError",
       "InfiniteZero.mass"
+    ]
+  },
+  {
+    "name": "InfiniteZero.magneticForm_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 40,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.covariantDerivative_unitField",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.mass"
+    ]
+  },
+  {
+    "name": "InfiniteZero.magneticForm_zero_eq_gradient",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCaccioppoli.lean",
+    "line": 57,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.mass",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.perpCoordinate"
     ]
   },
   {
@@ -47515,6 +50221,27 @@
     ]
   },
   {
+    "name": "InfiniteZero.magneticHamiltonian_free_standard",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/StandardLandauResolvent.lean",
+    "line": 43,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.perpCoordinate"
+    ]
+  },
+  {
     "name": "InfiniteZero.magneticHamiltonian_inversion",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticCovariance.lean",
@@ -47629,6 +50356,26 @@
       "InfiniteZero.contDiff_covariantDerivative",
       "InfiniteZero.covariantDerivative",
       "InfiniteZero.covariantDerivative_smul",
+      "InfiniteZero.magneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.magneticHamiltonian_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 29,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.covariantDerivative_unitField",
       "InfiniteZero.magneticHamiltonian"
     ]
   },
@@ -47782,6 +50529,27 @@
     ]
   },
   {
+    "name": "InfiniteZero.magneticOperator_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 97,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.magneticClosedGraph_unitField",
+      "InfiniteZero.magneticOperator"
+    ]
+  },
+  {
     "name": "InfiniteZero.magneticPhaseLinear",
     "source_kind": "def",
     "file": "InfiniteZero/MagneticCovariance.lean",
@@ -47924,6 +50692,29 @@
       "InfiniteZero.L2Space",
       "InfiniteZero.Plane",
       "InfiniteZero.Potential",
+      "InfiniteZero.magneticTestGraph"
+    ]
+  },
+  {
+    "name": "InfiniteZero.magneticTestGraph_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 81,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_unitField",
       "InfiniteZero.magneticTestGraph"
     ]
   },
@@ -48071,7 +50862,7 @@
     "name": "InfiniteZero.magnetic_realization",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 50,
+    "line": 54,
     "status": "admitted",
     "axioms": [
       "Classical.choice",
@@ -48616,6 +51407,26 @@
       "InfiniteZero.mass",
       "InfiniteZero.norm_toLp_sq_eq_mass",
       "InfiniteZero.waveInner"
+    ]
+  },
+  {
+    "name": "InfiniteZero.max_operatorEnergy_mem_secondUpperBounds",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 100,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.eigenvector_shiftedEnergy_sub",
+      "InfiniteZero.operatorEnergy_smul",
+      "InfiniteZero.operatorSecondUpperBounds",
+      "InfiniteZero.operator_finrank_span_orthogonal_pair"
     ]
   },
   {
@@ -49308,6 +52119,19 @@
     "file": "InfiniteZero/LandauKernel.lean",
     "line": 46,
     "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.negativeUnitSquare",
+    "source_kind": "def",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 100,
+    "status": "definition_or_contract",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -50045,6 +52869,19 @@
     ]
   },
   {
+    "name": "InfiniteZero.norm_integral_sq_le_integral_norm_sq_of_measure_univ_eq_one",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/UnitMeasureL2Bound.lean",
+    "line": 15,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
+  },
+  {
     "name": "InfiniteZero.norm_integral_sub_positiveNormalBox_le",
     "source_kind": "theorem",
     "file": "InfiniteZero/NormalBoxTruncation.lean",
@@ -50274,6 +53111,25 @@
       "InfiniteZero.landauLocalProfile",
       "InfiniteZero.norm_landauLocalProfile_le",
       "InfiniteZero.properTimeHessianFloor"
+    ]
+  },
+  {
+    "name": "InfiniteZero.norm_laplacian_mul_sq_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LocalPoissonH2.lean",
+    "line": 54,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.coordinateLaplacian_mul",
+      "InfiniteZero.partialDerivative"
     ]
   },
   {
@@ -51320,6 +54176,38 @@
     ]
   },
   {
+    "name": "InfiniteZero.norm_zero_le_coordinateSobolevNorm_two_of_support",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinatePointEvaluation.lean",
+    "line": 22,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters.planeCartesianEquiv",
+      "InfiniteZero.CuspParameters.planeCartesianEquiv_symm_measurePreserving",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.integrable_norm_sq",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.coordinateSobolevNorm",
+      "InfiniteZero.coordinateSobolevNorm_nonneg",
+      "InfiniteZero.coordinateSobolevNorm_partialDerivative_le",
+      "InfiniteZero.coordinateSobolevNorm_zero",
+      "InfiniteZero.negativeUnitSquare",
+      "InfiniteZero.norm_integral_sq_le_integral_norm_sq_of_measure_univ_eq_one",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.tsupport_partialDerivative_subset",
+      "InfiniteZero.value_zero_eq_integral_mixed_square",
+      "InfiniteZero.volume_negativeUnitSquare"
+    ]
+  },
+  {
     "name": "InfiniteZero.normalizationRatio_div_schur_le",
     "source_kind": "theorem",
     "file": "InfiniteZero/RelativeNormalizationRatio.lean",
@@ -51591,6 +54479,38 @@
     ]
   },
   {
+    "name": "InfiniteZero.not_mem_ball_cartesian_left",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 51,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.cartesianPoint"
+    ]
+  },
+  {
+    "name": "InfiniteZero.not_mem_ball_cartesian_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 60,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.cartesianPoint"
+    ]
+  },
+  {
     "name": "InfiniteZero.oddEnergy",
     "source_kind": "def",
     "file": "InfiniteZero/MagneticModel.lean",
@@ -51770,6 +54690,38 @@
     ]
   },
   {
+    "name": "InfiniteZero.operatorEnergy_real_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorEnergy_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 29,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
     "name": "InfiniteZero.operatorResolvent_continuousOn",
     "source_kind": "theorem",
     "file": "InfiniteZero/OperatorResolvent.lean",
@@ -51799,6 +54751,133 @@
     "dependencies": [
       "InfiniteZero.IsOperatorResolvent",
       "InfiniteZero.IsOperatorResolvent.norm_sub_le"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorSecondMinmax",
+    "source_kind": "def",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 25,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.operatorSecondUpperBounds"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorSecondMinmax_complement_lower_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 157,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.operatorEnergy_smul",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.operatorSecondMinmax_le_orthogonal_unit_energy"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorSecondMinmax_le_orthogonal_unit_energy",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 140,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.max_operatorEnergy_mem_secondUpperBounds",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.operatorSecondUpperBounds",
+      "InfiniteZero.operatorSecondUpperBounds_bddBelow"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorSecondMinmax_real_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 73,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.operatorSecondUpperBounds",
+      "InfiniteZero.operatorSecondUpperBounds_real_smul"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorSecondUpperBounds",
+    "source_kind": "def",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 19,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorSecondUpperBounds_bddBelow",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 57,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.exists_operator_unit_in_submodule",
+      "InfiniteZero.operatorSecondUpperBounds"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorSecondUpperBounds_real_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 51,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.operatorEnergy_real_smul",
+      "InfiniteZero.operatorSecondUpperBounds"
     ]
   },
   {
@@ -51891,6 +54970,24 @@
     ]
   },
   {
+    "name": "InfiniteZero.operatorVariationalBottom_eigenvector_of_real_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 100,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.operatorVariationalBottom",
+      "InfiniteZero.operatorVariationalBottom_real_smul"
+    ]
+  },
+  {
     "name": "InfiniteZero.operatorVariationalBottom_eq_of_unit_ground_vector",
     "source_kind": "theorem",
     "file": "InfiniteZero/ParityGlobalMinmax.lean",
@@ -51908,6 +55005,62 @@
       "InfiniteZero.magneticClosedGraph",
       "InfiniteZero.operatorVariationalBottom",
       "InfiniteZero.re_inner_eq_of_operator_eigenvector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorVariationalBottom_lower_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 188,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Represents",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.operatorEnergy_smul",
+      "InfiniteZero.operatorVariationalBottom"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operatorVariationalBottom_real_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 30,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Represents",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.operatorEnergy_real_smul",
+      "InfiniteZero.operatorVariationalBottom"
+    ]
+  },
+  {
+    "name": "InfiniteZero.operator_finrank_span_orthogonal_pair",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/OperatorSecondMinmax.lean",
+    "line": 69,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane"
     ]
   },
   {
@@ -52639,6 +55792,24 @@
     ]
   },
   {
+    "name": "InfiniteZero.partialDerivative_comm",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 24,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.partialDerivative_covariantDerivative_local",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticRadialReduction.lean",
@@ -52659,6 +55830,24 @@
       "InfiniteZero.magneticRadialCoordinate_coordinate",
       "InfiniteZero.partialDerivative",
       "InfiniteZero.perpCoordinate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.partialDerivative_eqOn",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateDifferentialRules.lean",
+    "line": 47,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
     ]
   },
   {
@@ -52725,6 +55914,42 @@
       "InfiniteZero.partialDerivative",
       "InfiniteZero.perpCoordinate",
       "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.partialDerivative_mul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateDifferentialRules.lean",
+    "line": 27,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.partialDerivative_neg",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateDifferentialRules.lean",
+    "line": 15,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
     ]
   },
   {
@@ -52834,6 +56059,43 @@
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticTestGraph.lean",
     "line": 40,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.partialDerivative_sub",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateDifferentialRules.lean",
+    "line": 21,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_add",
+      "InfiniteZero.partialDerivative_neg"
+    ]
+  },
+  {
+    "name": "InfiniteZero.partialDerivative_sum",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateDifferentialRules.lean",
+    "line": 38,
     "status": "proved",
     "axioms": [
       "Classical.choice",
@@ -52985,6 +56247,34 @@
       "InfiniteZero.Potential",
       "InfiniteZero.Wavefunction",
       "InfiniteZero.mass"
+    ]
+  },
+  {
+    "name": "InfiniteZero.productLeibnizConstant",
+    "source_kind": "def",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 44,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.productLeibnizConstant_pos",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 48,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.productLeibnizConstant"
     ]
   },
   {
@@ -53313,6 +56603,23 @@
     ]
   },
   {
+    "name": "InfiniteZero.radialFirstSemiclassicalLevel",
+    "source_kind": "def",
+    "file": "InfiniteZero/ClassicalRadialLowLevels.lean",
+    "line": 29,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential",
+      "InfiniteZero.operatorVariationalBottom",
+      "InfiniteZero.semiclassicalMagneticOperator"
+    ]
+  },
+  {
     "name": "InfiniteZero.radialFreeLandauAverage",
     "source_kind": "def",
     "file": "InfiniteZero/RadialLandauAverage.lean",
@@ -53355,6 +56662,46 @@
     ]
   },
   {
+    "name": "InfiniteZero.radialHarmonicData_of_lowLevels",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialHarmonicAssembly.lean",
+    "line": 61,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.GroundStateCertificate",
+      "InfiniteZero.GroundStateCertificate.normalizedVector",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsPositiveRadial",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.RadialHarmonicData",
+      "InfiniteZero.RadialLowLevelData",
+      "InfiniteZero.RadialLowLevelData.gapRatio_tendsto",
+      "InfiniteZero.RadialSingleWell",
+      "InfiniteZero.RadialSingleWell.oscillatorGap_pos",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coupling_mul_radial_semiclassical_gap",
+      "InfiniteZero.exists_pos_threshold_unitField_lower",
+      "InfiniteZero.groundStateCertificate_of_secondMinmax",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.operatorVariationalBottom",
+      "InfiniteZero.operatorVariationalBottom_eigenvector_of_real_smul",
+      "InfiniteZero.radialFirstSemiclassicalLevel",
+      "InfiniteZero.radialOscillatorGap",
+      "InfiniteZero.radialSecondSemiclassicalLevel",
+      "InfiniteZero.semiclassicalMagneticOperator",
+      "InfiniteZero.variationalBottom"
+    ]
+  },
+  {
     "name": "InfiniteZero.radialLandauCoefficient",
     "source_kind": "def",
     "file": "InfiniteZero/LandauExteriorUniqueness.lean",
@@ -53366,6 +56713,273 @@
       "propext"
     ],
     "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorFrequency",
+    "source_kind": "def",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 22,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorFrequency_gt_one",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 28,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorGap",
+    "source_kind": "def",
+    "file": "InfiniteZero/ClassicalRadialHarmonic.lean",
+    "line": 21,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorGroundLevel",
+    "source_kind": "def",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 107,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorMode"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorGroundLevel_eq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 117,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorGroundLevel",
+      "InfiniteZero.radialOscillatorMode",
+      "InfiniteZero.radialOscillatorMode_ground",
+      "InfiniteZero.radialOscillatorMode_ground_le"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorLevel_gap",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 134,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorGroundLevel",
+      "InfiniteZero.radialOscillatorGroundLevel_eq",
+      "InfiniteZero.radialOscillatorSecondLevel",
+      "InfiniteZero.radialOscillatorSecondLevel_eq"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorMode",
+    "source_kind": "def",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 25,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorMode_eq_ground_iff",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 85,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorFrequency_gt_one",
+      "InfiniteZero.radialOscillatorMode",
+      "InfiniteZero.radialOscillatorMode_excited_lower",
+      "InfiniteZero.radialOscillatorMode_ground"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorMode_excited_lower",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 53,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorFrequency_gt_one",
+      "InfiniteZero.radialOscillatorMode"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorMode_firstExcited",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 79,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorMode"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorMode_gap",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 99,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorMode",
+      "InfiniteZero.radialOscillatorMode_firstExcited",
+      "InfiniteZero.radialOscillatorMode_ground"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorMode_ground",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 36,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorMode"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorMode_ground_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 41,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorFrequency_gt_one",
+      "InfiniteZero.radialOscillatorMode"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorSecondLevel",
+    "source_kind": "def",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 112,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorMode"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialOscillatorSecondLevel_eq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialOscillatorLevels.lean",
+    "line": 125,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.radialOscillatorFrequency",
+      "InfiniteZero.radialOscillatorMode",
+      "InfiniteZero.radialOscillatorMode_excited_lower",
+      "InfiniteZero.radialOscillatorMode_firstExcited",
+      "InfiniteZero.radialOscillatorSecondLevel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.radialSecondSemiclassicalLevel",
+    "source_kind": "def",
+    "file": "InfiniteZero/ClassicalRadialLowLevels.lean",
+    "line": 34,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.semiclassicalMagneticOperator"
+    ]
   },
   {
     "name": "InfiniteZero.radialWronskian",
@@ -53490,8 +57104,8 @@
     "name": "InfiniteZero.radial_core_spectral_data",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 75,
-    "status": "admitted",
+    "line": 95,
+    "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -53500,7 +57114,16 @@
     ],
     "dependencies": [
       "InfiniteZero.CuspParameters",
-      "InfiniteZero.RadialCoreSpectralData"
+      "InfiniteZero.CuspParameters.core",
+      "InfiniteZero.CuspParameters.core_div_sq_radialSingleWell",
+      "InfiniteZero.CuspParameters.core_range",
+      "InfiniteZero.CuspParameters.radialCoreSpectralData_of_harmonicData",
+      "InfiniteZero.Plane",
+      "InfiniteZero.RadialCoreSpectralData",
+      "InfiniteZero.RadialHarmonicData",
+      "InfiniteZero.RadialSingleWell",
+      "InfiniteZero.classical_radial_harmonic",
+      "InfiniteZero.magnetic_realization"
     ]
   },
   {
@@ -55551,6 +59174,163 @@
     "dependencies": []
   },
   {
+    "name": "InfiniteZero.semiclassicalCovariantDerivative",
+    "source_kind": "def",
+    "file": "InfiniteZero/SemiclassicalDifferentialExpression.lean",
+    "line": 16,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.perpCoordinate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.semiclassicalCovariantDerivative_eq_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalDifferentialExpression.lean",
+    "line": 29,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.perpCoordinate",
+      "InfiniteZero.semiclassicalCovariantDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.semiclassicalMagneticHamiltonian",
+    "source_kind": "def",
+    "file": "InfiniteZero/SemiclassicalDifferentialExpression.lean",
+    "line": 22,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.semiclassicalCovariantDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.semiclassicalMagneticHamiltonian_eq_smul",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalDifferentialExpression.lean",
+    "line": 41,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_covariantDerivative",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.covariantDerivative_smul",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.semiclassicalCovariantDerivative",
+      "InfiniteZero.semiclassicalCovariantDerivative_eq_smul",
+      "InfiniteZero.semiclassicalMagneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.semiclassicalMagneticOperator",
+    "source_kind": "def",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 82,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.magneticOperator"
+    ]
+  },
+  {
+    "name": "InfiniteZero.semiclassicalMagneticOperator_ground_eigenvector",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 113,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.operatorVariationalBottom",
+      "InfiniteZero.operatorVariationalBottom_eigenvector_of_real_smul",
+      "InfiniteZero.semiclassicalMagneticOperator"
+    ]
+  },
+  {
+    "name": "InfiniteZero.semiclassicalMagneticOperator_secondMinmax",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 92,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.operatorSecondMinmax",
+      "InfiniteZero.operatorSecondMinmax_real_smul",
+      "InfiniteZero.semiclassicalMagneticOperator"
+    ]
+  },
+  {
+    "name": "InfiniteZero.semiclassicalMagneticOperator_variationalBottom",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/SemiclassicalOperator.lean",
+    "line": 86,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Potential",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.operatorVariationalBottom",
+      "InfiniteZero.operatorVariationalBottom_real_smul",
+      "InfiniteZero.semiclassicalMagneticOperator"
+    ]
+  },
+  {
     "name": "InfiniteZero.semiclassical_binomial_sum",
     "source_kind": "theorem",
     "file": "InfiniteZero/SemiclassicalLeibniz.lean",
@@ -56756,6 +60536,27 @@
     ]
   },
   {
+    "name": "InfiniteZero.sum_hessian_energy_eq_laplacian_energy",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 103,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.laplacian_mass_eq_sum_hessian_mass",
+      "InfiniteZero.mass",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.sum_norm_toLp_le_card_mul_of_mass_le_sq",
     "source_kind": "theorem",
     "file": "InfiniteZero/GenericFiniteL2Bound.lean",
@@ -57358,6 +61159,19 @@
     ]
   },
   {
+    "name": "InfiniteZero.tendsto_coupling_gap_of_harmonic_levels",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialHarmonicLimits.lean",
+    "line": 49,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
+  },
+  {
     "name": "InfiniteZero.tendsto_cutoff_complexLogFlatIntegral_normalized",
     "source_kind": "theorem",
     "file": "InfiniteZero/ComplexLogFlatCutoffAsymptotic.lean",
@@ -57397,6 +61211,19 @@
       "InfiniteZero.hasDerivAt_exponentialRemainder",
       "InfiniteZero.hasDerivAt_exponentialRemainder_derivative"
     ]
+  },
+  {
+    "name": "InfiniteZero.tendsto_firstOrder_of_harmonic_remainder",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/RadialHarmonicLimits.lean",
+    "line": 23,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
   },
   {
     "name": "InfiniteZero.tendsto_h_log_exp_prefactor",
@@ -58852,6 +62679,59 @@
     ]
   },
   {
+    "name": "InfiniteZero.tensor_norm_le_coordinate_sum",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 50,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.coordinateVector"
+    ]
+  },
+  {
+    "name": "InfiniteZero.tensor_norm_le_jetNormSum",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateSobolevProduct.lean",
+    "line": 23,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CoordinateJetIndex",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateDerivative",
+      "InfiniteZero.jetNormSum",
+      "InfiniteZero.tensor_norm_le_coordinate_sum"
+    ]
+  },
+  {
+    "name": "InfiniteZero.tensor_norm_le_of_coordinate_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/EllipticCoordinateNorms.lean",
+    "line": 89,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.tensor_norm_le_coordinate_sum"
+    ]
+  },
+  {
     "name": "InfiniteZero.testSubmoduleToL2",
     "source_kind": "def",
     "file": "InfiniteZero/SecondEnergyComplementLower.lean",
@@ -58925,7 +62805,7 @@
     "name": "InfiniteZero.thm_main",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 461,
+    "line": 489,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -58949,7 +62829,7 @@
     "name": "InfiniteZero.thm_main_from_analytic_data",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 339,
+    "line": 368,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -59006,7 +62886,7 @@
     "name": "InfiniteZero.thm_main_operator_of_analytic_data",
     "source_kind": "theorem",
     "file": "InfiniteZero/OperatorMain.lean",
-    "line": 233,
+    "line": 235,
     "status": "proved",
     "axioms": [
       "Classical.choice",
@@ -59041,7 +62921,7 @@
     "name": "InfiniteZero.thm_main_variational_from_analytic_data",
     "source_kind": "theorem",
     "file": "InfiniteZero/Remaining.lean",
-    "line": 333,
+    "line": 362,
     "status": "depends_on_admission",
     "axioms": [
       "Classical.choice",
@@ -59327,6 +63207,24 @@
     ]
   },
   {
+    "name": "InfiniteZero.tsupport_partialDerivative_subset",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LocalPoissonH2.lean",
+    "line": 42,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.twoModeRealization_of_parityGroundCertificates",
     "source_kind": "theorem",
     "file": "InfiniteZero/ParityDoubletRealization.lean",
@@ -59419,6 +63317,57 @@
     ]
   },
   {
+    "name": "InfiniteZero.value_zero_eq_integral_mixed_square",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 112,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.CuspParameters.planeCartesianEquiv",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.integrableOn_negativeUnitSquare_of_continuous",
+      "InfiniteZero.negativeUnitSquare",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.value_zero_eq_iterated_integral_mixed"
+    ]
+  },
+  {
+    "name": "InfiniteZero.value_zero_eq_iterated_integral_mixed",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 71,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.cartesianPoint",
+      "InfiniteZero.cartesianPoint_zero",
+      "InfiniteZero.contDiff_partialDerivative",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.hasDerivAt_cartesianPoint_left",
+      "InfiniteZero.hasDerivAt_cartesianPoint_right",
+      "InfiniteZero.hasDerivAt_cartesian_slice_left",
+      "InfiniteZero.hasDerivAt_cartesian_slice_right",
+      "InfiniteZero.not_mem_ball_cartesian_left",
+      "InfiniteZero.not_mem_ball_cartesian_right",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.tsupport_partialDerivative_subset"
+    ]
+  },
+  {
     "name": "InfiniteZero.variationalBottom",
     "source_kind": "def",
     "file": "InfiniteZero/MagneticModel.lean",
@@ -59437,6 +63386,27 @@
     ]
   },
   {
+    "name": "InfiniteZero.variationalBottom_unitField",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticFieldScaling.lean",
+    "line": 49,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsNormalizedTest",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticForm",
+      "InfiniteZero.magneticForm_unitField",
+      "InfiniteZero.variationalBottom"
+    ]
+  },
+  {
     "name": "InfiniteZero.vertical_quadratic_le",
     "source_kind": "theorem",
     "file": "InfiniteZero/ComplexLogFlatErrors.lean",
@@ -59448,6 +63418,21 @@
       "propext"
     ],
     "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.volume_negativeUnitSquare",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/CoordinateRectangleFTC.lean",
+    "line": 102,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.negativeUnitSquare"
+    ]
   },
   {
     "name": "InfiniteZero.volume_real_positiveNormalBox",
@@ -59542,6 +63527,31 @@
     ]
   },
   {
+    "name": "InfiniteZero.waveInner_coordinateLaplacian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 110,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.integrable_star_mul",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateLaplacian",
+      "InfiniteZero.mass",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.waveInner",
+      "InfiniteZero.waveInner_partialDerivative",
+      "InfiniteZero.waveInner_self_eq_mass"
+    ]
+  },
+  {
     "name": "InfiniteZero.waveInner_covariantDerivative",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticIntegrationByParts.lean",
@@ -59592,6 +63602,30 @@
       "InfiniteZero.perpCoordinate",
       "InfiniteZero.waveInner",
       "InfiniteZero.waveInner_partialDerivative_smooth_right"
+    ]
+  },
+  {
+    "name": "InfiniteZero.waveInner_diagonal_second_eq_hessian_mass",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LaplacianHessianEnergy.lean",
+    "line": 55,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.partialDerivative",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.mass",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_comm",
+      "InfiniteZero.waveInner",
+      "InfiniteZero.waveInner_partialDerivative",
+      "InfiniteZero.waveInner_self_eq_mass"
     ]
   },
   {
@@ -59782,6 +63816,32 @@
       "InfiniteZero.waveInner",
       "InfiniteZero.waveInner_covariantDerivative",
       "InfiniteZero.waveInner_self_eq_mass"
+    ]
+  },
+  {
+    "name": "InfiniteZero.waveInner_magneticHamiltonian_smooth_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticInhomogeneousDomain.lean",
+    "line": 27,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.covariantDerivative",
+      "InfiniteZero.IsTestFunction.integrable_star_mul",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_covariantDerivative",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.mass",
+      "InfiniteZero.waveInner",
+      "InfiniteZero.waveInner_covariantDerivative_smooth_right"
     ]
   },
   {

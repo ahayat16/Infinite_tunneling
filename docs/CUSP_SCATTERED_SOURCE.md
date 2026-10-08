@@ -1,6 +1,6 @@
 # The scattered source’s two log-flat factors
 
-Status: Lean assembly and public wrapper compiled; at the historical profile milestone, `bash scripts/check.sh` passed with 541 `assert_no_sorry` guards. Traversal of the wrapper’s compiled dependencies finds exactly A002+A004+A005, without A003 or `thm_main`. The [final proof](../InfiniteZero/Remaining.lean) is now compiled modulo the four classical interfaces A002–A005.
+The Lean assembly and public wrapper are compiled. The wrapper depends on A002+A004, without A003 or `thm_main`. The [final proof](../InfiniteZero/Remaining.lean) is now compiled modulo the three classical admissions A002–A004.
 
 This block connects the [pointwise atomic-correction jets](ATOMIC_RESPONSE_JETS.md) to sublemma `T3-4-pointwise-response` of the [manuscript, lines 2927–2943](../article/Infinite_Zero_Tunneling_Lean_oriented_V2.tex#L2927). It separately retains the correction’s global log-flat cost and the potential’s local log-flat profile. No additional tunneling result is admitted: the classical interfaces for the physical connection are explicit arguments already used for the atomic correction.
 
@@ -12,7 +12,7 @@ Fix `p.BasicConditions`, a weight `χ : CuspWeightCutoffs p`, maximum order `n`,
  0<\beta_g<\beta,\qquad 0<\beta_{\rm local}<\beta.
 \]
 
-The physical connection also takes radial-core spectral data, core and full operator realizations, and `hInterior : HasInteriorEllipticEstimate`. These are supplied classically by A004, A002, and A005, respectively; A003 is not used here. The public wrapper [`atomicGround_scattered_source_jets`](../InfiniteZero/ClassicalAtomicScatteredSourceJets.lean#L23) supplies these interfaces and chooses the cutoffs; it requires only `BasicConditions`, both margins, and the maximum order.
+The physical connection also takes radial-core spectral data, core and full operator realizations, and `hInterior : HasInteriorEllipticEstimate`. The radial data are assembled from A002+A004, the realizations come from A002, and the interior estimate is proved without admissions; A003 is not used here. The public wrapper [`atomicGround_scattered_source_jets`](../InfiniteZero/ClassicalAtomicScatteredSourceJets.lean#L23) supplies these interfaces and chooses the cutoffs; it requires only `BasicConditions`, both margins, and the maximum order.
 
 Write `h=λ⁻¹`, `W=p.atomicPerturbation`, and
 

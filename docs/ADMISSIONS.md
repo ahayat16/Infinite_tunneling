@@ -3,8 +3,8 @@
 `thm_main` has a Lean proof with no `sorry` in its body.
 The stronger theorem `elementaryPotential_main` literally fixes the
 potential `elementaryParameters.potential` and constructs a threshold `L₀`
-before any `L≥L₀`. **Four classical admissions A002–A005 remain among
-its transitive dependencies**: these four classical results have not been
+before any `L≥L₀`. **Three classical admissions A002–A004 remain among
+its transitive dependencies**: these three classical results have not been
 formalized from Lean's foundations alone.
 Their contracts, references, and natural-language proofs are recorded below.
 
@@ -13,7 +13,7 @@ Their contracts, references, and natural-language proofs are recorded below.
 The diagonal defect and both Schur corrections are proved to be `o(A)`
 relative to the positive envelope of the same witnesses used in the hopping
 asymptotic. The spectral results specific to the double well, source estimates,
-and tunneling estimates are proved using the four classical admissions.
+and tunneling estimates are proved using the three classical admissions.
 
 The proof proceeds through
 [ConstructedMainProof.lean](../InfiniteZero/ConstructedMainProof.lean),
@@ -32,7 +32,7 @@ then `LocalAnalyticData` and `OperatorMainConclusion` for the explicit potential
 | Fixed potential | `elementaryParameters_basicConditions` and admissibility, without admissions; existence of a separation certificate chosen before L |
 | Atomic ground states | Existence, simplicity, gap, and core/full-potential comparison, via A002+A004; no nonradial data added to A004 |
 | Sources and saddle | Exact radial tails, Γ≥c h², weighted forcing/response, jets, and L¹ norms; control of the physical incoming integral and seven inactive cells |
-| Hopping | Actual complex integral, cosine with a positive envelope, continuous asymptotically linear phase and relative o(1) error, via A002–A005 |
+| Hopping | Actual complex integral, cosine with a positive envelope, continuous asymptotically linear phase and relative o(1) error, via A002–A004 |
 | Two global modes | Self-adjoint parity restrictions, min/max min-max identities, physical spans, and gap above the ground eigenspace, via A002+A004 |
 | Defect and Schur | Reconstruction on the opposite support, mass ≤C c²Γ² λ¹² exp(−2λ(G+J)), λ¹⁴ defect and λ¹⁵ correction; comparison with the same envelope and proved o(A) errors |
 | Continuity and conclusion | Continuity of hopping and splitting, zero sequences, and alternating parity; final assembly for the explicitly fixed potential |
@@ -90,189 +90,165 @@ isolation of a doublet, dimension two, or a hopping asymptotic.
 References and a mathematical proof of each field:
 [classical operator realization](CLASSICAL_OPERATOR_REALIZATION.md).
 
-## A003 — universal kernel of the free Landau resolvent
+## A003 — the standard Landau resolvent kernel
 
-**Lean declaration:** `InfiniteZero.free_landau_resolvent_kernel`, in
-[`Remaining.lean`](../InfiniteZero/Remaining.lean).
+**Lean declaration:** `InfiniteZero.classical_standard_landau_resolvent`, in
+[ClassicalLandauResolvent.lean](../InfiniteZero/ClassicalLandauResolvent.lean).
 
-**Status:** one explicit `sorry`, restricted to a universal classical
-identification. This admission contains no cusp potential, particular
-atomic state, separation parameter, or tunneling estimate.
+**Status:** one explicit `sorry` for the standard closed-operator kernel
+identity at Planck constant one. The conversion to smooth solutions and
+the semiclassical parameters is proved in Lean.
 
-**Statement in natural language.** For all `b, λ, E > 0`, every smooth,
-square-integrable complex function `u`, and every smooth, compactly
-supported complex source `f`, the pointwise differential equation
-
-\[
- (\texttt{magneticHamiltonian}(b,\lambda,0)+\lambda^2E)u=f
-\]
-
-implies, almost everywhere,
+**Statement in natural language.** Let `B, ρ > 0` and let
+`H_B = (−i∇−Bx⊥/2)²` be the closed free Landau operator on complex
+`L²(ℝ²)`. For every vector `U` in its domain and every smooth compactly
+supported source `f`, if `(H_B+ρ)U=[f]` in `L²`, then `U` is represented
+almost everywhere by
 
 \[
- u(x)=\lambda^{-2}\int_{\mathbb R^2}
- \texttt{freeLandauKernel}(b,\lambda^{-1},E,x,y)f(y)\,dy.
+ x\longmapsto\int_{\mathbb R^2}K_{B,\rho}(x,y)f(y)\,dy,
 \]
 
-The exact contract is `FreeLandauResolventKernel`, in
-[`LandauResolventBridge.lean`](../InfiniteZero/LandauResolventBridge.lean).
-`HasPositiveLandauResolvent b` quantifies it over all strictly positive
-couplings and energies. Assemblies with no admissions receive this
-contract explicitly; the wrappers in `Remaining.lean` supply it through
-A003. Thus `thm_main_variational_from_analytic_data` depends on A003 and
-`thm_main_from_analytic_data` depends on A002 and A003. The final proof
-`thm_main` constructs the original data and instantiates A002–A005.
+where, off the diagonal,
 
-**Precise primary reference.** H. D. Cornean, S. Fournais, R. L. Frank, and
-B. Helffer, *Sharp trace asymptotics for a class of 2D-magnetic operators*,
-Annales de l’Institut Fourier **63** (2013), equation **(B.21), p. 2508**,
-[DOI 10.5802/aif.2835](https://doi.org/10.5802/aif.2835), followed by the
-Laplace transform of the semigroup, also used on p. 2509. The publication
-gives the heat kernel; the Lean contract is the resolvent corollary whose
-scaling changes and domain argument are detailed in the
-[natural-language proof](CLASSICAL_LANDAU_RESOLVENT.md).
+\[
+ K_{B,\rho}(x,y)=e^{-iB(x\wedge y)/2}\frac{B}{4\pi}
+ \int_0^\infty
+ \frac{\exp[-\rho t-B\coth(Bt)|x-y|^2/4]}{\sinh(Bt)}\,dt.
+\]
 
-Covariance of the magnetic derivatives and Hamiltonian, inversion, and
-preservation of `L²` and mass are **proved** in
-`MagneticCovariance.lean`. `LandauResolventBridge.lean` then proves that
-the right-hand source is smooth and compactly supported, that the resolvent
-equation has the required sign and scaling, and that A003 implies the
-representation of the right state. Atomic existence, simplicity, and the
-gap are deduced from A002 and A004. Positivity of the resolvent energy
-is also proved at large coupling; `atomic_source_regime` assembles the
-representation using A003. The derivatives and pointwise amplitudes of
-the scattered source, followed by the hopping asymptotic, are proved
-in their dedicated modules. A003 admits none of these estimates; the
-relative spectral corrections are proved separately in `CanonicalParityRelativeErrors`.
+The exact contract is `HasStandardLandauResolvent`, in
+[StandardLandauResolvent.lean](../InfiniteZero/StandardLandauResolvent.lean).
+It uses the actual domain of `magneticOperator B 1 0` and the kernel
+`freeLandauKernel B 1 ρ`. The value selected on the diagonal does not
+affect the source integral.
 
-`LandauExteriorConvolution` supplies continuity of the convolution
-outside a ball containing the source support. The almost-everywhere
-representation therefore becomes pointwise. `RadialCoreSourceRepresentation`
-verifies the test source `−λ² core·φ`, its equation, and the exact cancellation
-of the scaling factors. `RadialLandauAverage` and `RadialCoreNormalization`
-deduce the polar formula and the real integral identity for the coefficient
-Γ of the same state. The A003 contract is explicit in these theorems.
-No positivity of the angular average or Green factorization is included
-in the admission or assumed by this identity.
+**References.** Cornean–Fournais–Frank–Helffer, *Sharp trace asymptotics
+for a class of 2D-magnetic operators*, Ann. Inst. Fourier **63** (2013),
+[(B.21), p.2508](https://www.numdam.org/item/10.5802/aif.2835.pdf#page=53),
+gives the heat kernel in the same symmetric gauge. The classical
+Laplace-transform formula gives its resolvent at spectral parameter
+`−ρ`; the article uses that transform on p.2509. Helffer–Pankrashkin,
+*Semiclassical reduction for magnetic Schrödinger operator with periodic
+zero-range potentials and applications*,
+[(5.1)–(5.2), pp.11–12](https://arxiv.org/pdf/0802.1414#page=11),
+gives the resolvent time-integral directly in Landau gauge.
+The [natural-language proof](CLASSICAL_LANDAU_RESOLVENT.md) details the
+phase convention, integrability, and almost-everywhere identification.
+The heat-to-resolvent kernel identification remains the classical input.
 
-## A004 — spectral data for the radial core alone
+**Proved reductions.**
 
-**Lean declaration:** `InfiniteZero.radial_core_spectral_data`, in
-[`Remaining.lean`](../InfiniteZero/Remaining.lean).
+- `MagneticInhomogeneousDomain` proves that a smooth `L²` function with
+  an `L²` magnetic Hamiltonian belongs to the closed operator domain.
+  Integration by parts gives an adjoint identity on tests, continuity
+  extends it to the closed graph, and A002 supplies self-adjointness.
+- `LandauResolventScaling` proves the proper-time substitution `τ=λt`,
+  the phase identity, and the exact kernel and source-integral factors:
+  `λ⁻² freeLandauKernel b λ⁻¹ E = freeLandauKernel (bλ) 1 (λ²E)`.
+- `LandauResolventAssembly` combines these steps. The existing theorem
+  `free_landau_resolvent_kernel` retains its statement and now has a
+  proof from A002 and the reduced A003.
 
-**Status:** explicit `sorry`; a classical corollary of magnetic harmonic
-approximation for a radial single well. Classical extension audited on
-18 September 2026: addition only of a real, radial, strictly positive
-ground-state choice, at the same threshold. The natural-language proof
-and checks of conventions appear in
-[RADIAL_HARMONIC_CONTRACT.md](RADIAL_HARMONIC_CONTRACT.md).
+The atomic application remains proved in `LandauResolventBridge`:
+magnetic covariance, support and smoothness of the physical source, the
+resolvent equation, and its sign and scale. Atomic existence and
+positivity of the energy shift are supplied by the separate spectral
+analysis. A003 contains no atomic, cusp, separation, or tunneling estimate.
 
-**Exact statement.** For every `b>0` and `p.r₀>0`, an element of
-`RadialCoreSpectralData b p` exists. Constants `γ,B,T>0` are chosen before
-the coupling. For each `λ≥T`, the core `p.core` has a normalized smooth
-L² ground state at `atomicGroundEnergy b p.core λ`. Its rescaled energy
-`e=λ⁻² atomicGroundEnergy b p.core λ` satisfies `e≤−1+B/λ`,
-and for every test function `u`:
+## A004 — the first two radial semiclassical levels
 
-```text
-γ λ (mass u − ‖waveInner φ u‖²)
-  ≤ magneticForm b λ p.core u − λ² e mass u.
-```
+**Lean declaration:** `InfiniteZero.classical_radial_low_levels`, in
+[ClassicalRadialLowLevels.lean](../InfiniteZero/ClassicalRadialLowLevels.lean).
+Its `sorry` is explicit. The exact contract and correspondence with the
+source are in [RADIAL_HARMONIC_CONTRACT.md](RADIAL_HARMONIC_CONTRACT.md).
 
-A separate field, leaving `ground` unchanged, also requires:
+**Statement in natural language.** Let `V` be a smooth, compactly supported,
+nonpositive radial potential with a unique negative minimum at zero and
+`d=V''(0)>0`. For sufficiently small `h>0`, the semiclassical magnetic
+operator `Lₕ=(−ih∇−A)²+V` has a normalized ground eigenvector with a
+smooth, real, radial, strictly positive representative. Its first two
+operator-domain min-max levels `e₁(h),e₂(h)` satisfy
 
-```lean
-positive_radial_ground : ∀ coupling, threshold ≤ coupling → ∃ φ,
-  IsAtomicGroundState b p.core coupling φ ∧ IsPositiveRadial φ
-```
+\[
+ |e_j(h)-V(0)-h\mu_j|\le C h^{3/2},\qquad j=1,2,
+\]
 
-The predicate in [`RealRadialState.lean`](../InfiniteZero/RealRadialState.lean)
-says exactly `φ x = (realRadialProfile φ ‖x‖ : ℂ)` and `0 < (φ x).re`
-for every `x`, where `realRadialProfile φ r = (φ (r • coordinateVector 0)).re`.
-The two existential fields may choose states with different phases.
-Positivity of `canonicalAtomicState` does not follow automatically.
-`RadialCoreSpectralData.positive_ground_with_gap`, in `RadialCoreGroundChoice`,
-proves that a single positive choice satisfies both the energy and the gap
-in the `ground` field: the gap extended to the graph through A002 forces
-simplicity, and a unitary phase does not change the norm of the overlap.
-This is a Lean consequence of the unchanged contract, not a new admission.
+with a common `C>0` and a common upper bound on `h`. Here `μ₁,μ₂` are the
+first two ordered values of the full oscillator mode family
+
+\[
+ \sqrt{1+2d}\,(2n+|m|+1)-m,
+ \qquad n\in\mathbb N,\quad m\in\mathbb Z.
+\]
+
+The source identifies this mode family with the reference oscillator
+spectrum. Its ordering and the subtraction of its first two values are
+proved in Lean.
 
 **Primary reference.** Helffer–Kachmar,
 [arXiv:2208.13030v5](https://arxiv.org/pdf/2208.13030v5),
-Theorem 1.1(1–2), p. 3, whose item (2) directly supplies the normalized
-positive radial choice; Proposition 2.1, pp. 11–12, applied to the first two
-min-max levels of the full operator; positivity of the oscillator gap,
-p. 12; change of field in Remark 1.6, pp. 7–8.
+Theorem 1.1(1–2), Proposition 2.1, and Section 2.2, (2.2)–(2.4).
+The hypotheses on the potential are (1.1). The remaining input is the
+positive radial ground state and harmonic approximation in the source's
+semiclassical convention.
 
-**Natural-language proof.** The potential `p.core/b²` satisfies the radial
-hypotheses (1.1). The exact identity
-`Hλ=b²λ² L_(1/(bλ))^(p.core/b²)` turns the harmonic approximation into an
-energy `−λ²+O(λ)` and a gap `≥γλ`. The classical realization A002 identifies
-the operator, its variational ground energy, and its smooth representative.
-For a test function, orthogonal decomposition along this ground state and
-the second min-max level give the final inequality; the Hamiltonian–form
-identity is used only on the compactly supported test function.
-The constant and threshold are then enlarged to cover `λ≥T`.
+**Proved deductions.** Lean converts the remainder bounds to limits,
+computes `μ₁=√(1+2d)` and `μ₂=2√(1+2d)−1`, and obtains the positive
+gap limit `δ=√(1+2d)−1`. The identity `Hₖ=k²L₁/ₖ` supplies the
+large-coupling gap. A two-dimensional min-max argument proves the
+operator lower bound on the orthogonal complement of the ground state;
+this step is no longer admitted. The resulting
+`classical_radial_harmonic` and `radial_core_spectral_data` are proved
+assemblies using A004 and the unchanged realization input A002.
 
-For the new field, apply item (2) to the same potential `p.core/b²`
-with `ε=1/(bλ)`. This positive multiplication of the operator changes
-neither the eigenfunction nor its norm: no spatial dilation is needed.
-If its threshold is `ε₀>0`, taking
-`T ≥ max(T_ancien,1/(bε₀),1)` preserves the old and new fields
-simultaneously. Almost-everywhere identification of the smooth representatives
-becomes pointwise and preserves reality, radiality, and strict positivity.
+For the explicit core, Lean also proves the hypotheses for `V=p.core/b²`,
+the exact change of field at coupling `bλ`, the common threshold, and the
+rank-one test-function inequality. The estimate
+`E°(λ)≤−λ²+Bλ`, for every `λ>0`, uses neither A004 nor A002.
+See [RadialHarmonicAssembly.lean](../InfiniteZero/RadialHarmonicAssembly.lean),
+[RadialCoreSpectralAssembly.lean](../InfiniteZero/RadialCoreSpectralAssembly.lean),
+and [RadialCoreVariationalBound.lean](../InfiniteZero/RadialCoreVariationalBound.lean).
 
-**Boundary.** A004 says nothing about the cusps, the nonradial potential,
-Agmon estimates, sources, hopping, or the double well. It assumes no
-continuous phase for the state and gives no convergence of its profile.
-The ODE for the actual state's profile, radial integrability for `r dr`,
-identification with the exterior kernel, monotonicity of the profile,
-its uniform bound on `[0,h]`, and the comparison `f≤ΓK` are separate
-Lean connections, with no additional field in this admission.
-The assembly of the bound `Γ≥c h²`, hence `Γ⁻¹≤C h⁻²`, compiles;
-its proof uses A002+A004, without A003, and does not assume Lemma B.1.
-The auxiliary convolution integral formula uses A003 separately.
-See the [distinction and natural-language proof](RADIAL_NORMALIZATION.md).
-The nonradial construction in `AtomicGroundConstruction` and exponential
-comparison in `AtomicGroundComparison` are proved; their wrappers
-`CuspParameters.eventual_atomicGround_properties`,
-`atomicGroundEnergy_exponential_comparison`, and
-`atomicGroundVectors_exponential_comparison` use exactly A002 and A004.
-The wrapper `CuspParameters.atomic_source_regime` uses A002+A003+A004
-and adds identification with the free kernel. The assemblies
-`thm_main_*_from_analytic_data`, which already receive their atomic data,
-retain their displayed A002/A003 dependencies.
+A004 contains no cusp, nonradial, source, hopping, or double-well estimate.
+The actual radial ODE, exterior kernel and normalization bounds are
+separate Lean proofs; see [RADIAL_NORMALIZATION.md](RADIAL_NORMALIZATION.md).
 
-## A005 — interior elliptic estimate on a fixed ball
+## Former A005 — point evaluation and elliptic estimates, now proved
 
-**Lean declaration:** `InfiniteZero.classical_elliptic_interior_estimate`,
-in [ClassicalEllipticInterior.lean](../InfiniteZero/ClassicalEllipticInterior.lean).
-Its `sorry` is explicit. The precise contract is
-`HasInteriorEllipticEstimate` in
-[EllipticInteriorContract.lean](../InfiniteZero/EllipticInteriorContract.lean).
+There is no remaining admission in this block. The declaration
+`classical_h2_point_evaluation` retains its name and statement and is
+proved by `coordinateH2PointEvaluation` in
+[CoordinatePointEvaluation.lean](../InfiniteZero/CoordinatePointEvaluation.lean).
+It states that a constant independent of the smooth complex function `u`
+satisfies
 
-**Statement in natural language.** For every order `n` and bound `B≥0`,
-there exists `C(n,B)>0`, chosen before the coefficients and functions,
-such that: if `−Δu+a·∇u+qu=f` in `B(0,2)`, the functions are smooth and
-complex-valued, and the jets of `a,q` through order `n` are bounded by
-`B` on this ball, then the jets of `u` through order `n` at the center
-are bounded by `C(U+F)`. Here `U²` bounds the local mass of `u`,
-and `F²` bounds that of each unit-direction jet of `f` through order `n`.
+\[
+ |u(0)|\le C\left(\int_{B_1}|u|^2
+ +\sum_i\int_{B_1}|\partial_i u|^2
+ +\sum_{i,j}\int_{B_1}|\partial_i\partial_j u|^2\right)^{1/2}.
+\]
 
-This admission contains no magnetic parameter, cusp potential, weight,
-coefficient Γ, or tunneling estimate. Its uniform constant comes from
-the Poisson estimate and bounds on the lower-order terms;
-no sign condition on `q` is required.
+**Formalized proof.** Fix a smooth cutoff `χ` supported strictly inside
+`B₁`, equal to one near zero, and put `v=χu`. Applying the fundamental
+theorem of calculus in each coordinate gives
 
-The [references and natural-language proof](CLASSICAL_ELLIPTIC_INTERIOR.md)
-detail the complex-valued adaptation: Caccioppoli, the interior Poisson
-estimate, commutators on nested balls, then Sobolev embedding in dimension
-two. Hunter's notes, Theorems 4.27, 4.28, and 3.49, are cited as classical
-ingredients, without attributing the precise contract variant to them.
-The [connections to the actual potential](ATOMIC_RESPONSE_JETS.md) are
-proved in Lean and receive A005 as an explicit hypothesis; only the
-public wrapper instantiates it. They control the same Schur correction
-without using A003.
+\[
+ v(0)=\int_{[-1,0]^2}\partial_0\partial_1v.
+\]
+
+The boundary terms vanish by the support condition. Cauchy–Schwarz on
+the unit-area square bounds this value by the `L²` norm of the mixed
+derivative. That derivative is supported in `B₁`; the proved Sobolev
+product estimate bounds it by the local `H²` norm of `u`. Cartesian
+coordinate changes and the integral identities are checked in Lean.
+
+Together with the proved uniform interior Sobolev estimate and the
+higher-order embedding, this makes `classical_elliptic_sobolev_estimates`
+and `classical_elliptic_interior_estimate` admission-free. Their existing
+interfaces and applications to the magnetic equation are unchanged.
+See the [elliptic proof](CLASSICAL_ELLIPTIC_INTERIOR.md) for the complete
+argument and its connection to the classical Sobolev theorem.
 
 ## Estimates and constructions proved in Lean
 

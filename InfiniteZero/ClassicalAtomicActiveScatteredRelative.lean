@@ -5,7 +5,8 @@ import InfiniteZero.AtomicActiveScatteredRelative
 /-!
 # Classical wrapper for removing the scattered active contribution
 
-Only A002, A004 and A005 are supplied here. The source estimates, exact
+The admitted inputs are A002 and A004; the elliptic estimate is proved.
+The source estimates, exact
 pairing decomposition and comparison with the manuscript envelope are
 proved. No active incoming asymptotic is assumed.
 -/

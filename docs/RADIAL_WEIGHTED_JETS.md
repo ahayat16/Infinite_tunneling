@@ -2,7 +2,7 @@
 
 The modules [RadialCorePointwiseBound](../InfiniteZero/RadialCorePointwiseBound.lean), [RadialCoreNormalizationUpper](../InfiniteZero/RadialCoreNormalizationUpper.lean), and [RadialCoreWeightedJetBounds](../InfiniteZero/RadialCoreWeightedJetBounds.lean) compile without warnings. Their theorem audit finds only `propext`, `Classical.choice`, and `Quot.sound`. The global check `scripts/check.sh` passed: compilation, guards, and dependency export.
 
-No admission is added. Statements at the effective energy explicitly take `hRad : RadialCoreSpectralData p.b p` and core realizations `hAcore : ∀ λ, IsMagneticRealization p.b λ p.core`. A004 and A002 are the classical interfaces supplying these inputs in the wrapper `atomicGround_fine_response_data`, whose connection to the PDE is described in [ATOMIC_FINE_RESPONSE_DATA.md](ATOMIC_FINE_RESPONSE_DATA.md). A003 is not used.
+No admission is added. Statements at the effective energy explicitly take `hRad : RadialCoreSpectralData p.b p` and core realizations `hAcore : ∀ λ, IsMagneticRealization p.b λ p.core`. The radial data are assembled from A002+A004, and A002 supplies the realizations in the wrapper `atomicGround_fine_response_data`, whose connection to the PDE is described in [ATOMIC_FINE_RESPONSE_DATA.md](ATOMIC_FINE_RESPONSE_DATA.md). A003 is not used.
 
 ## Conventions and retained choices
 
@@ -153,4 +153,4 @@ e^{-\kappa K\rho}\le
 
 For `κ` in a fixed interval, these constants are independent of `h` and the center. This preparation transports estimates on semiclassical balls without differentiating the weight.
 
-These results control the radial factor of the second energy term; they are an input to the elliptic estimate for `η_corr=ψfull−cφ`. The [full right-hand side](ATOMIC_FINE_RESPONSE_DATA.md), then [passage to pointwise jets](ATOMIC_RESPONSE_JETS.md) through A005, are proved separately. The [source profiles](CUSP_SOURCE_PROFILES.md), [active channels](ACTIVE_CHANNEL_ASYMPTOTIC.md), and [final assembly](../InfiniteZero/ConstructedMainProof.lean) are also established. [thm_main](../InfiniteZero/Remaining.lean) is compiled modulo the four classical interfaces A002–A005.
+These results control the radial factor of the second energy term; they are an input to the elliptic estimate for `η_corr=ψfull−cφ`. The [full right-hand side](ATOMIC_FINE_RESPONSE_DATA.md), then [passage to pointwise jets](ATOMIC_RESPONSE_JETS.md) using the proved interior estimate, are proved separately. The [source profiles](CUSP_SOURCE_PROFILES.md), [active channels](ACTIVE_CHANNEL_ASYMPTOTIC.md), and [final assembly](../InfiniteZero/ConstructedMainProof.lean) are also established. [thm_main](../InfiniteZero/Remaining.lean) is compiled modulo the three classical admissions A002–A004.

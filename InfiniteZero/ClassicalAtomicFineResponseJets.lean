@@ -9,7 +9,8 @@ The cusp cutoffs precede all constants and couplings. For each sufficiently
 large coupling the same positive radial core state, full ground state,
 normalization and exterior coefficient work for every weight strength,
 jet order up to the prescribed order, and point in the closed inner cusp
-neighborhood. The classical inputs are exactly A002, A004 and A005.
+neighborhood. The admitted inputs are A002 and A004; the elliptic
+estimate is proved.
 -/
 
 noncomputable section

@@ -5,7 +5,7 @@ import InfiniteZero.AtomicComponentSourceL1
 /-!
 # Classical wrapper for the three true component-source L¹ bounds
 
-Only the classical interfaces A002, A004 and A005 are instantiated here.
+The admitted inputs are A002 and A004; the elliptic estimate is proved.
 The core component retains its polynomial bound, while the sum of the two
 cusp component norms has the exponential and log-flat decay. Every source
 uses the same full ground state and the retained radial reference state.

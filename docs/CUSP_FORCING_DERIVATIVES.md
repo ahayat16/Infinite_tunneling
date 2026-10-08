@@ -92,7 +92,7 @@ For sums of norms, [`GenericFiniteL2Bound`](../InfiniteZero/GenericFiniteL2Bound
  \le e^{\kappa K\rho}.
 \]
 
-For the actual cusp weight, a common constant is chosen before `h`, the centers, and `κ` in a fixed interval. This weight comparison is an input to the [elliptic estimate](ATOMIC_RESPONSE_JETS.md). The exact PDE multiplied by `h²`, rescaling on an h-scale ball, and application of the interior contract A005 are now assembled; they do not follow from weight comparison alone.
+For the actual cusp weight, a common constant is chosen before `h`, the centers, and `κ` in a fixed interval. This weight comparison is an input to the [elliptic estimate](ATOMIC_RESPONSE_JETS.md). The exact PDE multiplied by `h²`, rescaling on an h-scale ball, and application of the interior estimate proved in Lean are now assembled; they do not follow from weight comparison alone.
 
 ## Full right-hand side now controlled
 
@@ -106,4 +106,4 @@ The constants and threshold precede coupling; the states, c, and Γ precede κ, 
 
 This variant uses a less precise polynomial prefactor than the TeX, but retains the entire action and every coefficient `β₁<β`. The polynomial power is unspecified in `sublemma:T3-4-weighted-forcing`. Exact chart-integration formulas and the manuscript’s optimal prefactors are unnecessary for this route.
 
-The full PDE data are then used in [elliptic propagation](ATOMIC_RESPONSE_JETS.md), which supplies pointwise correction jets through A005. The [full scattered-source profile](CUSP_SCATTERED_SOURCE.md), with local log-flat factor, is then assembled for the same states. The [cell estimates and hopping](ACTIVE_CHANNEL_ASYMPTOTIC.md) are also proved and used in [thm_main](../InfiniteZero/Remaining.lean), modulo A002–A005. The incoming source’s local profile and the TeX’s optimal prefactor `h⁻⁷/²` are not claimed by this global bound.
+The full PDE data are then used in [elliptic propagation](ATOMIC_RESPONSE_JETS.md), which supplies pointwise correction jets using the proved interior estimate. The [full scattered-source profile](CUSP_SCATTERED_SOURCE.md), with local log-flat factor, is then assembled for the same states. The [cell estimates and hopping](ACTIVE_CHANNEL_ASYMPTOTIC.md) are also proved and used in [thm_main](../InfiniteZero/Remaining.lean), modulo A002–A004. The incoming source’s local profile and the TeX’s optimal prefactor `h⁻⁷/²` are not claimed by this global bound.

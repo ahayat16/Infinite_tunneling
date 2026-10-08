@@ -12,7 +12,7 @@ construction requirements and the admissibility claimed in `lem:smooth-new`
 of `Infinite_Zero_Tunneling_Lean_oriented_V2.tex` for the fixed witness
 `elementaryParameters`. The spectral and tunneling conclusions are established
 later for this same witness by `elementaryPotential_main` in `Remaining.lean`,
-modulo the four recorded classical admissions.
+modulo the three recorded classical admissions.
 -/
 
 namespace InfiniteZero.CuspParameters

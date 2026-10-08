@@ -136,7 +136,7 @@ These are only elementary conditions on numbers and functions. In particular,
 no existence of eigenfunctions, spectral gap, action certificate, or tunneling
 asymptotic is assumed here. Subsequent theorems derive admissibility and the
 required estimates; `CuspParameters.mainConclusion` in `Remaining.lean` obtains
-the final conclusion from this predicate, using the four recorded classical
+the final conclusion from this predicate, using the three recorded classical
 admissions. `elementaryParameters_basicConditions` supplies a concrete proof
 of this predicate with no admission. -/
 structure BasicConditions (p : CuspParameters) : Prop where

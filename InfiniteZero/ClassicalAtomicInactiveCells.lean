@@ -6,8 +6,9 @@ import InfiniteZero.AtomicInactiveCells
 # Classical wrapper for the seven genuine inactive-cell bounds
 
 The original source estimates and geometric action reserves are proved.
-This wrapper supplies only A002, A004 and A005, and keeps the radial
-exterior coefficient attached to the same positive radial core state.
+This wrapper uses the admitted inputs A002 and A004 and the proved elliptic
+estimate. It keeps the radial exterior coefficient attached to the same
+positive radial core state.
 -/
 
 noncomputable section

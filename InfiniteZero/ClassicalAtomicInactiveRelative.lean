@@ -5,7 +5,8 @@ import InfiniteZero.AtomicInactiveRelative
 /-!
 # Classical wrapper for relative inactive-cell bounds
 
-Only A002, A004 and A005 are instantiated. The relative estimates use the
+The admitted inputs are A002 and A004; the elliptic estimate is proved.
+The relative estimates use the
 explicit Gaussian saddle envelope, without asserting an active-cell
 asymptotic or identification with the literal complex-Hessian envelope.
 -/

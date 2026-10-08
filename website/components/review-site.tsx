@@ -789,9 +789,9 @@ export function ReviewSite({ bootstrap }: { bootstrap: Bootstrap }) {
         ) : view === 'admissions' ? (
           <section className="admissions-page">
             <div className="eyebrow">CLASSICAL RESULTS</div>
-            <h1>The four classical admissions</h1>
+            <h1>The classical admissions</h1>
             <p className="page-intro">
-              The proof of <code>thm_main</code> uses these four admitted
+              The proof of <code>thm_main</code> uses these admitted
               results, each with a Lean statement, a
               mathematical justification and references.
             </p>

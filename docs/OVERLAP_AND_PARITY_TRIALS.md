@@ -46,7 +46,7 @@ Cauchy–Schwarz on both regions, with total mass \(1\), yields
 
 The constants and threshold precede the choice of \(L\). For every \(\varepsilon>0\), a common threshold ensures \(|s_{\lambda,L}|<\varepsilon\) for all these separations. The theorem’s condition \(R<2L\) suffices, since the construction imposes \(8r_0<R\).
 
-The [classical wrapper](../InfiniteZero/ClassicalCanonicalOverlapDecay.lean) requires only the elementary potential conditions. Its admissions are exactly A002 (operator realization) and A004 (radial-core data). The full state, its tail, and the overlap inequality are proved consequences. A003 and A005 are not needed here.
+The [classical wrapper](../InfiniteZero/ClassicalCanonicalOverlapDecay.lean) requires only the elementary potential conditions. Its admissions are exactly A002 (operator realization) and A004 (unit-field radial spectral theorem). The full state, its tail, and the overlap inequality are proved consequences. A003 is not needed here.
 
 ## Canonical even and odd trials
 
@@ -99,11 +99,9 @@ The specialization `canonicalParityTrial_schurDiagonal` uses the three physical 
 
 Overlap convergence supplies one of the Schur-transfer inputs. The [coercive complement bound](TWO_WELL_COERCIVITY.md) is now established by IMS and the atomic gap, up to the actual operator domain. The first two min-max values are now identified with the minimum and maximum of the sectorial bottoms, with eigenspace descriptions and the global gap; see [GLOBAL_PARITY_DOUBLET.md](GLOBAL_PARITY_DOUBLET.md). Hopping continuity is also proved in [HoppingContinuity.lean](../InfiniteZero/HoppingContinuity.lean), with a threshold before separation; the wrapper `canonicalHopping_continuous` uses only A002 and A004. Continuity of the parity energies and their difference at all positive couplings is [proved by dilation](DILATION_AND_CONTINUITY.md).
 
-The [opposite-support estimates](OPPOSITE_SUPPORT_ESTIMATES.md) retain the action margins of the source representation. They control the diagonal defect and, through the quadratic residual bound, the Schur corrections relative to the same amplitude. The absolute Agmon bound alone was insufficient for this step. The [final assembly](../InfiniteZero/ConstructedMainProof.lean) is compiled and [thm_main](../InfiniteZero/Remaining.lean) is proved modulo A002–A005. Trials remain distinct from the actual eigenmodes constructed by spectral reduction.
+The [opposite-support estimates](OPPOSITE_SUPPORT_ESTIMATES.md) retain the action margins of the source representation. They control the diagonal defect and, through the quadratic residual bound, the Schur corrections relative to the same amplitude. The absolute Agmon bound alone was insufficient for this step. The [final assembly](../InfiniteZero/ConstructedMainProof.lean) is compiled and [thm_main](../InfiniteZero/Remaining.lean) is proved modulo A002–A004. Trials remain distinct from the actual eigenmodes constructed by spectral reduction.
 
 ## Verification
-
-At the historical overlap/parity milestone, `bash scripts/check.sh` completed successfully: global build (3901 tasks), 842 `assert_no_sorry` guards, compiled-constant inventory, and index of the 256 sublemmas. The inventory counted 2073 theorems without admissions, 381 definitions/contracts, four classical admissions, 28 theorems depending on them, and the then-open target `thm_main`.
 
 The transitive audit confirms that the conditional overlap bounds, canonical trials, and their domain transport use only standard Lean axioms. The two classical overlap corollaries depend exactly on A002 and A004, never on `thm_main`.
 

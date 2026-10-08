@@ -18,12 +18,12 @@ const admitted = data
   .map((row) => row.name);
 const ancestors = admissionAncestors(data, admitted);
 
-await test('the main theorem has exactly the four classical admissions in its ancestry', () => {
+await test('the main theorem has exactly the three classical admissions in its ancestry', () => {
   assert.deepEqual(
     new Set(ancestors.get('InfiniteZero.thm_main')),
     new Set(admitted),
   );
-  assert.equal(admitted.length, 4);
+  assert.equal(admitted.length, 3);
 });
 
 await test('every graph arrow is a real dependency and endpoints remain visible', () => {

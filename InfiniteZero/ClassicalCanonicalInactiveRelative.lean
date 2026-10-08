@@ -5,7 +5,7 @@ import InfiniteZero.CanonicalInactiveRelative
 /-!
 # Classical wrapper for universal canonical inactive-cell estimates
 
-The only classical inputs instantiated here are A002, A004 and A005.
+The admitted inputs are A002 and A004; the elliptic estimate is proved.
 The caller supplies the positive radial reference and its own exterior
 coefficient; neither is reselected in the conclusion.
 -/

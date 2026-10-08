@@ -1,8 +1,8 @@
 # Reducing the active cell to its incoming part
 
-This chain controls the three active-cell terms containing the atomic correction. It retains the actual sources and the same states and coefficients as their L¹ estimates. The complex incoming–incoming asymptotic is proved in the [separate physical connection](INCOMING_PHYSICAL_ASYMPTOTIC.md). The [final assembly](../InfiniteZero/ConstructedMainProof.lean) now concludes [thm_main](../InfiniteZero/Remaining.lean), modulo A002–A005.
+This chain controls the three active-cell terms containing the atomic correction. It retains the actual sources and the same states and coefficients as their L¹ estimates. The complex incoming–incoming asymptotic is proved in the [separate physical connection](INCOMING_PHYSICAL_ASYMPTOTIC.md). The [final assembly](../InfiniteZero/ConstructedMainProof.lean) now concludes [thm_main](../InfiniteZero/Remaining.lean), modulo A002–A004.
 
-**Historical reduction milestone validation.** `bash scripts/check.sh` had completed successfully: 1874 theorems without admissions, 648 `assert_no_sorry` guards, four classical admissions, and one then-open final target. The transitive audit of both wrappers finds exactly A002+A004+A005, without A003 or `thm_main`. The inventory, DOT graph, and 256 blueprint entries were regenerated.
+The public wrappers depend on A002+A004, without A003 or `thm_main`.
 
 ## Physical objects and quantifier order
 
@@ -156,6 +156,6 @@ This realizes the original comparison of [`sublemma:P6-8-mixed`, `sublemma:P6-8-
 
 The reduction alone does not supply the leading phase or nonzero coefficient of the incoming term. The coordinate identity of [CuspSourcePairingCoordinates](../InfiniteZero/CuspSourcePairingCoordinates.lean) is now complemented by [evaluation of the coupled integral](INCOMING_PHYSICAL_ASYMPTOTIC.md). The [canonical channels and hopping](ACTIVE_CHANNEL_ASYMPTOTIC.md) follow with relative remainder tending to zero; spectral connection and relative parity errors conclude the final theorem. The manuscript’s sharper rates do not follow from this reduction alone.
 
-These modules add no admission. The atomic assembly takes classical interfaces as explicit arguments; it assumes neither a scattered-cell estimate, hopping asymptotic, nor analytic data already containing the target conclusion. The [classical wrapper](../InfiniteZero/ClassicalAtomicActiveScatteredRelative.lean) `atomicGround_active_scattered_relative hp hL hβ₀ hβ₀β hmargin` is compiled: it chooses χ and supplies A002, A004, and A005 to the conditional proofs. A003 and the final theorem are not used in its construction.
+These modules add no admission. The atomic assembly takes analytic interfaces as explicit arguments; it assumes neither a scattered-cell estimate, hopping asymptotic, nor analytic data already containing the target conclusion. The [classical wrapper](../InfiniteZero/ClassicalAtomicActiveScatteredRelative.lean) `atomicGround_active_scattered_relative hp hL hβ₀ hβ₀β hmargin` is compiled: it chooses χ and supplies A002 and A004 to the conditional proofs. A003 and the final theorem are not used in its construction.
 
 The compiled corollary `atomicGround_active_incoming_reduction hp hL` explicitly fixes `β₀=3β/4` and replaces the margin with `β/8`. Its only arguments are `BasicConditions` and `R<2L`: auxiliary margins are chosen in the proof before coupling.

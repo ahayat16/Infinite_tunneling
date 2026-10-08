@@ -146,9 +146,9 @@ def main():
         rows.append({**record, "status": status, "axioms": ax, "dependencies": deps})
 
     admitted = [r["name"] for r in rows if r["status"] == "admitted"]
-    expected = ["InfiniteZero.classical_elliptic_interior_estimate",
-                "InfiniteZero.free_landau_resolvent_kernel", "InfiniteZero.magnetic_realization",
-                "InfiniteZero.radial_core_spectral_data"]
+    expected = ["InfiniteZero.classical_radial_low_levels",
+                "InfiniteZero.classical_standard_landau_resolvent",
+                "InfiniteZero.magnetic_realization"]
     if admitted != expected:
         raise SystemExit(f"Admission registry needs review: expected {expected}, found {admitted}")
     # Also inspect generated/private/otherwise unlisted constants, so an unused
@@ -165,7 +165,9 @@ def main():
         raise SystemExit(f"Unexpected axioms: {unexpected}")
     for row in rows:
         if "sorryAx" in row["axioms"] and row["name"] not in {
-            "InfiniteZero.classical_elliptic_interior_estimate",
+            "InfiniteZero.classical_radial_harmonic",
+            "InfiniteZero.classical_radial_low_levels",
+            "InfiniteZero.classical_standard_landau_resolvent",
             "InfiniteZero.free_landau_resolvent_kernel", "InfiniteZero.magnetic_realization",
             "InfiniteZero.radial_core_spectral_data",
             "InfiniteZero.CuspParameters.radialCore_kernel",
@@ -210,7 +212,7 @@ def main():
             raise SystemExit(f"Unexpected admission dependency: {row['name']}")
 
     # The final proof must derive every original estimate from exactly the
-    # four registered classical interfaces. A new direct or hidden admission
+    # three registered classical interfaces. A new direct or hidden admission
     # cannot be legitimized merely by assigning the final theorem a new status.
     by_name = {row["name"]: row for row in rows}
     for target in FINAL_TARGETS:
@@ -256,7 +258,7 @@ def main():
         "In particular, `thm_main_of_analytic_data` does not prove the existence of its data. "
         "`elementaryPotential_main` proves the conclusion for the potential fixed by `elementaryParameters`; "
         "`thm_main` deduces the manuscript's unconditional target. Neither proof has a direct `sorry`. "
-        "Their only transitive admissions are exactly A002–A005, checked by the audit. "
+        "Their only transitive admissions are exactly A002–A004, checked by the audit. "
         "The original tunneling estimates and relative spectral errors are constructed in Lean.", "",
         "See [the admissions](ADMISSIONS.md), [the readable graph](DEPENDENCIES.md), "
         "[the full graph](dependencies.dot), and [the detailed data](declarations.json).", "",

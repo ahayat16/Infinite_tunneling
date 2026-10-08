@@ -205,8 +205,10 @@ theorem `elementaryPotential_main` in `Remaining.lean` states the result
 with that witness written literally in its type. For the three items,
 unfold `OperatorMainConclusion` and then `MainConclusion`; for v, follow
 `CuspParameters.potential` in `Construction.lean`. No spectral or tunneling
-data are hypotheses of this proposition. The four classical admissions
-used by its proof are listed at `thm_main` and in `docs/ADMISSIONS.md`. -/
+data are hypotheses of this proposition. The three remaining classical
+admissions are listed at `thm_main` and in `docs/ADMISSIONS.md`. The
+conditional assembly retains an elliptic-estimate interface, which is
+supplied by a proved theorem. -/
 def ConstructedPotentialMainTheorem : Prop :=
   ∃ p : CuspParameters, p.BasicConditions ∧ AdmissiblePotential p.potential ∧
     ∃ L₀ : ℝ, p.R < L₀ ∧ ∀ L, L₀ ≤ L → OperatorMainConclusion p.b p.potential L

@@ -149,7 +149,7 @@ where `C_V = 2K/g₀`. The conclusion concerns vectors in the actual L² eigensp
 - `CuspParameters.atomicGroundEnergy_exponential_comparison`;
 - `CuspParameters.atomicGroundVectors_exponential_comparison`.
 
-They require only `hp : p.BasicConditions` and retain exactly the two preceding conclusions. A004 supplies only radial spectral data, and A002 both realizations. Residual bounds, compression, Schur comparison, and normalization are proved in the preceding modules. These corollaries therefore depend on the classical admissions **A002+A004**, with no new comparison admission and no A003.
+They require only `hp : p.BasicConditions` and retain exactly the two preceding conclusions. A004 supplies the positive radial ground state and first two semiclassical harmonic-approximation bounds; Lean derives the operator gap and assembles the core data using A002, which also supplies both realizations. Residual bounds, compression, Schur comparison, and normalization are proved in the preceding modules. These corollaries therefore depend on the classical admissions **A002+A004**, with no new comparison admission and no A003.
 
 ## Scope
 

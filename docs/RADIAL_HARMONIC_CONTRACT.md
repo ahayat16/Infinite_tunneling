@@ -1,282 +1,262 @@
-# A004 — classical spectral data for the radial core
+# A004 — the radial ground state and semiclassical low levels
 
-The existence of the
-`RadialCoreSpectralData` contract is the classical admitted result **A004**,
-`InfiniteZero.radial_core_spectral_data`, in
-[`Remaining.lean`](../InfiniteZero/Remaining.lean). The informal proof
-below justifies all its fields using the published radial magnetic harmonic
-approximation and the connections to the realization and min-max principle. This
-informal proof is not a Lean proof of the admitted result.
+The remaining admission is
+[`classical_radial_low_levels`](../InfiniteZero/ClassicalRadialLowLevels.lean).
+It supplies the first two harmonic-approximation estimates and a positive
+normalized radial ground state. Lean proves the oscillator-level ordering,
+the resulting gap asymptotics, the conversion to the unscaled operator,
+and the min-max inequality on the ground state's orthogonal complement.
+The application to the explicit core retains its existing interface.
 
-The contract includes a real, radial, strictly positive choice of ground
-state, at the same threshold. It assumes neither its exterior radial equation,
-nor the integrability of its profile with respect to the measure `r dr`, nor a
-formula in terms of Γ: these connections remain separate Lean proofs.
+## Exact remaining assumption
 
-The passage to the simple ground state of the full potential and its gap is
-proved in Lean from this contract and the operator realizations A002.
-A004 contains no nonradial, source, or tunneling result.
-The integrability of the energy density of a noncompact eigenstate is
-neither a field of the contract nor an assumption of this construction.
+Let `V : ℝ² → ℝ` satisfy
+[`RadialSingleWell`](../InfiniteZero/RadialSingleWell.lean):
 
-## 1. Checked primary references
+- `V` is smooth and compactly supported, and `V ≤ 0`;
+- `V(0) < 0` and `V(0) < V(x)` for every `x ≠ 0`;
+- `V(x) = V(|x|e₀)`, where `e₀ = (1,0)`;
+- the signed radial profile `r ↦ V(re₀)` has second derivative `d > 0` at zero.
 
-In [Helffer–Kachmar, arXiv:2208.13030v5](https://arxiv.org/pdf/2208.13030v5), the radial hypotheses appear in (1.1), p. 1. Theorem 1.1(1–2), p. 3, gives simplicity, energy, and the existence of a positive normalized radial ground state for every `0<ε≤ε₀`. Its part (2) directly justifies the positive radial choice. Proposition 2.1, pp. 11–12, gives the harmonic approximation of each fixed min-max level and radiality: apply levels 1 and 2 for the gap. Remark 1.6, pp. 7–8, describes the change of constant field. Only the single-well part is used; the WKB expansion in part (3) is not admitted here.
+Set
 
-For the differential realization, [Shubin, arXiv:math/0007019v2](https://arxiv.org/pdf/math/0007019v2), Lemma 5.1 and Theorem 5.2, p. 10, provide local regularity and essential self-adjointness in a more general setting; the cutoff identity (5.3), p. 12, is compatible with the form argument below. Our potential is smooth and bounded, the magnetic field is smooth, and Euclidean space is complete. Elliptic regularity can then be bootstrapped to a smooth representative.
+\[
+ A(x)=\tfrac12(-x_2,x_1),\qquad
+ L_h=(-ih\nabla-A)^2+V.
+\]
 
-Page numbers are those printed in the PDFs.
+In Lean, `semiclassicalMagneticOperator V h` is defined as
+`h²` times `magneticOperator 1 h⁻¹ V`, on the same operator domain.
+The magnetic realization is the closure of the compactly supported smooth
+test-function graph, as specified in
+[A002](ADMISSIONS.md#a002--realization-of-the-magnetic-operator).
 
-## 2. Admitted Lean contract and exact scope
+Let `e₁(h)` be the infimum of `Re⟨u,Lₕu⟩` over unit vectors in `D(Lₕ)`.
+Let `e₂(h)` be the infimum of the real numbers `E` for which there is a
+complex two-dimensional subspace `F ⊂ D(Lₕ)` satisfying
+`Re⟨u,Lₕu⟩ ≤ E` for every unit vector `u ∈ F`.
+These are `radialFirstSemiclassicalLevel` and
+`radialSecondSemiclassicalLevel`.
 
-The exact definition is
-[`RadialCoreSpectralData`](../InfiniteZero/RadialCoreSpectralData.lean).
-It fixes `γ>0`, `B>0`, and `T>0`. The unchanged `ground` field requires,
-for each `λ≥T`, a state
-`φ` such that, with `e=λ⁻² atomicGroundEnergy b p.core λ`:
+Define the classical oscillator mode values by
 
-- `IsAtomicGroundState b p.core λ φ`;
-- `e ≤ −1+B/λ`;
-- for every test function `u`,
-  `γλ (mass u − ‖waveInner φ u‖²) ≤ magneticForm b λ p.core u − λ²e mass u`.
+\[
+ M_d(n,m)=\sqrt{1+2d}\,(2n+|m|+1)-m,
+ \qquad n\in\mathbb N_0,\quad m\in\mathbb Z.
+\]
 
-The separate added field is exactly:
+Here `μ₁(d)` is the infimum of all these values and `μ₂(d)` is the
+infimum after excluding `(n,m) = (0,0)`. Their definitions are
+`radialOscillatorGroundLevel` and `radialOscillatorSecondLevel`.
+The connection of this mode family with the oscillator spectrum is
+classical input; ordering the family is proved in Lean.
+
+**A004 states that there exist `h₀ > 0` and `C > 0` such that, for every
+`0 < h ≤ h₀`,**
+
+\[
+ |e_j(h)-V(0)-h\mu_j(d)|\le C h\sqrt h,
+ \qquad j=1,2,
+\]
+
+and there exist a smooth function `φₕ : ℝ² → ℂ` and a vector
+`uₕ ∈ D(Lₕ)` such that
+
+\[
+ \|u_h\|_2=1,\qquad L_hu_h=e_1(h)u_h,
+ \qquad u_h=[\phi_h]_{L^2},
+\]
+
+with `φₕ` real, radial, and strictly positive at every point.
+The constants are fixed before choosing `h`; the state may depend on `h`.
+No continuity of that choice is required. The positivity predicate
+[`IsPositiveRadial`](../InfiniteZero/RealRadialState.lean) means precisely
+`φ(x) = (Re φ(|x|e₀) : ℂ)` and `0 < Re φ(x)` for every `x`.
 
 ```lean
-positive_radial_ground : ∀ coupling, threshold ≤ coupling → ∃ φ,
-  IsAtomicGroundState b p.core coupling φ ∧ IsPositiveRadial φ
-```
-
-In [`RealRadialState.lean`](../InfiniteZero/RealRadialState.lean),
-`realRadialProfile φ r := (φ (r • coordinateVector 0)).re`, and
-`IsPositiveRadial φ` contains the two pointwise properties
-
-```lean
-radial : ∀ x, φ x = (realRadialProfile φ ‖x‖ : ℂ)
-positive : ∀ x, 0 < (φ x).re
-```
-
-The first also forces the function to be real-valued. These properties concern
-the actual smooth representative, including at the origin. The witnesses for
-`ground` and `positive_radial_ground` are independent: no equality between
-them, or positive phase for the arbitrary choice `canonicalAtomicState`, is
-asserted. Using them together will require a proved identification up to
-phase, or the explicit selection of the positive witness.
-
-The admitted declaration is exactly:
-
-```lean
-theorem radial_core_spectral_data (b : ℝ) (p : CuspParameters)
-    (hb : 0 < b) (hr : 0 < p.r₀) : Nonempty (RadialCoreSpectralData b p) := by
+theorem classical_radial_low_levels (V : Potential) (hV : RadialSingleWell V) :
+    Nonempty (RadialLowLevelData V) := by
   sorry
 ```
 
-Only `b>0` and `p.r₀>0` are required. The other fields of `p` do not enter
-`p.core`; no condition on the cusps is imported.
-`IsAtomicGroundState` includes smoothness, membership in L², the pointwise
-equation at the energy defined by the variational infimum, and `mass φ=1`.
-The threshold and constants are chosen before the coupling and the state.
-The new field adds no continuity in the coupling, profile bound, or
-exponential estimate. The proofs of the first transfer continue to use
-`ground` without having to choose its phase.
+## References and correspondence
 
-For `b=p.b`, `BasicConditions`, and the two operator realizations,
-`AtomicGroundConstruction.eventual_atomicGround_properties_of_radialData`
-constructs the ground state of the full potential, its simplicity,
-its gap, and the inequality between its energy and that of the core.
-`exists_atomicGroundCertificate_of_radialData` retains the gap `γλ/2`.
-The exterior-mass inequality comes from the radial closed graph, without
-`Integrable (magneticEnergyDensity … φ)` or an integral identity for `φ`.
-`CuspParameters.eventual_atomicGround_properties`, in `Remaining.lean`,
-provides these atomic conclusions from `BasicConditions` alone using
-A002 and A004. The contract provides no exponential, source,
-hopping, or double-well estimate.
+Helffer–Kachmar,
+[Quantum tunneling in deep potential wells and strong magnetic field revisited,
+arXiv:2208.13030v5](https://arxiv.org/pdf/2208.13030v5), provide the
+single-well hypotheses in (1.1), the positive normalized radial state in
+Theorem 1.1(1–2), and the fixed-index harmonic approximation with
+`O(h^(3/2))` error in Proposition 2.1. Apply the proposition at `j = 1,2`
+and choose common constants. Section 2.2 identifies the limiting magnetic
+oscillator with quadratic potential `(d/2)|x|²`. The relevant printed
+pages are 1, 3, and 10–12. Only single-well results are used.
 
-## 3. Independent calculation of scales and constants
+For the full oscillator mode formula, a direct reference is
+Drigho-Filho–Kuru–Negro–Nieto,
+[Superintegrability of the Fock-Darwin system,
+arXiv:1703.06634](https://arxiv.org/pdf/1703.06634), Section 2.2,
+equations (2.22)–(2.29), especially (2.27). In its notation, set
+`ℏ = 1`, particle mass `= 1/2`, `eB/c = 1`, and spring constant `= d`.
+Then `ωc = 2`, `ω = √(1+2d)`, and its energy formula is `M_d(n,m)`.
+This spectral decomposition, including completeness, is the classical
+oscillator input in A004.
 
-Set `V = p.core`, `r₀ = p.r₀`, `h = λ⁻¹`, and `A(x) = x^⊥/2`. The repository's differential model is
+The admitted statement combines these published spectral results; it is
+not a verbatim copy of one theorem. Its smooth representative and concrete
+operator domain use the usual smooth elliptic realization, also recorded
+in A002. The remaining review consists of matching those realizations,
+the stated radial hypotheses, and the cited oscillator spectrum.
 
-\[
- H_\lambda=(-i\nabla-b\lambda A)^2+\lambda^2V,
- \qquad H_h=(-ih\nabla-bA)^2+V=h^2H_\lambda.
-\]
+## Deductions proved in Lean
 
-The algebraic identity that allows the unit-field theorem to be applied is
-
-\[
- H_h=b^2\bigl((-i(h/b)\nabla-A)^2+V/b^2\bigr).
-\]
-
-Thus the parameter in the published theorem is `ε=h/b=1/(bλ)` for the
-potential `V/b²`. Equivalently, `Hλ=(bλ)² Lε^(V/b²)`. This reduction
-multiplies the operator by a positive scalar; it changes neither the
-eigenfunction nor its L² normalization. No spatial dilation is required
-to transfer its radiality and positivity.
-
-The core equals `−exp(−|x|²/(r₀²−|x|²))` inside the ball and zero outside. It is radial, smooth, and compactly supported, with a unique minimum `−1`, and
+For `h > 0`, the error term `h√h` equals `h^(3/2)`. Dividing the two
+error estimates by `h` and using `√h → 0` gives
 
 \[
- V(x)=-1+|x|^2/r_0^2+O(|x|^4),\qquad
- (V/b^2)''(0)=2/(b^2r_0^2).
+ \frac{e_j(h)-V(0)}h\longrightarrow\mu_j(d)
+ \quad(h\downarrow0).
 \]
 
-The lemmas `core_contDiff`, `core_hasCompactSupport`, `core_range`, `core_zero`, and `core_gt_neg_one` verify the first properties. The module
-[`CoreRadialHypotheses`](../InfiniteZero/CoreRadialHypotheses.lean) also proves
-the exact radiality `p.core x = p.coreRadialProfile ‖x‖`, the smoothness and
-compact support of the profile, its strict minimum, and
-`iteratedDeriv 2 p.coreRadialProfile 0 = 2 / p.r₀² > 0`.
-These verifications use only `r₀>0`, with no admitted result. The Taylor
-remainder displayed here is an informal calculation, not a new Lean theorem
-being presented as proved.
-
-The unitary transformation in dimension two is
+The scalar mode calculation proves that `(0,0)` is the unique ground
+mode and `(0,1)` attains the first excited value:
 
 \[
- (U_h f)(y)=h^{1/2}f(\sqrt h\,y).
+ \mu_1(d)=\sqrt{1+2d},\qquad
+ \mu_2(d)=2\sqrt{1+2d}-1,\qquad
+ \delta(V)=\mu_2(d)-\mu_1(d)=\sqrt{1+2d}-1>0.
 \]
 
-After this dilation, the limiting oscillator is
+Indeed, the increase from the ground value is
+`2nω + (|m|ω − m)`, where `ω = √(1+2d) > 1`. Every nonzero mode has
+increase at least `ω−1`, with equality at `(0,1)`.
+
+Set `k = 1/h`, `Hₖ = (-i∇−kA)²+k²V`, and
 
 \[
- Q_b=(-i\nabla-bA)^2+|y|^2/r_0^2.
+ g(k)=k\bigl(e_2(1/k)-e_1(1/k)\bigr).
 \]
 
-With `ν = √(b²/4 + r₀⁻²)`, its levels are
-`2ν(2n + |m| + 1) − bm`, for `n ≥ 0`, `m ∈ ℤ`. Its ground-state energy is `μ₀ = 2ν` and its first gap is `δ₀ = 2ν − b > 0`. This identification of the second level uses the full spectrum of the oscillator; checking only a Gaussian eigenfunction would not suffice. All explicit constants can be avoided by simply retaining the strictly positive difference between the first two oscillator levels.
+Subtracting the two limits proves `g(k) → δ(V)`. Positive scalar
+multiplication preserves the operator domain and scales both min-max
+levels, so `k g(k)` is exactly the second min-max of `Hₖ` minus its
+variational bottom. The same normalized ground vector is used for both
+operators.
 
-Applying the result to the first two levels gives
+The complement inequality is also proved. Let `v` be a unit ground
+vector of a self-adjoint operator, with energy `E₁`, and let `w` be a
+unit domain vector orthogonal to `v`. The two vectors span a complex
+two-dimensional domain subspace. On this span, self-adjointness and the
+eigenvector equation cancel the mixed terms. Its largest Rayleigh
+energy is therefore
+`max(E₁, Re⟨w,Hw⟩) = Re⟨w,Hw⟩`, using the ground lower bound.
+The definition of the second min-max gives
+`E₂ ≤ Re⟨w,Hw⟩`. Homogeneity yields
 
 \[
- e_1(h)=-1+\mu_0h+O(h^{3/2}),\qquad
- e_2(h)-e_1(h)=\delta_0h+O(h^{3/2}).
+ E_2\|u\|_2^2\le\operatorname{Re}\langle u,Hu\rangle
+ \quad\text{whenever }\langle v,u\rangle=0.
 \]
 
-One may therefore take `γ = δ₀/2` and `B = μ₀+1`, then choose `h₀ > 0` small enough that `e₁(h) ≤ −1+Bh` and `e₂(h)−e₁(h) ≥ γh` for `0<h<h₀`. Choosing `T ≥ max(1,2/h₀)` ensures these bounds for every `λ≥T`, including at the closed threshold. The unscaled energies are `Λⱼ(λ)=λ²eⱼ(1/λ)`, so the gap becomes `γλ`, not `γ/λ`.
+A positive limiting gap supplies an eventual positive gap and a common
+threshold. Together with the ground lower bound from unchanged A002,
+this constructs `GroundStateCertificate` and then the existing
+`RadialHarmonicData` interface.
 
-If `ε₀>0` is the threshold for the positive ground state for `V/b²`, choosing
-the common threshold `T ≥ max(T_ancien, 1/(bε₀), 1)` preserves all the
-properties of `ground` and ensures `0<1/(bλ)≤ε₀` for each `λ≥T`.
-The constants and threshold depend on `b` and the fixed core; no uniformity
-as `b` or `r₀` vary is asserted.
+| Verified step | Lean source |
+| --- | --- |
+| Ordering the oscillator modes and computing their gap | [RadialOscillatorLevels.lean](../InfiniteZero/RadialOscillatorLevels.lean) |
+| From harmonic errors to limits, and from `h` to `k = 1/h` | [RadialHarmonicLimits.lean](../InfiniteZero/RadialHarmonicLimits.lean) |
+| Scaling both operator min-max levels and the ground eigenvector | [SemiclassicalOperator.lean](../InfiniteZero/SemiclassicalOperator.lean) |
+| Two-dimensional min-max argument and ground certificate | [OperatorSecondMinmax.lean](../InfiniteZero/OperatorSecondMinmax.lean) |
+| Assembly of `RadialHarmonicData` | [RadialHarmonicAssembly.lean](../InfiniteZero/RadialHarmonicAssembly.lean) |
 
-## 4. Min-max identification, graph, and test functions
+The declaration `classical_radial_harmonic` in
+[Remaining.lean](../InfiniteZero/Remaining.lean) is now a proved assembly
+from A004 and A002. It is no longer an admitted statement.
 
-### 4.1 Same operator, same energy
+## Proved application to the explicit core
 
-The operator in the paper is the self-adjoint realization of the same initial differential operator on `C∞c`. Essential self-adjointness identifies its closure with the repository's concrete graph. The existing admitted result A002, `magnetic_realization`, already contains `graph_eq`, `selfAdjoint`, `bottom_eq`, and `eigenfunction_iff`; it creates no eigenvector and asserts no gap.
+For the repository's radial core `v° = p.core`, only `r₀ > 0` is needed.
+The subsequent application also fixes `b > 0`. The following steps have
+Lean proofs:
 
-`bottom_eq` relates the infimum of the operator quotients to the infimum over the test functions in `atomicGroundEnergy`. Once the operator has been identified, the ground-state energy in the paper is therefore the Lean energy. Independently, equality of the infima follows from the variational principle and approximation of the ground state by the core `C∞c` in the graph norm. This connection is essential: a spectral result for an unidentified abstract operator would not suffice to populate `IsAtomicGroundState`.
+| Step | Lean source |
+| --- | --- |
+| Radiality, strict minimum and `(v°)''(0) = 2/r₀²` | [CoreRadialHypotheses.lean](../InfiniteZero/CoreRadialHypotheses.lean) |
+| All `RadialSingleWell` hypotheses for `V = v°/b²` | [RadialSingleWell.lean](../InfiniteZero/RadialSingleWell.lean) |
+| `0 ≤ v°(x)+1 ≤ 2|x|²/r₀²` | [CoreQuadraticBound.lean](../InfiniteZero/CoreQuadraticBound.lean) |
+| `atomicGroundEnergy b v° λ ≤ −λ²+Bλ` for every `λ > 0` | [RadialCoreVariationalBound.lean](../InfiniteZero/RadialCoreVariationalBound.lean) |
+| Equality with the unit-field model at coupling `bλ` and potential `v°/b²` | [MagneticFieldScaling.lean](../InfiniteZero/MagneticFieldScaling.lean) |
+| Eventual gap `≥ (b δ(V)/2)λ` from the positive limiting ratio | [MagneticGapThreshold.lean](../InfiniteZero/MagneticGapThreshold.lean) |
+| Atomic state and test-function inequality from a certificate and A002 | [RadialGroundCertificate.lean](../InfiniteZero/RadialGroundCertificate.lean) |
+| Common constants and threshold for `RadialCoreSpectralData b p` | [RadialCoreSpectralAssembly.lean](../InfiniteZero/RadialCoreSpectralAssembly.lean) |
 
-Elliptic regularity, or the `eigenfunction_iff` field of A002, gives a smooth representative. The almost-everywhere equality in the equation becomes pointwise by continuity. Identifying the `L²` norm with `mass` transfers its normalization.
-
-### 4.2 Positive radial choice: justification of the separate field
-
-Simplicity and rotational invariance alone do not suffice to force the
-zero angular sector. The argument in Proposition 2.1 additionally uses
-closeness to the radial ground state of the limiting oscillator to
-identify this sector when the parameter is small. Theorem 1.1(2)
-then directly provides the positive normalized choice.
-
-To understand positivity, in the radial sector the magnetic expression
-becomes the real operator `−ε²Δ+|x|²/4+V/b²`. The choice of a positive
-phase is explained by the variational principle and the maximum principle
-for this scalar problem. The origin is handled in the planar elliptic
-equation, without using an ODE singular at `r=0`. This reasoning does not
-assume that the general magnetic semigroup preserves positivity.
-
-After the operator identification in §4.1, the smooth positive representative
-from the classical result and the representative from A002 coincide almost
-everywhere, hence everywhere by continuity and the full support of Lebesgue
-measure. This transfers exactly the two fields of `IsPositiveRadial`. The
-real restriction to the axis then provides `realRadialProfile`; its regularity
-follows from composition with the linear map `r ↦ r e₀`, and is not an
-additional spectral field.
-
-### 4.3 Exterior mass: the connection to the graph is proved
-
-The exterior mass bound follows by extending a test-function inequality
-to the closed operator graph. For a test function `ψ`,
-kinetic positivity, `p.core≥−1`, and the vanishing of the core outside
-its ball give
+The field conversion is the exact identity
 
 \[
- \lambda^2\|1_{|x|\ge r_0}\psi\|_2^2
- \le \operatorname{Re}\langle\psi,H_\lambda\psi\rangle
-       +\lambda^2\|\psi\|_2^2.
+ (-i\nabla-b\lambda A)^2+\lambda^2v^\circ
+ =(-i\nabla-(b\lambda)A)^2+(b\lambda)^2(v^\circ/b^2).
 \]
 
-Both sides are continuous as functions of the pair `(ψ,Hλψ)` in L²×L²:
-restriction to a measurable set is a bounded operator.
-`AtomicExteriorGraph.core_exteriorMass_closedGraph` therefore extends this
-inequality to the closure of the test-function graph. For the normalized
-eigenvector, `core_exteriorMass_le_of_atomicGroundState` concludes `M_ext≤B/λ`.
-This entire connection is proved in Lean from the stated realization A002.
+It uses no spatial dilation and preserves the operator domain, energy,
+eigenfunction and normalization. For `V = v°/b²`, choose
+`γ = b δ(V)/2 > 0`. The positive limit of `g` supplies a threshold beyond
+which `g(bλ) ≥ δ(V)/2`. A common positive threshold also ensures the
+existence of the positive ground state, so all conclusions hold for
+every `λ ≥ T`. All constants are fixed before choosing the coupling.
 
-The general equality between the integrated differential form and the
-closed form on noncompact functions remains a separate result; it is
-neither asserted nor used as a hidden assumption of this transfer. A
-classical proof by approximation in the graph norm and closure of the
-covariant derivatives remains possible if a later step needs it.
-
-### 4.4 From the second level to the inequality for all test functions
-
-The spectral min-max principle gives, on the domain of the radial operator,
+The declaration `radial_core_spectral_data` is a proved assembly from
+A004 and A002; its
+[`RadialCoreSpectralData`](../InfiniteZero/RadialCoreSpectralData.lean)
+interface is unchanged. It provides the core energy bound and, for every
+test function `u`,
 
 \[
- \operatorname{Re}\langle w,Hw\rangle\ge\Lambda_2\|w\|^2
- \quad(w\perp\phi).
+ \gamma\lambda\bigl(\|u\|_2^2-|\langle\phi,u\rangle|^2\bigr)
+ \le q_{b,\lambda,v^\circ}(u)-E^\circ(\lambda)\|u\|_2^2.
 \]
 
-For a test function `u`, its L² class and the eigenvector `φ` both belong
-to the domain. Write `u=⟨φ,u⟩φ+w`; the remainder therefore belongs to
-this same domain. The eigenvalue equation and symmetry cancel the cross
-terms in `Re⟨u,Hu⟩−Λ₁‖u‖²`. Since `φ` is normalized, this yields
+The orthogonal decomposition, cancellation of cross terms, and conversion
+from the operator to the test-function form are proved in Lean, reusing
+[AtomicGroundRankOne.lean](../InfiniteZero/AtomicGroundRankOne.lean).
+The separate positive-ground field uses the same smooth positive
+representative.
+
+## Independent variational proof of the energy bound
+
+Write `a = |x|²`. If `a ≤ r₀²/2`, then
 
 \[
- \operatorname{Re}\langle u,Hu\rangle-\Lambda_1\|u\|^2
- \ge(\Lambda_2-\Lambda_1)
-       (\|u\|^2-|\langle\phi,u\rangle|^2)
- \ge\gamma\lambda
-       (\|u\|^2-|\langle\phi,u\rangle|^2).
+ 1-\exp\!\left(-\frac{a}{r_0^2-a}\right)
+ \le \frac{a}{r_0^2-a}\le\frac{2a}{r_0^2}.
 \]
 
-`MagneticIntegrationByParts` and `WavefunctionL2Bridge` identify the left-hand
-side with `magneticForm … u−Λ₁ mass u`, since `u` is a test function.
-No integral identity for the noncompact remainder is needed.
-This justifies exactly the inequality in the `ground` field. The passage
-from the two levels in the published result to the operator lower bound
-above, together with the identification of conventions, constitutes the
-informal proof of this field, included in the justification of A004.
-These steps are not certified in Lean by the admitted declaration. No
-estimate on the nonradial potential enters the argument.
+If `a ≥ r₀²/2`, the same upper bound follows from `v° ≤ 0`.
+Together with `v° ≥ −1`, this proves the global quadratic comparison.
 
-## 5. Profile misprints that must not be carried over
+Choose a normalized smooth compactly supported function `η`; in Lean,
+the nonzero core itself is normalized in L². For `λ > 0`, put
 
-In the checked PDF version, p. 11, the function described as normalized is written `h⁻¹ᐟ² ψₕ(√h x)`: the unitary factor in dimension two is `h⁺¹ᐟ²`. In (2.6), p. 10, the Gaussian also has a width incompatible with the operator (2.2). These profile formulas are not needed for the contract.
+\[
+ \eta_\lambda(x)=\sqrt\lambda\,\eta(\sqrt\lambda\,x),\qquad
+ Q(x)=\frac{2}{r_0^2}|x|^2,\qquad C=q_{b,1,Q}(\eta).
+\]
 
-Independent check: for `−Δ+ν²|x|²` in dimension two, the normalized Gaussian is `√(ν/π) exp(−ν|x|²/2)`, with energy `2ν`. With the operator (2.2), `ν=√(1+4μ)/2`. The formula printed in (2.6) is indeed normalized, but its exponent is twice as large as it should be for this value of `ν`. The level approximation used above is consistent with the direct oscillator calculation; no incorrect profile constant is carried over.
+The proved magnetic dilation identity and quadratic comparison give
+`mass ηλ = 1` and
 
-## 6. Current boundary
+\[
+ q_{b,\lambda,v^\circ}(\eta_\lambda)
+ \le\lambda(C-\lambda)\le-\lambda^2+(|C|+1)\lambda.
+\]
 
-A004 provides the witness of `RadialCoreSpectralData` for the explicit
-core. Its justification distinguishes the harmonic approximation of the
-first two levels, the min-max principle, changes of scale, and the
-connections to the actual operator and `atomicGroundEnergy`, as well as
-the separate real, radial, strictly positive choice. The admitted result
-is this specialized classical corollary, not a literal citation of
-Theorem 1.1 alone.
+Taking the variational infimum proves the bound with `B = |C|+1 > 0`,
+for every positive coupling. This proof uses neither A004 nor A002 and
+requires no existence of a ground eigenfunction.
 
-From this witness and A002, localization, the genuinely self-adjoint
-compression, its inverse, the Schur root, the minimum, simplicity, and
-the gap of the full potential are proved without any new admitted result.
-Their assembly requires no form identity for the noncompact ground state.
-The Agmon estimates already proved are separate consequences, outside this
-contract. The passage from the actual state to its radial ODE, its
-integrability with respect to `r dr`, its identification with the exterior
-kernel, and the formulas in Γ are not added to the admitted result: they
-are proved separately. The [source profiles](CUSP_SOURCE_PROFILES.md),
-the [channels](ACTIVE_CHANNEL_ASYMPTOTIC.md), and the
-[spectral transfer for the double well](GLOBAL_PARITY_DOUBLET.md)
-are also established by analysis of the constructed potential. Their
-[final assembly](../InfiniteZero/Remaining.lean) concludes `thm_main`
-modulo A002–A005, without extending A004 to a tunneling estimate.
+## Scope
+
+A004 concerns radial single wells. The nonradial construction, exterior
+profile equations, Agmon estimates, cusp sources, hopping asymptotics,
+and double-well spectral transfer are separate Lean arguments. They are
+not conclusions assumed in `classical_radial_low_levels`.

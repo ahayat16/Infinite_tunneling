@@ -8,6 +8,10 @@ import InfiniteZero.AtomicGroundWeightedDecomposition
 import InfiniteZero.AtomicGroundFineDecomposition
 import InfiniteZero.ConstructedMainProof
 import InfiniteZero.ClassicalEllipticInterior
+import InfiniteZero.RadialCoreSpectralAssembly
+import InfiniteZero.RadialHarmonicAssembly
+import InfiniteZero.ClassicalLandauResolvent
+import InfiniteZero.LandauResolventAssembly
 
 /-!
 # The constructed-potential theorem and the permitted classical admissions
@@ -26,9 +30,9 @@ Docstrings there match the TeX labels rather than equation numbers, which
 may change when the manuscript is compiled. The full comparison and its
 scope are recorded in `docs/STATEMENT_AUDIT.md`.
 
-The remaining admissions are the four documented classical interfaces:
-operator realization, free Landau resolvent, radial-core harmonic data and
-the fixed-ball elliptic estimate. Their transitive use is checked by the
+The remaining admissions are three documented classical interfaces:
+operator realization, the standard free Landau resolvent kernel, and
+radial-core harmonic data. The fixed-ball elliptic estimate is proved. Their transitive use is checked by the
 audit. `AnalyticConstructionProblem` retains an older intermediate contract;
 the final proof uses the constructed `LocalAnalyticData` route instead.
 -/
@@ -52,32 +56,57 @@ theorem magnetic_realization (b coupling : ℝ) (V : Potential)
     IsMagneticRealization b coupling V := by
   sorry
 
-/-- A003: the free Landau resolvent kernel for all positive field, coupling,
-and spectral-energy parameters, all smooth `L²` solutions and all smooth
-compactly supported sources. No potential or tunneling estimate occurs here.
-Reference: Cornean--Fournais--Frank--Helffer, Ann. Inst. Fourier 63 (2013),
-equation (B.21), p. 2508, followed by the semigroup Laplace transform.
-Detailed signs, scaling, domain argument and natural proof:
-docs/CLASSICAL_LANDAU_RESOLVENT.md. -/
+/-- The physical free Landau representation follows from the standard
+closed-operator kernel A003 and the unchanged realization A002.
+`LandauResolventAssembly` proves smooth-solution domain membership and
+the exact phase, proper-time and prefactor conversions. The remaining
+classical kernel identity is `classical_standard_landau_resolvent`.
+See docs/CLASSICAL_LANDAU_RESOLVENT.md for the precise boundary. -/
 theorem free_landau_resolvent_kernel {b coupling E : ℝ}
     (hb : 0 < b) (hCoupling : 0 < coupling) (hE : 0 < E) :
     FreeLandauResolventKernel b coupling E := by
-  sorry
+  apply freeLandauResolventKernel_of_standard hCoupling
+  · exact magnetic_realization (b * coupling) 1 0 contDiff_const
+      ⟨0, fun x => by simp⟩
+  · exact classical_standard_landau_resolvent (mul_pos hb hCoupling)
+      (mul_pos (sq_pos_of_pos hCoupling) hE)
 
-/-- A004: the classical one-well harmonic approximation, specialized to the
-explicit radial core. It supplies the ground state, its O(coupling) energy
-excess, the first spectral gap, expressed on the original test core, and
-a positive radial normalized ground-state choice (Theorem 1.1(2)).
-Helffer--Kachmar, arXiv:2208.13030v5, Theorem 1.1 (pp. 3--4), Proposition 2.1
-(p. 11), and the oscillator gap (p. 12). Scaling, min-max, realization and
-test-function identifications: docs/RADIAL_HARMONIC_CONTRACT.md.
-No cusp, source, nonradial gap or tunneling estimate occurs in this input. -/
+/-- The unit-field radial certificate follows from the classical
+semiclassical level asymptotics A004 and the unchanged realization A002.
+The oscillator ordering, changes of scale and min-max complement
+inequality are proved in `RadialHarmonicAssembly`. -/
+theorem classical_radial_harmonic (V : Potential) (hV : RadialSingleWell V) :
+    Nonempty (RadialHarmonicData V) := by
+  apply radialHarmonicData_of_lowLevels hV
+    (Classical.choice (classical_radial_low_levels V hV))
+  intro k
+  apply magnetic_realization 1 k V hV.smooth
+  obtain ⟨C, _, hC⟩ :=
+    (hV.compact_support.isCompact_range hV.smooth.continuous).isBounded.exists_pos_norm_le
+  exact ⟨C, fun x => by simpa only [Real.norm_eq_abs] using hC (V x) ⟨x, rfl⟩⟩
+
+/-- Radial-core spectral data assembled from the classical unit-field
+harmonic input A004 and operator realization A002. The explicit core
+hypotheses, energy upper bound, change of field, uniform gap threshold and
+test-function inequality are proved separately. The public interface is
+the one used throughout the tunneling proof.
+See `classical_radial_harmonic` and `docs/RADIAL_HARMONIC_CONTRACT.md` for
+the remaining admission and its reference. -/
 theorem radial_core_spectral_data (b : ℝ) (p : CuspParameters)
     (hb : 0 < b) (hr : 0 < p.r₀) : Nonempty (RadialCoreSpectralData b p) := by
-  sorry
+  have hV := CuspParameters.core_div_sq_radialSingleWell hb hr
+  apply CuspParameters.radialCoreSpectralData_of_harmonicData hb hr
+    (Classical.choice (classical_radial_harmonic _ hV))
+  intro coupling
+  apply magnetic_realization _ _ _ hV.smooth
+  refine ⟨1 / b ^ 2, fun x => ?_⟩
+  rw [abs_div, abs_of_pos (sq_pos_of_pos hb)]
+  apply div_le_div_of_nonneg_right _ (sq_nonneg b)
+  exact abs_le.mpr ⟨(CuspParameters.core_range p x).1,
+    (CuspParameters.core_range p x).2.trans (by norm_num)⟩
 
 /-- The genuine normalized positive radial core state has the exact exterior
-Landau tail. Only the classical one-well data A004 are admitted: reduction
+Landau tail, using A002 and the classical one-well data A004. Reduction
 of the concrete Hamiltonian, polar integrability and exterior uniqueness
 are proved in Lean. No bound on the normalization coefficient is asserted. -/
 theorem CuspParameters.radialCore_kernel {p : CuspParameters} {b : ℝ}
@@ -328,8 +357,8 @@ theorem CuspParameters.atomicGround_fine_weighted_decomposition {p : CuspParamet
       hp hRad hAcore hApot χ hβ₁ hβ₁β
   exact ⟨χ, κ₀, hκ₀, C, hC, threshold, hthreshold, hstates⟩
 
-/-- Auxiliary conditional variational assembly using only classical admission
-A003. The original analytic data must still be constructed. -/
+/-- Auxiliary conditional variational assembly using classical admissions
+A002 and A003. The original analytic data must still be constructed. -/
 theorem thm_main_variational_from_analytic_data (h : FixedAnalyticData) : MainTheorem :=
   thm_main_of_analytic_data h (fun _ _ hCoupling hE =>
     free_landau_resolvent_kernel h.basic.b_pos hCoupling hE)
@@ -354,9 +383,9 @@ This is the construction theorem used to discharge the elementary
 witness. Its only premise concerns the explicit scalars and cutoffs.
 The spectral properties, source estimates, oscillatory hopping asymptotic
 and relative Schur errors needed for the final conclusion are constructed
-in the imported proofs. Here A002--A005 supply their four classical
-interfaces: operator realization, free Landau resolvent, radial-core
-harmonic data, and the interior elliptic estimate. -/
+in the imported proofs. A002--A004 supply operator realization, the
+standard free Landau resolvent kernel, and radial-core harmonic data.
+The interior elliptic estimate is proved without admissions. -/
 theorem CuspParameters.mainConclusion {p : CuspParameters} (hp : p.BasicConditions) :
     ∃ L₀ : ℝ, p.R < L₀ ∧ ∀ L : ℝ, L₀ ≤ L → OperatorMainConclusion p.b p.potential L := by
   let hRad := Classical.choice (radial_core_spectral_data p.b p hp.b_pos hp.r₀_pos)
@@ -411,7 +440,7 @@ two-dimensional with both parities and a positive gap above it.
 
 Neither the potential nor b depends on L or λ; the exceptional sequences
 may depend on L. There are no hypotheses in this theorem's type. Its proof
-uses the four classical admissions A002--A005 documented at `thm_main`. -/
+uses the three classical admissions A002--A004 documented at `thm_main`. -/
 theorem elementaryPotential_main :
     AdmissiblePotential CuspParameters.elementaryParameters.potential ∧
       ∃ L₀ : ℝ, CuspParameters.elementaryParameters.R < L₀ ∧ ∀ L : ℝ, L₀ ≤ L →
@@ -451,10 +480,9 @@ in the introduction but absent from the boxed `thm:main`, are not part of
 this result. See `docs/STATEMENT_AUDIT.md` for the detailed comparison.
 
 This theorem has no hypotheses and no direct `sorry`. Its proof still
-depends on exactly four admitted classical results: A002
-`magnetic_realization`, A003 `free_landau_resolvent_kernel`, A004
-`radial_core_spectral_data`, and A005
-`classical_elliptic_interior_estimate`. Their precise statements, references
+depends on exactly three admitted classical results: A002
+`magnetic_realization`, A003 `classical_standard_landau_resolvent`, and
+A004 `classical_radial_low_levels`. Their precise statements, references
 and natural-language proofs are recorded in `docs/ADMISSIONS.md` and its
 linked documents. Thus "unconditional" refers to the theorem's statement,
 not to elimination of these admitted dependencies. -/

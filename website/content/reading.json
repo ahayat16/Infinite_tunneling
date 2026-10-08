@@ -8,7 +8,7 @@
       "name": "InfiniteZero.thm_main",
       "category": "Statement",
       "title": "The main theorem",
-      "summary": "Proves the three conclusions of the manuscript’s main theorem for the potential constructed from elementaryParameters, together with their operator interpretation. The potential is fixed before separation and coupling are chosen. The proof depends on the four classical admissions A002–A005.",
+      "summary": "Proves the three conclusions of the manuscript’s main theorem for the potential constructed from elementaryParameters, together with their operator interpretation. The potential is fixed before separation and coupling are chosen. The proof depends on the three classical admissions A002–A004.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "thm:main"
@@ -95,7 +95,7 @@
       "name": "InfiniteZero.CuspParameters.core",
       "category": "Potential",
       "title": "The explicit radial core",
-      "summary": "Equals −exp(−|x|²/(r₀²−|x|²)) when |x| < r₀, and zero elsewhere. For r₀ > 0, smoothness across the boundary, the unique minimum −1 at the origin, and its nondegeneracy are proved separately. Spectral admission A004 concerns this core alone.",
+      "summary": "Equals −exp(−|x|²/(r₀²−|x|²)) when |x| < r₀, and zero elsewhere. For r₀ > 0, smoothness across the boundary, the unique minimum −1 at the origin, and its nondegeneracy are proved separately. The unit-field spectral admission A004 is applied to this core after dividing by b².",
       "content_kind": "paraphrase",
       "tex_labels": [
         "eq:explicit-core"
@@ -299,7 +299,7 @@
       "name": "InfiniteZero.CuspParameters.operatorMainConclusion_of_radialData",
       "category": "Proof",
       "title": "The central analytic assembly",
-      "summary": "Constructs the actual hopping asymptotic and then the Schur corrections, which are negligible relative to the amplitude of the same channel witnesses. It then combines the modes, continuity, and sign-change argument to obtain OperatorMainConclusion. The proof uses the four classical interfaces.",
+      "summary": "Constructs the actual hopping asymptotic and then the Schur corrections, which are negligible relative to the amplitude of the same channel witnesses. It then combines the modes, continuity, and sign-change argument to obtain OperatorMainConclusion. The proof takes the spectral and resolvent interfaces and the proved interior elliptic estimate as explicit inputs.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "thm:main",
@@ -312,8 +312,8 @@
     {
       "name": "InfiniteZero.CuspParameters.mainConclusion",
       "category": "Proof",
-      "title": "Instantiating the four classical interfaces",
-      "summary": "Starting only from BasicConditions on the explicit parameters, constructs the required realizations and instantiates A002, A003, A004, and A005 in the already proved assembly. It chooses a threshold L₀ > p.R before considering any L ≥ L₀.",
+      "title": "Supplying the analytic interfaces",
+      "summary": "Starting only from BasicConditions on the explicit parameters, constructs the required realizations and instantiates A002, A003, and A004, and supplies the proved interior elliptic estimate in the already proved assembly. It chooses a threshold L₀ > p.R before considering any L ≥ L₀.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "thm:main",
@@ -346,10 +346,23 @@
       "file": "InfiniteZero/Remaining.lean"
     },
     {
-      "name": "InfiniteZero.free_landau_resolvent_kernel",
+      "name": "InfiniteZero.classical_standard_landau_resolvent",
       "category": "Admission",
-      "title": "A003 · Free Landau resolvent",
-      "summary": "Admits that, for b, λ, E > 0, every smooth L² solution of (H_{b,λ,0}+λ²E)u = f, with f smooth and compactly supported, is almost everywhere the integral of f against the explicit kernel, with the outside factor λ⁻². The representation follows by Laplace transform of the heat kernel.",
+      "title": "A003 · Standard Landau resolvent",
+      "summary": "The closed free Landau operator at Planck constant one has the explicit proper-time resolvent kernel for positive field and positive spectral shift. Domain membership of smooth L² solutions and semiclassical parameter conversion are proved separately in Lean.",
+      "content_kind": "paraphrase",
+      "tex_labels": [
+        "eq:landau-kernel-master",
+        "sublemma:P5-1-source-resolvent"
+      ],
+      "tex_relation": "related",
+      "file": "InfiniteZero/ClassicalLandauResolvent.lean"
+    },
+    {
+      "name": "InfiniteZero.free_landau_resolvent_kernel",
+      "category": "Proof",
+      "title": "Physical Landau resolvent representation",
+      "summary": "Derives the physical source representation from A002 and the standard kernel A003. Lean proves that the smooth L² solution lies in the closed domain and verifies B=bλ, ρ=λ²E, the magnetic phase, and the outside factor λ⁻².",
       "content_kind": "paraphrase",
       "tex_labels": [
         "eq:landau-kernel-master",
@@ -359,29 +372,29 @@
       "file": "InfiniteZero/Remaining.lean"
     },
     {
-      "name": "InfiniteZero.radial_core_spectral_data",
+      "name": "InfiniteZero.classical_radial_low_levels",
       "category": "Admission",
-      "title": "A004 · Radial-core spectrum",
-      "summary": "Admits, for the explicit core alone with b > 0 and r₀ > 0, a normalized ground state of energy −λ² + O(λ), a gap of at least γλ expressed on all test functions, and a choice of real, radial, strictly positive ground state. The constants are fixed before λ, and the gap covers all angular sectors. These estimates follow from harmonic approximation.",
+      "title": "A004 · Radial harmonic approximation",
+      "summary": "Admits, for a smooth compactly supported nonpositive radial well with a unique nondegenerate negative minimum, a positive normalized radial ground state and harmonic-approximation bounds of order h^(3/2) for the first two semiclassical levels. The reference oscillator is specified by its full mode family. Lean proves the ordering of its first two modes, the unscaled gap limit, the min-max inequality on the orthogonal complement, and the application to the explicit core.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "lem:radial-spectral",
         "eq:base-gap"
       ],
       "tex_relation": "related",
-      "file": "InfiniteZero/Remaining.lean"
+      "file": "InfiniteZero/ClassicalRadialLowLevels.lean"
     },
     {
-      "name": "InfiniteZero.classical_elliptic_interior_estimate",
-      "category": "Admission",
-      "title": "A005 · Interior elliptic estimate",
-      "summary": "Admits a universal estimate for −Δu+a·∇u+qu=f on the ball B(0,2), for smooth complex-valued functions. With the order n and coefficient bounds B fixed, the jets of u at the center are controlled by C(n,B) times the local L² norms of u and the jets of f. The changes of scale and the application to the weighted magnetic equation are proved in Lean.",
+      "name": "InfiniteZero.classical_h2_point_evaluation",
+      "category": "Proof",
+      "title": "Sobolev point evaluation",
+      "summary": "Proves that a fixed constant controls the value at the centre of the unit ball by the local H² norm of any smooth complex function. The proof uses a smooth cutoff, two applications of the fundamental theorem of calculus, Cauchy–Schwarz, and the proved H² multiplication bound. This theorem and the resulting uniform interior elliptic estimate have no admitted dependencies.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "lem:weighted-interior-elliptic-propagation"
       ],
       "tex_relation": "related",
-      "file": "InfiniteZero/ClassicalEllipticInterior.lean"
+      "file": "InfiniteZero/ClassicalEllipticSobolev.lean"
     }
   ],
   "main_items": [
@@ -419,7 +432,7 @@
     }
   ],
   "scope_notes": [
-    "The proof of thm_main depends on four classical admissions, A002–A005. The dependency graph records which declarations use these admissions, directly or transitively.",
+    "The proof of thm_main depends on three classical admissions, A002–A004. The dependency graph records which declarations use these admissions, directly or transitively.",
     "The reference statement is thm:main in the manuscript. Its three conclusions concern eigenvalue crossings, zeros of the hopping coefficient, and changes of ground-state parity.",
     "The code constructs neither a complete enumeration E₀ ≤ E₁ ≤ … of the discrete spectrum nor a spectral projection for an entire window. The first two levels are identified with the parity modes, and the gap above the ground eigenspace is established.",
     "The main result asserts neither zero spacing, uniqueness of a zero between samples, nor the differentiated asymptotic remainders discussed elsewhere in the text.",
@@ -460,7 +473,7 @@
     },
     {
       "title": "Instantiate the admissions and conclude",
-      "text": "mainConclusion supplies the four admitted interfaces. elementaryPotential_main gives the result for the fixed witness, and thm_main then presents it in the constructed existential form.",
+      "text": "mainConclusion supplies the three classical admissions and the proved elliptic estimate. elementaryPotential_main gives the result for the fixed witness, and thm_main then presents it in the constructed existential form.",
       "declarations": [
         "InfiniteZero.CuspParameters.mainConclusion",
         "InfiniteZero.elementaryPotential_main",
@@ -512,9 +525,10 @@
         "InfiniteZero.CuspParameters.mainConclusion",
         "InfiniteZero.CuspParameters.operatorMainConclusion_of_radialData",
         "InfiniteZero.magnetic_realization",
+        "InfiniteZero.classical_standard_landau_resolvent",
         "InfiniteZero.free_landau_resolvent_kernel",
-        "InfiniteZero.radial_core_spectral_data",
-        "InfiniteZero.classical_elliptic_interior_estimate"
+        "InfiniteZero.classical_radial_low_levels",
+        "InfiniteZero.classical_h2_point_evaluation"
       ],
       "kind": "reading_guide_not_dependency"
     }

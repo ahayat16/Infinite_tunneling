@@ -50,7 +50,7 @@ class SnapshotTests(unittest.TestCase):
             self.assertEqual(row['dependencies'], self.by_name[row['name']]['dependencies'])
             self.assertEqual(row['status'], self.by_name[row['name']]['status'])
 
-    def test_main_has_exactly_the_four_registered_admissions(self):
+    def test_main_has_exactly_the_three_registered_admissions(self):
         queue, seen = ['InfiniteZero.thm_main'], set()
         while queue:
             name = queue.pop()
@@ -80,7 +80,7 @@ class SnapshotTests(unittest.TestCase):
 
     def test_english_review_content_and_translation_sources(self):
         self.assertEqual(self.bootstrap['curated']['language'], 'en')
-        self.assertEqual(len(self.bootstrap['curated']['entries']), 30)
+        self.assertEqual(len(self.bootstrap['curated']['entries']), 31)
         self.assertEqual(len(self.bootstrap['translatedDocuments']), 6)
         manifest = json.loads((SITE / 'content/notes/manifest.json').read_text())
         for filename, meta in manifest.items():

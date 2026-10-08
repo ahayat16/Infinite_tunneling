@@ -4,8 +4,8 @@ This guide compares the manuscript's
 [`thm:main`](../article/Infinite_Zero_Tunneling_Lean_oriented_V2.tex#L222)
 with its Lean statement, definitions, and proof dependencies.
 
-**`thm_main` is proved with no `sorry` of its own, modulo the four
-classical admissions A002–A005.** It retains exactly the type
+**`thm_main` is proved with no `sorry` of its own, modulo the three
+classical admissions A002–A004.** It retains exactly the type
 `ConstructedPotentialMainTheorem`, with no `FixedAnalyticData` argument
 or hypothesis asserting the existence of suitable data. The proof in
 [Remaining.lean](../InfiniteZero/Remaining.lean) proceeds through the
@@ -60,7 +60,7 @@ corollary: no additional compatibility of parameters remains to be assumed.
 
 ## Correspondence of the conclusions
 
-This table describes the conclusions established, modulo A002–A005.
+This table describes the conclusions established, modulo A002–A004.
 
 | Manuscript requirement | Lean formulation and audit result |
 |---|---|
@@ -101,10 +101,29 @@ and its rank-two projection are not claimed; see
 [GLOBAL_PARITY_DOUBLET.md](GLOBAL_PARITY_DOUBLET.md).
 
 The target adds realization interfaces and an explicit gap to express
-its physical content. A002, A003, A004, and A005 are the registered
-classical admissions: operator realization, the Landau resolvent,
-harmonic approximation for the radial core alone, and an elliptic
-estimate on a fixed ball. None constructs tunneling data.
+its physical content. A002, A003, and A004 are the registered
+classical admissions: operator realization, the standard Landau resolvent,
+and the first two radial semiclassical levels.
+A003 is `classical_standard_landau_resolvent`, in
+[ClassicalLandauResolvent.lean](../InfiniteZero/ClassicalLandauResolvent.lean).
+It states the kernel formula for the actual closed free operator at
+Planck constant one. The smooth-solution domain bridge and the changes
+`B=bλ`, `ρ=λ²E`, `τ=λt` are proved; `free_landau_resolvent_kernel` is
+their wrapper using A002 and A003.
+A004 is `classical_radial_low_levels`: its O(h^(3/2))
+error bounds and positive normalized ground state are the classical input.
+Lean proves the oscillator ordering, the gap limit, and the min-max
+implication from two levels to the operator complement bound, as well as
+the core energy upper bound, field conversion and transfer to test functions.
+Point evaluation by the H² norm is proved in
+[CoordinatePointEvaluation.lean](../InfiniteZero/CoordinatePointEvaluation.lean)
+using a fixed cutoff, two applications of the fundamental theorem of
+calculus, and Cauchy–Schwarz. The local elliptic estimate, including
+uniform dependence on the stated coefficient derivatives, is proved by
+cutoff energy estimates and induction. Higher-order point bounds, source
+and tensor norm conversions, and assembly of the public elliptic
+estimate are also proved. These steps have no admitted dependency.
+None of the three remaining admissions constructs tunneling data.
 The simple ground state and gap for the full potential are deduced in
 Lean from A002+A004; source representations also use A003.
 Exterior Agmon decay of the actual canonical ground state is likewise
@@ -136,8 +155,8 @@ ODE of the integral kernel and uniqueness of its real L² branch,
 with derivative energy deduced. `RadialCoreExteriorState` applies
 this result to the actual core ground state and concludes `φcore=ΓK`,
 `Γ>0`, for `r>r₀`.
-A004 was extended to include the classical positive radial choice, with
-a reference and natural-language proof; the differential reduction and
+The positive radial choice follows from A004 through the proved
+`RadialCoreSpectralAssembly`, using realization A002. The differential reduction and
 passage to the measure `r dr` are proved separately in Lean.
 The canonical choice is not declared positive.
 The decreasing real profile, a bound `f(r)≥c>0` on `[0,h]`, and
@@ -173,9 +192,9 @@ at every fixed order, with a single factor `cΓ`, still through
 A002+A004 only. The exact PDE and local data are then used in the
 [elliptic connection](ATOMIC_RESPONSE_JETS.md):
 `atomicGround_fine_response_jets` yields pointwise estimates for all
-jets through a fixed order, via A002+A004+A005.
-The hypotheses of the classical estimate A005 are verified for the
-actual operator. The [scattered-source profile](CUSP_SCATTERED_SOURCE.md)
+jets through a fixed order, via A002+A004.
+The hypotheses of the interior estimate proved in Lean are verified
+for the actual operator. The [scattered-source profile](CUSP_SCATTERED_SOURCE.md)
 is assembled for the same states and coefficient Γ:
 `λ²Wη` simultaneously preserves the local and global log-flat factors,
 with polynomial loss λ⁶, on the closed supports and at the tips.
@@ -286,8 +305,9 @@ under unitary phase.
 `ConstructedMainAssembly` combines modes, gap, and continuity statements
 using a common threshold. `ConstructedMainProof` supplies the actually
 constructed asymptotic and Schur package.
-`CuspParameters.mainConclusion` instantiates the four classical interfaces,
-then `elementaryPotential_main` and `thm_main` give the final conclusions.
+`CuspParameters.mainConclusion` instantiates the four analytic interfaces,
+including the proved interior estimate, then `elementaryPotential_main`
+and `thm_main` give the final conclusions.
 
 The proof targets the three items of the boxed theorem.
 It claims neither a differentiated remainder rate, monotonicity of the

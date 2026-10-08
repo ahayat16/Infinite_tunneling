@@ -10,6 +10,18 @@ TEX = "article/Infinite_Zero_Tunneling_Lean_oriented_V2.tex"
 # Deliberately conservative: a related calculation does not certify every
 # conclusion (uniformity, derivatives, rates, etc.) of its source sublemma.
 COVERAGE = {
+    'sublemma:L2-1-core-taylor': (
+        'Core hypotheses, radial second derivative and a global quadratic upper bound proved; fourth-order Taylor remainder not exported',
+        'CoreRadialHypotheses and RadialSingleWell verify the hypotheses for core/b². CoreQuadraticBound proves 0≤core(x)+1≤2|x|²/r₀². RadialCoreVariationalBound derives Ecore(λ)≤−λ²+Cλ for every λ>0 independently of spectral admissions'),
+    'sublemma:L2-1-rescale': (
+        'Exact test-form dilation and unit-field conversion proved; local oscillator remainder not exported',
+        'MagneticDilation proves mass preservation and exact quadratic-form scaling. MagneticFieldScaling identifies (b,λ,core) with (1,bλ,core/b²). SemiclassicalOperator and SemiclassicalDifferentialExpression prove Lh=h²H(1/h), unchanged operator domain and scaling of both min-max levels. RadialCoreVariationalBound applies dilation to a normalized compactly supported trial state'),
+    'sublemma:L2-1-oscillator': (
+        'Ordering of the full mode family, unique ground mode and first gap proved; oscillator spectral decomposition remains classical',
+        'RadialOscillatorLevels proves the first two ordered mode infima are sqrt(1+2d) and 2sqrt(1+2d)−1. ClassicalRadialLowLevels admits the positive radial ground state and two semiclassical O(h^(3/2)) level expansions, using the classical oscillator mode spectrum. RadialHarmonicLimits proves the first-order limits and their coupling conversion; see RADIAL_HARMONIC_CONTRACT.md'),
+    'sublemma:L2-1-gap-transfer': (
+        'Min-max complement inequality, gap limit and common positive threshold proved from the first two level expansions',
+        'OperatorSecondMinmax derives complement coercivity using the two-dimensional span of the ground vector and an orthogonal vector. RadialHarmonicAssembly constructs the certificate from A004 low-level data and A002 realization. MagneticGapThreshold yields gap≥(bδ/2)λ; RadialGroundCertificate and RadialCoreSpectralAssembly recover the unchanged test-function interface'),
     'sublemma:P2-2-critical': (
         'Derivatives and uniqueness of the critical point proved',
         'BridgeActionMinimum: unique global minimum on τ>0'),
@@ -41,8 +53,8 @@ COVERAGE = {
         'Exact radial equation proved for the integral kernel and actual positive radial core eigenstate',
         "LandauRadialEquation.landauKernel_radial_ode: two differentiations under the integral and vanishing time-boundary terms proved; MagneticRadialReduction.magneticHamiltonian_radial and RadialCoreExteriorState.IsAtomicGroundState.radialCore_ode reduce the concrete Hamiltonian outside the core, with h=λ⁻¹ and E=−λ⁻² atomicGroundEnergy; only the positive radial choice is classical through A004's explicit field, not this reduction; see [RADIAL_EXTERIOR_KERNEL.md](RADIAL_EXTERIOR_KERNEL.md)"),
     'sublemma:P2-4-decaying-branch': (
-        'Uniqueness of the real L²(r dr) branch and exact identity φcore=ΓK with Γ>0 proved under radial data; A004 wrapper compiled and audited',
-        'LandauExteriorUniqueness: Caccioppoli gives finite derivative energy on r>a+2, then the Wronskian gives proportionality on all r>a; RadialPlaneL2 proves passage from planar MemLp to L²(r dr); CuspParameters.exists_radialCore_kernel_of_radialData then radialCore_kernel via A004: T chosen before λ, then φλ,Γλ>0 for every λ≥T and r>r₀; RadialCoreKernelComparison also proves φcore(r)≤ΓK(r) for all r>0 by coefficient ordering; polynomial Γ control handled separately in LB.2, without a differentiated expansion or a positive phase for canonicalAtomicState'),
+        'Uniqueness of the real L²(r dr) branch and exact identity φcore=ΓK with Γ>0 proved under radial data; wrapper via A002+A004 compiled and audited',
+        'LandauExteriorUniqueness: Caccioppoli gives finite derivative energy on r>a+2, then the Wronskian gives proportionality on all r>a; RadialPlaneL2 proves passage from planar MemLp to L²(r dr); CuspParameters.exists_radialCore_kernel_of_radialData then radialCore_kernel via A002+A004: T chosen before λ, then φλ,Γλ>0 for every λ≥T and r>r₀; RadialCoreKernelComparison also proves φcore(r)≤ΓK(r) for all r>0 by coefficient ordering; polynomial Γ control handled separately in LB.2, without a differentiated expansion or a positive phase for canonicalAtomicState'),
     'sublemma:P2-4-kernel-decay': (
         'Exterior L² integrability of the actual kernel with radial density r proved on every r>a>0',
         'LandauRadialL2.integrableOn_radial_landauKernel_sq: K≤1/(πEr²), hence r|K|² dominated by (πE)⁻²r⁻³; sufficient variant without a radial Gaussian majorant or differentiated asymptotic expansion'),
@@ -66,7 +78,7 @@ COVERAGE = {
         'RadialCoreProfileEstimates: flux monotonicity, L² normalization, exterior mass, and quadratic lower bound; RadialWronskianComparison/RadialCoreKernelComparison give φcore≤ΓK on r>0; LandauCoefficientBounds uses K(h)≤1/(πEh²), E≥1/2; RadialCoreNormalizationLower assembles bounds for the same state and actual tail, constants before λ and uniform over positive radial states; explicit radial data and core realization, wrapper via A002+A004 without A003; neither harmonic-profile convergence nor angular-average positivity needed'),
     'sublemma:L7-1-ratio': (
         'Physical relative comparison of all seven cells and sum of norms proved for the explicit saddle envelope',
-        'RelativeNormalizationRatio: same φcore and Γ, ratio≤4Dλ⁴ for c≥1/2; h⁻⁴ variant suffices. ActiveSaddleEnvelope and AtomicInactiveRelative absorb λ⁸ and S_G⁻² into 30δ, leaving exp(−15δλ); same states, core/core/full action, seven actual/canonical bounds and sum of norms. SaddleEnvelopeComparison proves S_G²/S_Tex²=‖1+w‖/Re w→1, then AtomicInactiveRelativeTex transfers to the TeX Hessian envelope within a factor 2; wrappers A002+A004+A005, no new admission or upper-bound hypothesis on Γ; the active asymptotic is separate and was open at this milestone'),
+        'RelativeNormalizationRatio: same φcore and Γ, ratio≤4Dλ⁴ for c≥1/2; h⁻⁴ variant suffices. ActiveSaddleEnvelope and AtomicInactiveRelative absorb λ⁸ and S_G⁻² into 30δ, leaving exp(−15δλ); same states, core/core/full action, seven actual/canonical bounds and sum of norms. SaddleEnvelopeComparison proves S_G²/S_Tex²=‖1+w‖/Re w→1, then AtomicInactiveRelativeTex transfers to the TeX Hessian envelope within a factor 2; wrappers A002+A004, no new admission or upper-bound hypothesis on Γ; the active asymptotic is separate and was open at this milestone'),
     'sublemma:L2-8-integrability': (
         'Proved for natural powers m≥0; log factors and other exponents remain',
         'LogFlatIntegral.integrableOn_logFlat_laplace'),
@@ -134,22 +146,22 @@ COVERAGE = {
         'Both terms of the actual right-hand side controlled at every fixed order, pointwise then in local L²',
         'AtomicFineResponseData and AtomicFineResponseDecomposition: f_h=−cWφcore+c h²(Efull−Ecore)φcore, same state and Γ; radial normalization and action gap give weighted φcore jets without extra Γ; jets h^jD^jf_h, j≤n, bounded by CcΓλ²exp(−λJ−β₁log²λ) on U, including masses and finite sums of actual local L² norms; exact PDE and fine η mass for the same wavefunctions; wrapper atomicGround_fine_response_data via A002+A004 only'),
     'sublemma:T3-4-response-interior': (
-        'Pointwise jets of the actual correction proved at every fixed maximum order via A002+A004+A005',
+        'Pointwise jets of the actual correction proved at every fixed maximum order via A002+A004',
         'AtomicFineResponseJets: same φcore,ψfull,c,Γ and PDE; bounded actual full-potential energy, admissible balls under a uniform threshold; exp(κλT)λ^-j‖D^jη‖≤CcΓλ⁴exp(−λJ(Ecore,R)−β₁log²λ) on closure U′, j≤n, every 0<β₁<β; wrapper atomicGround_fine_response_jets requires only BasicConditions, β₁, n; constants before λ, states before κ,j,x; no scattered-source profile admitted'),
     'sublemma:T3-4-pointwise-response': (
         'Full scattered source and all jets through the fixed order proved, with two independent log-flat factors',
-        'AtomicCuspSource proves physical-source germs and jets on each closed support; WeightedSemiclassicalProduct and CuspScatteredSourceJets multiply the same η by λ²W, with T=t; AtomicScatteredSourceJets retains actual φcore,ψfull,c,Γ and J(Ecore,R), giving λ^-j‖D^jFsc‖≤CcΓλ⁶exp(−λJ−βglobal log²λ)logFlat βlocal tStar t exp(−κλt), j≤n, including tips; βglobal and βlocal independent in (0,β), constants before λ, states before κ,j,x; wrapper atomicGround_scattered_source_jets via A002+A004+A005, no new admission; see CUSP_SCATTERED_SOURCE.md'),
+        'AtomicCuspSource proves physical-source germs and jets on each closed support; WeightedSemiclassicalProduct and CuspScatteredSourceJets multiply the same η by λ²W, with T=t; AtomicScatteredSourceJets retains actual φcore,ψfull,c,Γ and J(Ecore,R), giving λ^-j‖D^jFsc‖≤CcΓλ⁶exp(−λJ−βglobal log²λ)logFlat βlocal tStar t exp(−κλt), j≤n, including tips; βglobal and βlocal independent in (0,β), constants before λ, states before κ,j,x; wrapper atomicGround_scattered_source_jets via A002+A004, no new admission; see CUSP_SCATTERED_SOURCE.md'),
     'sublemma:T3-4-incoming': (
         'Local upper bound for all semiclassical jets proved with sufficient polynomial loss; relative leading prefactor is separate',
-        'CuspIncomingSourceJets: actual source h⁻²W(cφcore), jets through n bounded by CcΓh^(-(n+4))logFlat βin tStar t exp(−(J(Ecore,R)+t/8)/h) on both closed supports; exact tail ΓK, exterior jets, radial gain t/8, constants before E,h,c,Γ,φ; AtomicSourceProfiles assembles incoming and scattered profiles for the same actual states, Γ, threshold, independent βin/βglobal/βlocal margins; wrapper atomicGround_source_profiles via A002+A004+A005; neither optimal h⁻⁷/² power nor relative leading formula claimed; see CUSP_SOURCE_PROFILES.md'),
+        'CuspIncomingSourceJets: actual source h⁻²W(cφcore), jets through n bounded by CcΓh^(-(n+4))logFlat βin tStar t exp(−(J(Ecore,R)+t/8)/h) on both closed supports; exact tail ΓK, exterior jets, radial gain t/8, constants before E,h,c,Γ,φ; AtomicSourceProfiles assembles incoming and scattered profiles for the same actual states, Γ, threshold, independent βin/βglobal/βlocal margins; wrapper atomicGround_source_profiles via A002+A004; neither optimal h⁻⁷/² power nor relative leading formula claimed; see CUSP_SOURCE_PROFILES.md'),
     'sublemma:LA-3-rescaling': (
         'Magnetic rescaling, jets, measure, weight, and uniform coefficients proved',
         'AffineScaleJets and AffineScaleL2 prove x=x₀+hy, jet factor h^j and mass factor h⁻²; MagneticEllipticExpansion and MagneticAffineRescaling give exactly −Δ+a·∇+q; RescaledMagneticCoefficientBounds bounds all required jets uniformly before h,x₀,E; no extra gauge needed because centers are bounded; ball containment in U and Lipschitz weight oscillation already proved'),
     'sublemma:LA-3-interior': (
-        'Strictly classical interface admitted and documented: A005',
-        'HasInteriorEllipticEstimate, ClassicalEllipticInterior: fixed ball B(0,2), principal part exactly −Δ, complex C∞ lower-order coefficients bounded through order n; C(n,B) chosen before coefficients, solution, and data; center-jet estimate from local masses; natural-language Caccioppoli/Poisson/commutator/Sobolev proof and references Hunter 4.27, 4.28, 3.49; no potential or tunneling in this admission'),
+        'Uniform elliptic regularity proved; only H² point evaluation remains classical',
+        'EllipticCaccioppoli, LaplacianHessianEnergy and LocalPoissonH2 prove the local H² base. CoordinateSobolevProduct and EllipticSobolevBootstrap prove the higher-order estimate with constants uniform under the prescribed coefficient bounds. CoordinateRectangleFTC and CoordinatePointEvaluation prove point evaluation by two applications of the fundamental theorem and Cauchy–Schwarz; CoordinateSobolevEmbedding derives all derivative evaluations without admissions. EllipticSobolevAssembly proves the unchanged HasInteriorEllipticEstimate'),
     'sublemma:LA-3-weighted-bound': (
-        'Application to the actual operator and weight transport proved under only the explicit classical contract A005',
+        'Application to the actual operator and weight transport proved from the admission-free interior estimate',
         "MagneticInteriorEstimate then WeightedMagneticInteriorEstimate: exp(κλT(x₀))λ^-j‖D^ju(x₀)‖≤Cλ(U+F), U the solution's global weighted norm, F a common bound on weighted right-hand-side jets in local L²; constant before λ,E,x₀,u,f,κ; weight and indicator never differentiated, exact loss h⁻¹ in dimension two"),
     'sublemma:LA-1-weight': (
         'Exact nonnegative, compactly supported, globally Lipschitz weight constructed, equal to the normal coordinate on both closed supports',
@@ -237,25 +249,25 @@ COVERAGE = {
         'CosineAsymptotic.exists_phase; neither uniqueness nor monotonicity claimed'),
     'sublemma:C7-4-signs': (
         'Unbounded signs and zeros proved and instantiated for actual hopping',
-        'CosineAsymptotic.unboundedSigns/unboundedZeros; ConstructedMainProof constructs physical data and continuity, then Remaining.elementaryPotential_main instantiates them for elementaryParameters via A002–A005'),
+        'CosineAsymptotic.unboundedSigns/unboundedZeros; ConstructedMainProof constructs physical data and continuity, then Remaining.elementaryPotential_main instantiates them for elementaryParameters via A002–A004'),
     'sublemma:C8-7-crossings': (
         'Unbounded crossings constructed for the explicit potential',
-        'SpectralAsymptotics.result_above; CanonicalParityRelativeErrors supplies actual o(A) errors for the same witnesses as hopping; ConstructedMainAssembly then ConstructedMainProof give the physical conclusion, instantiated in Remaining via A002–A005'),
+        'SpectralAsymptotics.result_above; CanonicalParityRelativeErrors supplies actual o(A) errors for the same witnesses as hopping; ConstructedMainAssembly then ConstructedMainProof give the physical conclusion, instantiated in Remaining via A002–A004'),
     'sublemma:C8-7-multiplicity': (
         'Physical decompositions, exact multiplicity, and infinitely many crossings assembled',
-        'ParityGroundEigenspaces and PhysicalParityModes give actual normalized modes and their spans; ParityDoubletRealization then ConstructedDoubleWellSpectral construct TwoModeRealization. GroundSpaceAlgebra gives dimension exactly two at sufficiently large crossings. ConstructedMainProof and Remaining.elementaryPotential_main assemble divergent sequences and spectral conclusions for fixed parameters via A002–A005'),
+        'ParityGroundEigenspaces and PhysicalParityModes give actual normalized modes and their spans; ParityDoubletRealization then ConstructedDoubleWellSpectral construct TwoModeRealization. GroundSpaceAlgebra gives dimension exactly two at sufficiently large crossings. ConstructedMainProof and Remaining.elementaryPotential_main assemble divergent sequences and spectral conclusions for fixed parameters via A002–A004'),
     'sublemma:C8-7-spacing': (
         'Outside thm:main — not formalized',
         'Optional spacing from the introduction'),
     'sublemma:T1-1-fixed-potential': (
-        'Explicitly fixed potential and final theorem proved modulo four classical interfaces',
-        'Remaining.elementaryPotential_main fixes elementaryParameters before L₀, then treats every L≥L₀; Remaining.thm_main deduces ConstructedPotentialMainTheorem without direct sorry. ConstructedMainProof constructs original data; only admissions A002–A005, no tunneling hypothesis'),
+        'Explicitly fixed potential and final theorem proved modulo three classical admissions',
+        'Remaining.elementaryPotential_main fixes elementaryParameters before L₀, then treats every L≥L₀; Remaining.thm_main deduces ConstructedPotentialMainTheorem without direct sorry. ConstructedMainProof constructs original data; only admissions A002–A004, no tunneling hypothesis'),
     'sublemma:T1-1-two-zero-statements': (
         'Both zero conclusions assembled for the explicit potential',
-        'LocalAnalyticData.conclusion, ConstructedMainAssembly, and ConstructedMainProof; continuous canonical hopping and splitting, amplitudes and Schur errors for the same witnesses; Remaining.elementaryPotential_main and thm_main via A002–A005'),
+        'LocalAnalyticData.conclusion, ConstructedMainAssembly, and ConstructedMainProof; continuous canonical hopping and splitting, amplitudes and Schur errors for the same witnesses; Remaining.elementaryPotential_main and thm_main via A002–A004'),
     'sublemma:T1-1-full-ground-space': (
         'Operator conclusion and actual eigenspaces assembled for the explicit potential',
-        'ConstructedMainProof.operatorMainConclusion_of_radialData constructs the conclusion from four explicit classical interfaces; Remaining.elementaryPotential_main then thm_main instantiate A002–A005. Physical modes and multiplicities come from the actual domain and global min–max levels'),
+        'ConstructedMainProof.operatorMainConclusion_of_radialData constructs the conclusion from explicit spectral and resolvent interfaces and the interior estimate; Remaining.elementaryPotential_main then thm_main instantiate A002–A004. Physical modes and multiplicities come from the actual domain and global min–max levels'),
     'sublemma:L4-1-global-tail': (
         'Sufficient variant proved for fixed double-well cutoffs using the radial tail beyond 4r₀',
         'AtomicGroundAgmon supplies Cλ⁻²exp(−2dλ) for exterior mass of every full ground state. DoubleWellLocalizationCutoffs constructs plateaus containing full supports and 4r₀ balls, with radii fixed before L. This tail controls overlap errors in DoubleWellLocalizedEstimates; the generic theorem for every near-support cutoff and distance weight is not claimed'),
@@ -327,7 +339,7 @@ COVERAGE = {
         'CoreSourceBound: C=sqrt(∫core²), uniform over normalized L² states'),
     'sublemma:L5-6-cusp-source': (
         'L¹ norms of both full cusp sources proved for the same actual atomic state',
-        'CuspProfileIntegral and its reflection: support, integrability, Jacobian t², factor 2s₀, uniform threshold giving any coefficient strictly below the local profile; AtomicSourceL1 separately retains CI cΓλ⁴exp(−λJ−βin log²λ) and CS cΓλ⁶exp(−λJ−(βglobal+βlocal)log²λ); AtomicComponentSourceL1 deduces full-component sum ≤CΓλ⁶exp(−λJ−β₁log²λ), every 0<β₁<β, plus core bound Ccoreλ² and integrability of all three components; same φcore,ψfull,c,Γ and threshold before λ; wrappers via A002+A004+A005, no new admission; norm_toL1_eq_integral_norm identifies actual norms; see CUSP_SOURCE_L1.md'),
+        'CuspProfileIntegral and its reflection: support, integrability, Jacobian t², factor 2s₀, uniform threshold giving any coefficient strictly below the local profile; AtomicSourceL1 separately retains CI cΓλ⁴exp(−λJ−βin log²λ) and CS cΓλ⁶exp(−λJ−(βglobal+βlocal)log²λ); AtomicComponentSourceL1 deduces full-component sum ≤CΓλ⁶exp(−λJ−β₁log²λ), every 0<β₁<β, plus core bound Ccoreλ² and integrability of all three components; same φcore,ψfull,c,Γ and threshold before λ; wrappers via A002+A004, no new admission; norm_toL1_eq_integral_norm identifies actual norms; see CUSP_SOURCE_L1.md'),
     'sublemma:L5-7-kernel-infimum': (
         'Sufficient version with arbitrary exponential loss proved on supports; exact prefactor remains',
         'InactiveKernelBounds.exists_inactiveKernelUpperBounds; Cexp(-(J−η)/h), not yet Ch^(-3/2)exp(-J/h)'),
@@ -339,7 +351,7 @@ COVERAGE = {
         'InactiveKernelBounds.norm_sourcePairing_le/sourceKernel_le; bound only on actual supports'),
     'sublemma:P5-8-three-types': (
         'Seven absolute bounds proved for the same actual states and canonical cells',
-        'InactiveCellL1Bounds: separated kernels and L¹ norms give K(Ccore+S+1)²(Γ²+1)λ¹⁰exp(−λ(Aref+31δhop)), then the norm of the sum with factor 7; AtomicInactiveCells instantiates sources and both actual energies in [1/2,1], same φcore,ψfull,c,Γ, core/core/full action; SourcePhaseInvariance transports to canonical cells; wrapper atomicGround_inactive_cells via A002+A004+A005, no new admission; InactiveCellNormSum also exports the sum of seven norms; relative comparison proved in block L7.1; see INACTIVE_CELLS.md'),
+        'InactiveCellL1Bounds: separated kernels and L¹ norms give K(Ccore+S+1)²(Γ²+1)λ¹⁰exp(−λ(Aref+31δhop)), then the norm of the sum with factor 7; AtomicInactiveCells instantiates sources and both actual energies in [1/2,1], same φcore,ψfull,c,Γ, core/core/full action; SourcePhaseInvariance transports to canonical cells; wrapper atomicGround_inactive_cells via A002+A004, no new admission; InactiveCellNormSum also exports the sum of seven norms; relative comparison proved in block L7.1; see INACTIVE_CELLS.md'),
     'sublemma:T8-5-rayleigh-error': (
         'Sufficient variant: diagonal defect and actual Schur corrections o(envelope) proved for the same witnesses',
         'AtomicOppositeSupportFineBounds gives masses ≤C c²Γ²λ¹²exp(−2λ(G+J)); CanonicalParityCorrectionMass then FineBound cost λ² for the defect and λ³ for the correction, bounded by λ¹⁵. OppositeSupportEnvelopeComparison retains margin J≥(2L−R)/2 and gives ≤C envelopeTex exp(−(2L−R)λ/4). CanonicalParityRelativeErrors uses exactly W.c,W.Γ from ConcreteChannelWitnesses. The final version used is o(A), without a separate residual²=o(A) assertion or claim of the full TeX remainder rate; see OPPOSITE_SUPPORT_ESTIMATES.md'),
@@ -444,7 +456,7 @@ COVERAGE = {
         'AtomicActiveScatteredBounds: two local and two global costs, same active action and c²Γ²; absolute bounds proved by the product of actual L¹ norms, without cancellation'),
     'sublemma:P6-8-envelope': (
         'Full/incoming reduction proved relative to envelopeTex, margin (3β₀−2β)/2>0',
-        'SharpSaddleSize absorbs every power with coefficient 2β+η; ActiveScatteredEnvelope and SourcePairingAdditivity control all three terms and their sum. AtomicActiveScatteredRelative exports actual/canonical differences; atomicGround_active_incoming_reduction fixes β₀=3β/4, margin β/8, under BasicConditions and R<2L via A002+A004+A005. Separate stronger double-scattered rate not exported; incoming asymptotic now proved and assembled with the same witnesses in CanonicalChannelAsymptotics. See ACTIVE_CHANNEL_ASYMPTOTIC.md'),
+        'SharpSaddleSize absorbs every power with coefficient 2β+η; ActiveScatteredEnvelope and SourcePairingAdditivity control all three terms and their sum. AtomicActiveScatteredRelative exports actual/canonical differences; atomicGround_active_incoming_reduction fixes β₀=3β/4, margin β/8, under BasicConditions and R<2L via A002+A004. Separate stronger double-scattered rate not exported; incoming asymptotic now proved and assembled with the same witnesses in CanonicalChannelAsymptotics. See ACTIVE_CHANNEL_ASYMPTOTIC.md'),
     'sublemma:D6-6-tail': (
         'Variant with window tStar h^(3/4) proved: real tail uniformly negligible for A≥A₀ under fixed complex normalization',
         'LogFlatActiveRealTail, LogFlatPolynomialErrors; natural m, fixed c, h^(-N) factors absorbed; optimal M₀h log(1/h) window and uniformity in c not claimed'),
@@ -462,7 +474,7 @@ COVERAGE = {
         'CuspActiveWindow.CuspParameters.eventually_activeWindow_local; fixed parameters; compact uniformity in c remains'),
     'sublemma:T7-2-phase': (
         'Continuous real phase and cosine asymptotic for actual hopping proved, explicit positive envelope',
-        'ActiveIncomingPhase and CanonicalChannelAsymptotics: Θ=λΦ*+2phaseGauss, Θ/λ→Φ*. Gaussian/TeX envelope ratio absorbed into o(1). Same amplitude 2K*envelopeTex and witnesses; classical wrappers A002–A005. Literal TeX phase not claimed'),
+        'ActiveIncomingPhase and CanonicalChannelAsymptotics: Θ=λΦ*+2phaseGauss, Θ/λ→Φ*. Gaussian/TeX envelope ratio absorbed into o(1). Same amplitude 2K*envelopeTex and witnesses; classical wrappers A002–A004. Literal TeX phase not claimed'),
     'sublemma:L7-3-monotonicity': (
         'Weaker property proved for the model phase correction: eventual continuity and phase/λ→0',
         'ComplexLogFlatPhaseGrowth.tendsto_logFlatSaddlePhase_inv_div; fixed parameters; physical-phase connection proved in ActiveIncomingPhase and CanonicalChannelAsymptotics; O(log λ) bound, derivative, and monotonicity remain'),
@@ -484,7 +496,7 @@ def main():
         "This table does not equate Lean declarations with manuscript sublemmas: "
         "some Lean proofs are auxiliaries, and some sublemmas have several conclusions, "
         "only part of which has been formalized. "
-        "The original estimates needed for thm_main are now constructed; A002, A003, A004, and A005 collect "
+        "The original estimates needed for thm_main are now constructed; A002, A003, and A004 collect "
         "the documented classical interfaces. Entries not individually formalized do not represent "
         "hundreds of fictitious independent `sorry` placeholders.", "",
         "Generate with `python3 scripts/blueprint_index.py`. "

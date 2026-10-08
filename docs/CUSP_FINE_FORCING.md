@@ -1,8 +1,8 @@
 # Cusp forcing: exact action and log-flat bound
 
-This page explains the `k=0` case of `sublemma:T3-4-weighted-forcing` and its application to `sublemma:T3-4-weighted-response`. The [extension to forcing derivatives](CUSP_FORCING_DERIVATIVES.md) is now proved. [Propagation to correction jets](ATOMIC_RESPONSE_JETS.md) is established in a separate block using A005. No source or tunneling estimate is admitted to obtain the bounds below.
+This page explains the `k=0` case of `sublemma:T3-4-weighted-forcing` and its application to `sublemma:T3-4-weighted-response`. The [extension to forcing derivatives](CUSP_FORCING_DERIVATIVES.md) is now proved. [Propagation to correction jets](ATOMIC_RESPONSE_JETS.md) is established in a separate block using the proved interior estimate. No source or tunneling estimate is admitted to obtain the bounds below.
 
-The global build, `assert_no_sorry` guards, dependency export, and blueprint index were checked by `scripts/check.sh`. The new analytic theorems use only standard Lean axioms; this block’s public wrapper uses exactly A002 and A004. The [final proof of thm_main](../InfiniteZero/Remaining.lean) is now compiled modulo the four classical interfaces A002–A005.
+The global build, `assert_no_sorry` guards, dependency export, and blueprint index were checked by `scripts/check.sh`. The new analytic theorems use only standard Lean axioms; this block’s public wrapper uses exactly A002 and A004. The [final proof of thm_main](../InfiniteZero/Remaining.lean) is now compiled modulo the three classical admissions A002–A004.
 
 ## Actual parameters, energy, and state
 
@@ -106,4 +106,4 @@ This realizes `sublemma:T3-4-energy-forcing` without having to absorb a squared 
 
 ## Scope and connections
 
-The forcing derivatives `k>0` are now treated in the [dedicated block](CUSP_FORCING_DERIVATIVES.md), then assembled with the energy-shift term in the [full PDE data](ATOMIC_FINE_RESPONSE_DATA.md). The [elliptic step](ATOMIC_RESPONSE_JETS.md) then supplies pointwise correction jets through A005. The [full scattered-source profile](CUSP_SCATTERED_SOURCE.md) now retains both log-flat factors. [L¹ integration of the profiles](CUSP_SOURCE_L1.md) is also proved; the [full active-cell integral](INCOMING_PHYSICAL_ASYMPTOTIC.md) and its [connection to the channels](ACTIVE_CHANNEL_ASYMPTOTIC.md) are established in separate modules.
+The forcing derivatives `k>0` are now treated in the [dedicated block](CUSP_FORCING_DERIVATIVES.md), then assembled with the energy-shift term in the [full PDE data](ATOMIC_FINE_RESPONSE_DATA.md). The [elliptic step](ATOMIC_RESPONSE_JETS.md) then supplies pointwise correction jets using the proved interior estimate. The [full scattered-source profile](CUSP_SCATTERED_SOURCE.md) now retains both log-flat factors. [L¹ integration of the profiles](CUSP_SOURCE_L1.md) is also proved; the [full active-cell integral](INCOMING_PHYSICAL_ASYMPTOTIC.md) and its [connection to the channels](ACTIVE_CHANNEL_ASYMPTOTIC.md) are established in separate modules.
