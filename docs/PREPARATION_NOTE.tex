@@ -1,0 +1,270 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,array,longtable,microtype}
+\usepackage[margin=24mm]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\usepackage{xurl}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\title{Preparing the Formalization\\\large Analytic interfaces, calculations, and reusable resources}
+\author{}
+\date{September 17, 2026}
+\begin{document}
+\maketitle
+\begin{quote}\small
+Historical preparatory note. This English translation preserves the original
+plan and its status as of September 17, 2026. For the completed formalization
+and its two remaining classical admissions, see the repository README and
+\path{docs/ADMISSIONS.md}.
+\end{quote}
+This note accompanies the expanded proofs of \emph{Double-wells in a strong
+magnetic field: absence of tunneling for infinitely many values of the coupling
+constant}, in the supplied 56-page PDF version. It does not change the article's
+statements. Information about repositories is based on inspection of their
+public files and official Mathlib documentation as of the date above; the
+external repositories were not compiled here.
+
+\section{Deliverables and navigation}
+The PDF's 57 proof blocks, including appendices, are expanded into 176
+sublemmas. The three results whose full proofs are in appendices retain that
+placement: the main-text block explains the assembly and refers to the appendix
+sublemmas. These are therefore not three unfinished proofs.
+
+Each new statement actually uses \verb|\begin{lemma}| and a label beginning
+with \code{sublemma:}. A local environment displays it as a sublemma, with
+numbering independent of the article's lemmas. For example,
+\path{sublemma:D6-4-phase-difference} denotes the exact phase calculation near
+the saddle point; its prefix and attachment to proof 6.4 remain stable for a
+future Lean translation.
+
+The integrated PDF contains 93 pages. Since the \LaTeX{} source of that version
+was not supplied, material outside proofs is preserved by vector inclusion of
+fragments of the original PDF: it is neither rewritten nor replaced by an
+approximate text extraction. The blue proofs are actual editable \LaTeX{} text.
+The standalone proof collection has 63 pages. Figures, statements, editorial
+comments, and existing colors outside proofs remain those of the supplied PDF.
+
+Physical pagination changes. To avoid altering material outside proofs, the
+page numbers visible in the original table of contents are preserved: they
+still refer to pages of the initial PDF. Proof bookmarks and
+\path{correspondance_preuves.csv} give the new pagination;
+\path{index_sous_lemmes.csv} gives the page of each of the 176 sublemmas.
+Original equation numbers are preserved in the proofs. Files
+\path{proofs/*.tex} are separated by proof, and \path{preuves_a_integrer.tex}
+collects them in manuscript order.
+
+\textbf{Status.} These are natural-language proofs intended to prepare
+formalization, not proofs already verified by Lean. \LaTeX{} compilation,
+label uniqueness, and internal-reference resolution were checked. Those
+checks do not constitute mathematical certification. Classical analytic inputs
+remain identified as such.
+
+\section{Proposed boundary: formal calculations and human interfaces}
+The decomposition should not take the article's result as a disguised
+hypothesis. An interface should concern a general analytic operation;
+constants, signs, powers of $h$, action margins, and assemblies specific to this
+construction should remain proved. The following table specifies the contracts
+to isolate.
+
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{.18\textwidth}>{\raggedright\arraybackslash}p{.35\textwidth}>{\raggedright\arraybackslash}p{.39\textwidth}@{}}
+\textbf{Interface}&\textbf{Contract to make explicit}&\textbf{Calculations retained in the formalized core}\\\hline
+\endfirsthead
+\textbf{Interface}&\textbf{Contract to make explicit}&\textbf{Calculations retained in the formalized core}\\\hline
+\endhead
+Harmonic approximation&For the fixed radial well: first-level asymptotics, simplicity/radiality of the ground state, and local convergence after rescaling. Check the assumptions of the result cited as [8] in the article.&Potential Taylor expansion, dilation conjugation, oscillator Gaussian, positivity of the limiting gap, and inequality transfer: proof L2.1.\\[7pt]
+Landau resolvent&Self-adjoint realization and resolvent kernel at energy strictly below the spectrum; validity of the integral representation and then its radial projection.&Critical time, action value and derivatives, gauge-phase signs, change of variables, and factor $2\pi$: P2.2, P5.1, LB.2.\\[7pt]
+Forms and spectrum&Closed-form representation theorem, variational characterization, spectral projections, and invertibility criterion for a coercive compression.&Rank-one decomposition, completion of the square, Schur identity, scalar monotonicity, and level comparison: Sections 3, 4, and 8.\\[7pt]
+IMS and Agmon&Extension of product identities to the form domain, approximation of Lipschitz weights, and passage to the limit for saturated weights.&Exact identities, term $-\kappa^2|\nabla T|^2$, orthogonality defect, and quantitative absorption: L2.5, L3.1, LA.1--LA.2.\\[7pt]
+Interior regularity&On two fixed concentric balls: an $H^{k+2}$ estimate from $L^2$ and an $H^k$ right-hand side, uniform for the bounded coefficients considered; embedding into $C^k$ in dimension two.&Local gauge, rescaling $x=x_0+hy$, weight oscillation, powers of $h$, and return to original derivatives: LA.3, LB.1.\\[7pt]
+General complex analysis&Holomorphy of dominated integrals, local holomorphic inversion, Cauchy's theorem, and derivative estimates. A substantial part can connect directly to Mathlib.&Saddle-point construction, branch choices, contours, connectors, Gaussian moments, and remainder bounds: Appendices C and D, P6.7.\\
+\end{longtable}
+\normalsize
+The interfaces do not replace oscillatory evaluation or control of the
+scattered term. In particular, the weighted-inverse bound must not simply be
+assumed: LA.2 gives its proof from the form domain and IMS. Likewise, the
+log-flat integral's asymptotic formula is not an admitted interface: it is
+proved in Appendix D.
+
+A useful organization of the future development would put scalar and geometric
+calculations in independent modules, then prove the abstract spectral-transfer
+theorem in Hilbert space, and finally instantiate the magnetic problem's
+analytic contracts. Conditional results should explicitly display
+unformalized hypotheses; a global \code{axiom} whose presence becomes invisible
+downstream should be avoided.
+
+\section{Points made explicit in the proofs}
+\textbf{Complex branches and cutoffs.} The development distinguishes variables
+actually extended to the complex plane from tangential parameters that stay
+real. The smooth function $\chi_a$ is not assumed holomorphic: only the formula
+in the region where it equals one is extended. The scattered source is never
+extended. The principal logarithm and square root are chosen on fixed
+neighborhoods avoiding their cuts. For $w=W_0(z)$, the equation
+$w+\operatorname{Log}w=\operatorname{Log}z$ fixes the branch before imaginary
+parts are taken.
+
+\textbf{Actual saddle-point remainder control.} The identity
+\[
+ f(y_c+q)-f(y_c)=\beta q^2+2\beta w(e^{-q}-1+q)
+\]
+is isolated. The perturbative expansion is made on a shrinking window
+$|q|\le(\Re w)^{-2/5}$, not a fixed neighborhood where the cubic term could grow
+large. Cancellation of the odd term and fourth and sixth moments then give
+the relative remainder $O(|w|^{-1})$. The absolute contour-integral bound is
+also established; it is essential for inserting the joint-phase remainder in
+P6.7.
+
+\textbf{Quantifiers and fixed potential.} Geometric parameters and the
+potential are fixed before choosing $L$. After fixing $L$, one may shrink an
+analytic neighborhood or the threshold $h_0(L)$, but not silently shorten the
+potential's support. This distinction is explicit in L6.3 and the final proof.
+Parameter-uniform estimates are always restricted to the compact sets actually
+used.
+
+\textbf{Positive scale and passage to crossings.} Errors are compared with the
+positive envelope $a_h$, never with the hopping coefficient, which can vanish.
+Polynomial and log-quadratic losses are absorbed only after preserving a
+strictly positive margin. The $h^{-13/2}$ factor calculation, three log-flat
+costs against two, and phase derivative are separated. The intermediate-value
+argument assumes no differentiability of the oscillatory remainder.
+
+\textbf{Continuity and dilations.} In L8.6, continuity of spectral bottoms is
+deduced from form comparison on a fixed domain. Resolvent norm continuity is
+used for the dilated family. Return to physical vectors uses strong continuity
+of dilations on a fixed vector; it does not incorrectly infer operator-norm
+continuity from that strong continuity alone. Rank-one projections, local
+normalization, and hopping's independence of phase choice are detailed.
+
+\textbf{Radial normalization.} LB.2 separates Sturm--Liouville factorization,
+identification of the kernel constant with measure $2\pi s\,ds$, positivity of
+the regular solution, and the source-integral lower bound. This prevents a
+missing factor in $\Gamma_h$ from being hidden by later exponential comparisons.
+
+\section{Directly relevant Mathlib resources}
+\subsection{Real and complex Gaussians}
+The module
+\begin{center}\small\path{Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral}\end{center}
+contains \code{integral_gaussian_complex}, under $0<\Re b$, as well as
+\path{integrable_cexp_neg_mul_sq}, \path{norm_cexp_neg_mul_sq}, and
+\path{integrable_rpow_mul_exp_neg_mul_sq}. This is a concrete entry point for
+the complex Gaussian and moment majorants in Appendix D. It also contains
+asymptotic exponential-decay comparisons. Branch choice and substitution
+$b=\beta(1+w)$ still need connecting to the manuscript's sublemmas. See the
+\href{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.html}{official module documentation}.
+
+\subsection{Rectangular contours and Cauchy estimates}
+In \path{Mathlib.Analysis.Complex.CauchyIntegral}, the entries
+\begin{center}\small
+\path{Complex.integral_boundary_rect_eq_zero_of_differentiableOn}\\
+\path{DifferentiableOn.deriv_eq_smul_circleIntegral}
+\end{center}
+correspond to the rectangular contour in the logarithmic variable and
+remainder-derivative estimates. The limit of the vertical face at infinity
+and its majorants must be proved separately, as in D6.4. Appendix C's Morse
+curves require more adaptation than this rectangle. See the
+\href{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/Complex/CauchyIntegral.html}{official CauchyIntegral documentation}.
+
+\subsection{Hilbert-space projections}
+The module \path{Mathlib.Analysis.InnerProductSpace.Projection.Basic}
+provides, in particular, \path{Submodule.orthogonalProjectionOnto} and
+\path{Submodule.starProjection}. The latter is an endomorphism of the ambient
+space, especially suited to $P+Q=I$. This library can support the projection
+algebra in Sections 3--4; it does not by itself provide a realization of the
+unbounded magnetic Schr\"odinger operator. The documentation consulted also
+marks the old name \code{orthogonalProjection} as deprecated: the name to use
+therefore depends on the pinned version. See the
+\href{https://leanprover-community.github.io/mathlib4_docs/Mathlib/Analysis/InnerProductSpace/Projection/Basic.html}{official projection documentation}.
+
+\section{What to reuse from Scott Armstrong's repositories}
+\subsection{CoarseGraining: Sobolev spaces, products, and Hilbert realizations}
+Repository: \url{https://github.com/scottnarmstrong/CoarseGraining}.
+
+\href{https://github.com/scottnarmstrong/CoarseGraining/blob/main/Homogenization/Sobolev/H1.lean}{\path{Homogenization/Sobolev/H1.lean}}
+is an entry point, but not a standalone file: it imports the H1/Algebra
+subtree. The file actually consulted,
+\begin{center}\small\path{Homogenization/Sobolev/H1/Algebra/H1Function.lean}\end{center}
+contains algebraic structure on real $H^1$ functions and the product rule with
+a smooth compactly supported function. Entries
+\path{mulContDiffHasCompactSupport} and
+\path{mulContDiffHasCompactSupport_grad} are especially relevant for
+localization. Reuse their imports, not only these two declarations. See the
+\href{https://github.com/scottnarmstrong/CoarseGraining/blob/main/Homogenization/Sobolev/H1/Algebra/H1Function.lean}{source file}.
+
+\href{https://github.com/scottnarmstrong/CoarseGraining/blob/main/Homogenization/Sobolev/Foundations/CoerciveH10.lean}{\path{Homogenization/Sobolev/Foundations/CoerciveH10.lean}}
+exposes smooth approximations of $H^1_0$ functions and convergence in value
+and gradient norms. This is a possible route for density arguments. Note that
+the coercive estimates displayed in this file explicitly assume $2<d$; they
+cannot be applied unchanged in dimension two.
+
+Finally,
+\href{https://github.com/scottnarmstrong/CoarseGraining/blob/main/Homogenization/PDE/HarmonicHilbert.lean}{\path{Homogenization/PDE/HarmonicHilbert.lean}}
+gives a Hilbert realization of harmonic gradients, a closed subspace, a
+bilinear form, and coercivity lemmas. It provides an architectural model for
+passing from Sobolev objects to bounded operators between Hilbert spaces. Its
+subject nevertheless remains a real divergence-form elliptic problem, and
+some constructions take data such as \code{PotentialSolenoidalL2Data} as
+parameters: read the fields of these data rather than treating the theorem
+name alone as a sufficient contract.
+
+\subsection{DeGiorgi: rescaling and localization}
+Repository: \url{https://github.com/scottnarmstrong/DeGiorgi}.
+
+\href{https://github.com/scottnarmstrong/DeGiorgi/blob/main/DeGiorgi/BallScaling.lean}{\path{DeGiorgi/BallScaling.lean}}
+contains affine transports between a ball and the unit ball, notably
+\code{rescaleToUnitBall}, \code{transportFromUnitBall}, their inverse identity,
+and transport of weak formulations. This is directly relevant as a model for
+$x=x_0+hy$ in LA.3. Some auxiliary measure identities are declared
+\code{private}: they are not automatically available under a public name
+through a simple import. The file
+\href{https://github.com/scottnarmstrong/DeGiorgi/blob/main/DeGiorgi/Localization.lean}{\path{DeGiorgi/Localization.lean}}
+complements this route for restriction to subdomains.
+
+The principal limitation is precise: \code{weak_harnack_on_ball}, in
+\href{https://github.com/scottnarmstrong/DeGiorgi/blob/main/DeGiorgi/ScaledBallEstimates.lean}{\path{DeGiorgi/ScaledBallEstimates.lean}},
+concerns positive real functions and assumes $2<(d:\mathbb R)$. This does
+not replace the $H^{k+2}\to C^k$ estimate for the two-dimensional complex
+magnetic equation in LA.3. Reusing transports, function spaces, and product
+rules first is more direct than trying to apply Harnack to this problem.
+
+\subsection{Versions: two different environments}
+The files consulted specify \code{leanprover/lean4:v4.29.0-rc6} for DeGiorgi,
+with Mathlib pinned to commit
+\begin{center}\small\path{5c8398df528176d9c87ccd9226ba8f7c8852d59c}\end{center}
+CoarseGraining specifies \code{leanprover/lean4:v4.33.0}, with Mathlib at
+\begin{center}\small\path{db584cd6d46c92f209a44c0f1c829460d327499d}\end{center}
+These values come from DeGiorgi's
+\href{https://github.com/scottnarmstrong/DeGiorgi/blob/main/lean-toolchain}{lean-toolchain}
+and \href{https://github.com/scottnarmstrong/DeGiorgi/blob/main/lake-manifest.json}{lake-manifest},
+and CoarseGraining's
+\href{https://github.com/scottnarmstrong/CoarseGraining/blob/main/lean-toolchain}{lean-toolchain}
+and \href{https://github.com/scottnarmstrong/CoarseGraining/blob/main/lake-manifest.json}{lake-manifest}.
+Main branches evolve: also record the repository's own commit when retrieving it.
+
+These trees should not be mixed without porting. Compile each repository first
+with its own version files, then choose one target environment and port a
+limited subset of dependencies. The inspection performed here replaces
+neither that compilation nor inspection of transitive axioms and structure
+hypotheses. Preserve license notices in reused files.
+
+\section{Realistic scope of an initial partial formalization}
+The first batch can cover action and geometry calculations (P2.2, P2.6,
+L2.7--L2.10), phase signs and symmetries (P5.1, L5.2--L5.3), the full scalar
+log-flat calculation (Appendix D), then Feshbach--Schur algebra and envelope
+transfer. These components actually reduce human verification work without
+immediately requiring an entire magnetic-PDE library.
+
+In the specific modules inspected, I did not identify a ready-made package
+covering the full chain ``unbounded magnetic operator -- weighted Agmon --
+Landau resolvent -- harmonic approximation -- crossings.'' This search finding
+is not proof of absence throughout Mathlib or external repositories. The
+proposed decomposition allows calculations to be formalized without relying
+on such an absence claim.
+
+For each final conditional theorem, publish the exact list of still-external
+interfaces. This distinguishes Lean verification of the calculations and their
+assembly from a complete formalization of the article's theorem. Both goals
+are useful, but should not be presented as equivalent.
+\end{document}
