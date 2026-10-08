@@ -2,7 +2,7 @@
 
 This page explains the `k=0` case of `sublemma:T3-4-weighted-forcing` and its application to `sublemma:T3-4-weighted-response`. The [extension to forcing derivatives](CUSP_FORCING_DERIVATIVES.md) is now proved. [Propagation to correction jets](ATOMIC_RESPONSE_JETS.md) is established in a separate block using the proved interior estimate. No source or tunneling estimate is admitted to obtain the bounds below.
 
-The global build, `assert_no_sorry` guards, dependency export, and blueprint index were checked by `scripts/check.sh`. The new analytic theorems use only standard Lean axioms; this block’s public wrapper uses exactly A002 and A004. The [final proof of thm_main](../InfiniteZero/Remaining.lean) is now compiled modulo the three classical admissions A002–A004.
+The global build, `assert_no_sorry` guards, dependency export, and blueprint index were checked by `scripts/check.sh`. The new analytic theorems use only standard Lean axioms; this block’s public wrapper uses exactly A002 and A004. The [final proof of thm_main](../InfiniteZero/Remaining.lean) is now compiled modulo the two classical admissions A002 and A004.
 
 ## Actual parameters, energy, and state
 

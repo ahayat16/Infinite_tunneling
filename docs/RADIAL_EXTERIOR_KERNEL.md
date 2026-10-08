@@ -13,7 +13,7 @@ For fixed parameters `b,h,E > 0`, set
  K(r)=\frac{b}{4\pi h^2}\int_0^\infty I(r,\tau)\,d\tau.
 \]
 
-For `r > 0`, convergence and strict positivity are proved in [LandauKernel.lean](../InfiniteZero/LandauKernel.lean). The results in this document do not use admission A003 identifying the resolvent. They do not concern the singular radius `r = 0`.
+For `r > 0`, convergence and strict positivity are proved in [LandauKernel.lean](../InfiniteZero/LandauKernel.lean). The results in this document do not use the free-resolvent identity (formerly A003). They do not concern the singular radius `r = 0`.
 
 The pointwise calculation in [LandauIntegrandODE.lean](../InfiniteZero/LandauIntegrandODE.lean) gives, with `s(τ) = b coth(bτ)/(2h)`,
 
@@ -143,4 +143,4 @@ For `λ ≥ T`, the common energy bound `eλ = λ⁻² atomicGroundEnergy b p.co
 
 Only `b > 0`, `p.r₀ > 0`, and the classical radial data are needed; no cusp or well-separation condition enters. The wrapper `CuspParameters.radialCore_kernel hb hr`, in [Remaining.lean](../InfiniteZero/Remaining.lean), supplies the data via A002+A004. It does not use A003. No new ODE, polar-measure, or exterior-tail admission is introduced.
 
-This identity concerns the positive choice of core ground state. `RadialCoreNormalizationLower` now complements it with `Γλ≥c λ⁻²` and `Γλ⁻¹≤Cλ²`, using the full ODE, mass, and a Wronskian comparison; see [the proof and its scope](RADIAL_NORMALIZATION.md). The [spatial jets and source profiles](CUSP_FORCING_DERIVATIVES.md), then their [connection to the tunneling channels](ACTIVE_CHANNEL_ASYMPTOTIC.md), are now proved. Coupling regularity of state choices is not asserted here and is unnecessary for the [final proof](../InfiniteZero/Remaining.lean), compiled modulo A002–A004. The manuscript's power h^(3/2) and local harmonic convergence are not claimed.
+This identity concerns the positive choice of core ground state. `RadialCoreNormalizationLower` now complements it with `Γλ≥c λ⁻²` and `Γλ⁻¹≤Cλ²`, using the full ODE, mass, and a Wronskian comparison; see [the proof and its scope](RADIAL_NORMALIZATION.md). The [spatial jets and source profiles](CUSP_FORCING_DERIVATIVES.md), then their [connection to the tunneling channels](ACTIVE_CHANNEL_ASYMPTOTIC.md), are now proved. Coupling regularity of state choices is not asserted here and is unnecessary for the [final proof](../InfiniteZero/Remaining.lean), compiled modulo A002 and A004. The manuscript's power h^(3/2) and local harmonic convergence are not claimed.

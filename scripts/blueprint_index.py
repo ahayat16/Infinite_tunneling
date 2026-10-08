@@ -72,7 +72,7 @@ COVERAGE = {
         'RadialRegularPositive.radial_regular_pos/monotoneOn/center_le: continuity of f and f′ up to 0 and flux equation on the open interval; no positivity of regularLandauProfile follows from this module alone'),
     'sublemma:LB-2-gamma-formula': (
         'Exact integral formula for Γ of the same radial state proved under the classical kernel contract; integrand positivity not claimed',
-        'RadialCoreSourceRepresentation passes from a.e. equality to each exterior point; RadialCoreNormalization.radialCore_normalization gives Γ=2π∫s u_R(s)(−core(s))φ(s)ds, u_R=Re(angular average)/K(R), u_R(0)=1; explicit hKernel/A003, fixed R, R-independence of u_R remains'),
+        'RadialCoreSourceRepresentation passes from a.e. equality to each exterior point; RadialCoreNormalization.radialCore_normalization gives Γ=2π∫s u_R(s)(−core(s))φ(s)ds, u_R=Re(angular average)/K(R), u_R(0)=1; explicit hKernel, supplied by the proved resolvent formula, fixed R, R-independence of u_R remains'),
     'sublemma:LB-2-lower-bound': (
         'Sufficient polynomial variant proved: φcore≥c on [0,h], Γ≥c′h², Γ⁻¹≤Ch⁻²; TeX powers h⁻¹/² and h³/² not claimed',
         'RadialCoreProfileEstimates: flux monotonicity, L² normalization, exterior mass, and quadratic lower bound; RadialWronskianComparison/RadialCoreKernelComparison give φcore≤ΓK on r>0; LandauCoefficientBounds uses K(h)≤1/(πEh²), E≥1/2; RadialCoreNormalizationLower assembles bounds for the same state and actual tail, constants before λ and uniform over positive radial states; explicit radial data and core realization, wrapper via A002+A004 without A003; neither harmonic-profile convergence nor angular-average positivity needed'),
@@ -249,25 +249,25 @@ COVERAGE = {
         'CosineAsymptotic.exists_phase; neither uniqueness nor monotonicity claimed'),
     'sublemma:C7-4-signs': (
         'Unbounded signs and zeros proved and instantiated for actual hopping',
-        'CosineAsymptotic.unboundedSigns/unboundedZeros; ConstructedMainProof constructs physical data and continuity, then Remaining.elementaryPotential_main instantiates them for elementaryParameters via A002–A004'),
+        'CosineAsymptotic.unboundedSigns/unboundedZeros; ConstructedMainProof constructs physical data and continuity, then Remaining.elementaryPotential_main instantiates them for elementaryParameters via A002 and A004'),
     'sublemma:C8-7-crossings': (
         'Unbounded crossings constructed for the explicit potential',
-        'SpectralAsymptotics.result_above; CanonicalParityRelativeErrors supplies actual o(A) errors for the same witnesses as hopping; ConstructedMainAssembly then ConstructedMainProof give the physical conclusion, instantiated in Remaining via A002–A004'),
+        'SpectralAsymptotics.result_above; CanonicalParityRelativeErrors supplies actual o(A) errors for the same witnesses as hopping; ConstructedMainAssembly then ConstructedMainProof give the physical conclusion, instantiated in Remaining via A002 and A004'),
     'sublemma:C8-7-multiplicity': (
         'Physical decompositions, exact multiplicity, and infinitely many crossings assembled',
-        'ParityGroundEigenspaces and PhysicalParityModes give actual normalized modes and their spans; ParityDoubletRealization then ConstructedDoubleWellSpectral construct TwoModeRealization. GroundSpaceAlgebra gives dimension exactly two at sufficiently large crossings. ConstructedMainProof and Remaining.elementaryPotential_main assemble divergent sequences and spectral conclusions for fixed parameters via A002–A004'),
+        'ParityGroundEigenspaces and PhysicalParityModes give actual normalized modes and their spans; ParityDoubletRealization then ConstructedDoubleWellSpectral construct TwoModeRealization. GroundSpaceAlgebra gives dimension exactly two at sufficiently large crossings. ConstructedMainProof and Remaining.elementaryPotential_main assemble divergent sequences and spectral conclusions for fixed parameters via A002 and A004'),
     'sublemma:C8-7-spacing': (
         'Outside thm:main — not formalized',
         'Optional spacing from the introduction'),
     'sublemma:T1-1-fixed-potential': (
-        'Explicitly fixed potential and final theorem proved modulo three classical admissions',
-        'Remaining.elementaryPotential_main fixes elementaryParameters before L₀, then treats every L≥L₀; Remaining.thm_main deduces ConstructedPotentialMainTheorem without direct sorry. ConstructedMainProof constructs original data; only admissions A002–A004, no tunneling hypothesis'),
+        'Explicitly fixed potential and final theorem proved modulo two classical admissions',
+        'Remaining.elementaryPotential_main fixes elementaryParameters before L₀, then treats every L≥L₀; Remaining.thm_main deduces ConstructedPotentialMainTheorem without direct sorry. ConstructedMainProof constructs original data; only admissions A002 and A004, no tunneling hypothesis'),
     'sublemma:T1-1-two-zero-statements': (
         'Both zero conclusions assembled for the explicit potential',
-        'LocalAnalyticData.conclusion, ConstructedMainAssembly, and ConstructedMainProof; continuous canonical hopping and splitting, amplitudes and Schur errors for the same witnesses; Remaining.elementaryPotential_main and thm_main via A002–A004'),
+        'LocalAnalyticData.conclusion, ConstructedMainAssembly, and ConstructedMainProof; continuous canonical hopping and splitting, amplitudes and Schur errors for the same witnesses; Remaining.elementaryPotential_main and thm_main via A002 and A004'),
     'sublemma:T1-1-full-ground-space': (
         'Operator conclusion and actual eigenspaces assembled for the explicit potential',
-        'ConstructedMainProof.operatorMainConclusion_of_radialData constructs the conclusion from explicit spectral and resolvent interfaces and the interior estimate; Remaining.elementaryPotential_main then thm_main instantiate A002–A004. Physical modes and multiplicities come from the actual domain and global min–max levels'),
+        'ConstructedMainProof.operatorMainConclusion_of_radialData constructs the conclusion from explicit spectral and resolvent interfaces and the interior estimate; Remaining.elementaryPotential_main then thm_main instantiate A002 and A004. Physical modes and multiplicities come from the actual domain and global min–max levels'),
     'sublemma:L4-1-global-tail': (
         'Sufficient variant proved for fixed double-well cutoffs using the radial tail beyond 4r₀',
         'AtomicGroundAgmon supplies Cλ⁻²exp(−2dλ) for exterior mass of every full ground state. DoubleWellLocalizationCutoffs constructs plateaus containing full supports and 4r₀ balls, with radii fixed before L. This tail controls overlap errors in DoubleWellLocalizedEstimates; the generic theorem for every near-support cutoff and distance weight is not claimed'),
@@ -285,7 +285,7 @@ COVERAGE = {
         'MagneticCovariance, ParityTrialStates, and LocalizedOverlap: magnetic translation and inversion preserve mass and MemLp and transport exterior integrals beyond 4r₀. DoubleWellLocalizationCutoffs supplies the corresponding plateaus; DoubleWellLocalizedEstimates bounds each squared localized overlap by twice the squared global overlap plus twice the atomic tail times mass. Fixed variant used in the physical proof, not every manuscript cutoff χ'),
     'sublemma:T4-3-reality': (
         'Reality of overlap proved by inversion; reality of canonical hopping already proved through sources',
-        'ParityTrialStates.waveInner_left_right_im_eq_zero, without spectral hypotheses; AtomicSourceFacts.hopping_real and CanonicalHoppingFromChannels give real hopping in the physical regime under explicit contract A003. Self-adjoint restrictions are constructed separately by L2ParitySectors, DoubleWellParityGraph, and ReducingSubspaceRestriction; they are not added spectral hypotheses'),
+        'ParityTrialStates.waveInner_left_right_im_eq_zero, without spectral hypotheses; AtomicSourceFacts.hopping_real and CanonicalHoppingFromChannels give real hopping in the physical regime under an explicit free-resolvent contract. Self-adjoint restrictions are constructed separately by L2ParitySectors, DoubleWellParityGraph, and ReducingSubspaceRestriction; they are not added spectral hypotheses'),
     'sublemma:T4-3-overlap-bound': (
         'Sufficient variant proved: canonical overlap ≤Cλ⁻¹exp(−dλ), uniform for L≥4r₀',
         'MagneticOverlapTail: |⟨φL,φR⟩|²≤4∫_{‖x‖≥a}|φ|² for L≥a>0, by measurable partition and Cauchy–Schwarz; CanonicalOverlapDecay applies Agmon with a=4r₀, constants before λ and L, zero limit and uniform smallness. ClassicalCanonicalOverlapDecay instantiates only A002+A004; R<2L suffices since 8r₀<R. The literal two-smooth-cutoff formula and fine action rates are not claimed'),
@@ -308,8 +308,8 @@ COVERAGE = {
         'First two global min–max levels, physical descriptions, and global gap proved; window projection not claimed',
         "ParityOperatorDecomposition lifts projections to the actual domain. SecondEnergyParityUpper uses nearly minimizing even/odd tests; SecondEnergyComplementLower uses dimension two and the lower bound on the low mode's complement. ConstructedGlobalMinmax and doubleWell_global_minmax hp cert give groundEnergy=min(E+,E−), secondEnergy=max(E+,E−), threshold before λ and L. ParityDoubletRealization and ConstructedDoubleWellSpectral assemble TwoModeRealization; ClassicalDoubleWellSpectral.doubleWell_twoModeRealization hp cert directly supplies LocalChannelAnalyticData modes; its corollary doubleWell_spectral_realization supplies SpectralRealization and HasGapAboveGround via A002+A004 only. The whole spectrum, literal window, and projection are not formalized here"),
     'sublemma:P5-1-source-resolvent': (
-        'Right-state equation and representation deduced from atomic existence and classical interface A003',
-        'MagneticCovariance, LandauResolventBridge, AtomicSourceRegime; existence and energy regime now supplied from BasicConditions via A002+A003+A004, threshold before L; source amplitudes are a separate step'),
+        'Right-state equation and representation deduced from atomic existence and the proved free-resolvent formula',
+        'MagneticCovariance, LandauResolventBridge, AtomicSourceRegime; existence and energy regime now supplied from BasicConditions via A002+A004, threshold before L; source amplitudes are a separate step'),
     'sublemma:P5-1-gauge-sources': (
         'Gauges and normalizations proved',
         'HoppingSourceIdentity.leftPhysicalSource_gauge/rightPhysicalSource_gauge'),
@@ -474,7 +474,7 @@ COVERAGE = {
         'CuspActiveWindow.CuspParameters.eventually_activeWindow_local; fixed parameters; compact uniformity in c remains'),
     'sublemma:T7-2-phase': (
         'Continuous real phase and cosine asymptotic for actual hopping proved, explicit positive envelope',
-        'ActiveIncomingPhase and CanonicalChannelAsymptotics: Θ=λΦ*+2phaseGauss, Θ/λ→Φ*. Gaussian/TeX envelope ratio absorbed into o(1). Same amplitude 2K*envelopeTex and witnesses; classical wrappers A002–A004. Literal TeX phase not claimed'),
+        'ActiveIncomingPhase and CanonicalChannelAsymptotics: Θ=λΦ*+2phaseGauss, Θ/λ→Φ*. Gaussian/TeX envelope ratio absorbed into o(1). Same amplitude 2K*envelopeTex and witnesses; classical wrappers A002 and A004. Literal TeX phase not claimed'),
     'sublemma:L7-3-monotonicity': (
         'Weaker property proved for the model phase correction: eventual continuity and phase/λ→0',
         'ComplexLogFlatPhaseGrowth.tendsto_logFlatSaddlePhase_inv_div; fixed parameters; physical-phase connection proved in ActiveIncomingPhase and CanonicalChannelAsymptotics; O(log λ) bound, derivative, and monotonicity remain'),
@@ -496,7 +496,7 @@ def main():
         "This table does not equate Lean declarations with manuscript sublemmas: "
         "some Lean proofs are auxiliaries, and some sublemmas have several conclusions, "
         "only part of which has been formalized. "
-        "The original estimates needed for thm_main are now constructed; A002, A003, and A004 collect "
+        "The original estimates needed for thm_main are now constructed; A002 and A004 collect "
         "the documented classical interfaces. Entries not individually formalized do not represent "
         "hundreds of fictitious independent `sorry` placeholders.", "",
         "Generate with `python3 scripts/blueprint_index.py`. "

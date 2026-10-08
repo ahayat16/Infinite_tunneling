@@ -2,7 +2,7 @@
 
 Local incoming- and scattered-source profiles yield L¹ bounds through the real cusp change of variables. The Jacobian is exactly `t²`, and the transverse factor is **`2s₀`**, the length of `(-s₀,s₀)`. No implicit normalization replaces this factor with 2.
 
-The generic lemmas in [CuspProfileIntegral](../InfiniteZero/CuspProfileIntegral.lean), their [reflection transfer](../InfiniteZero/CuspProfileIntegralReflection.lean), and the [support and norm connections](../InfiniteZero/AtomicCuspSourceSupport.lean) are compiled and audited without admissions. The physical assemblies `AtomicSourceL1` and `AtomicComponentSourceL1`, and their classical wrappers, are also compiled. Both wrappers depend on A002+A004, without A003 or `thm_main`. The [final assembly](../InfiniteZero/ConstructedMainProof.lean) and [thm_main](../InfiniteZero/Remaining.lean) are now compiled modulo the three classical admissions A002–A004.
+The generic lemmas in [CuspProfileIntegral](../InfiniteZero/CuspProfileIntegral.lean), their [reflection transfer](../InfiniteZero/CuspProfileIntegralReflection.lean), and the [support and norm connections](../InfiniteZero/AtomicCuspSourceSupport.lean) are compiled and audited without admissions. The physical assemblies `AtomicSourceL1` and `AtomicComponentSourceL1`, and their classical wrappers, are also compiled. Both wrappers depend on A002+A004, without A003 or `thm_main`. The [final assembly](../InfiniteZero/ConstructedMainProof.lean) and [thm_main](../InfiniteZero/Remaining.lean) are now compiled modulo the two classical admissions A002 and A004.
 
 ## Support, integrability, and actual L¹ space
 

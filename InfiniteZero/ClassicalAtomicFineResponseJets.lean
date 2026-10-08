@@ -20,7 +20,7 @@ open scoped ContDiff
 namespace InfiniteZero.CuspParameters
 
 /-- Fine weighted pointwise jets of the true atomic correction, under the
-explicit potential conditions and the three documented classical inputs. -/
+explicit potential conditions and the two documented classical inputs. -/
 theorem atomicGround_fine_response_jets
     {p : CuspParameters} (hp : p.BasicConditions)
     {β₁ : ℝ} (hβ₁ : 0 < β₁) (hβ₁β : β₁ < p.β)

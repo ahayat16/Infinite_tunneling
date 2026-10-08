@@ -26465,7 +26465,7 @@
     "name": "InfiniteZero.HasStandardLandauResolvent.smooth_solution",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauResolventAssembly.lean",
-    "line": 25,
+    "line": 26,
     "status": "proved",
     "axioms": [
       "Classical.choice",
@@ -29549,6 +29549,29 @@
       "InfiniteZero.IsTestFunction",
       "InfiniteZero.Plane",
       "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.IsTestFunction.shifted_free_magneticHamiltonian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventCoreExtension.lean",
+    "line": 40,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.add",
+      "InfiniteZero.IsTestFunction.covariantDerivative",
+      "InfiniteZero.IsTestFunction.smul",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.magneticHamiltonian"
     ]
   },
   {
@@ -34782,16 +34805,28 @@
     "name": "InfiniteZero.classical_standard_landau_resolvent",
     "source_kind": "theorem",
     "file": "InfiniteZero/ClassicalLandauResolvent.lean",
-    "line": 29,
-    "status": "admitted",
+    "line": 34,
+    "status": "proved",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
-      "propext",
-      "sorryAx"
+      "propext"
     ],
     "dependencies": [
-      "InfiniteZero.HasStandardLandauResolvent"
+      "InfiniteZero.HasStandardLandauResolvent",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.hasStandardLandauResolvent_of_testCore",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.mass",
+      "InfiniteZero.standardLandauResolventAction",
+      "InfiniteZero.standardLandauResolventAction_mass_sub_le",
+      "InfiniteZero.standardLandauResolventAction_memLp_mass_le",
+      "InfiniteZero.standardLandauResolventAction_shifted_test"
     ]
   },
   {
@@ -36233,6 +36268,21 @@
     ]
   },
   {
+    "name": "InfiniteZero.contDiff_gaussian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
     "name": "InfiniteZero.contDiff_iteratedDeriv",
     "source_kind": "theorem",
     "file": "InfiniteZero/CompactSmoothDerivatives.lean",
@@ -36244,6 +36294,28 @@
       "propext"
     ],
     "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.contDiff_landauHeatKernel_source",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 83,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.contDiff_gaussian",
+      "InfiniteZero.contDiff_magneticTranslation",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatKernel_eq_magneticTranslation",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.magneticTranslation"
+    ]
   },
   {
     "name": "InfiniteZero.contDiff_logFlat",
@@ -36610,6 +36682,26 @@
     ]
   },
   {
+    "name": "InfiniteZero.continuousOn_landauHeatKernel_time_source",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 146,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.displacement",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
     "name": "InfiniteZero.continuousOn_landauIntegrand",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauKernel.lean",
@@ -36658,6 +36750,29 @@
       "InfiniteZero.Potential",
       "InfiniteZero.hasDerivAt_magneticDilationPotential",
       "InfiniteZero.magneticDilationPotential"
+    ]
+  },
+  {
+    "name": "InfiniteZero.continuousOn_magneticHamiltonian_landauHeatKernel_source",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 159,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.displacement",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_landauHeatKernel_source",
+      "InfiniteZero.wedge"
     ]
   },
   {
@@ -36842,6 +36957,26 @@
     "dependencies": [
       "InfiniteZero.Plane",
       "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.continuous_landauHeatKernel_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 15,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.displacement",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.wedge"
     ]
   },
   {
@@ -38240,6 +38375,26 @@
       "InfiniteZero.covariantDerivative",
       "InfiniteZero.partialDerivative",
       "InfiniteZero.partialDerivative_covariantDerivative_local",
+      "InfiniteZero.perpCoordinate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.covariantDerivative_star",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticBilinearIntegrationByParts.lean",
+    "line": 30,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.partialDerivative",
+      "InfiniteZero.partialDerivative_star",
       "InfiniteZero.perpCoordinate"
     ]
   },
@@ -43063,6 +43218,27 @@
     ]
   },
   {
+    "name": "InfiniteZero.freeLandauKernel_eq_heatLaplace",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatLaplace.lean",
+    "line": 35,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatLaplace_integrand",
+      "InfiniteZero.landauKernel",
+      "InfiniteZero.landauKernel_one_eq_properTime",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
     "name": "InfiniteZero.freeLandauKernel_eq_magneticTranslation",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauKernelEquationOffDiagonal.lean",
@@ -43118,7 +43294,7 @@
     "name": "InfiniteZero.freeLandauResolventKernel_of_standard",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauResolventAssembly.lean",
-    "line": 57,
+    "line": 58,
     "status": "proved",
     "axioms": [
       "Classical.choice",
@@ -43154,11 +43330,40 @@
     ],
     "dependencies": [
       "InfiniteZero.FreeLandauResolventKernel",
+      "InfiniteZero.IsMagneticRealization",
       "InfiniteZero.Plane",
       "InfiniteZero.Potential",
       "InfiniteZero.classical_standard_landau_resolvent",
       "InfiniteZero.freeLandauResolventKernel_of_standard",
       "InfiniteZero.magnetic_realization"
+    ]
+  },
+  {
+    "name": "InfiniteZero.gaussian_radial_deriv",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 24,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.gaussian_radial_second",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 31,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.gaussian_radial_deriv"
     ]
   },
   {
@@ -43563,6 +43768,23 @@
     "dependencies": []
   },
   {
+    "name": "InfiniteZero.hasDerivAt_integral_mul_test",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/TestParameterIntegral.lean",
+    "line": 17,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
     "name": "InfiniteZero.hasDerivAt_inv_nat_pow",
     "source_kind": "theorem",
     "file": "InfiniteZero/LogFlatSmooth.lean",
@@ -43574,6 +43796,110 @@
       "propext"
     ],
     "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_landauHeatAction",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatTestInverse.lean",
+    "line": 23,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_landauHeatKernel_source",
+      "InfiniteZero.continuousOn_magneticHamiltonian_landauHeatKernel_source",
+      "InfiniteZero.continuous_landauHeatKernel_right",
+      "InfiniteZero.hasDerivAt_integral_mul_test",
+      "InfiniteZero.hasDerivAt_landauHeatKernel",
+      "InfiniteZero.integral_mul_magneticHamiltonian_eq",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.magneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_landauHeatAction_laplace",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatTestInverse.lean",
+    "line": 94,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.hasDerivAt_landauHeatAction",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatAction_shifted_test",
+      "InfiniteZero.magneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_landauHeatAmplitude",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 120,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatRate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_landauHeatKernel",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 130,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.hasDerivAt_landauHeatAmplitude",
+      "InfiniteZero.hasDerivAt_landauHeatRate",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_landauHeatKernel_source",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasDerivAt_landauHeatRate",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 110,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatRate"
+    ]
   },
   {
     "name": "InfiniteZero.hasDerivAt_landauIntegrandRadialDeriv_radius",
@@ -44061,6 +44387,34 @@
       "InfiniteZero.exists_local_poisson_hessian_bound",
       "InfiniteZero.laplacian_sq_le_of_elliptic_equation",
       "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
+    "name": "InfiniteZero.hasStandardLandauResolvent_of_testCore",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventCoreExtension.lean",
+    "line": 122,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.HasStandardLandauResolvent",
+      "InfiniteZero.IsMagneticRealization",
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.magneticClosedGraph_inverse_of_testCore",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticOperator",
+      "InfiniteZero.mass"
     ]
   },
   {
@@ -44778,6 +45132,25 @@
     ]
   },
   {
+    "name": "InfiniteZero.integrableOn_landauHeatAction_laplace",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatTestInverse.lean",
+    "line": 60,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.integrable_heatLaplace_source_timeSpace",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
     "name": "InfiniteZero.integrableOn_landauIntegrand",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauKernel.lean",
@@ -45213,6 +45586,24 @@
     ]
   },
   {
+    "name": "InfiniteZero.integrable_freeLandauKernel_mul_bounded",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventActionLinearity.lean",
+    "line": 18,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integrable_freeLandauKernel_standard"
+    ]
+  },
+  {
     "name": "InfiniteZero.integrable_freeLandauKernel_mul_of_support_subset_closedBall",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauExteriorConvolution.lean",
@@ -45231,6 +45622,153 @@
       "InfiniteZero.norm_freeLandauKernel_le_of_separation",
       "InfiniteZero.source_integrable_of_support_subset_closedBall",
       "InfiniteZero.source_norm_le_radius"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_freeLandauKernel_mul_test",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventActionLinearity.lean",
+    "line": 32,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integrable_freeLandauKernel_mul_bounded"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_freeLandauKernel_standard",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatSpacetime.lean",
+    "line": 78,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integrable_heatLaplace_timeSpace",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_freeLandauKernel_standard_left",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventL2.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integrable_freeLandauKernel_standard",
+      "InfiniteZero.measurable_freeLandauKernel",
+      "InfiniteZero.norm_freeLandauKernel_standard_swap"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_heatLaplace_source_timeSpace",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatSpacetime.lean",
+    "line": 64,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.integrable_heatLaplace_timeSpace",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.measurable_heatLaplace"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_heatLaplace_timeSpace",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatSpacetime.lean",
+    "line": 32,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integrable_landauHeatKernel_right",
+      "InfiniteZero.integral_norm_heatLaplace_spatial_le",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.measurable_heatLaplace"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_kernel_mul_bounded",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/IntegralKernelSchur.lean",
+    "line": 15,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_landauHeatKernel_mul_bounded",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 77,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.continuous_landauHeatKernel_right",
+      "InfiniteZero.integrable_norm_landauHeatKernel_right",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_landauHeatKernel_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 38,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.continuous_landauHeatKernel_right",
+      "InfiniteZero.integrable_norm_landauHeatKernel_right",
+      "InfiniteZero.landauHeatKernel"
     ]
   },
   {
@@ -45330,6 +45868,74 @@
     ]
   },
   {
+    "name": "InfiniteZero.integrable_norm_kernel_mul_sq_bounded",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/IntegralKernelSchur.lean",
+    "line": 24,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_norm_landauHeatKernel_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 32,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integrable_planeGaussian_sub",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatKernel_norm",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.landauHeatRate_pos"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_planeGaussian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/PlaneGaussianIntegral.lean",
+    "line": 15,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integrable_planeGaussian_sub",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/PlaneGaussianIntegral.lean",
+    "line": 25,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integrable_planeGaussian"
+    ]
+  },
+  {
     "name": "InfiniteZero.integrable_polar_plane",
     "source_kind": "theorem",
     "file": "InfiniteZero/RadialLandauAverage.lean",
@@ -45404,6 +46010,44 @@
     ]
   },
   {
+    "name": "InfiniteZero.integralKernel_memLp_mass_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/IntegralKernelSchur.lean",
+    "line": 37,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.integrable_norm_sq",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.integrable_kernel_mul_bounded",
+      "InfiniteZero.integrable_norm_kernel_mul_sq_bounded",
+      "InfiniteZero.integralKernel_row_bound",
+      "InfiniteZero.mass"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integralKernel_row_bound",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/IntegralKernelCauchySchwarz.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
     "name": "InfiniteZero.integral_Ioi_deriv_landauIntegrand_eq_zero",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauProperTimeIntegral.lean",
@@ -45422,6 +46066,19 @@
       "InfiniteZero.properTimePhase",
       "InfiniteZero.tendsto_landauIntegrand_atTop"
     ]
+  },
+  {
+    "name": "InfiniteZero.integral_Ioi_derivative_of_boundary_limits",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/PositiveTimeFTC.lean",
+    "line": 17,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
   },
   {
     "name": "InfiniteZero.integral_complexLandauLocalProfile_eq",
@@ -45755,6 +46412,29 @@
     ]
   },
   {
+    "name": "InfiniteZero.integral_mul_magneticHamiltonian_eq",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticBilinearIntegrationByParts.lean",
+    "line": 57,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_star",
+      "InfiniteZero.mass",
+      "InfiniteZero.waveInner",
+      "InfiniteZero.waveInner_magneticHamiltonian_smooth_right"
+    ]
+  },
+  {
     "name": "InfiniteZero.integral_norm_atomicSource_le_of_mass_one",
     "source_kind": "theorem",
     "file": "InfiniteZero/CoreSourceBound.lean",
@@ -45794,6 +46474,157 @@
     ]
   },
   {
+    "name": "InfiniteZero.integral_norm_freeLandauKernel_standard_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatSpacetime.lean",
+    "line": 85,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.freeLandauKernel_eq_heatLaplace",
+      "InfiniteZero.integrable_freeLandauKernel_standard",
+      "InfiniteZero.integrable_heatLaplace_timeSpace",
+      "InfiniteZero.integral_norm_heatLaplace_timeSpace_le",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_norm_freeLandauKernel_standard_left_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventL2.lean",
+    "line": 30,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integral_norm_freeLandauKernel_standard_le",
+      "InfiniteZero.norm_freeLandauKernel_standard_swap"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_norm_heatLaplace_spatial_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatSpacetime.lean",
+    "line": 21,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integral_norm_landauHeatKernel_le_one",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_norm_heatLaplace_timeSpace_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatSpacetime.lean",
+    "line": 48,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integrable_heatLaplace_timeSpace",
+      "InfiniteZero.integral_norm_heatLaplace_spatial_le",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_norm_landauHeatKernel_le_one",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 71,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integral_norm_landauHeatKernel_right",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_norm_landauHeatKernel_left",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 65,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integral_norm_landauHeatKernel_right",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatKernel_norm_swap"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_norm_landauHeatKernel_mul_bounded_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 88,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.integrable_landauHeatKernel_mul_bounded",
+      "InfiniteZero.integrable_norm_landauHeatKernel_right",
+      "InfiniteZero.integral_norm_landauHeatKernel_le_one",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_norm_landauHeatKernel_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 54,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integral_planeGaussian_sub",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatAmplitude_mul_gaussianMass",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatKernel_norm",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.landauHeatRate_pos"
+    ]
+  },
+  {
     "name": "InfiniteZero.integral_norm_logFlatSaddleProduct",
     "source_kind": "theorem",
     "file": "InfiniteZero/ComplexSaddleProduct.lean",
@@ -45823,6 +46654,37 @@
     "dependencies": [
       "InfiniteZero.horizontalSaddlePhase",
       "InfiniteZero.scaledHorizontalSaddle"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_planeGaussian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/PlaneGaussianIntegral.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane"
+    ]
+  },
+  {
+    "name": "InfiniteZero.integral_planeGaussian_sub",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/PlaneGaussianIntegral.lean",
+    "line": 29,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integral_planeGaussian"
     ]
   },
   {
@@ -46871,6 +47733,315 @@
       "InfiniteZero.lambertIteration",
       "InfiniteZero.norm_complex_log_sub_le_of_re_ge",
       "InfiniteZero.re_ge_of_mem_lambert_disc"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAction",
+    "source_kind": "def",
+    "file": "InfiniteZero/LandauHeatKernel.lean",
+    "line": 30,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.landauHeatKernel"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAction_shifted_test",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatTestInverse.lean",
+    "line": 71,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.continuous_magneticHamiltonian",
+      "InfiniteZero.IsTestFunction.hasCompactSupport_magneticHamiltonian",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.continuous_landauHeatKernel_right",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.magneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAction_tendsto_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatApproximation.lean",
+    "line": 76,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.displacement",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatAmplitude_eq_rate_div",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.landauHeatRate_tendsto_atTop",
+      "InfiniteZero.tendsto_planeGaussian_average",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAction_weighted_tendsto_atTop",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatDecay.lean",
+    "line": 26,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.norm_landauHeatAction_le"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAction_weighted_tendsto_zero",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatTestInverse.lean",
+    "line": 108,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatAction_tendsto_zero"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAmplitude",
+    "source_kind": "def",
+    "file": "InfiniteZero/LandauHeatKernel.lean",
+    "line": 21,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatRate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAmplitude_eq_rate_div",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatApproximation.lean",
+    "line": 67,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatRate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAmplitude_mul_gaussianMass",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 44,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatRate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatAmplitude_pos",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernel.lean",
+    "line": 43,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatRate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatKernel",
+    "source_kind": "def",
+    "file": "InfiniteZero/LandauHeatKernel.lean",
+    "line": 25,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatKernel_eq_magneticTranslation",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 70,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.displacement",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.magneticTranslation",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatKernel_norm",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 25,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatAmplitude_pos",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatKernel_norm_swap",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 61,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatKernel_norm",
+      "InfiniteZero.landauHeatRate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatLaplace_integrand",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatLaplace.lean",
+    "line": 18,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatRate",
+    "source_kind": "def",
+    "file": "InfiniteZero/LandauHeatKernel.lean",
+    "line": 17,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.landauHeatRate_pos",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernel.lean",
+    "line": 37,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatRate"
+    ]
+  },
+  {
+    "name": "InfiniteZero.landauHeatRate_tendsto_atTop",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatApproximation.lean",
+    "line": 49,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.landauHeatRate"
     ]
   },
   {
@@ -48965,6 +50136,38 @@
     ]
   },
   {
+    "name": "InfiniteZero.magneticClosedGraph_inverse_of_testCore",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventCoreExtension.lean",
+    "line": 61,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.memLp",
+      "InfiniteZero.IsTestFunction.shifted_free_magneticHamiltonian",
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Represents.norm_sq_eq_mass",
+      "InfiniteZero.Represents.toLp_eq",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.magneticClosedGraph",
+      "InfiniteZero.magneticClosedGraph_eq_closure",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticTestGraph",
+      "InfiniteZero.mass",
+      "InfiniteZero.represents_shifted_core",
+      "InfiniteZero.represents_sub_core",
+      "InfiniteZero.represents_toLp"
+    ]
+  },
+  {
     "name": "InfiniteZero.magneticClosedGraph_parity_lower",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticParityGraphLowerBound.lean",
@@ -50242,6 +51445,29 @@
     ]
   },
   {
+    "name": "InfiniteZero.magneticHamiltonian_gaussian",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 40,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.contDiff_covariantDerivative",
+      "InfiniteZero.contDiff_gaussian",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.gaussian_radial_deriv",
+      "InfiniteZero.gaussian_radial_second",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_radial"
+    ]
+  },
+  {
     "name": "InfiniteZero.magneticHamiltonian_inversion",
     "source_kind": "theorem",
     "file": "InfiniteZero/MagneticCovariance.lean",
@@ -50261,6 +51487,35 @@
       "InfiniteZero.covariantDerivative_inversion",
       "InfiniteZero.covariantDerivative_neg",
       "InfiniteZero.magneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.magneticHamiltonian_landauHeatKernel_source",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatEquation.lean",
+    "line": 91,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.contDiff_gaussian",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatKernel_eq_magneticTranslation",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.magneticHamiltonian_gaussian",
+      "InfiniteZero.magneticHamiltonian_magneticTranslation",
+      "InfiniteZero.magneticHamiltonian_smul",
+      "InfiniteZero.magneticTranslation",
+      "InfiniteZero.wedge"
     ]
   },
   {
@@ -50356,6 +51611,27 @@
       "InfiniteZero.contDiff_covariantDerivative",
       "InfiniteZero.covariantDerivative",
       "InfiniteZero.covariantDerivative_smul",
+      "InfiniteZero.magneticHamiltonian"
+    ]
+  },
+  {
+    "name": "InfiniteZero.magneticHamiltonian_star",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticBilinearIntegrationByParts.lean",
+    "line": 41,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.covariantDerivative",
+      "InfiniteZero.covariantDerivative_neg",
+      "InfiniteZero.covariantDerivative_star",
       "InfiniteZero.magneticHamiltonian"
     ]
   },
@@ -51566,6 +52842,43 @@
     ]
   },
   {
+    "name": "InfiniteZero.measurable_heatLaplace",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatSpacetime.lean",
+    "line": 15,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.measurable_landauHeatKernel_time_right"
+    ]
+  },
+  {
+    "name": "InfiniteZero.measurable_landauHeatKernel_time_right",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatKernelBounds.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.displacement",
+      "InfiniteZero.landauHeatAmplitude",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.landauHeatRate",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
     "name": "InfiniteZero.measurable_landauIntegrandRadialDeriv",
     "source_kind": "theorem",
     "file": "InfiniteZero/LandauRadialDerivatives.lean",
@@ -52641,6 +53954,24 @@
     ]
   },
   {
+    "name": "InfiniteZero.norm_freeLandauKernel_standard_swap",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventL2.lean",
+    "line": 16,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.landauKernel",
+      "InfiniteZero.wedge"
+    ]
+  },
+  {
     "name": "InfiniteZero.norm_hopping_sub_le_of_mass_one",
     "source_kind": "theorem",
     "file": "InfiniteZero/HoppingContinuity.lean",
@@ -53069,6 +54400,25 @@
       "InfiniteZero.Represents",
       "InfiniteZero.Wavefunction",
       "InfiniteZero.l2Restrict"
+    ]
+  },
+  {
+    "name": "InfiniteZero.norm_landauHeatAction_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatDecay.lean",
+    "line": 18,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.integral_norm_landauHeatKernel_mul_bounded_le",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatKernel"
     ]
   },
   {
@@ -56073,6 +57423,24 @@
     ]
   },
   {
+    "name": "InfiniteZero.partialDerivative_star",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/MagneticBilinearIntegrationByParts.lean",
+    "line": 20,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.coordinateVector",
+      "InfiniteZero.partialDerivative"
+    ]
+  },
+  {
     "name": "InfiniteZero.partialDerivative_sub",
     "source_kind": "theorem",
     "file": "InfiniteZero/CoordinateDifferentialRules.lean",
@@ -58005,6 +59373,42 @@
       "InfiniteZero.radialFreeLandauAverage",
       "InfiniteZero.radialFreeLandauAverage_zero",
       "InfiniteZero.regularLandauProfile"
+    ]
+  },
+  {
+    "name": "InfiniteZero.represents_shifted_core",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventCoreExtension.lean",
+    "line": 31,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.represents_sub_core",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventCoreExtension.lean",
+    "line": 25,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.L2Space",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Represents",
+      "InfiniteZero.Wavefunction"
     ]
   },
   {
@@ -60428,6 +61832,142 @@
     ]
   },
   {
+    "name": "InfiniteZero.standardLandauResolventAction",
+    "source_kind": "def",
+    "file": "InfiniteZero/LandauHeatKernel.lean",
+    "line": 34,
+    "status": "definition_or_contract",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.landauHeatAction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.standardLandauResolventAction_eq_heatLaplace",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatTestInverse.lean",
+    "line": 45,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.freeLandauKernel_eq_heatLaplace",
+      "InfiniteZero.integrable_heatLaplace_source_timeSpace",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatKernel",
+      "InfiniteZero.standardLandauResolventAction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.standardLandauResolventAction_mass_sub_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventActionLinearity.lean",
+    "line": 52,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.mass",
+      "InfiniteZero.standardLandauResolventAction",
+      "InfiniteZero.standardLandauResolventAction_sub"
+    ]
+  },
+  {
+    "name": "InfiniteZero.standardLandauResolventAction_memLp_mass_le",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventL2.lean",
+    "line": 38,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integrable_freeLandauKernel_standard",
+      "InfiniteZero.integrable_freeLandauKernel_standard_left",
+      "InfiniteZero.integralKernel_memLp_mass_bound",
+      "InfiniteZero.integral_norm_freeLandauKernel_standard_le",
+      "InfiniteZero.integral_norm_freeLandauKernel_standard_left_le",
+      "InfiniteZero.mass",
+      "InfiniteZero.measurable_freeLandauKernel",
+      "InfiniteZero.standardLandauResolventAction"
+    ]
+  },
+  {
+    "name": "InfiniteZero.standardLandauResolventAction_shifted_test",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatTestInverse.lean",
+    "line": 120,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.IsTestFunction.continuous_magneticHamiltonian",
+      "InfiniteZero.IsTestFunction.hasCompactSupport_magneticHamiltonian",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Potential",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.hasDerivAt_landauHeatAction_laplace",
+      "InfiniteZero.integrableOn_landauHeatAction_laplace",
+      "InfiniteZero.integral_Ioi_derivative_of_boundary_limits",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.landauHeatAction_weighted_tendsto_atTop",
+      "InfiniteZero.landauHeatAction_weighted_tendsto_zero",
+      "InfiniteZero.magneticHamiltonian",
+      "InfiniteZero.standardLandauResolventAction",
+      "InfiniteZero.standardLandauResolventAction_eq_heatLaplace"
+    ]
+  },
+  {
+    "name": "InfiniteZero.standardLandauResolventAction_sub",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauResolventActionLinearity.lean",
+    "line": 40,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.IsTestFunction",
+      "InfiniteZero.Plane",
+      "InfiniteZero.Wavefunction",
+      "InfiniteZero.freeLandauKernel",
+      "InfiniteZero.integrable_freeLandauKernel_mul_test",
+      "InfiniteZero.landauHeatAction",
+      "InfiniteZero.standardLandauResolventAction"
+    ]
+  },
+  {
     "name": "InfiniteZero.strictConvexOn_bridgeAction",
     "source_kind": "theorem",
     "file": "InfiniteZero/BridgeAction.lean",
@@ -62408,6 +63948,22 @@
       "propext"
     ],
     "dependencies": []
+  },
+  {
+    "name": "InfiniteZero.tendsto_planeGaussian_average",
+    "source_kind": "theorem",
+    "file": "InfiniteZero/LandauHeatApproximation.lean",
+    "line": 19,
+    "status": "proved",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": [
+      "InfiniteZero.Plane",
+      "InfiniteZero.integral_planeGaussian"
+    ]
   },
   {
     "name": "InfiniteZero.tendsto_pow_mul_exp_quadratic",

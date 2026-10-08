@@ -32,7 +32,12 @@ flowchart TD
   SEP["Uniform choice of L₀; seven margins on entire supports"]:::proved
   KB["Uniform exponential kernel bounds on cells"]:::proved
   INT["Absolute convergence of all nine concrete cells"]:::proved
-  A3["A003: standard closed-operator Landau resolvent kernel"]:::admitted
+  HEAT["Explicit Gaussian heat equation and exact spatial mass"]:::proved
+  HINIT["Gaussian initial limit and weighted boundary at infinity"]:::proved
+  HLEFT["Time integration: Rρ(HB+ρ)φ=φ on compact smooth tests"]:::proved
+  HSCHUR["Absolute Fubini and Schur bound: ‖Rρ f‖₂≤ρ⁻¹‖f‖₂"]:::proved
+  RCORE["Bounded test inverse extends to the closed operator graph"]:::proved
+  A3["Proved standard Landau resolvent formula (former A003)"]:::proved
   RDOM["Smooth L² solution with L² Hamiltonian → closed operator domain"]:::proved
   RSCALE["Exact kernel, phase and proper-time conversion to B=bλ, ρ=λ²E"]:::proved
   RPHYS["Physical resolvent representation from standard kernel and realization"]:::proved
@@ -235,7 +240,7 @@ flowchart TD
   SADDLE["Complex saddle: active cell and positive envelope"]:::proved
   CAN["Same witnesses: actual construction of ChannelAsymptotics"]:::proved
   HOP["Channels + explicit classical resolvent: cosine of actual hopping"]:::proved
-  HOPH["BasicConditions → ∃L₀∀L≥L₀: oscillatory hopping, modulo A002–A004"]:::classical
+  HOPH["BasicConditions → ∃L₀∀L≥L₀: oscillatory hopping, modulo A002 and A004"]:::classical
   INACT["Seven cells and sum of norms ≤C envelopeTex exp(−15δhop λ)"]:::proved
   CH["Nine cells → real cosine formula for hopping"]:::proved
   SCH["Exact algebraic Schur elimination"]:::proved
@@ -257,8 +262,8 @@ flowchart TD
   OP["Transfer of eigenspaces and parity to L²"]:::proved
   MAINASM["ConstructedMainAssembly: actual modes, hopping, Schur, continuity"]:::proved
   MAINPROOF["ConstructedMainProof: all original data constructed"]:::proved
-  ELEMMAIN["elementaryPotential_main: fixed elementaryParameters, via A002–A004"]:::classical
-  TM["thm_main proved without direct sorry; only admissions A002–A004"]:::classical
+  ELEMMAIN["elementaryPotential_main: fixed elementaryParameters, via A002 and A004"]:::classical
+  TM["thm_main proved without direct sorry; only admissions A002 and A004"]:::classical
   EN --> EFRZ
   CKP --> IPROF
   EFRZ --> IPROF
@@ -368,6 +373,12 @@ flowchart TD
   P --> INT
   K --> INT
   COV --> RES
+  HEAT --> HLEFT
+  HINIT --> HLEFT
+  HEAT --> HSCHUR
+  HLEFT --> A3
+  HSCHUR --> A3
+  RCORE --> A3
   A3 --> RPHYS
   A2 --> RDOM
   RDOM --> RPHYS
@@ -822,9 +833,9 @@ flowchart TD
   classDef open fill:#e5bbef,stroke:#824394
 ```
 
-The remaining purple nodes concern stronger formulations or substatements unnecessary for the proved variant. `thm_main` now has a proof without a direct `sorry`, obtained from `elementaryPotential_main` for the literal `elementaryParameters`. Its three admitted classical inputs remain separately identified; no tunneling result is added to that list.
+The remaining purple nodes concern stronger formulations or substatements unnecessary for the proved variant. `thm_main` now has a proof without a direct `sorry`, obtained from `elementaryPotential_main` for the literal `elementaryParameters`. Its two admitted classical inputs remain separately identified; no tunneling result is added to that list.
 
-A002 concerns the [classical operator realization](CLASSICAL_OPERATOR_REALIZATION.md), A003 the [standard closed-operator resolvent kernel](CLASSICAL_LANDAU_RESOLVENT.md), and A004 the [first two radial semiclassical levels and positive ground state](RADIAL_HARMONIC_CONTRACT.md). Lean proves the passage from smooth solutions to the closed operator domain and the kernel changes of scale around A003. It derives the radial oscillator ordering, gap limit and min-max complement inequality from A004. The [point-evaluation and uniform elliptic estimates](CLASSICAL_ELLIPTIC_INTERIOR.md), formerly A005, are fully proved. The three remaining admissions contain no tunneling estimate or nonradial-potential gap. The latter follows from the proved localization and Schur construction. Details are in [ADMISSIONS.md](ADMISSIONS.md).
+The two admissions concern the [classical operator realization](CLASSICAL_OPERATOR_REALIZATION.md) (A002) and the [first two radial semiclassical levels and positive ground state](RADIAL_HARMONIC_CONTRACT.md) (A004). The [Landau resolvent formula](CLASSICAL_LANDAU_RESOLVENT.md), formerly A003, is proved from the explicit heat equation, Gaussian initial limit, time integration, Schur's estimate, and closure of the test graph. Lean also proves its domain and parameter conversions, the radial oscillator ordering, the gap limit and min-max complement inequality. The [point-evaluation and uniform elliptic estimates](CLASSICAL_ELLIPTIC_INTERIOR.md), formerly A005, are fully proved. Neither remaining admission contains a tunneling estimate or a gap for the nonradial potential. Details are in [ADMISSIONS.md](ADMISSIONS.md).
 
 The connection to double-well trials now has separate proofs. [`ParityTrialStates`](../InfiniteZero/ParityTrialStates.lean) establishes reality of the overlap, exact masses `2(1±s)`, normalization, and orthogonality of even and odd trials. [`MagneticOverlapTail`](../InfiniteZero/MagneticOverlapTail.lean) bounds squared overlap by four times the radial exterior mass. [`CanonicalOverlapDecay`](../InfiniteZero/CanonicalOverlapDecay.lean) deduces `|sλ|≤C/λ exp(−dλ)`, with C,d,T chosen before all λ≥T and L≥4r₀. Both wrappers in [`ClassicalCanonicalOverlapDecay`](../InfiniteZero/ClassicalCanonicalOverlapDecay.lean) use exactly A002+A004; R<2L suffices for the zero limit since 8r₀<R. This is coarse exponential decay, without a fine action rate or a continuity hypothesis on the canonical-state choice.
 
@@ -843,7 +854,7 @@ Trials remain distinct from reconstructed eigenvectors. `ParityOperatorDecomposi
 `ParityGroundEigenspaces` and `PhysicalParityModes` give the exact global eigenspaces and their normalized representatives; `ParityGlobalGroundGap` gives the gap even at crossings. `ParityDoubletRealization` then `ConstructedDoubleWellSpectral` assemble `TwoModeRealization`. `doubleWell_twoModeRealization hp cert` retains this package directly for `LocalChannelAnalyticData.modes`; `doubleWell_spectral_realization hp cert` deduces the spectral contract. Both supply the gap, with a threshold before L, via A002+A004.
 
 `ParitySchurEnergyShift` and `ConstructedParitySchurEnergyBound` control the actual correction by residual²/(hRad.gap·λ/8). `PhysicalResidualMass` and `CanonicalParityCorrectionMass` reduce it to (32/hRad.gap)λ³ times the opposite-support mass. `AtomicOppositeSupportFineBounds` gives that mass with λ¹² and action 2(G+J); `CanonicalParityFineBound` therefore retains λ¹⁵. `OppositeSupportEnvelopeComparison` absorbs nine powers and the saddle cost into margin J, retaining exactly the same c,Γ. `CanonicalParityRelativeErrors` thus proves that the defect and corrections are o(A) for the same `ConcreteChannelWitnesses W` as the hopping. It does not assume the squared residual itself is o(A). See [OPPOSITE_SUPPORT_ESTIMATES.md](OPPOSITE_SUPPORT_ESTIMATES.md).
-`ConstructedMainAssembly` combines these data with the actual modes and continuity results; `ConstructedMainProof` constructs the inputs. `elementaryPotential_main`, then `thm_main`, conclude for fixed parameters via A002–A004, with no direct `sorry` in either theorem.
+`ConstructedMainAssembly` combines these data with the actual modes and continuity results; `ConstructedMainProof` constructs the inputs. `elementaryPotential_main`, then `thm_main`, conclude for fixed parameters via A002 and A004, with no direct `sorry` in either theorem.
 `ClassicalDoubleWellParityGround.doubleWell_parityGrounds` instantiates exactly A002+A004 and keeps the threshold before λ and L. Its other two wrappers give [continuity by dilation](DILATION_AND_CONTINUITY.md) of `parityEnergy` and `signedSplitting` for every λ>0 at fixed admissible L. `MagneticDilationL2`, `UnitPhaseDistance`, then `AtomicGroundDilationComparison` compare actual ground states after dilation modulo a unit phase, with mass defect ≤C|λ−μ|. `HoppingContinuity` combines a bilinear bound with continuity of the integral at a fixed dilated reference: complex canonical hopping is continuous on `Ici T`, with a threshold before any separation L. This proof assumes no continuous phase choice. It retains hRad, hAcore, and hApot as arguments, and its targeted audit finds only standard axioms. The compiled wrapper `canonicalHopping_continuous hp`, in `ClassicalHoppingContinuity`, instantiates only A002+A004. At this milestone, the global audit of that stage was still in progress.
 
 The [global Agmon proof](AGMON_DECAY.md), in [`MagneticAgmonBounded`](../InfiniteZero/MagneticAgmonBounded.lean), [`AtomicAgmonWeight`](../InfiniteZero/AtomicAgmonWeight.lean), and [`AtomicAgmonGlobal`](../InfiniteZero/AtomicAgmonGlobal.lean), gives an absolute tail with constants fixed before coupling. It does not give fine action rates, the weighted inverse, or source amplitudes. `SchurGroundEstimates`, `SchurResidualBounds`, and `SchurGroundQuantitative` supply quantitative controls retaining the certificate and correction from the same root. `AtomicGroundAgmon` applies the tail to actual ground states from radial data; `AtomicPerturbationTail` controls the concrete residual by exterior mass, without assuming residual decay. `AtomicResidualDecay` then `AtomicGroundComparison` now assemble exponential comparison of actual energies and normalized L² ground vectors, with positive real overlap. Wrappers in `Remaining` require only `BasicConditions`, modulo A002+A004. The [exact scope](ATOMIC_COMPARISON.md) excludes prescribed canonical phases, state continuity, and pointwise source amplitudes; no separate c_h→1 theorem is claimed.

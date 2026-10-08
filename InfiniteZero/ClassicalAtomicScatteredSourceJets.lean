@@ -20,7 +20,7 @@ open scoped ContDiff
 namespace InfiniteZero.CuspParameters
 
 /-- The true scattered cusp source and its two log-flat factors, from the
-explicit potential conditions and the three documented classical inputs. -/
+explicit potential conditions and the two documented classical inputs. -/
 theorem atomicGround_scattered_source_jets
     {p : CuspParameters} (hp : p.BasicConditions)
     {βglobal βlocal : ℝ}

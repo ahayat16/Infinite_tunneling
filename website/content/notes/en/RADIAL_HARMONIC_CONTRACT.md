@@ -85,11 +85,13 @@ Helffer–Kachmar,
 [Quantum tunneling in deep potential wells and strong magnetic field revisited,
 arXiv:2208.13030v5](https://arxiv.org/pdf/2208.13030v5), provide the
 single-well hypotheses in (1.1), the positive normalized radial state in
-Theorem 1.1(1–2), and the fixed-index harmonic approximation with
+Theorem 1.1(2), and the fixed-index harmonic approximation with
 `O(h^(3/2))` error in Proposition 2.1. Apply the proposition at `j = 1,2`
 and choose common constants. Section 2.2 identifies the limiting magnetic
 oscillator with quadratic potential `(d/2)|x|²`. The relevant printed
 pages are 1, 3, and 10–12. Only single-well results are used.
+Positivity is part of the theorem's explicit conclusion; it is not an
+additional assertion inferred from radiality or simplicity.
 
 For the full oscillator mode formula, a direct reference is
 Drigho-Filho–Kuru–Negro–Nieto,

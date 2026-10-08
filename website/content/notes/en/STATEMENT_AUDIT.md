@@ -4,8 +4,8 @@ This guide compares the manuscript's
 [`thm:main`](../article/Infinite_Zero_Tunneling_Lean_oriented_V2.tex#L222)
 with its Lean statement, definitions, and proof dependencies.
 
-**`thm_main` is proved with no `sorry` of its own, modulo the three
-classical admissions A002–A004.** It retains exactly the type
+**`thm_main` is proved with no `sorry` of its own, modulo the two
+classical admissions A002 and A004.** It retains exactly the type
 `ConstructedPotentialMainTheorem`, with no `FixedAnalyticData` argument
 or hypothesis asserting the existence of suitable data. The proof in
 [Remaining.lean](../InfiniteZero/Remaining.lean) proceeds through the
@@ -60,7 +60,7 @@ corollary: no additional compatibility of parameters remains to be assumed.
 
 ## Correspondence of the conclusions
 
-This table describes the conclusions established, modulo A002–A004.
+This table describes the conclusions established, modulo A002 and A004.
 
 | Manuscript requirement | Lean formulation and audit result |
 |---|---|
@@ -101,15 +101,16 @@ and its rank-two projection are not claimed; see
 [GLOBAL_PARITY_DOUBLET.md](GLOBAL_PARITY_DOUBLET.md).
 
 The target adds realization interfaces and an explicit gap to express
-its physical content. A002, A003, and A004 are the registered
-classical admissions: operator realization, the standard Landau resolvent,
-and the first two radial semiclassical levels.
-A003 is `classical_standard_landau_resolvent`, in
+its physical content. A002 and A004 are the registered
+classical admissions: operator realization and the first two radial
+semiclassical levels with a positive radial ground state.
+The former A003 is proved as `classical_standard_landau_resolvent`, in
 [ClassicalLandauResolvent.lean](../InfiniteZero/ClassicalLandauResolvent.lean).
-It states the kernel formula for the actual closed free operator at
-Planck constant one. The smooth-solution domain bridge and the changes
+It derives the kernel formula from the explicit heat equation, Gaussian
+initial limit, absolute time-space integrability, Schur's `L²` bound,
+and closure of the test graph. The smooth-solution domain bridge and the changes
 `B=bλ`, `ρ=λ²E`, `τ=λt` are proved; `free_landau_resolvent_kernel` is
-their wrapper using A002 and A003.
+their wrapper using A002 alone.
 A004 is `classical_radial_low_levels`: its O(h^(3/2))
 error bounds and positive normalized ground state are the classical input.
 Lean proves the oscillator ordering, the gap limit, and the min-max
@@ -123,9 +124,9 @@ uniform dependence on the stated coefficient derivatives, is proved by
 cutoff energy estimates and induction. Higher-order point bounds, source
 and tensor norm conversions, and assembly of the public elliptic
 estimate are also proved. These steps have no admitted dependency.
-None of the three remaining admissions constructs tunneling data.
+None of the two remaining admissions constructs tunneling data.
 The simple ground state and gap for the full potential are deduced in
-Lean from A002+A004; source representations also use A003.
+Lean from A002+A004; source representations use the proved resolvent formula.
 Exterior Agmon decay of the actual canonical ground state is likewise
 deduced from A002+A004 in
 `CuspParameters.canonicalAtomicState_agmon_tail`: constants and the
@@ -167,7 +168,7 @@ and the bounds concern the coefficient of the same state and its same tail.
 This is a weaker variant than `h^(3/2)` in Appendix B, sufficient for
 the polynomial losses of L7.1 and L8.2 under their strict exponential
 reserves. Neither literal B.1 nor the differentiated expansion is claimed.
-The auxiliary convolution identities use A003 separately;
+The auxiliary convolution identities use the proved resolvent formula separately;
 see [the details](RADIAL_NORMALIZATION.md).
 
 The positive radial choice carries the same test-function gap,

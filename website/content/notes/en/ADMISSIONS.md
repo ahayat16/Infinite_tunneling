@@ -3,8 +3,8 @@
 `thm_main` has a Lean proof with no `sorry` in its body.
 The stronger theorem `elementaryPotential_main` literally fixes the
 potential `elementaryParameters.potential` and constructs a threshold `L₀`
-before any `L≥L₀`. **Three classical admissions A002–A004 remain among
-its transitive dependencies**: these three classical results have not been
+before any `L≥L₀`. **Two classical admissions, A002 and A004, remain among
+its transitive dependencies**: these two classical results have not been
 formalized from Lean's foundations alone.
 Their contracts, references, and natural-language proofs are recorded below.
 
@@ -13,7 +13,7 @@ Their contracts, references, and natural-language proofs are recorded below.
 The diagonal defect and both Schur corrections are proved to be `o(A)`
 relative to the positive envelope of the same witnesses used in the hopping
 asymptotic. The spectral results specific to the double well, source estimates,
-and tunneling estimates are proved using the three classical admissions.
+and tunneling estimates are proved using these two classical admissions.
 
 The proof proceeds through
 [ConstructedMainProof.lean](../InfiniteZero/ConstructedMainProof.lean),
@@ -32,7 +32,7 @@ then `LocalAnalyticData` and `OperatorMainConclusion` for the explicit potential
 | Fixed potential | `elementaryParameters_basicConditions` and admissibility, without admissions; existence of a separation certificate chosen before L |
 | Atomic ground states | Existence, simplicity, gap, and core/full-potential comparison, via A002+A004; no nonradial data added to A004 |
 | Sources and saddle | Exact radial tails, Γ≥c h², weighted forcing/response, jets, and L¹ norms; control of the physical incoming integral and seven inactive cells |
-| Hopping | Actual complex integral, cosine with a positive envelope, continuous asymptotically linear phase and relative o(1) error, via A002–A004 |
+| Hopping | Actual complex integral, cosine with a positive envelope, continuous asymptotically linear phase and relative o(1) error, via A002+A004 |
 | Two global modes | Self-adjoint parity restrictions, min/max min-max identities, physical spans, and gap above the ground eigenspace, via A002+A004 |
 | Defect and Schur | Reconstruction on the opposite support, mass ≤C c²Γ² λ¹² exp(−2λ(G+J)), λ¹⁴ defect and λ¹⁵ correction; comparison with the same envelope and proved o(A) errors |
 | Continuity and conclusion | Continuity of hopping and splitting, zero sequences, and alternating parity; final assembly for the explicitly fixed potential |
@@ -90,14 +90,14 @@ isolation of a doublet, dimension two, or a hopping asymptotic.
 References and a mathematical proof of each field:
 [classical operator realization](CLASSICAL_OPERATOR_REALIZATION.md).
 
-## A003 — the standard Landau resolvent kernel
+## Former A003 — the Landau resolvent kernel, now proved
 
 **Lean declaration:** `InfiniteZero.classical_standard_landau_resolvent`, in
 [ClassicalLandauResolvent.lean](../InfiniteZero/ClassicalLandauResolvent.lean).
 
-**Status:** one explicit `sorry` for the standard closed-operator kernel
-identity at Planck constant one. The conversion to smooth solutions and
-the semiclassical parameters is proved in Lean.
+**Status:** proved, with `IsMagneticRealization B 1 0` as an explicit
+hypothesis. `Remaining.lean` supplies this certificate using A002.
+There is no remaining kernel admission.
 
 **Statement in natural language.** Let `B, ρ > 0` and let
 `H_B = (−i∇−Bx⊥/2)²` be the closed free Landau operator on complex
@@ -126,18 +126,37 @@ affect the source integral.
 **References.** Cornean–Fournais–Frank–Helffer, *Sharp trace asymptotics
 for a class of 2D-magnetic operators*, Ann. Inst. Fourier **63** (2013),
 [(B.21), p.2508](https://www.numdam.org/item/10.5802/aif.2835.pdf#page=53),
-gives the heat kernel in the same symmetric gauge. The classical
-Laplace-transform formula gives its resolvent at spectral parameter
-`−ρ`; the article uses that transform on p.2509. Helffer–Pankrashkin,
+gives the heat kernel in the same symmetric gauge. Its Laplace transform
+gives the resolvent at spectral parameter `−ρ`; the article uses that
+transform on p.2509. Helffer–Pankrashkin,
 *Semiclassical reduction for magnetic Schrödinger operator with periodic
 zero-range potentials and applications*,
-[(5.1)–(5.2), pp.11–12](https://arxiv.org/pdf/0802.1414#page=11),
+[(5.1)–(5.2), pp.11–12](https://arxiv.org/pdf/0802.1414v2#page=11),
 gives the resolvent time-integral directly in Landau gauge.
-The [natural-language proof](CLASSICAL_LANDAU_RESOLVENT.md) details the
-phase convention, integrability, and almost-everywhere identification.
-The heat-to-resolvent kernel identification remains the classical input.
+The [proof guide](CLASSICAL_LANDAU_RESOLVENT.md) details the corresponding
+Lean proof, including its phase convention and almost-everywhere
+identification. These references now provide context for a proved result.
 
-**Proved reductions.**
+**Formalized proof.** Define the explicit magnetic Gaussian `Q_t` and
+its action `T_t`. Lean verifies its heat equation, its spatial absolute
+mass `1/cosh(Bt)≤1`, and the initial limit `T_t φ→φ` for compact smooth
+`φ`. The positive Laplace weight gives the infinite-time limit zero.
+Absolute integrability in time and space justifies Fubini, identifying
+the resolvent integral `Rρ` with `∫₀∞ e⁻ρᵗ T_t dt`. Bilinear integration
+by parts and the fundamental theorem of calculus then give
+
+\[
+ R_\rho((H_B+\rho)\varphi)=\varphi.
+\]
+
+The absolute row and column masses of the resolvent kernel are bounded
+by `1/ρ`. Weighted Cauchy–Schwarz and Fubini prove
+`‖Rρ f‖₂≤ρ⁻¹‖f‖₂` for compact smooth sources. Applying this bound to
+differences extends the left-inverse identity from the test graph to
+its closure. This last step uses only the realization certificate's
+`graph_eq` field.
+
+The physical conventions and domain passage are also proved:
 
 - `MagneticInhomogeneousDomain` proves that a smooth `L²` function with
   an `L²` magnetic Hamiltonian belongs to the closed operator domain.
@@ -148,13 +167,13 @@ The heat-to-resolvent kernel identification remains the classical input.
   `λ⁻² freeLandauKernel b λ⁻¹ E = freeLandauKernel (bλ) 1 (λ²E)`.
 - `LandauResolventAssembly` combines these steps. The existing theorem
   `free_landau_resolvent_kernel` retains its statement and now has a
-  proof from A002 and the reduced A003.
+  proof using A002 and the proved kernel formula.
 
 The atomic application remains proved in `LandauResolventBridge`:
 magnetic covariance, support and smoothness of the physical source, the
 resolvent equation, and its sign and scale. Atomic existence and
 positivity of the energy shift are supplied by the separate spectral
-analysis. A003 contains no atomic, cusp, separation, or tunneling estimate.
+analysis.
 
 ## A004 — the first two radial semiclassical levels
 
@@ -338,8 +357,9 @@ argument and its connection to the classical Sobolev theorem.
 - The elementary parameter conditions have an explicit witness;
   existence of an admissible cusp potential is proved without admissions.
 - Invariance of hopping under a constant unitary phase is proved.
-- The representation of the right state follows from the universal classical identification
-  A003, with covariance, regularity, support, and scaling change proved.
+- The representation of the right state follows from the proved Landau
+  resolvent formula and A002, with covariance, regularity, support, and
+  scaling change proved.
 - Dimensions two and one are deduced from mode decompositions,
   rather than admitted as numerical dimensions.
 - Transfer of dimension and parity to the `L²` operator is proved.

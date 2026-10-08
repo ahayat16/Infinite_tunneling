@@ -1,6 +1,6 @@
 # Reducing the active cell to its incoming part
 
-This chain controls the three active-cell terms containing the atomic correction. It retains the actual sources and the same states and coefficients as their L¹ estimates. The complex incoming–incoming asymptotic is proved in the [separate physical connection](INCOMING_PHYSICAL_ASYMPTOTIC.md). The [final assembly](../InfiniteZero/ConstructedMainProof.lean) now concludes [thm_main](../InfiniteZero/Remaining.lean), modulo A002–A004.
+This chain controls the three active-cell terms containing the atomic correction. It retains the actual sources and the same states and coefficients as their L¹ estimates. The complex incoming–incoming asymptotic is proved in the [separate physical connection](INCOMING_PHYSICAL_ASYMPTOTIC.md). The [final assembly](../InfiniteZero/ConstructedMainProof.lean) now concludes [thm_main](../InfiniteZero/Remaining.lean), modulo A002 and A004.
 
 The public wrappers depend on A002+A004, without A003 or `thm_main`.
 

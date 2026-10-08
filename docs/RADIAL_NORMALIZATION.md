@@ -1,6 +1,6 @@
 # Exterior radial coefficient: a sufficient polynomial bound
 
-**Status as of September 18, 2026:** the real profiles, full ODE, Wronskian comparison, Γ bounds in `RadialCoreNormalizationLower`, and auxiliary integral identities compile without additional admissions. Their use in the relative comparison of the seven inactive cells now compiles, first for the Gaussian envelope and then for the TeX complex-Hessian prefactor. The check at the historical relative-estimate milestone passed with 1843 admission-free theorems and 618 guards. Since then, the [relative parity errors](../InfiniteZero/CanonicalParityRelativeErrors.lean) and [final assembly](../InfiniteZero/ConstructedMainProof.lean) compile; [thm_main](../InfiniteZero/Remaining.lean) is proved modulo the three classical admissions A002–A004.
+**Status as of September 18, 2026:** the real profiles, full ODE, Wronskian comparison, Γ bounds in `RadialCoreNormalizationLower`, and auxiliary integral identities compile without additional admissions. Their use in the relative comparison of the seven inactive cells now compiles, first for the Gaussian envelope and then for the TeX complex-Hessian prefactor. The check at the historical relative-estimate milestone passed with 1843 admission-free theorems and 618 guards. Since then, the [relative parity errors](../InfiniteZero/CanonicalParityRelativeErrors.lean) and [final assembly](../InfiniteZero/ConstructedMainProof.lean) compile; [thm_main](../InfiniteZero/Remaining.lean) is proved modulo the two classical admissions A002 and A004.
 
 ## Result of the compiled assembly
 
@@ -75,8 +75,8 @@ The universal version accepting another actual positive radial state, its own ex
 A separate branch also compiles:
 
 - `LandauExteriorConvolution` proves integrability and continuity of the convolution outside a ball containing the support, then turns almost-everywhere equality between continuous functions into pointwise equality.
-- `RadialCoreSourceRepresentation` applies the universal contract `FreeLandauResolventKernel` to `−λ² core·φ`. The factors `λ²` and `h²` cancel exactly, giving `φ(x)=∫Kfree(x,y)(−core(y))φ(y)dy` outside the core. The free-kernel contract remains an explicit argument; its wrapper derives it from A002+A003.
+- `RadialCoreSourceRepresentation` applies the universal contract `FreeLandauResolventKernel` to `−λ² core·φ`. The factors `λ²` and `h²` cancel exactly, giving `φ(x)=∫Kfree(x,y)(−core(y))φ(y)dy` outside the core. The free-kernel contract remains an explicit argument; its wrapper derives it from A002.
 - `RadialLandauAverage` performs the polar change of variables with its Jacobian and justifies Fubini for the actual compactly supported source.
 - `RadialCoreNormalization` sets `regularLandauProfile(R,s)=Re(radialFreeLandauAverage(R,s))/K(R)` and proves its value `1` at `s=0`, real integrability, and the identity `Γ=2π∫₀∞ s regularLandauProfile(R,s)(−coreRadialProfile(s))f(s)ds`. The exterior equality at this single radius `R>r₀` preserves the given Γ.
 
-These identities do not claim to identify this profile with the regular solution of the radial Green problem, or to prove that it is at least `1` or independent of `R`. Its imaginary part is not assumed to vanish. This branch uses A002+A003 for the physical representation; the Wronskian proof of the polynomial Γ bound is independent of it.
+These identities do not claim to identify this profile with the regular solution of the radial Green problem, or to prove that it is at least `1` or independent of `R`. Its imaginary part is not assumed to vanish. This branch uses A002 for the physical representation; the Wronskian proof of the polynomial Γ bound is independent of it.

@@ -205,7 +205,7 @@ theorem `elementaryPotential_main` in `Remaining.lean` states the result
 with that witness written literally in its type. For the three items,
 unfold `OperatorMainConclusion` and then `MainConclusion`; for v, follow
 `CuspParameters.potential` in `Construction.lean`. No spectral or tunneling
-data are hypotheses of this proposition. The three remaining classical
+data are hypotheses of this proposition. The two remaining classical
 admissions are listed at `thm_main` and in `docs/ADMISSIONS.md`. The
 conditional assembly retains an elliptic-estimate interface, which is
 supplied by a proved theorem. -/

@@ -1,6 +1,6 @@
 # Verifiable plan for the atomic block
 
-**The final theorem is proved and compiled modulo three classical admissions.** [ConstructedMainProof](../InfiniteZero/ConstructedMainProof.lean) assembles the channels, spectral doublet, continuity results, and relative Schur errors. [Remaining.lean](../InfiniteZero/Remaining.lean) deduces `thm_main` with the explicit witness `elementaryParameters`; its only admissions are the three classical admissions A002–A004.
+**The final theorem is proved and compiled modulo two classical admissions.** [ConstructedMainProof](../InfiniteZero/ConstructedMainProof.lean) assembles the channels, spectral doublet, continuity results, and relative Schur errors. [Remaining.lean](../InfiniteZero/Remaining.lean) deduces `thm_main` with the explicit witness `elementaryParameters`; its only admissions are the two classical admissions A002 and A004.
 
 This plan retains the historical order of steps and approaches considered. Forward-looking wording describes their strategy; it does not indicate a gap in the final theorem. Stronger limits not claimed, notably B.1 and the literal power of B.2, remain indicated. The completed final assembly is recalled at the end.
 **Passage from radial spectral data to a simple full-potential ground state and its gap is now proved. The radial core data are assembled from the classical unit-field theorem A004 and realization A002, with an independent variational energy bound. No nonradial, source, or tunneling result is admitted in this assembly.** The first useful external result is **radial magnetic** harmonic approximation, applied to the explicit core. For the full potential, the first project-specific step is coercivity on the radial ground state's orthogonal complement. This now constructs the simple ground state and gap by an actual self-adjoint compression, Schur complement, and intermediate value theorem, without assuming these nonradial conclusions.
@@ -236,7 +236,7 @@ The positive factor h² does not change eigenvectors. It turns semiclassical ene
 
 Positivity at all sufficiently large couplings, eventual bound [1/2,1], and limit one are therefore proved, without admissions in this module. Radial and realization inputs remain explicit.
 
-`CuspParameters.exists_atomicSourceFacts_of_radialData`, in `AtomicSourceRegime`, combines these results with the universal free-kernel contract. It chooses a threshold before L and supplies `AtomicSourceFacts` at every later coupling: a normalized canonical ground state, simplicity, gap, energy in [1/2,1], right representation for every L, and cell integrability if R<2L. The methods `hopping_eq_source` and `hopping_real` give exact identity with the source pairing and reality of hopping. `CuspParameters.atomic_source_regime` fills all three interfaces using A002+A003+A004 in `Remaining.lean`. It assumes no cell asymptotic and supplies neither their fine size nor hopping continuity.
+`CuspParameters.exists_atomicSourceFacts_of_radialData`, in `AtomicSourceRegime`, combines these results with the universal free-kernel contract. It chooses a threshold before L and supplies `AtomicSourceFacts` at every later coupling: a normalized canonical ground state, simplicity, gap, energy in [1/2,1], right representation for every L, and cell integrability if R<2L. The methods `hopping_eq_source` and `hopping_real` give exact identity with the source pairing and reality of hopping. `CuspParameters.atomic_source_regime` fills all three interfaces using A002+A004 in `Remaining.lean`. It assumes no cell asymptotic and supplies neither their fine size nor hopping continuity.
 
 The first local weighted estimates are also proved. `magneticForm_cutoff_eigenfunction`, in `MagneticLocalEnergy`, gives, for a smooth real compactly supported cutoff χ and actual eigenfunction φ,
 
@@ -285,7 +285,7 @@ energy ≤ radial energy [proved]
           ↓
 IsAtomicGroundState / AtomicGroundSimple [deduced, modulo A002+A004]
 resolvent energy → 1, eventually in [1/2,1] [proved under radial data]
-          + A003 [standard closed-operator kernel, with proved domain/scaling bridges]
+          + proved standard kernel formula and domain/scaling bridges
           ↓
 representation ∀L, cells integrable for R<2L, hopping identity/reality [deduced]
 
@@ -344,7 +344,7 @@ An essential independent branch is `prop:exact-radial-tail` (1702–1775): ident
 
 The Wronskian W=r(fK′−f′K) satisfies W′=−λ²r vcore fK≥0 and vanishes in the exterior, where f=ΓK. Hence (f/K)′≥0 and f≤ΓK on r>0. The kernel bound at r=h concludes Γ≥ch²; the reciprocal bound follows. `RadialCoreNormalizationLower` assembles these facts, retaining Γ from the same exterior identity. Its build status is tracked in [RADIAL_NORMALIZATION.md](RADIAL_NORMALIZATION.md), with constants chosen before coupling and no dependence on A003.
 
-The angular-average convolution formula is also proved with an explicit free-kernel interface, supplied by A002+A003, but its positivity or Green factorization is no longer needed on this route. The variant costs h⁻⁴ in L7.1 and h⁻² in L8.2. Strict exponential margins absorb these powers after increasing the free polynomial exponent M. Physical applications are assembled in [inactive cells](INACTIVE_CELLS.md) and [opposite-support estimates](OPPOSITE_SUPPORT_ESTIMATES.md), then relative parity errors.
+The angular-average convolution formula is also proved with an explicit free-kernel interface, supplied by A002, but its positivity or Green factorization is no longer needed on this route. The variant costs h⁻⁴ in L7.1 and h⁻² in L8.2. Strict exponential margins absorb these powers after increasing the free polynomial exponent M. Physical applications are assembled in [inactive cells](INACTIVE_CELLS.md) and [opposite-support estimates](OPPOSITE_SUPPORT_ESTIMATES.md), then relative parity errors.
 
 ### Full differentiated data and interior propagation
 
@@ -420,7 +420,7 @@ The assembly is detailed in [INCOMING_MULTIPLIER.md](INCOMING_MULTIPLIER.md). `A
 
 ## Canonical channels and asymptotic of the actual hopping
 
-The [full active assembly](ACTIVE_CHANNEL_ASYMPTOTIC.md) now closes the cell/envelope/phase steps and nine-cell assembly. `IncomingCellTexAsymptotic` gives the relative identity with o(1) error, independently of atomic choices. `ConcreteChannelWitnesses` reuses the same states, c, and Γ in active and inactive estimates. `CanonicalChannelAsymptotics` constructs `ChannelAsymptotics`, then the cosine formula for actual hopping via the universal classical resolvent representation. The amplitude is exactly 2K*envelopeTex. `ClassicalCanonicalChannelAsymptotics` supplies these results from `BasicConditions`, with a separation threshold chosen before L; its only admissions are A002–A004. The manuscript's explicit rate and literal Hessian phase are not claimed: o(1) and the continuous Gaussian phase of slope Φ* suffice for the final goal.
+The [full active assembly](ACTIVE_CHANNEL_ASYMPTOTIC.md) now closes the cell/envelope/phase steps and nine-cell assembly. `IncomingCellTexAsymptotic` gives the relative identity with o(1) error, independently of atomic choices. `ConcreteChannelWitnesses` reuses the same states, c, and Γ in active and inactive estimates. `CanonicalChannelAsymptotics` constructs `ChannelAsymptotics`, then the cosine formula for actual hopping via the universal classical resolvent representation. The amplitude is exactly 2K*envelopeTex. `ClassicalCanonicalChannelAsymptotics` supplies these results from `BasicConditions`, with a separation threshold chosen before L; its only admissions are A002 and A004. The manuscript's explicit rate and literal Hessian phase are not claimed: o(1) and the continuous Gaussian phase of slope Φ* suffice for the final goal.
 
 ## Overlap, parity trials, and final spectral assembly
 
@@ -432,4 +432,4 @@ Canonical even and odd trials are smooth, L², normalized, orthogonal, and indep
 
 For relative errors, [universal sources and opposite-support reconstruction](OPPOSITE_SUPPORT_ESTIMATES.md) retain core and bridge actions. Opposite mass controls the defect and physical residuals; the quadratic Schur bound and comparison with the same envelope give canonicalDefect=o(A) and Σ±=o(A) in [CanonicalParityRelativeErrors](../InfiniteZero/CanonicalParityRelativeErrors.lean). The absolute Agmon bound alone did not suffice for this step.
 
-[ConstructedMainAssembly](../InfiniteZero/ConstructedMainAssembly.lean) and [ConstructedMainProof](../InfiniteZero/ConstructedMainProof.lean) then construct the analytic data and operator conclusion rather than assuming them. `CuspParameters.mainConclusion` chooses the threshold after p, then treats every L beyond it; `elementaryPotential_main` fixes `elementaryParameters.potential`. The compiled proof of [thm_main](../InfiniteZero/Remaining.lean) follows modulo A002–A004, without a new admission specific to the original result.
+[ConstructedMainAssembly](../InfiniteZero/ConstructedMainAssembly.lean) and [ConstructedMainProof](../InfiniteZero/ConstructedMainProof.lean) then construct the analytic data and operator conclusion rather than assuming them. `CuspParameters.mainConclusion` chooses the threshold after p, then treats every L beyond it; `elementaryPotential_main` fixes `elementaryParameters.potential`. The compiled proof of [thm_main](../InfiniteZero/Remaining.lean) follows modulo A002 and A004, without a new admission specific to the original result.

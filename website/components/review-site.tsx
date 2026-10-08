@@ -687,7 +687,9 @@ export function ReviewSite({ bootstrap }: { bootstrap: Bootstrap }) {
               >
                 <Icon size={17} />
                 {title}
-                {id === 'admissions' && <span className="nav-count">4</span>}
+                {id === 'admissions' && (
+                  <span className="nav-count">{bootstrap.admissions.length}</span>
+                )}
               </a>
             ))}
           </nav>
@@ -903,7 +905,9 @@ export function ReviewSite({ bootstrap }: { bootstrap: Bootstrap }) {
                         <ShieldCheck size={17} />
                         <span>
                           This proof depends on{' '}
-                          {ready ? selectedAdmissions.length : 4} admitted results.
+                          {ready
+                            ? `${selectedAdmissions.length} admitted ${selectedAdmissions.length === 1 ? 'result' : 'results'}.`
+                            : 'admitted results.'}
                         </span>
                         <a href={route('admissions', row.name)}>
                           Review them <ArrowRight size={14} />

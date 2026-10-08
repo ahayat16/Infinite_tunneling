@@ -1,11 +1,11 @@
 {
   "ADMISSIONS.md": {
     "source": "docs/ADMISSIONS.md",
-    "sourceSha256": "16f1c899ddf431a1fdd43b20f426fe3de12cf9d618d2a01b923e59a7313142c2"
+    "sourceSha256": "f3accafac4c2ff7584ea60b3c98024ac5d242b16abd2efc53acb72d938dee49e"
   },
   "STATEMENT_AUDIT.md": {
     "source": "docs/STATEMENT_AUDIT.md",
-    "sourceSha256": "49e5cdb85f0996fbc49a4b2e8d1009e66cd471758fcfa30f990db5325e2b80e3"
+    "sourceSha256": "2ec290af9cd9205c768c66025dab068523fa305636dbb09530a34ad1e418e81f"
   },
   "CLASSICAL_OPERATOR_REALIZATION.md": {
     "source": "docs/CLASSICAL_OPERATOR_REALIZATION.md",
@@ -13,11 +13,11 @@
   },
   "CLASSICAL_LANDAU_RESOLVENT.md": {
     "source": "docs/CLASSICAL_LANDAU_RESOLVENT.md",
-    "sourceSha256": "5a6bf167e726893e357625d3cbbfed4b4d8a9b18c1941f1b3e32bc25133f5945"
+    "sourceSha256": "074d559ded83cdd51d334171448a3bcefbcc1a0deb8e5cb2a626d9c42a94f598"
   },
   "RADIAL_HARMONIC_CONTRACT.md": {
     "source": "docs/RADIAL_HARMONIC_CONTRACT.md",
-    "sourceSha256": "930f4a45b76cfa4a35906f38f444280effba62f9f0302e74bc9df647c8064bf4"
+    "sourceSha256": "1aff4358214fbbdb9882390db09d537423f2a0b7464d4eb9692f7842b0a7969c"
   },
   "CLASSICAL_ELLIPTIC_INTERIOR.md": {
     "source": "docs/CLASSICAL_ELLIPTIC_INTERIOR.md",

@@ -1,6 +1,6 @@
 # The scattered source’s two log-flat factors
 
-The Lean assembly and public wrapper are compiled. The wrapper depends on A002+A004, without A003 or `thm_main`. The [final proof](../InfiniteZero/Remaining.lean) is now compiled modulo the three classical admissions A002–A004.
+The Lean assembly and public wrapper are compiled. The wrapper depends on A002+A004, without A003 or `thm_main`. The [final proof](../InfiniteZero/Remaining.lean) is now compiled modulo the two classical admissions A002 and A004.
 
 This block connects the [pointwise atomic-correction jets](ATOMIC_RESPONSE_JETS.md) to sublemma `T3-4-pointwise-response` of the [manuscript, lines 2927–2943](../article/Infinite_Zero_Tunneling_Lean_oriented_V2.tex#L2927). It separately retains the correction’s global log-flat cost and the potential’s local log-flat profile. No additional tunneling result is admitted: the classical interfaces for the physical connection are explicit arguments already used for the atomic correction.
 

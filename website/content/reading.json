@@ -8,7 +8,7 @@
       "name": "InfiniteZero.thm_main",
       "category": "Statement",
       "title": "The main theorem",
-      "summary": "Proves the three conclusions of the manuscript’s main theorem for the potential constructed from elementaryParameters, together with their operator interpretation. The potential is fixed before separation and coupling are chosen. The proof depends on the three classical admissions A002–A004.",
+      "summary": "Proves the three conclusions of the manuscript’s main theorem for the potential constructed from elementaryParameters, together with their operator interpretation. The potential is fixed before separation and coupling are chosen. The proof depends on the two classical admissions A002 and A004.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "thm:main"
@@ -313,7 +313,7 @@
       "name": "InfiniteZero.CuspParameters.mainConclusion",
       "category": "Proof",
       "title": "Supplying the analytic interfaces",
-      "summary": "Starting only from BasicConditions on the explicit parameters, constructs the required realizations and instantiates A002, A003, and A004, and supplies the proved interior elliptic estimate in the already proved assembly. It chooses a threshold L₀ > p.R before considering any L ≥ L₀.",
+      "summary": "Starting from BasicConditions on the explicit parameters, supplies the realizations and radial data through A002 and A004, then applies the proved resolvent formula and interior elliptic estimate. It chooses a threshold L₀ > p.R before considering any L ≥ L₀.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "thm:main",
@@ -347,9 +347,9 @@
     },
     {
       "name": "InfiniteZero.classical_standard_landau_resolvent",
-      "category": "Admission",
-      "title": "A003 · Standard Landau resolvent",
-      "summary": "The closed free Landau operator at Planck constant one has the explicit proper-time resolvent kernel for positive field and positive spectral shift. Domain membership of smooth L² solutions and semiclassical parameter conversion are proved separately in Lean.",
+      "category": "Proof",
+      "title": "Standard Landau resolvent",
+      "summary": "Proves the explicit proper-time kernel formula from the Gaussian heat equation, its initial limit, time integration, and Schur’s L² estimate. Closure of the test graph extends the identity to the actual operator domain. The realization certificate is an explicit argument; the former admission A003 is discharged.",
       "content_kind": "paraphrase",
       "tex_labels": [
         "eq:landau-kernel-master",
@@ -362,7 +362,7 @@
       "name": "InfiniteZero.free_landau_resolvent_kernel",
       "category": "Proof",
       "title": "Physical Landau resolvent representation",
-      "summary": "Derives the physical source representation from A002 and the standard kernel A003. Lean proves that the smooth L² solution lies in the closed domain and verifies B=bλ, ρ=λ²E, the magnetic phase, and the outside factor λ⁻².",
+      "summary": "Derives the physical source representation from A002 and the proved standard kernel formula. Lean proves that the smooth L² solution lies in the closed domain and verifies B=bλ, ρ=λ²E, the magnetic phase, and the outside factor λ⁻².",
       "content_kind": "paraphrase",
       "tex_labels": [
         "eq:landau-kernel-master",
@@ -432,7 +432,7 @@
     }
   ],
   "scope_notes": [
-    "The proof of thm_main depends on three classical admissions, A002–A004. The dependency graph records which declarations use these admissions, directly or transitively.",
+    "The proof of thm_main depends on two classical admissions, A002 and A004. The dependency graph records which declarations use these admissions, directly or transitively.",
     "The reference statement is thm:main in the manuscript. Its three conclusions concern eigenvalue crossings, zeros of the hopping coefficient, and changes of ground-state parity.",
     "The code constructs neither a complete enumeration E₀ ≤ E₁ ≤ … of the discrete spectrum nor a spectral projection for an entire window. The first two levels are identified with the parity modes, and the gap above the ground eigenspace is established.",
     "The main result asserts neither zero spacing, uniqueness of a zero between samples, nor the differentiated asymptotic remainders discussed elsewhere in the text.",
@@ -473,7 +473,7 @@
     },
     {
       "title": "Instantiate the admissions and conclude",
-      "text": "mainConclusion supplies the three classical admissions and the proved elliptic estimate. elementaryPotential_main gives the result for the fixed witness, and thm_main then presents it in the constructed existential form.",
+      "text": "mainConclusion combines A002 and A004 with the proved resolvent formula and elliptic estimate. elementaryPotential_main gives the result for the fixed witness, and thm_main then presents it in the constructed existential form.",
       "declarations": [
         "InfiniteZero.CuspParameters.mainConclusion",
         "InfiniteZero.elementaryPotential_main",

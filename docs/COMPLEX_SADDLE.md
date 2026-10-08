@@ -136,4 +136,4 @@ Here rad is the constructed complex square root, not the Hermitian norm. The res
 
 with an explicitly computed polynomial remainder and a bound `|RΦ|≤C(|t|²+|u|²)` on |t|,|u|≤1, uniform for bounded tangential variables. Hence exp(i RΦ/h)→1 on the active window, without assuming a remainder.
 
-The source estimates and [four-variable physical asymptotic](INCOMING_PHYSICAL_ASYMPTOTIC.md) are now proved: source factors, deformation of the full integrand, and integrated errors are justified separately. These conclusions do not follow from kernel profiles and geometric phase alone. They feed into the [canonical channels](ACTIVE_CHANNEL_ASYMPTOTIC.md), then the [final proof](../InfiniteZero/Remaining.lean), modulo A002–A004.
+The source estimates and [four-variable physical asymptotic](INCOMING_PHYSICAL_ASYMPTOTIC.md) are now proved: source factors, deformation of the full integrand, and integrated errors are justified separately. These conclusions do not follow from kernel profiles and geometric phase alone. They feed into the [canonical channels](ACTIVE_CHANNEL_ASYMPTOTIC.md), then the [final proof](../InfiniteZero/Remaining.lean), modulo A002 and A004.
